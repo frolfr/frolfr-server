@@ -17,6 +17,8 @@ gem 'jbuilder', '~> 1.2'
 # View
 gem 'slim'
 gem 'slim-rails'
+gem 'simple_form', github: 'plataformatec/simple_form'
+gem 'draper', '~> 1.0'
 
 group :development, :test do
   gem 'rspec-rails'
