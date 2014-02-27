@@ -6,9 +6,41 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Course.create(
+course = Course.create(
   name: "Perkerson Park",
   city: "Atlanta",
   state: "GA",
   country: "United States"
 )
+
+FIRST_HOLE = 1
+LAST_HOLE = 18
+
+FIRST_HOLE.upto(LAST_HOLE) do |i| 
+  hole = Hole.create(number: i, course: course)
+  HolePosition.create(name: "Standard", par: 3, hole: hole)
+end
+
+round = Round.create(course: course)
+
+users = User.create([
+  { name: "Geoff", email: "geoff@frolfr.com" },
+  { name: "Jenna", email: "jenna@frolfr.com" },
+  { name: "Hymen", email: "hymen@frolfr.com" },
+  { name: "Jason", email: "jason@frolfr.com" }
+])
+
+users.each do |user|
+  scorecard = Scorecard.create(user: user, round: round)
+  
+  FIRST_HOLE.upto(LAST_HOLE) do |i|
+    hole = Hole.find_by(number: i)
+    hole_position = hole.hole_positions.first
+    ScorecardHole.create(
+      scorecard: scorecard,
+      score: nil,
+      hole_position: hole_position
+    )
+  end
+end
+
