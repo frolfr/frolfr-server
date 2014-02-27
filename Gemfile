@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
+gem 'best_in_place', github: "bernat/best_in_place", branch: "rails-4"
 
 # View
 gem 'slim'
@@ -25,6 +26,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'pry'
+  gem 'pry-rails'
 end
 
 group :test do

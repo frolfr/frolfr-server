@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: 366413be357d65cdf47031e928aea969f72e3659
+  branch: rails-4
+  specs:
+    best_in_place (2.0.3)
+      jquery-rails
+      rails (~> 4)
+
+GIT
   remote: git://github.com/plataformatec/simple_form.git
   revision: 32019827798eddbecc19676d69eb406a4f3902cc
   specs:
@@ -73,11 +82,18 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.4)
     pg (0.17.1)
     polyglot (0.3.4)
+    pry (0.9.12.4)
+      coderay (~> 1.0)
+      method_source (~> 0.8)
+      slop (~> 3.4)
+    pry-rails (0.3.2)
+      pry (>= 0.9.10)
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -128,6 +144,7 @@ GEM
       activesupport (>= 3.0, < 4.1)
       railties (>= 3.0, < 4.1)
       slim (~> 2.0)
+    slop (3.4.7)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -158,6 +175,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  best_in_place!
   better_errors
   binding_of_caller
   bootstrap-sass (~> 3.1.1)
@@ -166,6 +184,8 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   pg
+  pry
+  pry-rails
   rails (= 4.0.0)
   rspec-pride
   rspec-rails
