@@ -1,3 +1,3 @@
 class HolePosition < ActiveRecord::Base
-  validates :par, :hole, presense: true
+  validates :par, :hole, presence: true
 end

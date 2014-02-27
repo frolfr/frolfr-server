@@ -3,7 +3,7 @@ class Scorecard < ActiveRecord::Base
   belongs_to :round
   has_many :scorecard_holes
 
-  validates :user, :round, presense: true
+  validates :user, :round, presence: true
 
   def total
     scorecard_holes.pluck(:score).sum
