@@ -3,6 +3,7 @@ class Course < ActiveRecord::Base
   has_many :rounds
 
   validates :state, :city, :country, :name, presence: true
+  validates_uniqueness_of :name, scope: :city
 
   def total_holes
     holes.count
