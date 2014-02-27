@@ -4,8 +4,4 @@ class Course < ActiveRecord::Base
 
   validates :state, :city, :country, :name, presence: true
   validates_uniqueness_of :name, scope: :city
-
-  def total_holes
-    holes.count
-  end
 end
