@@ -6,6 +6,9 @@ class Scorecard < ActiveRecord::Base
   validates :user, :round, presence: true
 
   def total
-    scorecard_holes.pluck(:score).sum
+    played_holes = scorecard_holes.pluck(:score).reject(&:nil?)
+    played_holes.sum
+  end
+
   end
 end
