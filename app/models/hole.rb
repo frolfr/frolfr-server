@@ -1,4 +1,5 @@
 class Hole < ActiveRecord::Base
+  belongs_to :course
 
   validates :course, :number, presence: true
   validates :number, uniqueness: true
