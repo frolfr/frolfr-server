@@ -1,6 +1,12 @@
 header
-  h1= @round.scorecard_title
-  h4= "#{@round.location} | #{@round.date}"
+  h1
+    = @round.scorecard_title
+  h4
+    = @round.location
+    .pull-right
+      => link_to_if params[:locale] == 'de', "EN", root_path
+      = "|"
+      =< link_to_if params[:locale] != 'de', "DE", root_path(locale: 'de')
 
 table.table.table-striped.table-bordered
   thead
