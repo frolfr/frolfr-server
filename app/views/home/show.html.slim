@@ -1,15 +1,16 @@
 header
-  h1 Welcome to Frolfr!
+  h1= @course.scorecard_title
+  h4= @course.location
 
 table.table.table-striped.table-bordered
   thead
     tr
-      th #
+      th
       - @users.each do |user|
         th= user
   tbody
-    - 18.times do |int|
+    - 1.upto(@course.total_holes) do |hole_number|
       tr
-        th= int + 1
+        th= hole_number
         - @users.count.times do
           td 
