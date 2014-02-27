@@ -7,5 +7,6 @@ html
     = csrf_meta_tags
 
   body
-    .container
+    = render "shared/navbar"
+    .container-fluid
       = yield
