@@ -20,5 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  course:
+  round:
     scorecard_title: "Scorecard for %{name}"
+    total: "Total"
