@@ -1,6 +1,6 @@
 class ScorecardHole < ActiveRecord::Base
   belongs_to :hole_position
-  belongs_to :user
+  belongs_to :scorecard
 
-  validates :user, :hole_position, presence: true
+  validates :scorecard, :hole_position, presence: true
 end
