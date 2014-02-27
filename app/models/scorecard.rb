@@ -10,5 +10,8 @@ class Scorecard < ActiveRecord::Base
     played_holes.sum
   end
 
+  def for_hole(hole)
+    hole_position = hole.hole_positions.first
+    scorecard_holes.find_by(hole_position: hole_position)
   end
 end

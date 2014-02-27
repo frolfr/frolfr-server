@@ -13,6 +13,9 @@ table.table.table-striped.table-bordered
       tr
         th= hole.number
 
+        - @round.scorecards.each do |scorecard|
+          td
+            = best_in_place scorecard.for_hole(hole), :score, type: :input
     tr.active
       td= t('round.total')
       - @round.scorecards.each do |scorecard|
