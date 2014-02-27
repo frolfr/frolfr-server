@@ -1,0 +1,15 @@
+header
+  h1 Welcome to Frolfr!
+
+table.table.table-striped.table-bordered
+  thead
+    tr
+      th #
+      - @users.each do |user|
+        th= user
+  tbody
+    - 18.times do |int|
+      tr
+        th= int + 1
+        - @users.count.times do
+          td 
