@@ -22,6 +22,10 @@ gem 'slim-rails'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'draper', '~> 1.0'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'better_errors'
