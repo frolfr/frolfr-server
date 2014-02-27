@@ -9,8 +9,4 @@ class RoundDecorator < Draper::Decorator
   def location
     course.location
   end
-
-  def date
-    source.created_at.strftime("%b %d, %Y")
-  end
 end
