@@ -1,3 +1,5 @@
+- current_user = @round.players.first
+
 header
   h1
     = @round.scorecard_title
@@ -8,21 +10,26 @@ header
       = "|"
       =< link_to_if params[:locale] != 'de', "DE", root_path(locale: 'de')
 
-table.table.table-striped.table-bordered
-  thead
-    tr.active
-      th
-      - @round.players.each do |player|
-        th= player.name
-  tbody
-    - @round.holes.each do |hole|
-      tr
-        th= hole.number
+.row
+  table.table.table-striped.table-bordered
+    thead
+      tr.active
+        th.col-md-2.col-xs-2
+        - @round.players.each do |player|
+          th.col-md-2.col-xs-2= current_user == player ? t('round.me') : player.name
+    tbody
+      - @round.holes.each do |hole|
+        tr
+          td.col-md-2.col-xs-2
+            strong= hole.number
 
+          - @round.scorecards.each do |scorecard|
+            td.col-md-2.col-xs-2
+              - if current_user == scorecard.user
+                = best_in_place scorecard.for_hole(hole), :score, type: :input
+              - else
+                = scorecard.for_hole(hole).score || "-" 
+      tr.active
+        td= t('round.total')
         - @round.scorecards.each do |scorecard|
-          td
-            = best_in_place scorecard.for_hole(hole), :score, type: :input
-    tr.active
-      td= t('round.total')
-      - @round.scorecards.each do |scorecard|
-        td= scorecard.total
+          td= scorecard.total

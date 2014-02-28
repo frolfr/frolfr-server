@@ -23,7 +23,9 @@ en:
   round:
     scorecard_title: "Scorecard for %{name}"
     total: "Total"
+    me: "Me"
 de:
   round:
     scorecard_title: "Scorekarte für %{name}" 
     total: "Summe"
+    me: "Mir"
