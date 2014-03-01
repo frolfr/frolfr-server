@@ -23,7 +23,9 @@ header
 
           - @round.scorecards.each do |scorecard|
             td.col-md-2.col-xs-2
-              = scorecard.for_hole(hole).score || "-" 
+              = form_for scorecard.for_hole(hole) do |f|
+                = f.text_field :score, class: 'single_field', autocomplete: :off
+                = f.hidden_field :locale, value: params[:locale]
       tr.active
         td= t('round.total')
         - @round.scorecards.each do |scorecard|
