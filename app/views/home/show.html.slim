@@ -1,5 +1,3 @@
-- current_user = @round.players.first
-
 header
   h1
     = @round.scorecard_title
@@ -16,7 +14,7 @@ header
       tr.active
         th.col-md-2.col-xs-2
         - @round.players.each do |player|
-          th.col-md-2.col-xs-2= current_user == player ? t('round.me') : player.name
+          th.col-md-2.col-xs-2= player.name
     tbody
       - @round.holes.each do |hole|
         tr
@@ -25,10 +23,7 @@ header
 
           - @round.scorecards.each do |scorecard|
             td.col-md-2.col-xs-2
-              - if current_user == scorecard.user
-                = best_in_place scorecard.for_hole(hole), :score, type: :input
-              - else
-                = scorecard.for_hole(hole).score || "-" 
+              = scorecard.for_hole(hole).score || "-" 
       tr.active
         td= t('round.total')
         - @round.scorecards.each do |scorecard|
