@@ -20,11 +20,21 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  misc:
+    brand: "Frolfr"
+  nav:
+    full_site: "Full Site"
+    mobile: "Mobile"
   round:
     scorecard_title: "Scorecard for %{name}"
     total: "Total"
     me: "Me"
 de:
+  misc:
+    brand: "Ze Frolfr!"
+  nav:
+    full_site: "Klassisch"
+    mobile: "Handy"
   round:
     scorecard_title: "Scorekarte für %{name}" 
     total: "Summe"
