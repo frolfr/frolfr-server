@@ -3,12 +3,10 @@ html
   head
     title= t('misc.brand')
     = stylesheet_link_tag "mobile"
-    = stylesheet_link_tag "http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" if mobile_device?
-    = javascript_include_tag "application"
-    = javascript_include_tag "http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js" if mobile_device?
+    = javascript_include_tag "mobile"
     = csrf_meta_tags
-
+    meta name="viewport" content="width=device-width, initial-scale=1"
   body
-    .ui-content
+    div data-role="page"
       = yield
 
