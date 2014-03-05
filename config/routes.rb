@@ -3,5 +3,4 @@ Frolfr::Application.routes.draw do
 
   resources :home, only: [:show]
   resources :scorecard_holes, only: [:update]
-  resources :navigation, only: [:show]
 end
