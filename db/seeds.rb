@@ -25,7 +25,7 @@ round = Round.create(course: course)
 users = User.create([
   { name: "Geoff", email: "geoff@frolfr.com" },
   { name: "Jenna", email: "jenna@frolfr.com" },
-  { name: "Hymen", email: "hymen@frolfr.com" },
+  { name: "Hyman", email: "hyman@frolfr.com" },
   { name: "Jason", email: "jason@frolfr.com" }
 ])
 
