@@ -5,12 +5,13 @@ class Scorecard < ActiveRecord::Base
 
   validates :user, :round, presence: true
 
+  def for_hole(number)
+    hole = round.holes.find_by(number: number)
+    scorecard_holes.find_by(hole: hole) if hole
+  end
+
   def total
     played_holes = scorecard_holes.pluck(:score).reject(&:nil?)
     played_holes.sum
-  end
-
-  def for_hole(hole)
-    scorecard_holes.find_by(hole: hole)
   end
 end
