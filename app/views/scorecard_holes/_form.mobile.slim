@@ -3,4 +3,4 @@
   = f.collection_radio_buttons :par, [[3, "Three"], [4, "Four"], [5, "Five"]], :first, :last
 
   h2 = t('scorecard_hole.score')
-  = f.input :score, collection: ScorecardHole::SCORES, label: false, required: false
+  = f.input :score, collection: ScorecardHole::SCORES, label: false, required: false, input_html: { data: { scorecard_hole_id: @scorecard_hole.id, round_id: @round.id } }
