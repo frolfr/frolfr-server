@@ -30,6 +30,8 @@ en:
     scorecard_title: "Scorecard for %{name}"
   hole:
     number: "Hole %{number}"
+  scorecard:
+    overall: "Overall"
   scorecard_hole:
     score: "Score"
     par: "Par"
