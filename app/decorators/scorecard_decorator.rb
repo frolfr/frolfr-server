@@ -13,7 +13,6 @@ class ScorecardDecorator < Draper::Decorator
   private
 
   def shooting_symbol
-    return "+" if over_par?
-    return "-" if under_par?
+    "+" if over_par?
   end
 end
