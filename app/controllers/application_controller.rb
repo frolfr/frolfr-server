@@ -1,10 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale, :prepare_for_mobile
-  helper_method :mobile_device?
+  helper_method :mobile_device?, :current_user
  
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
+  end
+
+  def current_user
+    @current_user ||= User.find_by(name: "Geoff")
   end
 
   private
