@@ -1,28 +1,6 @@
-h2 = t('scorecard_hole.par')
-.ui-grid-b
-  .ui-block-a
-    = link_to "3", "#", class: "ui-shadow ui-btn ui-corner-all"
-  .ui-block-b
-    = link_to "4", "#", class: "ui-shadow ui-btn ui-corner-all"  
-  .ui-block-c
-    = link_to "5", "#", class: "ui-shadow ui-btn ui-corner-all"
+= simple_form_for [@round, @scorecard_hole] do |f|
+  h2 = t('scorecard_hole.par')
+  = f.collection_radio_buttons :par, [[3, "Three"], [4, "Four"], [5, "Five"]], :first, :last
 
-h2 = t('scorecard_hole.score')
-.ui-grid-c
-  .ui-block-a
-    = link_to "1", "#", class: "ui-shadow ui-btn ui-corner-all"
-  .ui-block-b
-    = link_to "2", "#", class: "ui-shadow ui-btn ui-corner-all"  
-  .ui-block-c
-    = link_to "3", "#", class: "ui-shadow ui-btn ui-corner-all"
-  .ui-block-d
-    = link_to "4", "#", class: "ui-shadow ui-btn ui-corner-all"
-.ui-grid-c
-  .ui-block-a
-    = link_to "5", "#", class: "ui-shadow ui-btn ui-corner-all"
-  .ui-block-b
-    = link_to "6", "#", class: "ui-shadow ui-btn ui-corner-all"  
-  .ui-block-c
-    = link_to "7", "#", class: "ui-shadow ui-btn ui-corner-all"
-  .ui-block-d
-    = link_to "8+", "#", class: "ui-shadow ui-btn ui-corner-all"
+  h2 = t('scorecard_hole.score')
+  = f.input :score, collection: ScorecardHole::SCORES, label: false, required: false
