@@ -10,6 +10,18 @@ class Scorecard < ActiveRecord::Base
     scorecard_holes.find_by(hole: hole) if hole
   end
 
+  def over_par?
+    total > current_par
+  end
+
+  def under_par?
+    current_par > total
+  end
+
+  def at_par?
+    total == current_par
+  end
+
   def played_holes
     scorecard_holes.played
   end
