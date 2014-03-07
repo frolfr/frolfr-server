@@ -44,7 +44,10 @@ ActiveRecord::Schema.define(version: 20140307040318) do
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "par",          default: 3
   end
+
+  add_index "scorecard_holes", ["par"], name: "index_scorecard_holes_on_par", using: :btree
 
   create_table "scorecards", force: true do |t|
     t.integer  "round_id"
