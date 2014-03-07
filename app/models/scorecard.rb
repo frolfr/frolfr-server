@@ -10,8 +10,19 @@ class Scorecard < ActiveRecord::Base
     scorecard_holes.find_by(hole: hole) if hole
   end
 
+  def played_holes
+    scorecard_holes.played
+  end
+
   def total
-    played_holes = scorecard_holes.pluck(:score).reject(&:nil?)
-    played_holes.sum
+    played_holes.pluck(:score).sum
+  end
+
+  def current_par
+    played_holes.pluck(:par).sum
+  end
+
+  def shooting
+    total - current_par
   end
 end
