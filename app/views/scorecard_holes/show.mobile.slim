@@ -1,15 +1,5 @@
 = render "header"
 
-h2 = t('scorecard.overall')
-.ui-grid-c
-  - letter = "a"
-  - @round.scorecards.each do |scorecard|
-    div class="ui-block-#{letter}"
-      p
-        strong= scorecard.user.name
-        =< scorecard.total
-        =< scorecard.shooting
+= render "form"
 
-    - letter = letter.succ
-
-= render "rounds/scores"
+= render "scorecards/totals", round: @round

@@ -31,7 +31,7 @@ en:
   hole:
     number: "Hole %{number}"
   scorecard:
-    overall: "Overall"
+    totals: "Totals"
   scorecard_hole:
     score: "Score"
     par: "Par"

@@ -1,0 +1,11 @@
+h2 = t('scorecard.totals')
+.ui-grid-c
+  - letter = "a"
+  - round.scorecards.each do |scorecard|
+    div class="ui-block-#{letter}"
+      p
+        strong= scorecard.user.name
+        =< scorecard.total
+        =< scorecard.shooting
+
+    - letter = letter.succ
