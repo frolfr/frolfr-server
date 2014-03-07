@@ -2,5 +2,7 @@ Frolfr::Application.routes.draw do
   root to: 'home#show'
 
   resources :home, only: [:show]
-  resources :scorecard_holes, only: [:update]
+  resources :rounds, only: [:show] do
+    resources :scorecard_holes, only: [:show]
+  end
 end
