@@ -27,6 +27,7 @@ en:
     Next: "Next"
   round:
     start: "Start Round"
+    scorecard_title: "Scorecard for %{name}"
   hole:
     number: "Hole %{number}"
   scorecard_hole:
