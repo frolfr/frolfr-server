@@ -2,4 +2,4 @@ header
   h1 = @round.scorecard_title
   h4 = @round.location
 
-= link_to t('round.start'), round_scorecard_hole_path(@round, @round.scorecards.first.for_hole(@round.course.holes.first)), class: "ui-btn"
+= link_to t('round.start'), round_scorecard_hole_path(@round, @round.scorecards.first.for_hole(@round.course.holes.first.number)), class: "ui-btn"
