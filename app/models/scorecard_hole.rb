@@ -1,7 +1,7 @@
 class ScorecardHole < ActiveRecord::Base
-  belongs_to :hole_position
   belongs_to :scorecard
+  belongs_to :hole
 
-  validates :scorecard, :hole_position, presence: true
   validates :score, inclusion: { in: (1..9).to_a << nil }
+  validates :scorecard, :hole, :par, presence: true
 end

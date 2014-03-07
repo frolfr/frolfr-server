@@ -17,8 +17,7 @@ FIRST_HOLE = 1
 LAST_HOLE = 18
 
 FIRST_HOLE.upto(LAST_HOLE) do |i| 
-  hole = Hole.create(number: i, course: course)
-  HolePosition.create(name: "Standard", par: 3, hole: hole)
+  Hole.create(number: i, course: course)
 end
 
 round = Round.create(course: course)
@@ -35,11 +34,10 @@ users.each do |user|
   
   FIRST_HOLE.upto(LAST_HOLE) do |i|
     hole = Hole.find_by(number: i)
-    hole_position = hole.hole_positions.first
     ScorecardHole.create(
       scorecard: scorecard,
       score: nil,
-      hole_position: hole_position
+      hole: hole
     )
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140227023014) do
+ActiveRecord::Schema.define(version: 20140307040318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,6 @@ ActiveRecord::Schema.define(version: 20140227023014) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "hole_positions", force: true do |t|
-    t.integer "hole_id"
-    t.string  "name"
-    t.integer "par"
   end
 
   create_table "holes", force: true do |t|
@@ -46,7 +40,7 @@ ActiveRecord::Schema.define(version: 20140227023014) do
 
   create_table "scorecard_holes", force: true do |t|
     t.integer  "scorecard_id"
-    t.integer  "hole_position_id"
+    t.integer  "hole_id"
     t.integer  "score"
     t.datetime "created_at"
     t.datetime "updated_at"

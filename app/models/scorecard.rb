@@ -11,7 +11,6 @@ class Scorecard < ActiveRecord::Base
   end
 
   def for_hole(hole)
-    hole_position = hole.hole_positions.first
-    scorecard_holes.find_by(hole_position: hole_position)
+    scorecard_holes.find_by(hole: hole)
   end
 end
