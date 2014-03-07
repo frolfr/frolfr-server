@@ -23,10 +23,12 @@ en:
   misc:
     brand: "Frolfr"
     under_construction: "Under Construction"
-  nav:
-    full_site: "Full Site"
-    mobile: "Mobile"
+    previous: "Previous"
+    Next: "Next"
   round:
     start: "Start Round"
   hole:
     number: "Hole %{number}"
+  scorecard_hole:
+    score: "Score"
+    par: "Par"
