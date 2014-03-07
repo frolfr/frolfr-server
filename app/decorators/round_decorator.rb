@@ -1,6 +1,7 @@
 class RoundDecorator < Draper::Decorator
   delegate_all
   decorates_association :course
+  decorates_association :scorecards
 
   def scorecard_title
     I18n.t('round.scorecard_title', name: course.name)
