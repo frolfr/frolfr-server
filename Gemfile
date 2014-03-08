@@ -20,6 +20,9 @@ gem 'slim-rails'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'draper', '~> 1.0'
 
+# Pinging Heroku
+gem 'newrelic_rpm'
+
 group :production do
   gem 'rails_12factor'
 end
