@@ -1,5 +1,5 @@
 inputScore = ->
-  $dropdown = $("#scorecard_hole_score")
+  $dropdown = $("select[name='scorecard_hole[score]'")
   $radios = $("input:radio[name='scorecard_hole[par]']")
 
   $dropdown.on 'change', (event) ->
