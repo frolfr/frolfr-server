@@ -26,5 +26,4 @@ inputScore = ->
         par: $(this).val() 
       }
 
-$(document).ready -> inputScore()
-$(document).on 'page:load', -> inputScore()
+$(document).on 'pageinit', -> inputScore()
