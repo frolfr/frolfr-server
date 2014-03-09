@@ -7,9 +7,10 @@ class ScorecardHolesController < ApplicationController
   def update
     scorecard_hole = ScorecardHole.find(params[:id])
     scorecard_hole.update(update_params)
+    scorecard = scorecard_hole.scorecard.decorate
 
     respond_to do |format|
-      format.mobile { render json: {total: 0, shooting: 0} }
+      format.mobile { render json: {score: scorecard.display_score, id: scorecard.id} }
     end
   end
 
