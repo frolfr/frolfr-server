@@ -1,7 +1,8 @@
 inputScore = ->
-  $dropdown = $("select[name='scorecard_hole[score]'")
+  $dropdown = $("select[name='scorecard_hole[score]'").last()
   $radios = $("input:radio[name='scorecard_hole[par]']")
   url = "/scorecard_holes/" + $dropdown.data("id")
+
   $dropdown.on 'change', (event) ->
     $.ajax
       url: url,
