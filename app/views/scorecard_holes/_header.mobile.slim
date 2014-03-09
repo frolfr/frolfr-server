@@ -1,12 +1,12 @@
 div data-role="header" data-theme='b' data-position='fixed'
   - if @scorecard_hole.previous
-    = link_to t('misc.previous'), round_scorecard_hole_path(@round, @scorecard_hole.previous), class: "ui-btn ui-icon-arrow-l ui-btn-icon-left"
+    = link_to t('misc.previous'), scorecard_hole_path(@scorecard_hole.previous), class: "ui-btn ui-icon-arrow-l ui-btn-icon-left"
   - else
     = link_to "", root_path, class: "ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext"
 
   h1 = @scorecard_hole.hole_number
   
   - if @scorecard_hole.next
-    = link_to t('misc.next'), round_scorecard_hole_path(@round, @scorecard_hole.next), class: "ui-btn ui-icon-arrow-r ui-btn-icon-right"
+    = link_to t('misc.next'), scorecard_hole_path(@scorecard_hole.next), class: "ui-btn ui-icon-arrow-r ui-btn-icon-right"
   - else
     = link_to "", "#", class: "ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext"

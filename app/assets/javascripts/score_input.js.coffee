@@ -1,12 +1,8 @@
 inputScore = ->
   $dropdown = $("select[name='scorecard_hole[score]'")
   $radios = $("input:radio[name='scorecard_hole[par]']")
-
+  url = "/scorecard_holes/" + $dropdown.data("id")
   $dropdown.on 'change', (event) ->
-    round_id = $dropdown.data("roundId")
-    id = $dropdown.data("scorecardHoleId")
-    url = "/rounds/" + round_id + "/scorecard_holes/" + id
-    
     $.ajax
       url: url,
       method: "put",
@@ -15,10 +11,6 @@ inputScore = ->
       }
 
   $radios.on 'click', (event) ->
-    round_id = $dropdown.data("roundId")
-    id = $dropdown.data("scorecardHoleId")
-    url = "/rounds/" + round_id + "/scorecard_holes/" + id
-    
     $.ajax
       url: url,
       method: "put",
