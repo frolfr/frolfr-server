@@ -6,21 +6,27 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-course = Course.create(
+course1 = Course.create(
   name: "Perkerson Park",
   city: "Atlanta",
   state: "GA",
   country: "United States"
 )
 
+course2 = Course.create(
+  name: "Redan Park",
+  city: "Lithonia",
+  state: "GA",
+  country: "United States"
+)
+
 FIRST_HOLE = 1
-LAST_HOLE = 18
+TOTAL_HOLES = 18
 
-FIRST_HOLE.upto(LAST_HOLE) do |i| 
-  Hole.create(number: i, course: course)
+FIRST_HOLE.upto(TOTAL_HOLES) do |i| 
+  Hole.create(number: i, course: course1)
+  Hole.create(number: i, course: course2)
 end
-
-round = Round.create(course: course)
 
 users = User.create([
   { name: "Geoff", email: "geoff@frolfr.com" },
@@ -28,17 +34,3 @@ users = User.create([
   { name: "Hyman", email: "hyman@frolfr.com" },
   { name: "Jason", email: "jason@frolfr.com" }
 ])
-
-users.each do |user|
-  scorecard = Scorecard.create(user: user, round: round)
-  
-  FIRST_HOLE.upto(LAST_HOLE) do |i|
-    hole = Hole.find_by(number: i)
-    ScorecardHole.create(
-      scorecard: scorecard,
-      score: nil,
-      hole: hole
-    )
-  end
-end
-
