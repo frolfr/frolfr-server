@@ -2,7 +2,7 @@ class Hole < ActiveRecord::Base
   belongs_to :course
 
   validates :course, :number, presence: true
-  validates :number, uniqueness: true
+  validates_uniqueness_of :number, scope: :course
   validates :number, inclusion: { in: (1..27) }
 
   default_scope order('number ASC')
