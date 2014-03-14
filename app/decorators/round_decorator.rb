@@ -10,4 +10,12 @@ class RoundDecorator < Draper::Decorator
   def location
     course.location
   end
+
+  def title
+    "#{course.name} - #{display_date}"
+  end
+
+  def display_date
+    created_at.strftime("%A, %b %d")
+  end
 end

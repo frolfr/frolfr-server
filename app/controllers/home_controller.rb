@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def show
-    @round = Round.first.decorate
+    @rounds = Round.all.decorate
   end
 end
