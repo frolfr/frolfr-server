@@ -10,6 +10,6 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1"
   
   body
-    div data-role="page"
+    div data-role="page" data-url="#{request.path}"
       .ui-content data-role="main"
         = yield
