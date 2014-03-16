@@ -1,12 +1,13 @@
 = render "shared/header"
 
-h2 = t('round.create')
-= link_to t('round.start'), new_round_path, class: 'ui-btn'
+.ui-body.ui-body-b.ui-corner-all
+  h2 = t('round.create')
+  = link_to t('round.start'), new_round_path, class: 'ui-btn ui-corner-all'
 
-h2 = t('round.current')
-ul
-  - if @rounds.empty?
-    p "Ain't no rounds here."
-  - else
-    - @rounds.each do |round|
-      li = link_to round.title, turn_path(round.source.scorecards.first.turns.first)
+  h2 = t('round.current')
+  ul
+    - if @rounds.empty?
+      p "Ain't no rounds here."
+    - else
+      - @rounds.each do |round|
+        li = link_to round.title, turn_path(round.source.scorecards.first.turns.first)
