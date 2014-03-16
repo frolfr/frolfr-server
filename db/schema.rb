@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140307040318) do
+ActiveRecord::Schema.define(version: 20140316223736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,14 @@ ActiveRecord::Schema.define(version: 20140307040318) do
     t.datetime "updated_at"
   end
 
-  create_table "scorecard_holes", force: true do |t|
+  create_table "scorecards", force: true do |t|
+    t.integer  "round_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "turns", force: true do |t|
     t.integer  "scorecard_id"
     t.integer  "hole_id"
     t.integer  "score"
@@ -47,14 +54,7 @@ ActiveRecord::Schema.define(version: 20140307040318) do
     t.integer  "par",          default: 3
   end
 
-  add_index "scorecard_holes", ["par"], name: "index_scorecard_holes_on_par", using: :btree
-
-  create_table "scorecards", force: true do |t|
-    t.integer  "round_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "turns", ["par"], name: "index_turns_on_par", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
