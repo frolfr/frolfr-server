@@ -1,7 +1,7 @@
 class ScorecardDecorator < Draper::Decorator
   delegate_all
 
-  def name
+  def user_name
     user.name
   end
 

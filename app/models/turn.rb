@@ -11,6 +11,11 @@ class Turn < ActiveRecord::Base
 
   scope :played, -> { where.not(score: nil) } 
 
+  def update_all_pars(par)
+    shs = round.scorecards.map { |scorecard| scorecard.for_hole(hole.number) }
+    shs.each { |sh| sh.update(par: par) }
+  end
+
   def next
     next_number = hole.number + 1
     scorecard.for_hole(next_number)

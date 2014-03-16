@@ -5,9 +5,9 @@ h2 = t('scorecard.totals')
     div class="ui-block-#{letter}" id="total-#{scorecard.id}-#{scorecard.user.id}"
       p
         - if scorecard == @turn.scorecard
-          strong= scorecard.name
+          strong= scorecard.user_name
         - else
-          strong= link_to scorecard.name, turn_path(scorecard.for_hole(@turn.hole.number))
+          strong= link_to scorecard.user_name, turn_path(scorecard.for_hole(@turn.hole.number))
         br
         span.total= scorecard.display_score
 

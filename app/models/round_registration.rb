@@ -4,7 +4,6 @@ class RoundRegistration
     :course,
     :round,
     :scorecards,
-    :round_holes
     :turns
   )
 
