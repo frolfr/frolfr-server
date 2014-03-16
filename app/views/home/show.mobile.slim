@@ -9,4 +9,4 @@ ul
     p "Ain't no rounds here."
   - else
     - @rounds.each do |round|
-      li = link_to round.title, scorecard_hole_path(round.source.scorecards.first.scorecard_holes.first)
+      li = link_to round.title, turn_path(round.source.scorecards.first.turns.first)

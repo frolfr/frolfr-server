@@ -8,7 +8,7 @@ class TurnsController < ApplicationController
     turn = Turn.find(params[:id])
 
     if update_params[:par]
-      # turn.update_all_pars(update_params[:par])
+      turn.update_all_pars(update_params[:par])
     else
       turn.update(update_params)
     end

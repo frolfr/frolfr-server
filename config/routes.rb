@@ -3,5 +3,5 @@ Frolfr::Application.routes.draw do
 
   resources :home, only: [:show]
   resources :rounds, only: [:new, :create]
-  resources :scorecard_holes, only: [:show, :update]
+  resources :turns, only: [:show, :update]
 end

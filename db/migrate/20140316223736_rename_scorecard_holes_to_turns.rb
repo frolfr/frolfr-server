@@ -1,5 +1,5 @@
 class RenameScorecardHolesToTurns < ActiveRecord::Migration
   def change
-    rename_table :scorecard_holes, :turns
+    rename_table :turns, :turns
   end
 end

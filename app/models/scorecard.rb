@@ -1,13 +1,13 @@
 class Scorecard < ActiveRecord::Base
   belongs_to :user
   belongs_to :round
-  has_many :scorecard_holes
+  has_many :turns
 
   validates :user, :round, presence: true
 
   def for_hole(number)
     hole = round.holes.find_by(number: number)
-    scorecard_holes.find_by(hole: hole) if hole
+    turns.find_by(hole: hole) if hole
   end
 
   def over_par?
@@ -23,7 +23,7 @@ class Scorecard < ActiveRecord::Base
   end
 
   def played_holes
-    scorecard_holes.played
+    turns.played
   end
 
   def total

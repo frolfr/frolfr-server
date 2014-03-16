@@ -5,5 +5,5 @@ task clear_seed: [:environment] do
   Round.destroy_all
   User.destroy_all
   Scorecard.destroy_all
-  ScorecardHole.destroy_all 
+  Turn.destroy_all 
 end

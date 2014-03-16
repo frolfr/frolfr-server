@@ -1,6 +1,6 @@
 class AddColumnParToScorecardHoles < ActiveRecord::Migration
   def change
-    add_column :scorecard_holes, :par, :integer, default: 3
-    add_index :scorecard_holes, :par
+    add_column :turns, :par, :integer, default: 3
+    add_index :turns, :par
   end
 end

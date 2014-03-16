@@ -4,7 +4,8 @@ class RoundRegistration
     :course,
     :round,
     :scorecards,
-    :scorecard_holes
+    :round_holes
+    :turns
   )
 
   def self.create_round(course: course, users: users)
@@ -18,16 +19,16 @@ class RoundRegistration
 
   def create_round
     scorecards.each do |scorecard|
-      create_scorecard_holes(scorecard)
+      create_turns(scorecard)
     end
     return round
   end
 
   private
 
-  def create_scorecard_holes(scorecard)
+  def create_turns(scorecard)
     course.holes.each do |hole|
-      ScorecardHole.create(hole: hole, scorecard: scorecard)
+      Turn.create(hole: hole, scorecard: scorecard)
     end
   end
 
