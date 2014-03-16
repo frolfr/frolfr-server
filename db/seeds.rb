@@ -33,5 +33,6 @@ users = User.create([
   { name: "Jenna", email: "jenna@frolfr.com" },
   { name: "Hyman", email: "hyman@frolfr.com" },
   { name: "Jason", email: "jason@frolfr.com" },
-  { name: "Felix", email: "felix@frolfr.com" }
+  { name: "Felix", email: "felix@frolfr.com" },
+  { name: "Phillips", email: "phillips@frolfr.com" }
 ])
