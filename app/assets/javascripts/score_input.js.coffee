@@ -1,8 +1,8 @@
 inputScore = ->
-  $dropdown = $("select[name='scorecard_hole[score]'").last()
-  $radios = $("input:radio[name='scorecard_hole[par]']")
+  $dropdown = $("select[name='turn[score]'").last()
+  $radios = $("input:radio[name='turn[par]']")
   id = $dropdown.data("id")
-  url = "/scorecard_holes/" + id
+  url = "/turns/" + id
 
   $dropdown.on 'change', (event) ->
     $.ajax
@@ -13,9 +13,11 @@ inputScore = ->
         score: $dropdown.val() 
       }
       success: (data) ->
-        $scorecard = $.parseJSON(data)
-        $total = $("#total-" + $scorecard.id+ " span.total")
-        $total.text($scorecard.score)
+        $scorecards = $.parseJSON(data)
+        $.each($scorecards, (index, value) ->
+          $total = $("#total-" + value.scorecard_id + "-" + value.user_id  + " span.total")
+          $total.text(value.score)
+        )
 
   $radios.on 'click', (event) ->
     $.ajax
@@ -25,8 +27,10 @@ inputScore = ->
         par: $(this).val() 
       }
       success: (data) ->
-        $scorecard = $.parseJSON(data)
-        $total = $("#total-" + $scorecard.id+ " span.total")
-        $total.text($scorecard.score)
+        $scorecards = $.parseJSON(data)
+        $.each($scorecards, (index, value) ->
+          $total = $("#total-" + value.scorecard_id + "-" + value.user_id  + " span.total")
+          $total.text(value.score)
+        )
 
 $(document).on 'pageinit', -> inputScore()
