@@ -1,4 +1,4 @@
 div data-role="header" data-theme='a' data-position='fixed'
-  = link_to "", "#sidebar", class: "ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext"
+  = link_to_if logged_in?, "", "#sidebar", class: "ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext"
 
   h1 = t('misc.brand')

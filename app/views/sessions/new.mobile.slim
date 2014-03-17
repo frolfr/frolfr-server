@@ -6,4 +6,4 @@
     = simple_form_for(:session, url: sessions_path) do |f|
       = f.input :email
       = f.input :password
-      = f.button :submit, class: "ui-btn ui-corner-all"
+      = f.submit t('misc.log_in'), class: "ui-btn ui-corner-all"
