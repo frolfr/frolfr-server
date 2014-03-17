@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_locale, :prepare_for_mobile
+  before_action :set_locale, :prepare_for_mobile, :require_login
   helper_method :mobile_device?, :current_user, :logged_in?
- 
+
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
   end
@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def require_login
+    redirect_to login_path unless logged_in?
+  end
 
   def sign_in(user)
     session[:user_id] = user.id
