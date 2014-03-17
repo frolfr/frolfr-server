@@ -1,5 +1,6 @@
 class ScorecardDecorator < Draper::Decorator
   delegate_all
+  decorates_association :round
 
   def user_name
     user.name
@@ -7,6 +8,10 @@ class ScorecardDecorator < Draper::Decorator
 
   def display_score
     "#{total} #{shooting}"
+  end
+
+  def title
+    round.title
   end
 
   private

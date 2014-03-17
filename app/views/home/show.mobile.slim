@@ -8,10 +8,10 @@
     h2 = t('round.create')
     = link_to t('round.start'), new_round_path, class: 'ui-btn ui-corner-all'
 
-    h2 = t('round.current')
+    h2 = t('round.recent')
     ul
-      - if @rounds.empty?
+      - if @scorecards.empty?
         p= t('round.empty')
       - else
-        - @rounds.each do |round|
-          li = link_to round.title, turn_path(round.source.scorecards.first.turns.first)
+        - @scorecards.each do |scorecard|
+          li = link_to scorecard.title, turn_path(scorecard.first_turn)

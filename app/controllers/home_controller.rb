@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def show
-    @rounds = Round.all.decorate
+    @scorecards = current_user.scorecards.decorate
   end
 end

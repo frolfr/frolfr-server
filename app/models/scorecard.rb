@@ -5,6 +5,10 @@ class Scorecard < ActiveRecord::Base
 
   validates :user, :round, presence: true
 
+  def first_turn
+    turns.first
+  end
+
   def for_hole(number)
     hole = round.holes.find_by(number: number)
     turns.find_by(hole: hole) if hole
