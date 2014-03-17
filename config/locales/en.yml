@@ -25,11 +25,15 @@ en:
     under_construction: "Under Construction"
     previous: "Previous"
     next: "Next"
+    log_in: "Log In"
+    log_out: "Log Out"
+    welcome: "Happy Frolfin', %{user}!"
   round:
     start: "Start New Round"
     create: "Create Rounds"
     current: "Current Rounds"
     scorecard_title: "Scorecard for %{name}"
+    empty: "Ain't no rounds here."
   hole:
     number: "Hole %{number}"
   scorecard:
