@@ -11,5 +11,5 @@ html
   
   body
     div data-role="page" data-url="#{request.path}"
-      .ui-content data-role="main"
-        = yield
+      = render "shared/sidebar"
+      = yield
