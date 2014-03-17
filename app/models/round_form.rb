@@ -14,7 +14,7 @@ class RoundForm
   end
 
   def valid?
-    course.present? && all_users_found?
+    course.present? && users_found?
   end
 
   def save
@@ -29,8 +29,8 @@ class RoundForm
     ids.present? && ids.reject(&:empty?)
   end
 
-  def all_users_found?
-    users.count == user_ids.count
+  def users_found?
+    users.count == user_ids.count && users.count > 0
   end
 
   def course
