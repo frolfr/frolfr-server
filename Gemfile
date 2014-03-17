@@ -23,6 +23,9 @@ gem 'draper', '~> 1.0'
 # Pinging Heroku
 gem 'newrelic_rpm'
 
+# Authorization
+gem 'bcrypt-ruby', "~> 3.0.0"
+
 group :production do
   gem 'rails_12factor'
 end
