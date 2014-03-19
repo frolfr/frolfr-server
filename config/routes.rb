@@ -4,7 +4,7 @@ Frolfr::Application.routes.draw do
   get '/logout', to: 'sessions#destroy'
 
   resources :home, only: [:show]
-  resources :rounds, only: [:new, :create]
+  resources :rounds, only: [:new, :create, :show]
   resources :sessions, only: [:create]
   resources :turns, only: [:show, :update]
 end

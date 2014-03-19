@@ -14,6 +14,11 @@ class RoundsController < ApplicationController
     end
   end
 
+  def show
+    @round = Round.find(params[:id]).decorate
+    @scorecards = @round.scorecards
+  end
+
   private
 
   def round_form_params
