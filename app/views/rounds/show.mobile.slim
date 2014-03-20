@@ -12,8 +12,12 @@
             th = scorecard.user_name
       tbody
         - @round.holes.each do |hole|
-          tr 
+          tr
             td = hole.number
             - @scorecards.each do |scorecard|
               td style="color :#{scorecard.for_hole(hole.number).decorate.turn_class};" = scorecard.for_hole(hole.number).score || "-"
+        tr
+          td = t('scorecard.totals')
+          - @scorecards.each do |scorecard|
+            td = scorecard.display_score
 
