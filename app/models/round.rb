@@ -3,9 +3,13 @@ class Round < ActiveRecord::Base
   has_many :scorecards
   has_many :players, through: :scorecards, source: :user
 
-  validates :course, presence: true
+  validates :course, :completed, presence: true
 
   def holes
     course.holes
+  end
+
+  def completed?
+    completed || scorecards.all?(&:completed?)
   end
 end

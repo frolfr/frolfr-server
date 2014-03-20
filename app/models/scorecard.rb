@@ -5,6 +5,10 @@ class Scorecard < ActiveRecord::Base
 
   validates :user, :round, presence: true
 
+  def completed?
+    turns.all?(&:played?)
+  end
+
   def first_turn
     turns.first
   end
