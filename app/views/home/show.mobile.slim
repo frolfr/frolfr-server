@@ -15,7 +15,7 @@
       - else
         - @scorecards.each do |scorecard|
           li 
-            = link_to scorecard.title, turn_path(scorecard.first_turn)
+            = link_to_if !scorecard.round.completed?, scorecard.title, turn_path(scorecard.first_turn)
             - if scorecard.round.completed?
               =< "|"
               =< link_to "Recap",  round_path(scorecard.round)
