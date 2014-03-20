@@ -3,7 +3,7 @@ class Round < ActiveRecord::Base
   has_many :scorecards
   has_many :players, through: :scorecards, source: :user
 
-  validates :course, :completed, presence: true
+  validates :course, presence: true
 
   def holes
     course.holes
