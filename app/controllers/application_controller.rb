@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale, :prepare_for_mobile, :require_login
-  helper_method :mobile_device?, :current_user, :logged_in?
+  helper_method :mobile_device?, :current_user, :logged_in?, :differentiate_path
 
   def set_locale
     I18n.locale = params[:locale] || I18n.default_locale
@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
 
   def logged_in?
     current_user.present?
+  end
+
+  def differentiate_path(path, *args)
+    attempt = request.parameters["attempt"].to_i + 1
+    args.unshift(path).push(:attempt => attempt)
+    send(*args)
   end
 
   private

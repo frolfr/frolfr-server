@@ -2,7 +2,7 @@
 
 .ui-content data-role="main"
   .ui-body.ui-body-b.ui-corner-all
-    = simple_form_for @round_form, url: rounds_path, method: :post do |f|
+    = simple_form_for @round_form, url: differentiate_path(:rounds_path), method: :post do |f|
       = f.input :course_id, collection: Course.pluck(:name, :id), input_html: { "data-iconpos" => "left" }
       = f.input :user_ids, collection: User.pluck(:name, :id), label: "Players", input_html: { multiple: "multiple", "data-native-menu" => "false", "data-iconpos" => "left" }
       = f.submit "Create Round"
