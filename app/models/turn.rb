@@ -33,4 +33,12 @@ class Turn < ActiveRecord::Base
   def round
     scorecard.round
   end
+
+  def over_par?
+    played? && score > par
+  end
+
+  def under_par?
+    played? && par > score
+  end
 end

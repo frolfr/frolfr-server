@@ -3,3 +3,17 @@
 .ui-content data-role="main"
   .ui-body.ui-body-b.ui-corner-all
     h2 = @round.title
+
+    table
+      thead
+        tr
+          th
+          - @scorecards.each do |scorecard|
+            th = scorecard.user_name
+      tbody
+        - @round.holes.each do |hole|
+          tr 
+            td = hole.number
+            - @scorecards.each do |scorecard|
+              td style="color :#{scorecard.for_hole(hole.number).decorate.turn_class};" = scorecard.for_hole(hole.number).score || "-"
+

@@ -5,4 +5,14 @@ class TurnDecorator < Draper::Decorator
   def hole_number
     I18n.t('hole.number', number: hole.number)
   end
+
+  def turn_class
+    if under_par?
+      "green"
+    elsif over_par?
+      "red"
+    else
+      "black"
+    end
+  end
 end
