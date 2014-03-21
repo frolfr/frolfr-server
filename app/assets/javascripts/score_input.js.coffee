@@ -1,5 +1,5 @@
 inputScore = ->
-  $dropdown = $("select[name='turn[score]'").last()
+  $dropdown = $("select#turn_score").last()
   $radios = $("input:radio[name='turn[par]']")
   id = $dropdown.data("id")
   url = "/turns/" + id
