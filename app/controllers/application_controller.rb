@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+    @current_user ||= User.find_by(auth_token: cookies[:auth_token])
   end
 
   def logged_in?
@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def differentiate_path(path, *args)
     attempt = request.parameters["attempt"].to_i + 1
-    args.unshift(path).push(:attempt => attempt)
+    args.unshift(path).push(attempt: attempt)
     send(*args)
   end
 
@@ -27,8 +27,12 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
-  def sign_in(user)
-    session[:user_id] = user.id
+  def sign_in(user, permanent: false)
+    if permanent
+      cookies.permanent[:auth_token] = user.auth_token
+    else
+      cookies[:auth_token] = user.auth_token
+    end
   end
 
   def mobile_device?

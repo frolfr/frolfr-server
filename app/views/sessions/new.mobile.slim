@@ -6,4 +6,5 @@
     = simple_form_for(:session, url: differentiate_path(:sessions_path)) do |f|
       = f.input :email
       = f.input :password
+      = f.input :remember_me, label: "Keep Me Signed In", as: :boolean
       = f.submit t('misc.log_in'), class: "ui-btn ui-corner-all"
