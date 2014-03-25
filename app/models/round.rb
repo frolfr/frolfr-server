@@ -5,6 +5,8 @@ class Round < ActiveRecord::Base
 
   validates :course, presence: true
 
+  default_scope { order('created_at DESC') }
+
   def holes
     course.holes
   end

@@ -5,6 +5,8 @@ class Scorecard < ActiveRecord::Base
 
   validates :user, :round, presence: true
 
+  default_scope { joins(:round).order('rounds.created_at DESC') }
+
   def completed?
     turns.all?(&:played?)
   end
