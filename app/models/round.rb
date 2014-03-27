@@ -13,4 +13,8 @@ class Round < ActiveRecord::Base
   def completed?
     marked_complete? || scorecards.all?(&:completed?)
   end
+
+  def complete
+    update(marked_complete: true)
+  end
 end
