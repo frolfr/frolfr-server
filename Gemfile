@@ -26,6 +26,9 @@ gem 'newrelic_rpm'
 # Authorization
 gem 'bcrypt-ruby', "~> 3.0.0"
 
+# Factories
+gem 'factory_girl_rails'
+
 group :production do
   gem 'rails_12factor'
 end
