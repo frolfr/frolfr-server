@@ -12,6 +12,6 @@ class Round < ActiveRecord::Base
   end
 
   def completed?
-    completed || scorecards.all?(&:completed?)
+    marked_complete? || scorecards.all?(&:completed?)
   end
 end
