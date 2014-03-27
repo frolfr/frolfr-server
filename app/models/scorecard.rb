@@ -32,16 +32,16 @@ class Scorecard < ActiveRecord::Base
     total == current_par
   end
 
-  def played_holes
+  def played_turns
     turns.played
   end
 
   def total
-    played_holes.pluck(:score).sum
+    played_turns.pluck(:score).sum
   end
 
   def current_par
-    played_holes.pluck(:par).sum
+    played_turns.pluck(:par).sum
   end
 
   def shooting
