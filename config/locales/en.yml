@@ -28,6 +28,12 @@ en:
     log_in: "Log In"
     log_out: "Log Out"
     welcome: "Happy Frolfin', %{user}!"
+  course:
+    name: "Name"
+    location: "Location"
+    rounds_played: "Rounds Played"
+  hole:
+    number: "Hole %{number}"
   round:
     start: "Start New Round"
     create: "Create Rounds"
@@ -35,8 +41,9 @@ en:
     recent: "Recent Rounds"
     scorecard_title: "Scorecard for %{name}"
     empty: "Ain't no rounds here."
-  hole:
-    number: "Hole %{number}"
+    date: "Date"
+    total: "Total"
+    par: "Par"
   scorecard:
     totals: "Totals"
   turn:

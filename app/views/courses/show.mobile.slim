@@ -1,0 +1,19 @@
+= render "shared/header"
+
+.ui-content data-role="main"
+  .ui-body.ui-body-b.ui-corner-all
+    h1 = @course.name
+    h3 = @course.location
+
+    table data-role="table"
+      thead
+        tr
+          th = t('round.date')
+          th = t('round.total')
+          th = t('round.par')
+      tbody
+        - @scorecards.each do |scorecard|
+          tr
+            td = scorecard.display_date
+            td = scorecard.total
+            td = scorecard.shooting
