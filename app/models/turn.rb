@@ -16,18 +16,18 @@ class Turn < ActiveRecord::Base
   end
 
   def update_all_pars(par)
-    shs = round.scorecards.map { |scorecard| scorecard.for_hole(hole.number) }
+    shs = round.scorecards.map { |scorecard| scorecard.turn_for_hole(hole.number) }
     shs.each { |sh| sh.update(par: par) }
   end
 
   def next
     next_number = hole.number + 1
-    scorecard.for_hole(next_number)
+    scorecard.turn_for_hole(next_number)
   end
 
   def previous
     previous_number = hole.number - 1
-    scorecard.for_hole(previous_number)
+    scorecard.turn_for_hole(previous_number)
   end
 
   def round

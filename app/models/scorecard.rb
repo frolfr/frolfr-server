@@ -15,7 +15,7 @@ class Scorecard < ActiveRecord::Base
     turns.first
   end
 
-  def for_hole(number)
+  def turn_for_hole(number)
     hole = round.holes.find_by(number: number)
     turns.find_by(hole: hole) if hole
   end
@@ -32,10 +32,6 @@ class Scorecard < ActiveRecord::Base
     total == current_par
   end
 
-  def played_turns
-    turns.played
-  end
-
   def total
     played_turns.pluck(:score).sum
   end
@@ -46,5 +42,11 @@ class Scorecard < ActiveRecord::Base
 
   def shooting
     total - current_par
+  end
+
+  private
+
+  def played_turns
+    turns.played
   end
 end

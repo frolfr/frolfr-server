@@ -18,7 +18,7 @@
             td 
               strong= hole.number
             - @scorecards.each do |scorecard|
-              td style="color :#{scorecard.for_hole(hole.number).decorate.turn_class};" = scorecard.for_hole(hole.number).score || "-"
+              td style="color :#{scorecard.turn_for_hole(hole.number).decorate.turn_class};" = scorecard.turn_for_hole(hole.number).score || "-"
         tr
           td 
             strong= t('scorecard.totals')
