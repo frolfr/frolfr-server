@@ -2,8 +2,10 @@
 
 .ui-content data-role="main"
   .ui-body.ui-body-b.ui-corner-all
-    h2 = @course.name
-    h4 = @course.location
+    header
+      h2 = @course.name
+      h4 = @course.location
+      = image_tag @course.image
 
     table data-role="table"
       thead
