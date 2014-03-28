@@ -8,11 +8,9 @@ class TurnDecorator < Draper::Decorator
 
   def turn_class
     if under_par?
-      "green"
+      "under-par"
     elsif over_par?
-      "red"
-    else
-      "black"
+      "over-par"
     end
   end
 end
