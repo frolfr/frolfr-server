@@ -1,0 +1,18 @@
+= render "shared/header"
+
+.ui-content data-role="main"
+  .ui-body.ui-body-b.ui-corner-all
+    h1 = t('course.plural')
+
+    table data-role="table"
+      thead
+        tr
+          th = t('course.name')
+          th = t('course.location')
+          th = t('course.rounds_played')
+      tbody
+        - @courses.each do |course|
+          tr
+            td = link_to course.name, course_path(course)
+            td = course.location
+            td = course.rounds_played
