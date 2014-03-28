@@ -7,19 +7,23 @@ class ScorecardDecorator < Draper::Decorator
   end
 
   def display_score
-    "#{total} #{shooting}"
+    "#{total} (#{shooting})"
   end
 
   def title
     round.title
   end
 
-  private
+  def display_date
+    round.created_at.strftime("%A, %b %d")
+  end
 
   def shooting
-    return "(Even)" if at_par?
-    return "(#{shooting_symbol}#{source.shooting})"
+    return I18n.t('turn.even') if at_par?
+    return "#{shooting_symbol}#{object.shooting}"
   end
+
+  private
 
   def shooting_symbol
     "+" if over_par?
