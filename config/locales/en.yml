@@ -28,7 +28,9 @@ en:
     log_in: "Log In"
     log_out: "Log Out"
     welcome: "Happy Frolfin', %{user}!"
+    home: 'Home'
   course:
+    plural: "Courses"
     name: "Name"
     location: "Location"
     rounds_played: "Rounds Played"
