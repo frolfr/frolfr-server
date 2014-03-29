@@ -4,7 +4,7 @@ class ScorecardDecorator < Draper::Decorator
   decorates_association :turns
 
   def user_name
-    user.name
+    user.first_name
   end
 
   def display_score

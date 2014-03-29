@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326221905) do
+ActiveRecord::Schema.define(version: 20140329212520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,12 +58,14 @@ ActiveRecord::Schema.define(version: 20140326221905) do
   add_index "turns", ["par"], name: "index_turns_on_par", using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "password_digest"
     t.string   "auth_token"
+    t.string   "last_name"
+    t.string   "middle_name"
   end
 
 end
