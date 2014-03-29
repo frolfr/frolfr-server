@@ -1,10 +1,10 @@
 class Round < ActiveRecord::Base
   belongs_to :course
-  has_many :scorecards
+  has_many :scorecards, dependent: :destroy
 
   validates :course, presence: true
 
-  default_scope { order('created_at DESC') }
+  scope :by_date, -> { order('created_at DESC') }
 
   def holes
     course.holes

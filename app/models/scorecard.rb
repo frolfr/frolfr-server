@@ -1,11 +1,11 @@
 class Scorecard < ActiveRecord::Base
   belongs_to :user
   belongs_to :round
-  has_many :turns
+  has_many :turns, dependent: :destroy
 
   validates :user, :round, presence: true
 
-  default_scope { joins(:round).order('rounds.created_at DESC') }
+  scope :by_date, -> { joins(:round).order('rounds.created_at DESC') }
 
   def completed?
     turns.all?(&:played?)
