@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   def scorecards_for_course(course)
     scorecards.select do |scorecard|
-      scorecard.round.course == course    
+      scorecard.round.course == course
     end
   end
 end
