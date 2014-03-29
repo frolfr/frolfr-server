@@ -1,13 +1,8 @@
-= render "shared/header"
+h2 = t('user.profile')
+p = t('user.edit_message')
 
-.ui-content data-role="main"
-  .ui-body.ui-body-b.ui-corner-all
-    h2 = t('user.profile')
-    p = t('user.edit_message')
-
-    = simple_form_for current_user, url: differentiate_path(:user_path, current_user), method: :put do |f|
-      = f.input :first_name
-      = f.input :middle_name
-      = f.input :last_name
-      = f.submit t('misc.save_changes')
-
+= simple_form_for current_user, url: differentiate_path(:user_path, current_user), method: :put do |f|
+  = f.input :first_name
+  = f.input :middle_name
+  = f.input :last_name
+  = f.submit t('misc.save_changes')

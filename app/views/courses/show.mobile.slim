@@ -1,21 +1,17 @@
-= render "shared/header"
+header
+  h2 = @course.name
+  h4 = @course.location
+  = image_tag @course.image
 
-.ui-content data-role="main"
-  .ui-body.ui-body-b.ui-corner-all
-    header
-      h2 = @course.name
-      h4 = @course.location
-      = image_tag @course.image
-
-    table data-role="table"
-      thead
-        tr
-          th = t('round.date')
-          th = t('round.total')
-          th = t('round.par')
-      tbody
-        - @scorecards.each do |scorecard|
-          tr
-            td = scorecard.display_date
-            td = scorecard.total
-            td = scorecard.shooting
+table data-role="table"
+  thead
+    tr
+      th = t('round.date')
+      th = t('round.total')
+      th = t('round.par')
+  tbody
+    - @scorecards.each do |scorecard|
+      tr
+        td = scorecard.display_date
+        td = scorecard.total
+        td = scorecard.shooting

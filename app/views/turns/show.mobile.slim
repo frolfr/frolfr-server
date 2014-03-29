@@ -1,7 +1,6 @@
-= render "header"
+- content_for :header do
+  = render "header"
 
-.ui-content data-role="main"
-  .ui-body.ui-body-b.ui-corner-all
-    = render "form"
+= render "form"
 
-    = render "scorecards/totals"
+= render "scorecards/totals"

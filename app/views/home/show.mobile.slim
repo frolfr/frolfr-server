@@ -1,22 +1,18 @@
-= render "shared/header"
+p
+  = t('misc.welcome', user: current_user.first_name)
+  =< link_to t('misc.log_out'), logout_path
+h2 = t('round.create')
+= link_to t('round.start'), new_round_path, class: 'ui-btn ui-corner-all'
 
-.ui-content data-role="main"
-  .ui-body.ui-body-b.ui-corner-all
-    p
-      = t('misc.welcome', user: current_user.first_name)
-      =< link_to t('misc.log_out'), logout_path
-    h2 = t('round.create')
-    = link_to t('round.start'), new_round_path, class: 'ui-btn ui-corner-all'
-
-    h2 = t('round.recent')
-    ul
-      - if @scorecards.empty?
-        p= t('round.empty')
-      - else
-        - @scorecards.each do |scorecard|
-          li
-            = link_to_if !scorecard.round.completed?, scorecard.title, turn_path(scorecard.first_turn)
-            - if scorecard.round.completed?
-              =< "|"
-              =< link_to "Recap",  round_path(scorecard.round)
+h2 = t('round.recent')
+ul
+  - if @scorecards.empty?
+    p= t('round.empty')
+  - else
+    - @scorecards.each do |scorecard|
+      li
+        = link_to_if !scorecard.round.completed?, scorecard.title, turn_path(scorecard.first_turn)
+        - if scorecard.round.completed?
+          =< "|"
+          =< link_to "Recap",  round_path(scorecard.round)
 

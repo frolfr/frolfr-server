@@ -8,8 +8,16 @@ html
     = javascript_include_tag "http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"
     = csrf_meta_tags
     meta name="viewport" content="width=device-width, initial-scale=1"
-  
+
   body
     div data-role="page" data-url="#{request.path}"
       = render "shared/sidebar"
-      = yield
+
+      - if content_for?(:header)
+        = yield(:header)
+      - else
+        = render "shared/header"
+
+      .ui-content data-role="main"
+        .ui-body.ui-body-b.ui-corner-all
+          = yield
