@@ -29,6 +29,7 @@ en:
     log_out: "Log Out"
     welcome: "Happy Frolfin', %{user}!"
     home: 'Home'
+    save_changes: "Save Changes"
   course:
     plural: "Courses"
     name: "Name"
@@ -52,3 +53,6 @@ en:
     score: "Score"
     par: "Par"
     even: "Even"
+  user:
+    profile: "Profile"
+    edit_message: "Feel free to edit personal information here:"
