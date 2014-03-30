@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140329212520) do
+ActiveRecord::Schema.define(version: 20140330053903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20140329212520) do
     t.datetime "updated_at"
   end
 
+  add_index "holes", ["course_id"], name: "index_holes_on_course_id", using: :btree
+
   create_table "rounds", force: true do |t|
     t.integer  "course_id"
     t.datetime "created_at"
@@ -39,12 +41,17 @@ ActiveRecord::Schema.define(version: 20140329212520) do
     t.boolean  "marked_complete", default: false
   end
 
+  add_index "rounds", ["course_id"], name: "index_rounds_on_course_id", using: :btree
+
   create_table "scorecards", force: true do |t|
     t.integer  "round_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "scorecards", ["round_id"], name: "index_scorecards_on_round_id", using: :btree
+  add_index "scorecards", ["user_id"], name: "index_scorecards_on_user_id", using: :btree
 
   create_table "turns", force: true do |t|
     t.integer  "scorecard_id"
@@ -55,7 +62,9 @@ ActiveRecord::Schema.define(version: 20140329212520) do
     t.integer  "par",          default: 3
   end
 
+  add_index "turns", ["hole_id"], name: "index_turns_on_hole_id", using: :btree
   add_index "turns", ["par"], name: "index_turns_on_par", using: :btree
+  add_index "turns", ["scorecard_id"], name: "index_turns_on_scorecard_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
