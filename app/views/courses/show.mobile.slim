@@ -1,9 +1,12 @@
 header
   h2 = @course.name
   h4 = @course.location
-  = image_tag @course.image
+  - if @course.image_available?
+    = image_tag @course.image, class: "img-rounded", size: "300x225"
 
-table data-role="table"
+h2 = t('round.recent')
+
+table.table.table-striped
   thead
     tr
       th = t('round.date')
@@ -12,6 +15,9 @@ table data-role="table"
   tbody
     - @scorecards.each do |scorecard|
       tr
-        td = scorecard.display_date
-        td = scorecard.total
-        td = scorecard.shooting
+        td = scorecard.short_date
+        td = scorecard.display_total
+        td = scorecard.display_shooting
+
+- if @scorecards.any?(&:incomplete?)
+  p = t('scorecard.incomplete')

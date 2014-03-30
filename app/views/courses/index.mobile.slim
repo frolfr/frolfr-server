@@ -1,11 +1,11 @@
-h2 = t('course.plural')
+h2 = t('course.played')
 
-table data-role="table"
+table.table.table-striped
   thead
     tr
       th = t('course.name')
       th = t('course.location')
-      th = t('course.rounds_played')
+      th = t('course.rounds')
   tbody
     - @courses.each do |course|
       tr

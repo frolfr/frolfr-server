@@ -1,14 +1,13 @@
 h2 = @round.title
 
-table data-role="table"
+table.table.table-striped
   thead
-    tr
-  tbody
     tr
       td
       - @scorecards.each do |scorecard|
         td
-          strong= scorecard.user_name
+          strong= scorecard.user_initials
+  tbody
     - @round.holes.each do |hole|
       tr
         td

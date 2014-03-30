@@ -2,13 +2,26 @@ class ScorecardDecorator < Draper::Decorator
   delegate_all
   decorates_association :round
   decorates_association :turns
+  decorates_association :user
 
   def user_name
     user.first_name
   end
 
+  def user_initials
+    user.initials
+  end
+
   def display_score
     "#{total} (#{shooting})"
+  end
+
+  def display_total
+    "#{total}#{incomplete_symbol}"
+  end
+
+  def display_shooting
+    "#{shooting}#{incomplete_symbol}"
   end
 
   def score_for_hole(number)
@@ -20,7 +33,11 @@ class ScorecardDecorator < Draper::Decorator
   end
 
   def display_date
-    round.created_at.strftime("%A, %b %d")
+    round.display_date
+  end
+
+  def short_date
+    round.short_date
   end
 
   def shooting
@@ -36,5 +53,9 @@ class ScorecardDecorator < Draper::Decorator
 
   def shooting_symbol
     "+" if over_par?
+  end
+
+  def incomplete_symbol
+    "*" unless completed?
   end
 end

@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   before_create { generate_token(:auth_token) }
 
+  scope :by_name, -> { order(:first_name, :last_name) }
+
   def courses_played
     scorecards.map(&:course).uniq
   end

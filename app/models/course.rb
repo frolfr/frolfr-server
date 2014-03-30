@@ -5,13 +5,23 @@ class Course < ActiveRecord::Base
   validates :state, :city, :country, :name, presence: true
   validates_uniqueness_of :name, scope: :city
 
-  IMAGES = {
-    "Perkerson Park" => "perkerson.jpg",
-    "Redan Park" => "redan.jpg"
-  }.freeze
+  scope :by_name, -> { order(:name) }
 
   def image
     IMAGES[name]
   end
+
+  def image_available?
+    image.present?
   end
+
+  private
+
+  IMAGES = {
+    "Perkerson Park" => "perkerson.jpg",
+    "Redan Park" => "redan.jpg",
+    "Anderson Valley" => "anderson_valley.jpg",
+    "Roche Harbor" => "roche_harbor.jpg",
+    "Golden Gate Park" => "ggp.jpg"
+  }.freeze
 end

@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   def index
-    @courses = CourseDecorator.decorate_collection(current_user.courses_played)
+    @courses = CourseDecorator.decorate_collection(current_user.courses_played) # by_name
   end
 
   def show

@@ -5,8 +5,8 @@ div data-role="header" data-theme='a' data-position='fixed'
     = link_to "", root_path, class: "ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext"
 
   h1 = @turn.hole_number
-  
+
   - if @turn.next
     = link_to t('misc.next'), turn_path(@turn.next), class: "ui-btn ui-icon-arrow-r ui-btn-icon-right"
   - else
-    = link_to "", "#", class: "ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext"
+    = link_to "", round_path(@turn.round), class: "ui-btn ui-shadow ui-corner-all ui-icon-delete ui-btn-icon-notext"

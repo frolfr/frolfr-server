@@ -16,6 +16,10 @@ class RoundDecorator < Draper::Decorator
   end
 
   def display_date
-    created_at.strftime("%A, %b %d")
+    created_at.strftime("%A, %b %d %Y")
+  end
+
+  def short_date
+    created_at.strftime("%m/%d/%Y")
   end
 end

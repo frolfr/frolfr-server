@@ -7,8 +7,16 @@ class Scorecard < ActiveRecord::Base
 
   scope :by_date, -> { joins(:round).order('rounds.created_at DESC') }
 
+  def course
+    round.course
+  end
+
   def completed?
     turns.all?(&:played?)
+  end
+
+  def incomplete?
+    !completed?
   end
 
   def first_turn

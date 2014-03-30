@@ -30,11 +30,16 @@ en:
     welcome: "Happy Frolfin', %{user}!"
     home: 'Home'
     save_changes: "Save Changes"
+    mobile_message: >
+      Frolfr is optimized for an experience on your
+      mobile device. There's not currently much exclusive to
+      desktop. So why not give the app a shot?
   course:
     plural: "Courses"
     name: "Name"
     location: "Location"
-    rounds_played: "Rounds Played"
+    rounds: "Rounds"
+    played: "Courses I've Played"
   hole:
     number: "Hole %{number}"
   round:
@@ -49,6 +54,7 @@ en:
     par: "Par"
   scorecard:
     totals: "Totals"
+    incomplete: "* Denotes partially complete scorecard"
   turn:
     score: "Score"
     par: "Par"
