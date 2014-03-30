@@ -5,6 +5,6 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id]).decorate
-    @scorecards = ScorecardDecorator.decorate_collection(current_user.scorecards_for_course(@course))
+    @scorecards = current_user.scorecards_for_course(@course).decorate
   end
 end

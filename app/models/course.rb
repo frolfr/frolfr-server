@@ -6,11 +6,12 @@ class Course < ActiveRecord::Base
   validates_uniqueness_of :name, scope: :city
 
   IMAGES = {
-    Course.find_by(name: "Perkerson Park") => "http://www.dgcoursereview.com/course_pics/2590/da413035_m.jpg",
-    Course.find_by(name: "Redan Park") => "http://www.pdga.com/files/styles/large/public/course_photos/REDAN%20SIGN.jpg"
+    "Perkerson Park" => "perkerson.jpg",
+    "Redan Park" => "redan.jpg"
   }.freeze
 
   def image
-    IMAGES[self]
+    IMAGES[name]
+  end
   end
 end

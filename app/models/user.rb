@@ -11,15 +11,18 @@ class User < ActiveRecord::Base
   def scorecards_by_date
     scorecards.by_date
   end
+
+  def scorecards_for_course(course)
+    scorecards
+      .joins(:round)
+      .where(rounds: {course_id: course.id })
+  end
+
+  private
+
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
-  end
-
-  def scorecards_for_course(course)
-    scorecards.select do |scorecard|
-      scorecard.round.course == course
-    end
   end
 end
