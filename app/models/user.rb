@@ -7,6 +7,10 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   before_create { generate_token(:auth_token) }
 
+
+  def scorecards_by_date
+    scorecards.by_date
+  end
   def generate_token(column)
     begin
       self[column] = SecureRandom.urlsafe_base64
