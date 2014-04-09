@@ -1,3 +1,0 @@
-== Frolfr
-
-Rails app for disc golfers
