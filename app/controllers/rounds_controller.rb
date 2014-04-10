@@ -1,7 +1,7 @@
 class RoundsController < ApplicationController
   def new
     @round_form = RoundForm.new
-    @users = User.by_name.decorate
+    @users = current_user.friends.by_name.decorate
     @courses = Course.by_name
   end
 
@@ -24,6 +24,9 @@ class RoundsController < ApplicationController
   private
 
   def round_form_params
-    params.require(:round_form).permit(:course_id, user_ids: [])
+    params
+      .require(:round_form)
+      .permit(:course_id, user_ids: [])
+      .merge(current_user: current_user)
   end
 end
