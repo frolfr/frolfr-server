@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_secure_password
   has_many :scorecards
+  has_many :friendships
+  has_many :friends, through: :friendships
 
   validates :first_name, :last_name, :email, presence: true
   validates :password, presence: true, on: :create
