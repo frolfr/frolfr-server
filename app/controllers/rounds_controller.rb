@@ -12,7 +12,7 @@ class RoundsController < ApplicationController
       @round = @round_form.save
       redirect_to root_path
     else
-      render :new
+      redirect_to new_round_path
     end
   end
 
