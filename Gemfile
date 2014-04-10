@@ -29,6 +29,9 @@ gem 'bcrypt-ruby', "~> 3.0.0"
 # Factories
 gem 'factory_girl_rails'
 
+# Coverage
+gem 'coveralls', require: false
+
 group :production do
   gem 'rails_12factor'
 end
