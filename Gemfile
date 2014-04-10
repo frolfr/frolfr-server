@@ -31,6 +31,7 @@ gem 'factory_girl_rails'
 
 # Coverage
 gem 'coveralls', require: false
+gem 'simplecov', '~> 0.7.1'
 
 group :production do
   gem 'rails_12factor'
