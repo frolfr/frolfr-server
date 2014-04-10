@@ -27,12 +27,8 @@ class ApplicationController < ActionController::Base
     redirect_to login_path unless logged_in?
   end
 
-  def sign_in(user, permanent: false)
-    if permanent
-      cookies.permanent[:auth_token] = user.auth_token
-    else
-      cookies[:auth_token] = user.auth_token
-    end
+  def sign_in(user)
+    cookies.permanent[:auth_token] = user.auth_token
   end
 
   def mobile_device?
