@@ -24,7 +24,7 @@ gem 'draper', '~> 1.0'
 gem 'newrelic_rpm'
 
 # Authorization
-gem 'bcrypt-ruby'
+gem 'bcrypt'
 
 # Factories
 gem 'factory_girl_rails'
