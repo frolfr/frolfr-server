@@ -5,5 +5,5 @@ class Hole < ActiveRecord::Base
   validates_uniqueness_of :number, scope: :course
   validates :number, inclusion: { in: (1..27) }
 
-  default_scope order('number ASC')
+  default_scope { order('number ASC') }
 end
