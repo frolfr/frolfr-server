@@ -1,7 +1,7 @@
 # Frolfr
 
 [![Code Climate](https://codeclimate.com/github/gschorkopf/frolfr.png)](https://codeclimate.com/github/gschorkopf/frolfr)
-[![Coverage Status](https://coveralls.io/repos/gschorkopf/frolfr/badge.png)](https://coveralls.io/r/gschorkopf/frolfr)
+[![Coverage Status](https://coveralls.io/repos/gschorkopf/frolfr/badge.png?branch=master)](https://coveralls.io/r/gschorkopf/frolfr?branch=master)
 [![Build Status](https://travis-ci.org/gschorkopf/frolfr.png)](https://travis-ci.org/gschorkopf/frolfr)
 
 ### A Friendly Frolfr App
