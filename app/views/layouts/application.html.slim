@@ -13,8 +13,9 @@ html
         aside.left-off-canvas-menu
           = render "shared/sidebar" if logged_in?
 
-        nav.tab-bar
-          = render "shared/header"
+        .sticky
+          nav.tab-bar data-topbar=""
+            = render "shared/header"
 
         section.main-section
           div.row
