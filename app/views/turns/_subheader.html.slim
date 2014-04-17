@@ -1,13 +1,14 @@
-div.small-6.columns
+div.small-4.columns
   - if @turn.previous
     = link_to t('misc.previous'), turn_path(@turn.previous), class: "button expand"
   - else
     = link_to t('misc.home'), root_path, class: "button expand"
 
-div.small-6.columns
+div.small-4.columns
+  h3.hole-number = @turn.hole_number
+
+div.small-4.columns
   - if @turn.next
     = link_to t('misc.next'), turn_path(@turn.next), class: "button expand"
   - else
     = link_to t('round.recap'), round_path(@turn.round), class: "button expand"
-
-h2.title = @turn.hole_number
