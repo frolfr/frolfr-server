@@ -20,4 +20,4 @@ h2 = t('round.recent')
             - if scorecard.round.completed?
               = link_to t('round.recap'),  round_path(scorecard.round)
             - else
-              = link_to t('misc.keep_score'), turn_path(scorecard.first_turn)
+              = link_to t('round.jump_to', hole: 1), turn_path(scorecard.first_turn)

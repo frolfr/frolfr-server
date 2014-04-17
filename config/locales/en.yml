@@ -27,7 +27,6 @@ en:
     log_in: "Log In"
     log_out: "Log Out"
     save_changes: "Save Changes"
-    keep_score: 'Keep Score'
   course:
     singular: "Course"
     plural: "Courses"
@@ -47,6 +46,7 @@ en:
     par: "Par"
     players: "Players"
     recap: "Recap"
+    jump_to: "Jump to Hole %{hole}"
     self_note: >
       Note: You will be automatically added to this round.
       If you are playing solo, keep players field blank.
