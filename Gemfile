@@ -13,12 +13,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
+gem 'chosen-rails'
 
 # View
 gem 'slim'
 gem 'slim-rails'
 gem 'simple_form', github: 'plataformatec/simple_form'
 gem 'draper', '~> 1.0'
+gem 'foundation-rails'
 
 # Pinging Heroku
 gem 'newrelic_rpm'

@@ -1,5 +1,5 @@
 inputScore = ->
-  $dropdown = $("select#turn_score").last()
+  $dropdown = $("select#turn_score")
   $radios = $("input:radio[name='turn[par]']")
   id = $dropdown.data("id")
   url = "/turns/" + id
@@ -10,7 +10,7 @@ inputScore = ->
       type: "JSON"
       method: "put"
       data: {
-        score: $dropdown.val() 
+        score: $dropdown.val()
       }
       success: (data) ->
         $scorecards = $.parseJSON(data)
@@ -24,7 +24,7 @@ inputScore = ->
       url: url,
       method: "put",
       data: {
-        par: $(this).val() 
+        par: $(this).val()
       }
       success: (data) ->
         $scorecards = $.parseJSON(data)
@@ -33,4 +33,5 @@ inputScore = ->
           $total.text(value.score)
         )
 
-$(document).on 'pageinit', -> inputScore()
+$(document).ready inputScore
+$(document).on "page:load", inputScore

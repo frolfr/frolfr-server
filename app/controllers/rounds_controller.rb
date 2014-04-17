@@ -10,9 +10,9 @@ class RoundsController < ApplicationController
 
     if @round_form.valid?
       @round = @round_form.save
-      redirect_to root_path
+      redirect_to root_path, notice: "Round created"
     else
-      redirect_to new_round_path
+      render :new, alert: "Please include a course."
     end
   end
 

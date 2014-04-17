@@ -22,7 +22,6 @@
 en:
   misc:
     brand: "Frolfr"
-    under_construction: "Under Construction"
     previous: "Previous"
     next: "Next"
     log_in: "Log In"
@@ -30,10 +29,6 @@ en:
     welcome: "Happy Frolfin', %{user}!"
     home: 'Home'
     save_changes: "Save Changes"
-    mobile_message: >
-      Frolfr is optimized for an experience on your
-      mobile device. There's not currently much exclusive to
-      desktop. So why not give the app a shot?
   course:
     plural: "Courses"
     name: "Name"
@@ -52,11 +47,14 @@ en:
     date: "Date"
     total: "Total"
     par: "Par"
+    players: "Players"
+    recap: "Recap"
     self_note: >
       Note: You will be automatically added to this round.
       If you are playing solo, keep players field blank.
       Also, the players field currently only lists players you
       have played with before.
+    create: "Create Round"
   scorecard:
     totals: "Totals"
     incomplete: "* Denotes partially complete scorecard"

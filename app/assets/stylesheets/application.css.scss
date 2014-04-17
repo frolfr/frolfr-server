@@ -9,7 +9,10 @@
 //   Libraries
 // -------------------------------------
 
-@import "vintage";
+@import "foundation_and_overrides";
+@import "chosen";
+@import url("http://fonts.googleapis.com/css?family=Trade+Winds");
 
+#title { font-family: 'Trade Winds', cursive; }
 .over-par { color: red }
 .under-par { color: green }

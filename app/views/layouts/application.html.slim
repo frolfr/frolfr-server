@@ -2,12 +2,24 @@ doctype
 html
   head
     title= t('misc.brand')
-    = stylesheet_link_tag "application", media: "all"
-    = stylesheet_link_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"
+    = stylesheet_link_tag "application"
     = javascript_include_tag "application"
-    = javascript_include_tag "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"
+    = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1"
 
   body
-    .container-fluid
-      = yield
+    .off-canvas-wrap data-offcanvas=""
+      .inner-wrap
+        aside.left-off-canvas-menu
+          = render "shared/sidebar"
+
+        nav.tab-bar
+          = render "shared/header"
+
+        section.main-section
+          div.row
+            = render "shared/notices"
+            = yield
+
+        a.exit-off-canvas

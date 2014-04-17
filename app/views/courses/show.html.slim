@@ -2,11 +2,11 @@ header
   h2 = @course.name
   h4 = @course.location
   - if @course.image_available?
-    = image_tag @course.image, class: "img-rounded", size: "300x225"
+    img data-interchange="[#{@course.image}, (default)]}"
 
 h2 = t('round.recent')
 
-table.table.table-striped
+table.small-12
   thead
     tr
       th = t('round.date')

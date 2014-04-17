@@ -1,3 +1,14 @@
-h1= t('misc.under_construction')
-p = t('misc.mobile_message')
-= link_to "To Mobile: We Ride!", mobile: 1
+h2 = t('round.create')
+= link_to t('round.start'), new_round_path, class: "button expand"
+
+h2 = t('round.recent')
+ul.no-bullet
+  - if @scorecards.empty?
+    p= t('round.empty')
+  - else
+    - @scorecards.each do |scorecard|
+      li
+        = link_to_if !scorecard.round.completed?, scorecard.title, turn_path(scorecard.first_turn)
+        - if scorecard.round.completed?
+          =< "|"
+          =< link_to t('round.recap'),  round_path(scorecard.round)

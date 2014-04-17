@@ -1,0 +1,8 @@
+h2 = t('user.profile')
+p = t('user.edit_message')
+
+= simple_form_for current_user, url: user_path(current_user), method: :put do |f|
+  = f.input :first_name
+  = f.input :middle_name
+  = f.input :last_name
+  = f.submit t('misc.save_changes'), class: "button expand"
