@@ -26,8 +26,6 @@ en:
     next: "Next"
     log_in: "Log In"
     log_out: "Log Out"
-    welcome: "Happy Frolfin', %{user}!"
-    home: 'Home'
     save_changes: "Save Changes"
   course:
     plural: "Courses"
