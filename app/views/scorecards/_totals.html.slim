@@ -5,8 +5,8 @@ table.small-12
     - @round.scorecards.each do |scorecard|
       td id="total-#{scorecard.id}-#{scorecard.user.id}"
         - if scorecard == @turn.scorecard
-          strong= scorecard.user_name
+          strong= scorecard.user_initials
         - else
-          strong= link_to scorecard.user_name, turn_path(scorecard.turn_for_hole(@turn.hole.number))
+          strong= link_to scorecard.user_initials, turn_path(scorecard.turn_for_hole(@turn.hole.number))
         br
         span.total= scorecard.display_score
