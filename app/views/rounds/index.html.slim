@@ -2,13 +2,25 @@ h2 = t('round.create')
 = link_to t('round.start'), new_round_path, class: "button expand"
 
 h2 = t('round.recent')
-ul.no-bullet
-  - if @scorecards.empty?
-    p= t('round.empty')
-  - else
-    - @scorecards.each do |scorecard|
-      li
-        = link_to_if !scorecard.round.completed?, scorecard.title, turn_path(scorecard.first_turn)
-        - if scorecard.round.completed?
-          =< "|"
-          =< link_to t('round.recap'),  round_path(scorecard.round)
+
+- if @scorecards.empty?
+  p= t('round.empty')
+- else
+  table.small-12
+    thead
+      tr
+        th = t('course.singular')
+        th = t('course.location')
+        th = t('round.total')
+        th
+    tbody
+      - @scorecards.each do |scorecard|
+        tr
+          td = link_to scorecard.course.name, course_path(scorecard.course)
+          td = scorecard.course_location
+          td = scorecard.display_score
+          td
+            - if scorecard.round.completed?
+              = link_to t('round.recap'),  round_path(scorecard.round)
+            - else
+              = link_to t('misc.keep_score'), turn_path(scorecard.first_turn)

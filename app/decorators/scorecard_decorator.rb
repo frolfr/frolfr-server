@@ -4,6 +4,14 @@ class ScorecardDecorator < Draper::Decorator
   decorates_association :turns
   decorates_association :user
 
+  def course_name
+    round.course_name
+  end
+
+  def course_location
+    round.location
+  end
+
   def user_name
     user.first_name
   end
@@ -26,10 +34,6 @@ class ScorecardDecorator < Draper::Decorator
 
   def score_for_hole(number)
     turn_for_hole(number).score || "-"
-  end
-
-  def title
-    round.title
   end
 
   def display_date

@@ -11,8 +11,8 @@ class RoundDecorator < Draper::Decorator
     course.location
   end
 
-  def title
-    "#{course.name} - #{display_date}"
+  def course_name
+    course.name
   end
 
   def display_date

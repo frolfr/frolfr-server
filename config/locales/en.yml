@@ -27,12 +27,13 @@ en:
     log_in: "Log In"
     log_out: "Log Out"
     save_changes: "Save Changes"
+    keep_score: 'Keep Score'
   course:
+    singular: "Course"
     plural: "Courses"
     name: "Name"
     location: "Location"
     rounds: "Rounds"
-    played: "Courses I've Played"
   hole:
     number: "Hole %{number}"
   round:
