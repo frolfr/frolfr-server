@@ -8,7 +8,7 @@ class Course < ActiveRecord::Base
   scope :by_name, -> { order(:name) }
 
   def image
-    "/assets/#{IMAGES[name]}"
+    "https://s3.amazonaws.com/frolfr/#{IMAGES[name]}"
   end
 
   def image_available?
