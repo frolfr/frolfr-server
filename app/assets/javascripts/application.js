@@ -12,5 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
+//= require chosen-jquery
+//= require chosen-scaffold
+//= require score_input
 //= require_tree .
 
+$(function(){
+ $(document).foundation();
+});
