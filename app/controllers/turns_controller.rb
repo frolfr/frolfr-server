@@ -1,4 +1,6 @@
 class TurnsController < ApplicationController
+  before_action :check_player
+
   def show
     @turn = Turn.find(params[:id]).decorate
     @round = @turn.round
@@ -16,7 +18,7 @@ class TurnsController < ApplicationController
     scores = get_scores(turn.round.decorate)
 
     respond_to do |format|
-      format.mobile { render json: scores }
+      format.html { render json: scores }
     end
   end
 
@@ -34,5 +36,14 @@ class TurnsController < ApplicationController
         user_id: scorecard.user.id
       }
     end
+  end
+
+  def check_player
+    redirect_to root_path unless playing_round?
+  end
+
+  def playing_round?
+    scorecard = Turn.find(params[:id]).scorecard
+    current_user.scorecards.include?(scorecard)
   end
 end
