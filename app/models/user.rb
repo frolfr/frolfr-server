@@ -12,7 +12,8 @@ class User < ActiveRecord::Base
   scope :by_name, -> { order(:first_name, :last_name) }
 
   def courses_played
-    scorecards.map(&:course).uniq
+    courses = scorecards.map(&:course).uniq
+    courses.sort_by {|course| course.name} # Needs replacement
   end
 
   def scorecards_by_date
