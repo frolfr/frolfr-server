@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    @current_user ||= User.find_by(auth_token: cookies[:auth_token])
+    @current_user ||= (found_user.present? ? found_user.decorate : nil)
   end
 
   def logged_in?
@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def found_user
+    User.find_by(auth_token: cookies[:auth_token])
+  end
 
   def require_login
     redirect_to login_path unless logged_in?
