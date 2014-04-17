@@ -38,6 +38,7 @@ en:
   hole:
     number: "Hole %{number}"
   round:
+    plural: "Rounds"
     start: "Start New Round"
     create: "Create Rounds"
     current: "Current Rounds"

@@ -1,4 +1,8 @@
 class RoundsController < ApplicationController
+  def index
+    @scorecards = current_user.scorecards_by_date.decorate
+  end
+
   def new
     @round_form = RoundForm.new
     @users = current_user.friends.by_name.decorate
