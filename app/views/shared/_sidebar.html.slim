@@ -1,5 +1,11 @@
 ul.off-canvas-list
-  li = link_to t('misc.home'), root_path
-  li = link_to t('user.profile'), profile_path
+  li
+    label
+  li = link_to current_user.full_name, profile_path
+  li
+    label
+  li = link_to t('round.plural'), root_path
   li = link_to t('course.plural'), courses_path
   li = link_to t('misc.log_out'), logout_path
+  li
+    label
