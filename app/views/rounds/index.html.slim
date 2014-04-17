@@ -15,7 +15,7 @@ h2 = t('round.recent')
         th
     tbody
       - @scorecards.each do |scorecard|
-        tr
+        tr class=("highlight" unless scorecard.round.completed?)
           td = link_to scorecard.course.name, course_path(scorecard.course)
           td = scorecard.display_date
           td = scorecard.display_score
