@@ -4,11 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/gschorkopf/frolfr/badge.png?branch=master)](https://coveralls.io/r/gschorkopf/frolfr?branch=master)
 [![Build Status](https://travis-ci.org/gschorkopf/frolfr.png)](https://travis-ci.org/gschorkopf/frolfr)
 
-### A Friendly Frolfr App
-
 #### About Frolfr
 
-This project is under construction. The MVP, however, is currently available at the production site below.
+This project is under construction. The MVP, however, is currently available at the production site below, and up-to-date with master.
 
 #### Visit Frolfr's production site
 
@@ -35,7 +33,3 @@ To run tests, run `rake db:test:prepare; rspec`.
 #### Contact
 
 Feel free to contact me via Twitter: [Geoff Schorkopf](http://twitter.com/gschork)
-
-#### Note
-
-It should be noted this commit took place in Costa Rica on a phone with very little WiFi. Deal with it.
