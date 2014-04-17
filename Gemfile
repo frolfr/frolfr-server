@@ -48,5 +48,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'capybara'
+  gem 'turnip'
   gem 'rspec-pride'
 end
