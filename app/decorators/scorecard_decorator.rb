@@ -8,10 +8,6 @@ class ScorecardDecorator < Draper::Decorator
     round.course_name
   end
 
-  def course_location
-    round.location
-  end
-
   def user_name
     user.first_name
   end

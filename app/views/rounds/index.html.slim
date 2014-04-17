@@ -10,14 +10,14 @@ h2 = t('round.recent')
     thead
       tr
         th = t('course.singular')
-        th = t('course.location')
+        th = t('round.date')
         th = t('round.total')
         th
     tbody
       - @scorecards.each do |scorecard|
         tr
           td = link_to scorecard.course.name, course_path(scorecard.course)
-          td = scorecard.course_location
+          td = scorecard.display_date
           td = scorecard.display_score
           td
             - if scorecard.round.completed?

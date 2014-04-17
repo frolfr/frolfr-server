@@ -15,7 +15,7 @@ table.small-12
   tbody
     - @scorecards.each do |scorecard|
       tr
-        td = scorecard.short_date
+        td = scorecard.display_date
         td = scorecard.display_total
         td = scorecard.display_shooting
 
