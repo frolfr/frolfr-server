@@ -12,17 +12,6 @@
 // Allows the use of rem-calc() or lower-bound() in your settings
 @import "foundation/functions";
 
-.main-section {
-  min-height: 100%;
-  padding-right: 10%;
-  padding-left: 10%;
-  padding-top: .5em;
-}
-
-table#scorecard td {
-  text-align: center;
-}
-
 // The default font-size is set to 100% of the browser style sheet (usually 16px)
 // for compatibility with browser-based text zoom or user-set defaults.
 
