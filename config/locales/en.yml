@@ -39,8 +39,6 @@ en:
   round:
     plural: "Rounds"
     start: "Start New Round"
-    create: "Create Rounds"
-    current: "Current Rounds"
     recent: "Recent Rounds"
     scorecard_title: "Scorecard for %{name}"
     empty: "Ain't no rounds here."
