@@ -1,14 +1,12 @@
 h2 = t('scorecard.totals')
-.ui-grid-c
-  - letter = "a"
-  - @round.scorecards.each do |scorecard|
-    div class="ui-block-#{letter}" id="total-#{scorecard.id}-#{scorecard.user.id}"
-      p
+
+table.small-12
+  tr
+    - @round.scorecards.each do |scorecard|
+      td id="total-#{scorecard.id}-#{scorecard.user.id}"
         - if scorecard == @turn.scorecard
           strong= scorecard.user_name
         - else
           strong= link_to scorecard.user_name, turn_path(scorecard.turn_for_hole(@turn.hole.number))
         br
         span.total= scorecard.display_score
-
-    - letter = letter.succ

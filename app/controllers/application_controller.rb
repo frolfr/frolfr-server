@@ -24,17 +24,4 @@ class ApplicationController < ActionController::Base
   def sign_in(user)
     cookies.permanent[:auth_token] = user.auth_token
   end
-
-  def mobile_device?
-    if session[:mobile_param]
-      session[:mobile_param].to_s == "1"
-    else
-      request.user_agent =~ /Mobile|webOS/
-    end
-  end
-
-  def prepare_for_mobile
-    session[:mobile_param] = params[:mobile] if params[:mobile]
-    request.format = :mobile if mobile_device?
-  end
 end

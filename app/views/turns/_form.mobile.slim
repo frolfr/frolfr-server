@@ -1,6 +1,0 @@
-= simple_form_for @turn do |f|
-  h2 = t('turn.par')
-  = f.collection_radio_buttons :par, [[3, "Three"], [4, "Four"], [5, "Five"]], :first, :last
-
-  h2 = t('turn.score')
-  = f.input :score, collection: Turn::SCORES, label: false, required: false, input_html: { data: { id: @turn.id } }

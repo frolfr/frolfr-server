@@ -1,5 +1,0 @@
-= simple_form_for @round_form, url: differentiate_path(:rounds_path), method: :post do |f|
-  = f.input :course_id, collection: @courses.pluck(:name, :id), input_html: { "data-iconpos" => "left" }
-  = f.input :user_ids, collection: @users.map {|user| [user.full_name, user.id]}, label: "Players", input_html: { multiple: "multiple", "data-native-menu" => "false", "data-iconpos" => "left" }
-  p = t('round.self_note')
-  = f.submit "Create Round"
