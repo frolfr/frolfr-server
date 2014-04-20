@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     courses.sort_by {|course| course.name} # Needs replacement
   end
 
+  def rounds
+    scorecards.map(&:round)
+  end
+
   def scorecards_by_date
     scorecards.by_date
   end

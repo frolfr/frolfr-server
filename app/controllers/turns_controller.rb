@@ -43,7 +43,7 @@ class TurnsController < ApplicationController
   end
 
   def playing_round?
-    scorecard = Turn.find(params[:id]).scorecard
-    current_user.scorecards.include?(scorecard)
+    round = Turn.find(params[:id]).scorecard.round
+    current_user.rounds.include?(round)
   end
 end
