@@ -27,6 +27,7 @@ en:
     log_in: "Log In"
     log_out: "Log Out"
     save_changes: "Save Changes"
+    welcome: "Welcome to Frolfr, %{user}!"
   course:
     singular: "Course"
     plural: "Courses"
@@ -63,3 +64,6 @@ en:
   user:
     profile: "Profile"
     edit_message: "Feel free to edit personal information here:"
+  sign_up:
+    singular: "Sign Up"
+    header: "Sign Up for Frolfr"
