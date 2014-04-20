@@ -3,3 +3,7 @@ h2 = t("misc.log_in")
   = f.input :email
   = f.input :password
   = f.submit t('misc.log_in'), class: "button expand"
+
+p
+  = t('sign_up.new')
+  =< link_to t('sign_up.singular'), sign_up_path
