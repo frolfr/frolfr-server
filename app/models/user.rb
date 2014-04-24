@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
 
   def courses_played
     courses = scorecards.map(&:course).uniq
-    courses.sort_by {|course| course.name} # Needs replacement
+    courses.sort_by {|course| course.name} # OPTIMIZE: Needs replacement
   end
 
   def rounds

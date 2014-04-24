@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   def index
-    @courses = CourseDecorator.decorate_collection(current_user.courses_played) # Needs replacement
+    @courses = CourseDecorator.decorate_collection(current_user.courses_played) # TODO: Needs replacement
   end
 
   def show
