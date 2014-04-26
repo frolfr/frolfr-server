@@ -4,6 +4,7 @@ Frolfr::Application.routes.draw do
   get '/logout', to: 'sessions#destroy'
   get '/profile', to: 'users#edit'
   get '/sign_up', to: 'users#new'
+  get '/friends', to: 'friendships#index'
 
   resources :courses, only: [:index, :show]
   resources :rounds, only: [:index, :new, :create, :show]
