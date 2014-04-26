@@ -36,6 +36,11 @@ en:
     rounds: "Rounds"
   hole:
     number: "Hole %{number}"
+  friend:
+    plural: "Friends"
+    current: "Current Friends"
+    name: "Name"
+    empty: "You have no friends! EXTREME SADNESS."
   round:
     plural: "Rounds"
     start: "Start New Round"

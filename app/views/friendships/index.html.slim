@@ -1,0 +1,13 @@
+h2 = t('friend.current')
+
+- if @friends.empty?
+  p= t('friend.empty')
+- else
+  table.small-12
+    thead
+      tr
+        th = t('friend.name')
+    tbody
+      - @friends.each do |friend|
+        tr
+          td = friend.full_name
