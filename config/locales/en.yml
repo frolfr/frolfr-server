@@ -38,6 +38,7 @@ en:
     number: "Hole %{number}"
   friend:
     plural: "Friends"
+    find: "Find Friends"
     current: "Current Friends"
     name: "Name"
     empty: "You have no friends! EXTREME SADNESS."

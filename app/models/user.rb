@@ -11,6 +11,10 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order(:first_name, :last_name) }
 
+  def friendable_users
+    User.all - friends
+  end
+
   def courses_played
     ids = rounds.map(&:course_id)
     courses = Course.where(id: ids).by_name # TODO: Consider refactor / another approach!
