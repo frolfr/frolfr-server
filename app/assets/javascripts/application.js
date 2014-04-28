@@ -17,6 +17,7 @@
 //= require chosen-jquery
 //= require chosen-scaffold
 //= require score_input
+//= require autocomplete
 //= require_tree .
 
 $(function(){
