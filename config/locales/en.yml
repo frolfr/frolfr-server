@@ -22,8 +22,6 @@
 en:
   misc:
     brand: "Frolfr"
-    previous: "Previous"
-    next: "Next"
     log_in: "Log In"
     log_out: "Log Out"
     save_changes: "Save Changes"

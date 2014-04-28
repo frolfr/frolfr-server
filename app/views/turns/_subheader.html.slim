@@ -1,6 +1,6 @@
 .small-4.columns
   - if @turn.previous
-    = link_to t('misc.previous'), turn_path(@turn.previous), class: "button expand"
+    = link_to "<", turn_path(@turn.previous), class: "button expand"
   - else
     = link_to t('misc.home'), root_path, class: "button expand"
 
@@ -9,6 +9,6 @@
 
 .small-4.columns
   - if @turn.next
-    = link_to t('misc.next'), turn_path(@turn.next), class: "button expand"
+    = link_to ">", turn_path(@turn.next), class: "button expand"
   - else
     = link_to t('round.recap'), round_path(@turn.round), class: "button expand"
