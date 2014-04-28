@@ -8,8 +8,7 @@ class FriendshipsController < ApplicationController
   def create
     friend = User.all.decorate.find {|user| user.full_name == params[:friend_name]} # TODO: Figure out a way to pass ID
 
-    if friend.present?
-      Friendship.create_friendship(user: current_user, friend: friend)
+    if friend.present? && Friendship.create_friendship(user: current_user, friend: friend)
       redirect_to friends_path, notice: t('friend.success', friend: friend.full_name)
     else
       redirect_to friends_path, notice: failure_notice

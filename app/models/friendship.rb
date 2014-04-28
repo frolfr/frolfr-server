@@ -8,13 +8,14 @@ class Friendship < ActiveRecord::Base
   validate :cannot_add_self
 
   def self.create_friendship(user: nil, friend: nil)
-    create(user: user, friend: friend)
-    create(user: friend, friend: user)
+    friendship1 = new(user: user, friend: friend)
+    friendship2 = new(user: friend, friend: user)
+    friendship1.save && friendship2.save
   end
 
   private
 
   def cannot_add_self
-    return false if user == friend
+    errors.add(:friend_id, t('errors.friend_id')) if user_id == friend_id
   end
 end

@@ -34,6 +34,8 @@ en:
     rounds: "Rounds"
   hole:
     number: "Hole %{number}"
+  errors:
+    friend_id: "Cannot add yourself as a friend"
   friend:
     plural: "Friends"
     find: "Find Friends"
