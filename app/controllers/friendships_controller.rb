@@ -6,7 +6,7 @@ class FriendshipsController < ApplicationController
   end
 
   def create
-    friend = User.all.decorate.find {|user| user.full_name == params[:friend_name]}
+    friend = User.all.decorate.find {|user| user.full_name == params[:friend_name]} # TODO: Figure out a way to pass ID
 
     if friend.present?
       Friendship.create_friendship(user: current_user, friend: friend)

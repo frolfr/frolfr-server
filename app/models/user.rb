@@ -21,7 +21,9 @@ class User < ActiveRecord::Base
   end
 
   def rounds
-    scorecards.map(&:round)
+    Round
+      .joins(:scorecards)
+      .where(scorecards: {user_id: id}) # TODO: Refactor to use ActiveRecord
   end
 
   def scorecards_by_date

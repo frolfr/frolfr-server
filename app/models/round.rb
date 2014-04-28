@@ -3,6 +3,7 @@ class Round < ActiveRecord::Base
   has_many :scorecards, dependent: :destroy
 
   validates :course, presence: true
+  # TODO: validate that the round has at least one scorecard
 
   scope :by_date, -> { order('created_at DESC') }
 

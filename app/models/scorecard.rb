@@ -4,6 +4,7 @@ class Scorecard < ActiveRecord::Base
   has_many :turns, dependent: :destroy
 
   validates :user, :round, presence: true
+  # TODO: validate that scorecard has as many turns as a course has holes
 
   scope :by_date, -> { joins(:round).order('rounds.created_at DESC') }
 
