@@ -32,6 +32,9 @@ gem 'bcrypt'
 # Factories
 gem 'factory_girl_rails'
 
+# Validations
+gem 'auto_strip_attributes'
+
 # Coverage
 gem 'coveralls', require: false
 gem 'simplecov', '~> 0.7.1'

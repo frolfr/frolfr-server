@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   has_many :friendships
   has_many :friends, through: :friendships
 
+  auto_strip_attributes :first_name, :last_name, :email, :middle_name, squish: true
+
   validates :first_name, :last_name, :email, presence: true
   validates :password, presence: true, on: :create
   validates :email, uniqueness: true
