@@ -20,8 +20,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_edit_params)
-    redirect_to profile_path
+    if current_user.update(user_edit_params)
+      redirect_to profile_path, notice: t('user.success')
+    else
+      render :edit
+    end
   end
 
   private

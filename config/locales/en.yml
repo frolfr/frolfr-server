@@ -74,6 +74,7 @@ en:
   user:
     profile: "Profile"
     edit_message: "Feel free to edit personal information here:"
+    success: "Profile successfully updated"
   sign_up:
     singular: "Sign Up"
     header: "Sign Up for Frolfr"
