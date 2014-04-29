@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       sign_in(@user)
       redirect_to root_path, notice: t('misc.welcome', user: @user.first_name)
     else
-      render :new, alert: "There were errors with your submission"
+      render :new, alert: t('misc.errors')
     end
   end
 

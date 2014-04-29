@@ -26,6 +26,7 @@ en:
     log_out: "Log Out"
     save_changes: "Save Changes"
     welcome: "Welcome to Frolfr, %{user}!"
+    errors: "There were errors with your submission"
   course:
     singular: "Course"
     plural: "Courses"
