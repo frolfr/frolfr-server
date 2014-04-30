@@ -16,6 +16,6 @@ class Friendship < ActiveRecord::Base
   private
 
   def cannot_add_self
-    errors.add(:friend_id, t('errors.friend_id')) if user_id == friend_id
+    errors.add(:friend_id, I18n.t('errors.friend_id')) if user_id == friend_id
   end
 end
