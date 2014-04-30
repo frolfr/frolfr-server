@@ -5,7 +5,7 @@ h2 = t('friend.find')
     .small-9.columns
       = f.input :friend_name, label: false, as: :fake, input_html: { id: "autocomplete-friends", "data-autocomplete-source" => "#{@friendable_users}" }
     .small-3.columns
-      = f.submit "+", class: "button expand"
+      = f.submit "+", class: "button expand", rel: 'submit-friend'
 
 h2 = t('friend.current')
 
