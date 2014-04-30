@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'chosen-rails'
+gem 'foundation-icons-sass-rails'
 
 # View
 gem 'slim'

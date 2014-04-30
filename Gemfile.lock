@@ -92,6 +92,9 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    foundation-icons-sass-rails (3.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
     foundation-rails (5.2.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
@@ -242,6 +245,7 @@ DEPENDENCIES
   coveralls
   draper (~> 1.0)
   factory_girl_rails
+  foundation-icons-sass-rails
   foundation-rails
   jbuilder (~> 1.2)
   jquery-rails
