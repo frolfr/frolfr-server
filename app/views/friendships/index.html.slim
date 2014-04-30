@@ -3,9 +3,10 @@ h2 = t('friend.find')
 = simple_form_for Friendship.new, url: friendships_path, method: :post do |f|
   .row
     .small-9.columns
-      = f.input :friend_name, label: false, as: :fake, input_html: { id: "autocomplete-friends", "data-autocomplete-source" => "#{@friendable_users}" }
+      = f.input :friend_name, label: false, as: :fake, input_html: { id: "autocomplete-friends", "data-autocomplete-source" => "#{@friendable_users}", class: "larger-input" }
     .small-3.columns
-      = f.submit "+", class: "button expand", rel: 'submit-friend'
+      = f.button :button, class: "button expand", rel: 'submit-friend' do
+        i.fi-plus
 
 h2 = t('friend.current')
 
@@ -15,8 +16,12 @@ h2 = t('friend.current')
   table.small-12
     thead
       tr
-        th = t('friend.name')
+        th.small-9 = t('friend.name')
+        th.small-3
     tbody
       - @friends.each do |friend|
         tr
           td = friend.full_name
+          td.text-centered
+            = link_to friendship_path(friend), method: :delete do
+              i.fi-x.red-icon

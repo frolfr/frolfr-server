@@ -46,6 +46,7 @@ en:
     success: "%{friend} has been added to friends"
     failure: "%{friend} could not be added to friends"
     no_params: "Whoops. Did you forget to fill in your friend's name?"
+    destroy: "%{friend} has been removed from friends"
   round:
     plural: "Rounds"
     start: "Start New Round"
