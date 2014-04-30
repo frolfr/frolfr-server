@@ -15,6 +15,13 @@ class FriendshipsController < ApplicationController
     end
   end
 
+  def destroy
+    friend = User.find(params[:id])
+    Friendship.remove_friendship(user: current_user, friend: friend)
+
+    redirect_to friends_path, notice: t('friend.destroy', friend: friend.decorate.full_name)
+  end
+
   private
 
   def failure_notice

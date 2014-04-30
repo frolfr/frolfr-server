@@ -13,6 +13,12 @@ class Friendship < ActiveRecord::Base
     friendship1.save && friendship2.save
   end
 
+  def self.remove_friendship(user: nil, friend: nil)
+    friendship1 = find_by(user: user, friend: friend)
+    friendship2 = find_by(user: friend, friend: user)
+    friendship1.destroy && friendship2.destroy
+  end
+
   private
 
   def cannot_add_self

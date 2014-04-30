@@ -7,7 +7,7 @@ Frolfr::Application.routes.draw do
   get '/friends', to: 'friendships#index'
 
   resources :courses, only: [:index, :show]
-  resources :friendships, only: [:create]
+  resources :friendships, only: [:create, :destroy]
   resources :rounds, only: [:index, :new, :create, :show]
   resources :sessions, only: [:create]
   resources :turns, only: [:show, :update]
