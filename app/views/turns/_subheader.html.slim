@@ -1,14 +1,17 @@
 .small-4.columns
   - if @turn.previous
-    = link_to "<", turn_path(@turn.previous), class: "button expand"
+    = link_to turn_path(@turn.previous), class: "button expand" do
+      i.fi-arrow-left
   - else
-    = link_to t('misc.home'), root_path, class: "button expand"
+    = link_to root_path, class: "button expand" do
+      i.fi-home
 
 .small-4.columns
-  h3.hole-number = @turn.hole_number
+  h3.text-centered = @turn.hole_number
 
 .small-4.columns
   - if @turn.next
-    = link_to ">", turn_path(@turn.next), class: "button expand"
+    = link_to turn_path(@turn.next), class: "button expand" do
+      i.fi-arrow-right
   - else
     = link_to t('round.recap'), round_path(@turn.round), class: "button expand"
