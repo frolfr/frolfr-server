@@ -3,7 +3,6 @@ step "I navigate to friends" do
 end
 
 step "I add the other user as a friend" do
-  save_and_open_page
   @full_name = @other_user.decorate.full_name
   page.fill_in 'autocomplete-friends', with: @full_name
   find("[rel~=submit-friend]").click
