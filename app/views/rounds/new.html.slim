@@ -1,5 +1,5 @@
 = simple_form_for @round_form, url: rounds_path, method: :post do |f|
   = f.input :course_id, collection: @courses.pluck(:name, :id)
   = f.input :user_ids, collection: @users.map {|user| [user.full_name, user.id]}, label: t('round.players'), input_html: { multiple: "multiple", class: 'chosen-select' }
-  p = t('round.self_note')
+  p.tap-down = t('round.self_note')
   = f.submit t('round.create'), class: "button expand"
