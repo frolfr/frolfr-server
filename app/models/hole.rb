@@ -21,6 +21,10 @@ class Hole < ActiveRecord::Base
     turns.sum(:par) / turns.count.to_f
   end
 
+  def average_shooting(user)
+    average_score(user) - average_par(user)
+  end
+
   private
 
   def played_turns_for_user(user)
