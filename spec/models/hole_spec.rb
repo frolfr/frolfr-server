@@ -17,4 +17,17 @@ describe Hole do
       expect(subject.average_score(user)).to be_nil
     end
   end
+
+  describe "#average_par" do
+    it "provides the average score for all turns" do
+      FactoryGirl.create(:turn, score: 3, par: 3, hole: subject, scorecard: scorecard)
+      FactoryGirl.create(:turn, score: 3, par: 4, hole: subject, scorecard: scorecard)
+      FactoryGirl.create(:turn, score: nil, par: 5, hole: subject, scorecard: scorecard)
+      expect(subject.average_par(user)).to eq 3.5
+    end
+
+    it "returns nil if the hole has never been played" do
+      expect(subject.average_par(user)).to be_nil
+    end
+  end
 end

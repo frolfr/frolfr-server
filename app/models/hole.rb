@@ -14,6 +14,13 @@ class Hole < ActiveRecord::Base
     return nil if turns.count.zero?
     turns.sum(:score) / turns.count.to_f
   end
+
+  def average_par(user)
+    turns = played_turns_for_user(user)
+    return nil if turns.count.zero?
+    turns.sum(:par) / turns.count.to_f
+  end
+
   private
 
   def played_turns_for_user(user)
