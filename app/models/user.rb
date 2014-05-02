@@ -13,13 +13,17 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order(:first_name, :last_name) }
 
+  def friends_by_name
+    friends.by_name
+  end
+
   def friendable_users
     User.where.not(id: id) - friends
   end
 
   def courses_played
-    ids = rounds.map(&:course_id)
-    courses = Course.where(id: ids).by_name # TODO: Consider refactor / another approach!
+    ids = rounds.pluck(:course_id)
+    Course.where(id: ids).by_name # TODO: Consider refactor / another approach!
   end
 
   def rounds
