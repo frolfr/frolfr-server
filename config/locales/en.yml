@@ -35,6 +35,7 @@ en:
     rounds: "Rounds"
     stats:
       average_shooting: "Average Shooting"
+      plural: "Stats"
   hole:
     number: "Hole %{number}"
     plural: "Holes"

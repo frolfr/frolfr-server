@@ -1,6 +1,8 @@
 header
   h2 = @course.name
   h4 = @course.location
+  p
+    = link_to t('course.stats.header'), course_stat_path(@course), class: "button expand"
   - if @course.image_available?
     img data-interchange="[#{@course.image}, (small)]}"
 
