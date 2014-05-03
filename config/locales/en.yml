@@ -33,8 +33,11 @@ en:
     name: "Name"
     location: "Location"
     rounds: "Rounds"
+    stats:
+      average_shooting: "Average Shooting"
   hole:
     number: "Hole %{number}"
+    plural: "Holes"
   errors:
     friend_id: "Cannot add yourself as a friend"
   friend:

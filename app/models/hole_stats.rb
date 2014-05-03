@@ -6,6 +6,10 @@ class HoleStats
     @user = user
   end
 
+  def number
+    hole.number
+  end
+
   def average_score
     return nil if turns_count.zero?
     turns.sum(:score) / turns_count.to_f
