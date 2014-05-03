@@ -65,8 +65,7 @@ en:
     self_note: >
       Note: You will be automatically added to this round.
       If you are playing solo, keep players field blank.
-      Also, the players field currently only lists players you
-      have played with before.
+      You may only play with players who are your friends.
     create: "Create Round"
   scorecard:
     totals: "Totals"
