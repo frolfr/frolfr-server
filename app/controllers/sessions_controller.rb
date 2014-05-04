@@ -9,11 +9,9 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(sign_in_params[:password])
       sign_in(@user)
-      # Flash notice
-      redirect_to root_url
+      redirect_to root_url, notice: t('misc.welcome', user: current_user.full_name)
     else
-      # Flash notice
-      redirect_to root_url
+      redirect_to root_url, notice: t('session.failure')
     end
   end
 

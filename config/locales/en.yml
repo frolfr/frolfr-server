@@ -68,6 +68,8 @@ en:
       If you are playing solo, keep players field blank.
       You may only play with players who are your friends.
     create: "Create Round"
+  session:
+    failure: "Chauncy! Your username or password was incorrect"
   scorecard:
     totals: "Totals"
     incomplete: "* Denotes partially complete scorecard"
