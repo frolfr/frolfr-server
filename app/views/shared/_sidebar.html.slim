@@ -4,8 +4,9 @@ ul.off-canvas-list
   li = link_to current_user.full_name, profile_path
   li
     label
+  li = link_to t('dashboard.home'), root_path
   li = link_to t('round.start'), new_round_path
-  li = link_to t('round.plural'), root_path
+  li = link_to t('round.plural'), rounds_path
   li = link_to t('course.plural'), courses_path
   li = link_to t('friend.plural'), friends_path
   li = link_to t('misc.log_out'), logout_path

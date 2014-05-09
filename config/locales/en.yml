@@ -36,6 +36,8 @@ en:
     stats:
       average_shooting: "Average Shooting"
       plural: "Stats"
+  dashboard:
+    home: "Home"
   hole:
     number: "Hole %{number}"
     plural: "Holes"
