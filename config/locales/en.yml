@@ -37,7 +37,13 @@ en:
       average_shooting: "Average Shooting"
       plural: "Stats"
   dashboard:
+    header: "%{name}'s Dashboard"
     home: "Home"
+    welcome: "Welcome to Frolfr"
+    last_scorecard: >
+      You last played at %{course} and shot a %{shooting}, with an overall
+      score of %{total}
+    create: "Create Round"
   hole:
     number: "Hole %{number}"
     plural: "Holes"
