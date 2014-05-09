@@ -1,5 +1,5 @@
 Frolfr::Application.routes.draw do
-  root to: 'rounds#index'
+  root to: 'dashboard#show'
   get '/login', to: 'sessions#new'
   get '/logout', to: 'sessions#destroy'
   get '/profile', to: 'users#edit'

@@ -9,7 +9,7 @@ class Turn < ActiveRecord::Base
   validates :score, inclusion: { in: SCORES, allow_nil: true }
   validates :par, inclusion: PARS
 
-  scope :played, -> { where.not(score: nil) } 
+  scope :played, -> { where.not(score: nil) }
 
   def played?
     score.present?
