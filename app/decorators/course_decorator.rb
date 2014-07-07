@@ -2,7 +2,7 @@ class CourseDecorator < Draper::Decorator
   delegate_all
 
   def location
-    "#{source.city}, #{source.state}"
+    "#{city}, #{state}"
   end
 
   def rounds_played
