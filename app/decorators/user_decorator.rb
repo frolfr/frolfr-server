@@ -1,6 +1,14 @@
 class UserDecorator < Draper::Decorator
   delegate_all
 
+  def avatar_with_name
+    "#{avatar} #{first_name}".html_safe
+  end
+
+  def avatar
+    h.image_tag gravatar_url
+  end
+
   def full_name
     names.join(" ")
   end
