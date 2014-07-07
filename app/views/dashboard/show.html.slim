@@ -1,7 +1,7 @@
 header
   h2 = t('dashboard.header', name: current_user.first_name)
 
-- if @scorecard
+- if @scorecard.present?
   p = t('dashboard.last_scorecard', course: @scorecard.course_name, shooting: @scorecard.shooting, total: @scorecard.total)
 - else
   p = t('dashboard.welcome')

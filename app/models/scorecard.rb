@@ -7,6 +7,7 @@ class Scorecard < ActiveRecord::Base
   # TODO: validate that scorecard has as many turns as a course has holes
 
   scope :by_date, -> { joins(:round).order('rounds.created_at DESC') }
+  scope :completed, -> { select { |scorecard| scorecard.completed? } }
 
   def course
     round.course

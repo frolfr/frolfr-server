@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order(:first_name, :last_name) }
 
+  def recently_completed_scorecard
+    scorecards_by_date.completed.first
+  end
+
   def friends_by_name
     friends.by_name
   end
