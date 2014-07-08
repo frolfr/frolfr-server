@@ -13,6 +13,13 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order(:first_name, :last_name) }
 
+  def rounds_with_user(user)
+    rounds.select do |round|
+      round.scorecards.any? {|scorecard| scorecard.user_id == user.id }
+    end
+    # TODO: Refactor
+  end
+
   def gravatar_url
     gravatar_id = Digest::MD5.hexdigest(email.downcase)
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"

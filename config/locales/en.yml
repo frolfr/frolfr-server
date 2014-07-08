@@ -64,6 +64,7 @@ en:
     header: "Notifications"
     pending_friendships: "Pending Friendships"
   round:
+    together: "Rounds Played Together"
     plural: "Rounds"
     start: "Start New Round"
     recent: "Recent Rounds"

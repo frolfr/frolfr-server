@@ -7,6 +7,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id]).decorate
+    @rounds = RoundDecorator.decorate_collection(current_user.rounds_with_user(@user))
+    # TODO: Refactor
   end
 
   def create
