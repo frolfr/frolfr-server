@@ -53,7 +53,6 @@ en:
     plural: "Friends"
     find: "Find Friends"
     current: "Current Friends"
-    name: "Name"
     empty: "You have no friends! EXTREME SADNESS."
     success: "%{friend} has been added to friends"
     failure: "%{friend} could not be added to friends"

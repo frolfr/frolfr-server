@@ -11,17 +11,10 @@ h2 = t('friend.find')
 h2 = t('friend.current')
 
 - if @friends.empty?
-  p= t('friend.empty')
+  p = t('friend.empty')
 - else
-  table.small-12
-    thead
-      tr
-        th.small-9 = t('friend.name')
-        th.small-3
+  table
     tbody
       - @friends.each do |friend|
         tr
-          td = friend.full_name
-          td.text-centered
-            = link_to friendship_path(friend), method: :delete do
-              i.fi-x.red-icon
+          td = link_to friend.full_name, user_path(friend)
