@@ -94,6 +94,9 @@ en:
     profile: "Profile"
     edit_message: "Feel free to edit personal information here:"
     success: "Profile successfully updated"
+    gravatar: "Gravatar"
+    avatar: "Avatar"
+    gravatar_message: "Feel free to update your player's avatar using the nifty service"
   sign_up:
     singular: "Sign Up"
     header: "Sign Up for Frolfr"

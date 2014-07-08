@@ -5,4 +5,11 @@ p = t('user.edit_message')
   = f.input :first_name
   = f.input :middle_name
   = f.input :last_name
+
+  label = t('user.avatar')
+  p = current_user.avatar
+  p
+    = t('user.gravatar_message')
+    =< link_to t('user.gravatar'), "http://www.gravatar.com", target: "_blank"
+
   = f.submit t('misc.save_changes'), class: "button expand", rel: "submit-user"
