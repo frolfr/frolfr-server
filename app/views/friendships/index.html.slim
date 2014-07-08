@@ -13,8 +13,8 @@ h2 = t('friend.current')
 - if @friends.empty?
   p = t('friend.empty')
 - else
-  table
+  table.small-12
     tbody
       - @friends.each do |friend|
-        tr
+        tr.text-centered
           td = link_to friend.full_name, user_path(friend)
