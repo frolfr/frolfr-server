@@ -8,4 +8,8 @@ class Dashboard
   def decorate
     DashboardDecorator.new(self)
   end
+
+  def pending_friendships
+    I18n.t('friendship.no_pending')
+  end
 end
