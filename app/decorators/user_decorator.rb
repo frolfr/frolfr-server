@@ -5,6 +5,10 @@ class UserDecorator < Draper::Decorator
     "#{avatar} #{first_name}".html_safe
   end
 
+  def avatar_with_full_name
+    "#{avatar} #{full_name}".html_safe
+  end
+
   def avatar
     h.image_tag gravatar_url
   end

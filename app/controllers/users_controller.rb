@@ -5,6 +5,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id]).decorate
+  end
+
   def create
     @user = User.new(user_new_params)
 

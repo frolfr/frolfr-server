@@ -12,5 +12,5 @@ Frolfr::Application.routes.draw do
   resources :rounds, only: [:index, :new, :create, :show]
   resources :sessions, only: [:create]
   resources :turns, only: [:show, :update]
-  resources :users, only: [:update, :create]
+  resources :users, only: [:update, :create, :show]
 end
