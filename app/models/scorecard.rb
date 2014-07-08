@@ -1,4 +1,5 @@
 class Scorecard < ActiveRecord::Base
+  # OPTIMIZE: This can be a PORO
   belongs_to :user
   belongs_to :round
   has_many :turns, dependent: :destroy
