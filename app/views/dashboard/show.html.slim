@@ -5,3 +5,6 @@ header
   p = t('dashboard.last_scorecard', course: @scorecard.course_name, shooting: @scorecard.shooting, total: @scorecard.total)
 - else
   p = t('dashboard.welcome')
+
+.notifications
+  h3 = t('notification.header')
