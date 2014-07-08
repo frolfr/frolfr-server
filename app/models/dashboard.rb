@@ -5,4 +5,7 @@ class Dashboard
     @user = user
   end
 
+  def decorate
+    DashboardDecorator.new(self)
+  end
 end
