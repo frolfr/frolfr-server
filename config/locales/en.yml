@@ -28,6 +28,7 @@ en:
     welcome: "Welcome to Frolfr, %{user}!"
     errors: "There were errors with your submission"
   course:
+    new: "Suggest a New Course"
     singular: "Course"
     plural: "Courses"
     name: "Name"
