@@ -39,6 +39,7 @@ en:
       plural: "Stats"
     country_note: "*For now, Frolfr only supports U.S. courses"
     suggest: "Suggest Course"
+    success: "You have suggested the course %{course}"
   dashboard:
     header: "%{name}'s Dashboard"
     home: "Home"
