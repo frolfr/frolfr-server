@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+  def new
+    @course = Course.new
+  end
   def index
     @courses = current_user.courses_played.decorate
   end

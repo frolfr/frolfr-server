@@ -37,6 +37,8 @@ en:
     stats:
       average_shooting: "Average Shooting"
       plural: "Stats"
+    country_note: "*For now, Frolfr only supports U.S. courses"
+    suggest: "Suggest Course"
   dashboard:
     header: "%{name}'s Dashboard"
     home: "Home"
