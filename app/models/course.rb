@@ -9,6 +9,7 @@ class Course < ActiveRecord::Base
   validates :state, :city, :country, :name, :status, presence: true
   validates_uniqueness_of :name, scope: :city
   validates :status, inclusion: STATUSES
+  validates :state, inclusion: States.abbreviations
 
   scope :by_name, -> { order(:name) }
 
