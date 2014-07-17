@@ -1,9 +1,14 @@
 class Course < ActiveRecord::Base
+  PENDING_STATUS = 'pending'
+  APPROVED_STATUS = 'approved'
+  STATUSES = [PENDING_STATUS, APPROVED_STATUS].freeze
+
   has_many :holes, dependent: :destroy
   has_many :rounds
 
-  validates :state, :city, :country, :name, presence: true
+  validates :state, :city, :country, :name, :status, presence: true
   validates_uniqueness_of :name, scope: :city
+  validates :status, inclusion: STATUSES
 
   scope :by_name, -> { order(:name) }
 
