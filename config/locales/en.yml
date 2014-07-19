@@ -64,6 +64,8 @@ en:
     destroy: "%{friend} has been removed from friends"
   friendship:
     no_pending: "You have no pending friendships"
+  leaderboard:
+    singular: "Leaderboard"
   notification:
     header: "Notifications"
     pending_friendships: "Pending Friendships"
