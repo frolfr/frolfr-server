@@ -6,7 +6,9 @@ Frolfr::Application.routes.draw do
   get '/sign_up', to: 'users#new'
   get '/friends', to: 'friendships#index'
 
-  resources :courses, only: [:index, :show, :new, :create]
+  resources :courses, only: [:index, :show, :new, :create] do
+    get 'leaderboard', to: 'leaderboards#show'
+  end
   resources :course_stats, only: [:show]
   resources :friendships, only: [:create, :destroy]
   resources :rounds, only: [:index, :new, :create, :show]
