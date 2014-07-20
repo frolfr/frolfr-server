@@ -14,7 +14,7 @@ class RoundsController < ApplicationController
 
     if @round_form.valid?
       @round = @round_form.save
-      redirect_to root_path, notice: "Round created"
+      redirect_to turn_path(@round.scorecards.first.first_turn), notice: "Round created"
     else
       render :new, alert: "Please include a course."
     end
