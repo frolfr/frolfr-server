@@ -1,17 +1,19 @@
-h1 = t('leaderboard.singular')
+h1 = t('leaderboard.with_course', course: @course.name)
 
 table.small-12
   thead
     tr
-      th = t('round.date')
       th
+      th = t('user.name')
+      th = t('round.date')
       th = t('round.total')
       th = t('round.par')
   tbody
-    - @scorecards.each do |scorecard|
+    - @scorecards.each_with_index do |scorecard, i|
       tr
-        td = scorecard.display_date
+        td = i + 1
         td = scorecard.user_full_name
+        td = scorecard.short_date
         td = scorecard.display_total
         td = scorecard.display_shooting
 

@@ -66,6 +66,7 @@ en:
     no_pending: "You have no pending friendships"
   leaderboard:
     singular: "Leaderboard"
+    with_course: "Leaderboard for %{course}"
   notification:
     header: "Notifications"
     pending_friendships: "Pending Friendships"
@@ -102,6 +103,7 @@ en:
     success: "Profile successfully updated"
     gravatar: "Gravatar"
     avatar: "Avatar"
+    name: "Name"
     gravatar_message: "Feel free to update your player's avatar using the nifty service"
   sign_up:
     singular: "Sign Up"
