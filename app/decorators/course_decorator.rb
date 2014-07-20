@@ -6,12 +6,12 @@ class CourseDecorator < Draper::Decorator
   end
 
   def rounds_played
-    scorecards.count
+    user_scorecards.count
   end
 
   private
 
-  def scorecards
+  def user_scorecards
     h.current_user.scorecards_for_course(object)
   end
 end
