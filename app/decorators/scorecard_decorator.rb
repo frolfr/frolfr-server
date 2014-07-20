@@ -12,6 +12,10 @@ class ScorecardDecorator < Draper::Decorator
     user.first_name
   end
 
+  def user_full_name
+    user.full_name
+  end
+
   def user_initials
     user.initials
   end
