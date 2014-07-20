@@ -1,0 +1,19 @@
+h1 = t('leaderboard.singular')
+
+table.small-12
+  thead
+    tr
+      th = t('round.date')
+      th
+      th = t('round.total')
+      th = t('round.par')
+  tbody
+    - @scorecards.each do |scorecard|
+      tr
+        td = scorecard.display_date
+        td = scorecard.user_full_name
+        td = scorecard.display_total
+        td = scorecard.display_shooting
+
+- if @scorecards.any?(&:incomplete?)
+  p = t('scorecard.incomplete')
