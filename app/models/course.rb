@@ -13,6 +13,12 @@ class Course < ActiveRecord::Base
 
   scope :by_name, -> { order(:name) }
 
+  def scorecards
+    Scorecard
+      .joins(:round)
+      .where(rounds: { course_id: id })
+  end
+
   def image
     "https://s3.amazonaws.com/frolfr/#{IMAGES[name]}"
   end
