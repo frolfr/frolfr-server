@@ -25,6 +25,10 @@
 .over-par { color: red }
 .under-par { color: green }
 .chosen-choices input { height: 37px !important; }
+.undecorated-list {
+  list-style-type: none;
+  margin-left: 0px;
+}
 input.larger-input { height: 48px; }
 tr.highlight { background-color: #EFF5FB; }
 table#course-stats {
