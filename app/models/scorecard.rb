@@ -9,6 +9,7 @@ class Scorecard < ActiveRecord::Base
 
   scope :by_date, -> { joins(:round).order('rounds.created_at DESC') }
   scope :completed, -> { select { |scorecard| scorecard.completed? } }
+  scope :incomplete, -> { select { |scorecard| scorecard.incomplete? } }
   scope :by_shooting, -> { all.sort_by(&:shooting) }
 
   def course

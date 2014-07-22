@@ -12,4 +12,8 @@ class Dashboard
   def pending_friendships
     I18n.t('friendship.no_pending')
   end
+
+  def incomplete_scorecards
+    user.scorecards.incomplete
+  end
 end
