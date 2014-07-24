@@ -1,8 +1,9 @@
 class Dashboard
-  attr_reader :user
+  attr_reader :user, :scorecards
 
   def initialize(user)
     @user = user
+    @scorecards = user.scorecards
   end
 
   def decorate
@@ -15,5 +16,9 @@ class Dashboard
 
   def incomplete_scorecards
     user.scorecards.incomplete
+  end
+
+  def current_scorecard
+    scorecards.by_date.first
   end
 end
