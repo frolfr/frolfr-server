@@ -17,8 +17,10 @@ html
           = render "shared/header"
 
         section.main-section
-          = render "shared/notices"
-          = yield
+          .row
+            .small-12.columns
+              = render "shared/notices"
+              = yield
 
         a.exit-off-canvas
 
