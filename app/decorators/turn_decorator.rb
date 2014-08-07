@@ -3,7 +3,7 @@ class TurnDecorator < Draper::Decorator
   decorates_association :round
 
   def hole_number
-    I18n.t('hole.number', number: hole.number)
+    hole.number
   end
 
   def turn_class
