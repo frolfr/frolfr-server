@@ -21,6 +21,12 @@
     color: white;
   }
 }
+.direction-arrows {
+  background: #04B486;
+}
+.direction-arrows:hover {
+  background-color: #088A68;
+}
 .text-centered { text-align: center; }
 .over-par { color: red }
 .under-par { color: green }
@@ -29,6 +35,7 @@
   list-style-type: none;
   margin-left: 0px;
 }
+.user-row { padding-bottom: 2em; }
 input.larger-input { height: 48px; }
 tr.highlight { background-color: #EFF5FB; }
 table#course-stats {
