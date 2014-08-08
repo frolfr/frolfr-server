@@ -1,21 +1,17 @@
-.row
-  .small-4.columns
-    = image_tag("hole_icon.jpg", size: "50x50", class: 'left')
-    h2.text-centered.left = @turn.hole_number
+.small-4.columns
+  - if @turn.previous
+    = link_to turn_path(@turn.previous), class: "button expand" do
+      i.fi-arrow-left
+  - else
+    = link_to root_path, class: "button expand" do
+      i.fi-home
 
-  .small-8.columns
-    .row
-      .small-6.columns
-        - if @turn.previous
-          = link_to turn_path(@turn.previous), class: "button expand direction-arrows" do
-            i.fi-arrow-left
-        - else
-          = link_to root_path, class: "button expand direction-arrows" do
-            i.fi-home
+.small-4.columns
+  h3.text-centered = @turn.hole_number
 
-      .small-6.columns
-        - if @turn.next
-          = link_to turn_path(@turn.next), class: "button expand direction-arrows" do
-            i.fi-arrow-right
-        - else
-          = link_to t('round.recap'), round_path(@turn.round), class: "button expand direction-arrows"
+.small-4.columns
+  - if @turn.next
+    = link_to turn_path(@turn.next), class: "button expand" do
+      i.fi-arrow-right
+  - else
+    = link_to t('round.recap'), round_path(@turn.round), class: "button expand"

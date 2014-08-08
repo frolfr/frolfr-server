@@ -1,19 +1,5 @@
 = render "subheader"
 
-- @round.scorecards.each do |scorecard|
-  .row.user-row class=(scorecard.id)
-    .small-3.columns.user-display
-      h2.text-centered = scorecard.user_initials
-    .small-6.columns.scorekeeper
-      .row
-        .small-5.columns
-          = link_to "#", class: 'button expand round' do
-            i.fi-minus
-        .small-2.columns
-          h2.text-centered class=(scorecard.class_for_turn(@turn.hole_number)) = scorecard.score_for_hole(@turn.hole_number)
-        .small-5.columns
-          = link_to "#", class: 'button expand round' do
-            i.fi-plus
-    .small-3.columns.shooting.text-centered
-      h2.left = scorecard.display_total
-      h4.left = scorecard.display_shooting
+= render "form"
+
+= render "scorecards/totals"
