@@ -5,17 +5,3 @@ header
   p = t('dashboard.last_scorecard', course: @scorecard.course_name, shooting: @scorecard.shooting, total: @scorecard.total)
 - else
   p = t('dashboard.welcome')
-
-.notifications
-  h3 = t('notification.header')
-
-  - if @dashboard.incomplete_scorecards.any?
-    .incomplete-scorecards
-      h4 = t('notification.incomplete_scorecards')
-      ul.undecorated-list
-        - @dashboard.incomplete_scorecards.each do |scorecard|
-          li = link_to scorecard.course.name, course_path(scorecard.course)
-
-  .pending-friendships
-    h4 = t('notification.pending_friendships')
-    p = @dashboard.pending_friendships
