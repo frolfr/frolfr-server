@@ -1,6 +1,6 @@
 .small-4.columns
   - if @turn.previous
-    = link_to turn_path(@turn.previous), class: "button expand" do
+    = link_to turn_path(@turn.previous), class: "button expand", rel: "previous-turn" do
       i.fi-arrow-left
   - else
     = link_to root_path, class: "button expand" do
@@ -11,7 +11,7 @@
 
 .small-4.columns
   - if @turn.next
-    = link_to turn_path(@turn.next), class: "button expand" do
+    = link_to turn_path(@turn.next), class: "button expand", rel: "next-turn" do
       i.fi-arrow-right
   - else
     = link_to t('round.recap'), round_path(@turn.round), class: "button expand"
