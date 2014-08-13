@@ -50,10 +50,13 @@ group :development, :test do
   gem 'binding_of_caller'
   gem 'pry'
   gem 'pry-rails'
+  gem 'database_cleaner'
 end
 
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'turnip'
   gem 'rspec-pride'
+  gem 'launchy'
 end
