@@ -12,6 +12,7 @@ class Course < ActiveRecord::Base
   validates :state, inclusion: States.abbreviations
 
   scope :by_name, -> { order(:name) }
+  scope :approved, -> { where(status: APPROVED_STATUS) }
 
   def scorecards
     Scorecard

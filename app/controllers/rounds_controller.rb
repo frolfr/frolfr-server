@@ -6,7 +6,7 @@ class RoundsController < ApplicationController
   def new
     @round_form = RoundForm.new
     @users = current_user.friends_by_name.decorate
-    @courses = Course.by_name
+    @approved_courses = Course.approved.by_name
   end
 
   def create
