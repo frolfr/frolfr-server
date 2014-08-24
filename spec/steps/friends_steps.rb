@@ -4,7 +4,7 @@ end
 
 step "I add the other user as a friend" do
   @full_name = @other_user.decorate.full_name
-  page.fill_in 'friend_name', with: @full_name
+  find("#autocomplete-friends").set @full_name
   find("[rel~=submit-friend]").click
 end
 
