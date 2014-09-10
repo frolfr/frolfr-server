@@ -20,16 +20,6 @@ class Turn < ActiveRecord::Base
     shs.each { |sh| sh.update(par: par) }
   end
 
-  def next
-    next_number = hole.number + 1
-    scorecard.turn_for_hole(next_number)
-  end
-
-  def previous
-    previous_number = hole.number - 1
-    scorecard.turn_for_hole(previous_number)
-  end
-
   def round
     scorecard.round
   end
