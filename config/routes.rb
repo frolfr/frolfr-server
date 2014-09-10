@@ -11,8 +11,9 @@ Frolfr::Application.routes.draw do
   end
   resources :course_stats, only: [:show]
   resources :friendships, only: [:create, :destroy]
-  resources :rounds, only: [:index, :new, :create, :show]
+  resources :rounds, only: [:index, :new, :create, :show] do
+    resources :holes, only: [:show, :update]
+  end
   resources :sessions, only: [:create]
-  resources :turns, only: [:show, :update]
   resources :users, only: [:update, :create, :show]
 end
