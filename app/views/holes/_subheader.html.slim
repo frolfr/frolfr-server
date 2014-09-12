@@ -9,13 +9,10 @@
         - if @hole.previous
           = link_to round_hole_path(@round, @hole.previous), class: "button expand direction-arrows", rel: 'previous-turn' do
             i.fi-arrow-left
-        - else
-          = link_to root_path, class: "button expand direction-arrows" do
-            i.fi-home
 
       .small-6.columns
         - if @hole.next
-          = link_to round_hole_path(@round, @hole.next), class: "button expand direction-arrows", rel: 'next-turn' do
+          = link_to round_hole_path(@round, @hole.next), class: "button expand direction-arrows", id: 'save-round', rel: 'next-turn' do
             i.fi-arrow-right
         - else
-          = link_to t('round.recap'), round_path(@round), class: "button expand direction-arrows"
+          = link_to t('round.recap'), class: "button expand direction-arrows", id: 'save-round'
