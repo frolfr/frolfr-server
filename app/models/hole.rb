@@ -9,6 +9,10 @@ class Hole < ActiveRecord::Base
 
   default_scope { order('number ASC') }
 
+  def to_param
+    number
+  end
+
   def next
     course.holes.find_by(number: number + 1)
   end

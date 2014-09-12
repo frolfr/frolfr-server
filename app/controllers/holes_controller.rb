@@ -10,7 +10,7 @@ class HolesController < ApplicationController
     if @hole.final?
       render json: { url: round_url(@round) }
     else
-      render json: { url: round_hole_url(@round, @hole.next) }
+      render json: { url: round_hole_url(@round, id: @hole.next.number) }
     end
   end
 
@@ -18,7 +18,7 @@ class HolesController < ApplicationController
 
   def find_round_hole
     @round = Round.find(params[:round_id]).decorate
-    @hole = @round.course.holes.find(params[:id])
+    @hole = @round.course.holes.find_by(number: params[:id])
     @round_hole = RoundHole.new(round: @round, hole: @hole)
   end
 

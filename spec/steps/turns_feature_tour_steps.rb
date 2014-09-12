@@ -14,7 +14,7 @@ step "I've started a round on the two-hole course" do
 end
 
 step "I navigate to hole one" do
-  visit round_hole_path(@round, @course.hole_one)
+  visit round_hole_path(@round, id: @course.hole_one.number)
 end
 
 step "I take three shots" do
