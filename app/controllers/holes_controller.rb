@@ -17,8 +17,8 @@ class HolesController < ApplicationController
   private
 
   def find_round_hole
-    @hole = Hole.find(params[:id])
     @round = Round.find(params[:round_id]).decorate
+    @hole = @round.course.holes.find(params[:id])
     @round_hole = RoundHole.new(round: @round, hole: @hole)
   end
 

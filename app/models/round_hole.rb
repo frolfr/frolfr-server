@@ -15,7 +15,7 @@ class RoundHole
     results = params[:results]
 
     turns.each do |turn|
-      score = results[turn.id]
+      score = results[turn.id.to_s]
       turn.update(par: par, score: score)
     end
   end
