@@ -11,15 +11,15 @@ header.panel.text-center
     .small-6.columns.scorekeeper
       .row
         .small-5.columns
-          = link_to "#", class: 'button expand round js-minus-from-score' do
+          = link_to "#", class: 'button expand round js-minus-from-score', rel: 'minus' do
             i.fi-minus
         .small-2.columns
           h2.text-centered.js-hole-score class=(scorecard.class_for_turn(@hole.number)) data-turn-id="#{scorecard.turn_for_hole(@hole.number).id}" = scorecard.score_for_hole(@hole.number)
         .small-5.columns
-          = link_to "#", class: 'button expand round js-add-to-score' do
+          = link_to "#", class: 'button expand round js-add-to-score', rel: 'plus' do
             i.fi-plus
-    .small-3.columns.shooting.text-centered
-      h2.left = scorecard.total
-      h4.left = scorecard.shooting
+    .small-3.columns.text-centered
+      h2.left.total = scorecard.total
+      h4.left.shooting = scorecard.shooting
 
 = render "footer"

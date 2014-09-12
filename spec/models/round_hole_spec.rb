@@ -26,7 +26,7 @@ describe RoundHole do
       {
         par: 4,
         results: {
-          turn.id => 3
+          turn.id.to_s => 3
         }
       }
     end

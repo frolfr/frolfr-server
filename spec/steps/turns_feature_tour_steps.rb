@@ -14,11 +14,13 @@ step "I've started a round on the two-hole course" do
 end
 
 step "I navigate to hole one" do
-  visit turn_path(Turn.first)
+  visit round_hole_path(@round, @course.hole_one)
 end
 
 step "I take three shots" do
-  select "3", from: :turn_score
+  3.times do
+    find("[rel~='plus']").click
+  end
 end
 
 step "I should see my total is three" do
@@ -32,7 +34,7 @@ step "I navigate to hole two" do
 end
 
 step "I update the par to four" do
-  choose("Four")
+  find(".par-4").click
 end
 
 step "I should see my total is six" do
@@ -42,7 +44,7 @@ step "I should see my total is six" do
 end
 
 step "I should see my shooting is minus one" do
-  within(".total") do
+  within(".shooting") do
     expect(page).to have_content "-1"
   end
 end
