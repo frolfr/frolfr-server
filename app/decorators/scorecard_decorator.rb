@@ -33,7 +33,7 @@ class ScorecardDecorator < Draper::Decorator
   end
 
   def score_for_hole(number)
-    turn_for_hole(number).score || "-"
+    turn_for_hole(number).score || 0
   end
 
   def display_date

@@ -17,7 +17,4 @@ h2 = t('round.recent')
           td = scorecard.display_date
           td = scorecard.display_score
           td
-            - if scorecard.round.completed?
-              = link_to t('round.recap'), round_path(scorecard.round)
-            - else
-              = link_to t('round.jump_to', hole: 1), turn_path(scorecard.first_turn)
+            = link_to t('round.recap'), round_path(scorecard.round)

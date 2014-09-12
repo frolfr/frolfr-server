@@ -18,4 +18,8 @@ class Round < ActiveRecord::Base
   def complete
     update(marked_complete: true)
   end
+
+  def turns_for_hole(hole)
+    Turn.where(scorecard: scorecards, hole: hole)
+  end
 end
