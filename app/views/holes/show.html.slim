@@ -1,10 +1,8 @@
-= render "subheader"
+header.panel.text-center
+  h3 = @round.course_name
+  h5 = @round.display_date
 
-.row
-  ul.stack-for-small.round.secondary.button-group.right
-    - Turn::PARS.each do |par|
-      li
-        a.secondary.button.js-pars class="#{'darkened js-par' if par == @round.scorecards.first.turn_for_hole(@hole.number).par}" href="#" = par
+= render "subheader"
 
 - @round.scorecards.each do |scorecard|
   .row.js-scorecard-row class=(scorecard.id)
@@ -23,3 +21,5 @@
     .small-3.columns.shooting.text-centered
       h2.left = scorecard.total
       h4.left = scorecard.shooting
+
+= render "footer"

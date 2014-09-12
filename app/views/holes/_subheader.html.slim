@@ -1,18 +1,9 @@
-.row
-  .small-4.columns
+.clearfix
+  .left
     = image_tag("hole_icon.jpg", size: "50x50", class: 'left')
     h2.text-centered.left = @hole.number
-
-  .small-8.columns
-    .row
-      .small-6.columns
-        - if @hole.previous
-          = link_to round_hole_path(@round, @hole.previous), class: "button expand direction-arrows", rel: 'previous-turn' do
-            i.fi-arrow-left
-
-      .small-6.columns
-        - if @hole.next
-          = link_to "#", class: "button expand direction-arrows", id: 'save-round', data: { link: round_hole_path(@round, @hole) }, rel: 'next-turn' do
-            i.fi-arrow-right
-        - else
-          = link_to t('round.recap'), class: "button expand direction-arrows", data: { link: round_hole_path(@round, @hole) }, id: 'save-round'
+  .right
+    ul.stack-for-small.round.secondary.button-group.right
+      - Turn::PARS.each do |par|
+        li
+          a.secondary.button.js-pars class="#{'darkened js-par' if par == @round.scorecards.first.turn_for_hole(@hole.number).par}" href="#" = par
