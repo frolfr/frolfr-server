@@ -9,4 +9,4 @@
       = link_to "#", class: "button direction-arrows", id: 'save-round', data: { link: round_hole_path(@round, id: @hole.number) }, rel: 'next-turn' do
         i.fi-arrow-right
     - else
-      = link_to t('round.recap'), class: "button direction-arrows", data: { link: round_hole_path(@round, id: @hole.number) }, id: 'save-round'
+      = link_to t('round.recap'), "#", class: "button direction-arrows", data: { link: round_hole_path(@round, id: @hole.number) }, id: 'save-round'
