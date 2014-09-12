@@ -10,11 +10,10 @@
           = link_to "#", class: 'button expand round js-minus-from-score' do
             i.fi-minus
         .small-2.columns
-          h2.text-centered.js-hole-score class=(scorecard.class_for_turn(@hole.number)) = scorecard.score_for_hole(@hole.number)
+          h2.text-centered.js-hole-score class=(scorecard.class_for_turn(@hole.number)) data-turn-id="#{scorecard.turn_for_hole(@hole.number).id}" = scorecard.score_for_hole(@hole.number)
         .small-5.columns
           = link_to "#", class: 'button expand round js-add-to-score' do
             i.fi-plus
     .small-3.columns.shooting.text-centered
       h2.left = scorecard.total
       h4.left = scorecard.shooting
-

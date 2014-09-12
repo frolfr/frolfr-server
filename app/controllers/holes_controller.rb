@@ -8,9 +8,9 @@ class HolesController < ApplicationController
     @round_hole.update(round_hole_params)
 
     if @hole.final?
-      redirect_to round_path(@round)
+      render json: { url: round_url(@round) }
     else
-      redirect_to round_hole_path(@round, @hole.next)
+      render json: { url: round_hole_url(@round, @hole.next) }
     end
   end
 
@@ -23,7 +23,7 @@ class HolesController < ApplicationController
   end
 
   def round_hole_params
-    params.permit(:score, :par)
+    params.permit(:par).merge(results: params[:results])
   end
 
   def check_player

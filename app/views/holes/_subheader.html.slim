@@ -12,7 +12,7 @@
 
       .small-6.columns
         - if @hole.next
-          = link_to round_hole_path(@round, @hole.next), class: "button expand direction-arrows", id: 'save-round', rel: 'next-turn' do
+          = link_to "#", class: "button expand direction-arrows", id: 'save-round', data: { link: round_hole_path(@round, @hole) }, rel: 'next-turn' do
             i.fi-arrow-right
         - else
-          = link_to t('round.recap'), class: "button expand direction-arrows", id: 'save-round'
+          = link_to t('round.recap'), class: "button expand direction-arrows", data: { link: round_hole_path(@round, @hole) }, id: 'save-round'
