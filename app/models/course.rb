@@ -26,11 +26,15 @@ class Course < ActiveRecord::Base
   end
 
   def image
-    "https://s3.amazonaws.com/frolfr/#{IMAGES[name]}"
+    "https://s3.amazonaws.com/frolfr/#{image_path}"
   end
 
   def image_available?
-    image.present?
+    image_path.present?
+  end
+
+  def image_path
+    IMAGES[name]
   end
 
   private
