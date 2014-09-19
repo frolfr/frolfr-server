@@ -7,9 +7,7 @@ class Round < ActiveRecord::Base
 
   scope :by_date, -> { order('created_at DESC') }
 
-  def holes
-    course.holes
-  end
+  delegate :holes, to: :course
 
   def completed?
     marked_complete? || scorecards.all?(&:completed?)

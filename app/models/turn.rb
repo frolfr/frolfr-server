@@ -11,12 +11,10 @@ class Turn < ActiveRecord::Base
 
   scope :played, -> { where.not(score: nil) }
 
+  delegate :round, to: :scorecard
+
   def played?
     score.present?
-  end
-
-  def round
-    scorecard.round
   end
 
   def over_par?

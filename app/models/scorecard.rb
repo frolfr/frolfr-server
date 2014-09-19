@@ -12,9 +12,7 @@ class Scorecard < ActiveRecord::Base
   scope :incomplete, -> { select { |scorecard| scorecard.incomplete? } }
   scope :by_shooting, -> { all.sort_by(&:shooting) }
 
-  def course
-    round.course
-  end
+  delegate :course, to: :round
 
   def completed?
     turns.all?(&:played?)
