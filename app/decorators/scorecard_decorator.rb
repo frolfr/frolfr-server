@@ -32,8 +32,8 @@ class ScorecardDecorator < Draper::Decorator
     "#{shooting}#{incomplete_symbol}"
   end
 
-  def score_for_hole(number)
-    turn_for_hole(number).score || 0
+  def score_for_hole(hole)
+    turn_for_hole(hole).score || 0
   end
 
   def display_date
@@ -49,8 +49,8 @@ class ScorecardDecorator < Draper::Decorator
     return "#{shooting_symbol}#{object.shooting}"
   end
 
-  def class_for_turn(number)
-    turn_for_hole(number).decorate.turn_class
+  def class_for_turn(hole)
+    turn_for_hole(hole).decorate.turn_class
   end
 
   private

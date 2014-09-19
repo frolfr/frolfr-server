@@ -6,4 +6,4 @@
     ul.stack-for-small.round.secondary.button-group.right
       - Turn::PARS.each do |par|
         li
-          a.secondary.button.js-pars class="par-#{par}" class="#{'darkened js-par' if par == @round.scorecards.first.turn_for_hole(@hole.number).par}" href="#" = par
+          a.secondary.button.js-pars class="par-#{par}" class="#{'darkened js-par' if par == @round.scorecards.first.turn_for_hole(@hole).par}" href="#" = par

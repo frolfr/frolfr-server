@@ -15,4 +15,15 @@ describe Scorecard do
       expect(scorecard).to_not be_completed
     end
   end
+
+  describe '#turn_for_hole' do
+    let(:round) { FactoryGirl.create(:round) }
+    let(:scorecard) { FactoryGirl.create(:scorecard, round: round) }
+    let(:hole) { FactoryGirl.create(:hole, course: round.course) }
+
+    it 'finds the turn' do
+      turn = FactoryGirl.create(:turn, hole: hole, scorecard: scorecard)
+      expect(scorecard.turn_for_hole(hole)).to eq turn
+    end
+  end
 end

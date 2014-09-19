@@ -7,6 +7,6 @@ table.small-12
         - if scorecard == @turn.scorecard
           strong= scorecard.user_initials
         - else
-          strong= link_to scorecard.user_initials, turn_path(scorecard.turn_for_hole(@turn.hole.number))
+          strong= link_to scorecard.user_initials, turn_path(scorecard.turn_for_hole(@turn.hole))
         br
         span.total= scorecard.display_score

@@ -26,9 +26,8 @@ class Scorecard < ActiveRecord::Base
     turns.first
   end
 
-  def turn_for_hole(number)
-    hole = round.holes.find_by(number: number)
-    turns.find_by(hole: hole) if hole
+  def turn_for_hole(hole)
+    turns.find_by(hole: hole)
   end
 
   def over_par?

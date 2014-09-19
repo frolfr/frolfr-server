@@ -14,7 +14,7 @@ header.panel.text-center
           = link_to "#", class: 'button expand round js-minus-from-score', rel: 'minus' do
             i.fi-minus
         .small-2.columns
-          h2.text-centered.js-hole-score class=(scorecard.class_for_turn(@hole.number)) data-turn-id="#{scorecard.turn_for_hole(@hole.number).id}" = scorecard.score_for_hole(@hole.number)
+          h2.text-centered.js-hole-score class=(scorecard.class_for_turn(@hole)) data-turn-id="#{scorecard.turn_for_hole(@hole).id}" = scorecard.score_for_hole(@hole)
         .small-5.columns
           = link_to "#", class: 'button expand round js-add-to-score', rel: 'plus' do
             i.fi-plus

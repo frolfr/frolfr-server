@@ -14,7 +14,7 @@ table.small-12#scorecard
         td
           strong= hole.number
         - @scorecards.each do |scorecard|
-          td class="#{scorecard.class_for_turn(hole.number)}" = scorecard.score_for_hole(hole.number)
+          td class="#{scorecard.class_for_turn(hole)}" = scorecard.score_for_hole(hole)
     tr
       td
         strong= t('scorecard.totals')
