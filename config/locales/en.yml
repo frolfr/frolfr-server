@@ -62,8 +62,6 @@ en:
     failure: "%{friend} could not be added to friends"
     no_params: "Whoops. Did you forget to fill in your friend's name?"
     destroy: "%{friend} has been removed from friends"
-  friendship:
-    no_pending: "You have no pending friendships"
   leaderboard:
     singular: "Leaderboard"
     with_course: "Leaderboard for %{course}"
