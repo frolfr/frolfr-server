@@ -15,7 +15,7 @@ class Dashboard
   end
 
   def incomplete_scorecards
-    user.scorecards.incomplete
+    scorecards.incomplete
   end
 
   def current_scorecard
