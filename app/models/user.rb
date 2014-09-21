@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def recently_completed_scorecard
-    scorecards_by_date.completed.first
+    scorecards_by_date.completed.first || NullScorecard.new
   end
 
   def friends_by_name

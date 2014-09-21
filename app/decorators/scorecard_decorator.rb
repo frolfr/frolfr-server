@@ -53,6 +53,10 @@ class ScorecardDecorator < Draper::Decorator
     turn_for_hole(hole).decorate.turn_class
   end
 
+  def welcome_message
+    I18n.t('dashboard.last_scorecard', course: course_name, shooting: shooting, total: total)
+  end
+
   private
 
   def shooting_symbol
