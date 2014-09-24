@@ -22,6 +22,8 @@ GEM
       activesupport (= 4.1.1)
       builder (~> 3.1)
       erubis (~> 2.7.0)
+    active_model_serializers (0.9.0)
+      activemodel (>= 3.2)
     activemodel (4.1.1)
       activesupport (= 4.1.1)
       builder (~> 3.1)
@@ -39,6 +41,13 @@ GEM
     arel (5.0.1.20140414130214)
     auto_strip_attributes (2.0.4)
       activerecord (>= 3.0)
+    barber (0.4.2)
+      ember-source
+      execjs
+      handlebars-source
+    barber-emblem (0.1.1)
+      barber (>= 0.4.1)
+      emblem-source
     bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -52,12 +61,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    chosen-rails (1.1.0)
-      coffee-rails (>= 3.2)
-      compass-rails (>= 1.1.2)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
-    chunky_png (1.3.1)
     cliver (0.3.2)
     coderay (1.1.0)
     coffee-rails (4.0.1)
@@ -67,13 +70,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    compass (0.12.6)
-      chunky_png (~> 1.2)
-      fssm (>= 0.2.7)
-      sass (~> 3.2.19)
-    compass-rails (1.1.7)
-      compass (>= 0.12.2)
-      sprockets (<= 2.11.0)
     coveralls (0.7.0)
       multi_json (~> 1.3)
       rest-client
@@ -88,6 +84,23 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
+    ember-data-source (1.0.0.beta.9)
+      ember-source
+    ember-rails (0.15.0)
+      active_model_serializers
+      barber (>= 0.4.1)
+      ember-data-source (>= 1.0.0.beta.5)
+      ember-source (>= 1.1.0)
+      execjs (>= 1.2)
+      handlebars-source (> 1.0.0)
+      jquery-rails (>= 1.0.17)
+      railties (>= 3.1)
+    ember-source (1.7.0)
+      handlebars-source (~> 1.0)
+    emblem-rails (0.2.1)
+      barber-emblem (~> 0.1.1)
+      ember-rails (>= 0.14.0)
+    emblem-source (0.3.17)
     erubis (2.7.0)
     execjs (2.0.2)
     factory_girl (4.4.0)
@@ -101,9 +114,9 @@ GEM
     foundation-rails (5.2.2.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    fssm (0.2.10)
     gherkin (2.12.2)
       multi_json (~> 1.3)
+    handlebars-source (1.3.0)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -251,11 +264,13 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   capybara
-  chosen-rails
   coffee-rails (~> 4.0.0)
   coveralls
   database_cleaner
   draper (~> 1.0)
+  ember-rails
+  ember-source
+  emblem-rails
   factory_girl_rails
   foundation-icons-sass-rails
   foundation-rails
