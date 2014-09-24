@@ -13,6 +13,9 @@ Frolfr::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  # Uses Ember with debugging
+  config.ember.variant = :development
+
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
