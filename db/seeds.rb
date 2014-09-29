@@ -10,12 +10,15 @@ user = User.create(
   first_name: 'Frolfr',
   last_name: 'Champ',
   password: 'password',
+  email: 'champ@frolfr.com',
   password_confirmation: 'password'
 )
+
 friend = User.create(
   first_name: 'New',
   last_name: 'Discr',
   password: 'password',
+  email: 'newb@frolfr.com',
   password_confirmation: 'password'
 )
 
@@ -27,5 +30,5 @@ course = Course.create(
 )
 
 1.upto(18) do |number|
-  Hole.create(number: number, course: course)
+  course.holes.create(number: number)
 end
