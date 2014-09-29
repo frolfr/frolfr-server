@@ -18,7 +18,9 @@ class ApplicationController < ActionController::Base
   private
 
   def found_user
-    User.find_by(auth_token: cookies[:auth_token])
+    User.first
+    # TODO: Replace (potentially?) with following line after establishing Ember auth
+    # User.find_by(auth_token: cookies[:auth_token])
   end
 
   def require_login
