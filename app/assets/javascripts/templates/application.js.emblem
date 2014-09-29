@@ -1,2 +1,41 @@
-h1 Welcome to Frolfr!
-outlet
+.off-canvas-wrap data-offcanvas=""
+  .inner-wrap
+    aside.left-off-canvas-menu
+      ul.off-canvas-list
+        li
+          label
+        li
+          a href='#' Frolfr Champ
+        li
+          label
+        li
+          a href='#' Start a New Round
+        li
+          a href='#' Rounds
+        li
+          a href='#' Courses
+        li
+          a href='#' Suggest a New Course
+        li
+          a href='#' Friends
+        li
+          a href='#' Logout
+        li
+          label
+
+    nav.tab-bar data-topbar=""
+      section.left-small
+        a.left-off-canvas-toggle.menu-icon
+          span
+
+      section.middle.tab-bar-section
+        h1#title
+          a href='#' Frolfr
+
+    section.main-section
+      .row
+        .small-12.columns
+          h1 Welcome to Frolfr!
+          outlet
+
+    a.exit-off-canvas
