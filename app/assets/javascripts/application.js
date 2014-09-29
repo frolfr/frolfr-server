@@ -14,10 +14,18 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require foundation
-//= require chosen-jquery
-//= require chosen-scaffold
-//= require score_input
-//= require autocomplete
+//= require jquery
+//= require handlebars
+//= require ember
+//= require ember-data
+//= require_self
+//= require ./app
+
+// for more details see: http://emberjs.com/guides/application/
+App = Ember.Application.create({
+  rootElement: '#ember-app'
+});
+
 //= require_tree .
 
 $(function(){

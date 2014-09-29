@@ -14,8 +14,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 1.2'
-gem 'chosen-rails'
 gem 'foundation-icons-sass-rails'
+
+# Ember
+gem 'ember-rails'
+gem 'ember-source'
+gem 'emblem-rails'
 
 # View
 gem 'slim'

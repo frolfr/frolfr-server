@@ -17,7 +17,9 @@ Production server is available at [frolfr.com](http://frolfr.com).
 To install and deploy:
 * Pull down repository
 * `bundle install`
+* rake db:create:all
 * rake db:migrate
+* rake db:seed
 * `unicorn`
 
 To run tests, run `rake db:test:prepare; rspec`.

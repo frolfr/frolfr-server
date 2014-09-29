@@ -8,20 +8,7 @@ html
     = csrf_meta_tags
 
   body
-    .off-canvas-wrap data-offcanvas=""
-      .inner-wrap
-        aside.left-off-canvas-menu
-          = render "shared/sidebar" if logged_in?
-
-        nav.tab-bar data-topbar=""
-          = render "shared/header"
-
-        section.main-section
-          .row
-            .small-12.columns
-              = render "shared/notices"
-              = yield
-
-        a.exit-off-canvas
+    = yield
+    #ember-app
 
     = javascript_include_tag "application"
