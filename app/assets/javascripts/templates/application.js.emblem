@@ -5,21 +5,21 @@
         li
           label
         li
-          a href='#' Frolfr Champ
+          link-to 'Frolfr Champ' 'index'
         li
           label
         li
-          a href='#' Start a New Round
+          link-to 'Start a New Round' 'index'
         li
-          a href='#' Rounds
+          link-to 'Rounds'
         li
-          a href='#' Courses
+          link-to 'Courses'
         li
-          a href='#' Suggest a New Course
+          link-to 'Suggest a New Course' 'index'
         li
-          a href='#' Friends
+          link-to 'Friends' 'index'
         li
-          a href='#' Logout
+          link-to 'Logout' 'index'
         li
           label
 
@@ -30,7 +30,7 @@
 
       section.middle.tab-bar-section
         h1#title
-          a href='#' Frolfr
+          link-to 'Frolfr' 'index'
 
     section.main-section
       .row
