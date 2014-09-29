@@ -16,4 +16,5 @@ Frolfr::Application.routes.draw do
   end
   resources :sessions, only: [:create]
   resources :users, only: [:update, :create, :show]
+  get '*path', to: 'dashboard#show'
 end
