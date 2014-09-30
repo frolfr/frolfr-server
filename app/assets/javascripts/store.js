@@ -1,3 +1,7 @@
+DS.RESTAdapter.reopen({
+  namespace: 'api'
+});
+
 App.ApplicationStore = DS.Store.extend({
 
 });
