@@ -1,0 +1,13 @@
+h2 Courses
+table
+  thead
+    tr
+      th Name
+      th Location
+      th Rounds
+  tbody
+    each course in model
+      tr
+        td=course.name
+        td=course.location
+        td=course.roundsPlayed

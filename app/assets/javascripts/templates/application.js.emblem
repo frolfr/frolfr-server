@@ -13,7 +13,7 @@
         li
           link-to 'Rounds'
         li
-          link-to 'Courses'
+          link-to 'Courses' 'courses'
         li
           link-to 'Suggest a New Course' 'index'
         li
