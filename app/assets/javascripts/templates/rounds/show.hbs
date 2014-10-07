@@ -1,3 +1,17 @@
 <h2>{{courseName}}</h2>
 <h4>{{displayDate createdAt}}</h4>
 
+<table class="small-12" id="scorecard">
+  <thead>
+    <tr>
+      <td></td>
+      {{#each scorecard in scorecards}}
+        <td>
+          <strong>{{scorecard.userInitials}}</strong>
+        </td>
+      {{/each}}
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>

@@ -9,6 +9,7 @@ Frolfr::Application.routes.draw do
     resources :users
     resources :friendable_users
     resources :rounds
+    resources :scorecards
   end
 
   get '*path', to: 'dashboard#show'
