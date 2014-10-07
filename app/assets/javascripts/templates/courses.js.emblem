@@ -1,5 +1,6 @@
 h2 Courses
-table
+
+table.small-12#courses
   thead
     tr
       th Name
@@ -8,6 +9,6 @@ table
   tbody
     each course in model
       tr
-        td=course.name
-        td=course.location
-        td=course.roundsPlayed
+        td = course.name
+        td = course.location
+        td = course.roundsPlayed
