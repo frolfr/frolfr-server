@@ -1,5 +1,9 @@
 class ScorecardSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :round_id, :user_initials
+  attributes :id, :user_id, :round_id, :user_initials, :turn_ids
+
+  def turn_ids
+    object.turns.pluck(:id)
+  end
 
   def user_initials
     names.map {|name| name.chars.first }.join
