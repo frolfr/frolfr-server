@@ -12,4 +12,5 @@ App.Router.map(function() {
   this.resource('courses');
   this.resource('course', { path: '/courses/:id' });
   this.resource('friends');
+  this.route('sign_up');
 });
