@@ -7,6 +7,6 @@ class Api::CoursesController < ApplicationController
 
   def show
     course = Course.find(params[:id])
-    render json: { course: course }
+    respond_with course
   end
 end
