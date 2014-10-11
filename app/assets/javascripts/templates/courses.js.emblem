@@ -9,6 +9,8 @@ table.small-12#courses
   tbody
     each course in model
       tr
-        td = course.name
+        td
+          link-to 'course' course
+            course.name
         td = course.location
         td = course.roundsPlayed
