@@ -58,6 +58,10 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  # Rspec 3 no longer automatically infer an example group's spec type
+  # from the file location.
+  config.infer_spec_type_from_file_location!
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :truncation
   end
