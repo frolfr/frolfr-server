@@ -5,5 +5,6 @@ App.Course = DS.Model.extend({
     name: DS.attr('string'),
     status: DS.attr('string'),
     location: DS.attr('string'),
-    roundsPlayed: DS.attr('number')
+    roundsPlayed: DS.attr('number'),
+    imageUrl: DS.attr('string')
 });

@@ -1,5 +1,5 @@
 class CourseSerializer < ActiveModel::Serializer
-  attributes :id, :city, :state, :country, :name, :status, :location, :rounds_played
+  attributes :id, :city, :state, :country, :name, :status, :location, :rounds_played, :image_url
 
   def location
     "#{city}, #{state}"
