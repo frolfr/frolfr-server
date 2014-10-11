@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :set_locale, :require_login
+  before_action :set_locale
   helper_method :current_user, :logged_in?
 
   def set_locale
@@ -21,10 +21,6 @@ class ApplicationController < ActionController::Base
     User.first
     # TODO: Replace (potentially?) with following line after establishing Ember auth
     # User.find_by(auth_token: cookies[:auth_token])
-  end
-
-  def require_login
-    redirect_to login_path unless logged_in?
   end
 
   def sign_in(user)
