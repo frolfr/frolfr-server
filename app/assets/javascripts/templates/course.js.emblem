@@ -4,4 +4,5 @@ header
   h2 = name
   h4 = location
 
-.row = imageHelper imageUrl
+.row
+  img src=imageUrl alt=name
