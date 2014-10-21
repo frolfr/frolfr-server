@@ -1,13 +1,12 @@
-require 'request_helper'
+require 'spec_helper'
 
 describe Api::CoursesController do
-  before { log_in }
-
+  let(:user) { FactoryGirl.create(:user) }
   describe "GET show" do
     let!(:course) { FactoryGirl.create(:course) }
 
     it 'returns a course' do
-      get api_course_path(course), format: :json
+      get api_course_path(course), { format: :json }, auth_header(user)
       expect(response).to be_ok
       expect(json).to have_key('course')
       expect(json['course']['id']).to eq(course.id)
