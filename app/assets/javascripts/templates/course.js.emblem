@@ -1,0 +1,8 @@
+link-to '< Courses' 'courses'
+
+header
+  h2 = name
+  h4 = location
+
+.row
+  img src=imageUrl alt=name

@@ -25,7 +25,7 @@ class Course < ActiveRecord::Base
       .where(rounds: { course_id: id })
   end
 
-  def image
+  def image_url
     "https://s3.amazonaws.com/frolfr/#{image_path}"
   end
 
