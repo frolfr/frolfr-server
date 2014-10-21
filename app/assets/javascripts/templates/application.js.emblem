@@ -19,7 +19,10 @@
         li
           link-to 'Friends' 'index'
         li
-          link-to 'Logout' 'index'
+          if isAuthenticated
+            a click=logout Logout
+          else
+            link-to 'Login' 'sessions.login'
         li
           label
 

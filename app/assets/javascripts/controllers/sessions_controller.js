@@ -1,4 +1,17 @@
 App.SessionsController = Ember.Controller.extend({
+  reset: function() {
+    this.setProperties({
+      email: null,
+      password: null,
+      token: null
+    });
+    Ember.$.ajaxSetup({
+      headers: {
+        'Authorization': 'Token none'
+      }
+    });
+  },
+
   actions: {
     login: function() {
       var _this = this;
@@ -23,6 +36,10 @@ App.SessionsController = Ember.Controller.extend({
         });
         key.save();
 
+        _this.setProperties({
+          token: response.token
+        });
+
         if (attemptedTransition) {
           attemptedTransition.retry();
           _this.set('attemptedTransition', null);
@@ -37,9 +54,5 @@ App.SessionsController = Ember.Controller.extend({
         console.log(error);
       });
     },
-
-    logout: function() {
-
-    }
   }
 });
