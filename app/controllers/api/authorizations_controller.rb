@@ -1,4 +1,6 @@
 class Api::AuthorizationsController < ApplicationController
+  skip_filter :authenticate
+
   respond_to :json
 
   def create
