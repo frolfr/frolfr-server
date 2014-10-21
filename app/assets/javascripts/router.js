@@ -6,6 +6,10 @@ App.Router.reopen({
 });
 
 App.Router.map(function() {
+  this.resource('sessions', function() {
+    this.route('login');
+    this.route('logout');
+  });
   this.resource('courses');
   this.resource('course', { path: '/courses/:id' });
 });

@@ -11,3 +11,7 @@ App.ApplicationStore = DS.Store.extend({
 App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
 
 });
+
+App.ApiKeyAdapter = DS.LSAdapter.extend({
+  namespace: 'frolfr'
+});
