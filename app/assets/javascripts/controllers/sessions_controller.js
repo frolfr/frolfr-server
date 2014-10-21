@@ -1,4 +1,15 @@
 App.SessionsController = Ember.Controller.extend({
+  init: function() {
+    this._super();
+    if (Ember.$.cookie('token') && Ember.$.cookie('email')) {
+      this.setupAuthHeader(Ember.$.cookie('token'), Ember.$.cookie('email'));
+    }
+  },
+
+  attemptedTransition: null,
+  token: Ember.$.cookie('token'),
+  email: Ember.$.cookie('email'),
+
   reset: function() {
     this.setProperties({
       email: null,
@@ -12,6 +23,17 @@ App.SessionsController = Ember.Controller.extend({
     });
   },
 
+  tokenChanged: function() {
+    console.log('setting the token to ', this.get('token'));
+    if (Ember.isEmpty(this.get('token'))) {
+      Ember.$.removeCookie('token');
+      Ember.$.removeCookie('email');
+    } else {
+      Ember.$.cookie('token', this.get('token'));
+      Ember.$.cookie('email', this.get('email'));
+    }
+  }.observes('token'),
+
   actions: {
     login: function() {
       var _this = this;
@@ -23,12 +45,7 @@ App.SessionsController = Ember.Controller.extend({
       this.setProperties({email: null, password: null});
 
       Ember.$.post('/api/authorizations', data).then(function(response) {
-        Ember.$.ajaxSetup({
-          headers: {
-            'Authorization': 'Token token="' + response.token + '",email="' + data.email + '"'
-          }
-        });
-        console.log(response.token);
+        _this.setupAuthHeader(response.token, data.email);
 
         var key = _this.get('store').createRecord('apiKey', {
           authToken: response.token,
@@ -37,7 +54,8 @@ App.SessionsController = Ember.Controller.extend({
         key.save();
 
         _this.setProperties({
-          token: response.token
+          token: response.token,
+          email: data.email
         });
 
         if (attemptedTransition) {
@@ -54,5 +72,14 @@ App.SessionsController = Ember.Controller.extend({
         console.log(error);
       });
     },
-  }
+  },
+
+  // private
+  setupAuthHeader: function(token, email) {
+    Ember.$.ajaxSetup({
+      headers: {
+        'Authorization': 'Token token="' + token + '",email="' + email + '"'
+      }
+    });
+  },
 });

@@ -14,11 +14,11 @@
 //= require jquery.ui.all
 //= require jquery_ujs
 //= require foundation
-//= require jquery
 //= require handlebars
 //= require ember
 //= require ember-data
 //= require localstorage_adapter
+//= require jquery.cookie
 //= require_self
 //= require ./app
 
