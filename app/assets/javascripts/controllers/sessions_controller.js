@@ -24,7 +24,6 @@ App.SessionsController = Ember.Controller.extend({
   },
 
   tokenChanged: function() {
-    console.log('setting the token to ', this.get('token'));
     if (Ember.isEmpty(this.get('token'))) {
       Ember.$.removeCookie('token');
       Ember.$.removeCookie('email');
@@ -67,9 +66,8 @@ App.SessionsController = Ember.Controller.extend({
 
       }, function(error) {
         if (error.status === 422) {
-          alert("BAD PASSWORD");
+          alert("Invalid password. Please try again.");
         }
-        console.log(error);
       });
     },
   },
