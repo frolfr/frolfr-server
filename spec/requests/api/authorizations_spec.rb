@@ -10,6 +10,12 @@ describe 'Requesting an authorization token' do
     expect(parsed_response["token"]).to eq(user.auth_token)
   end
 
+  specify 'with valid credentials, regardless of email case' do
+    post '/api/authorizations', email: user.email.upcase, password: user.password, format: :json
+    expect(response.status).to eq(201)
+    expect(parsed_response["token"]).to eq(user.auth_token)
+  end
+
   specify 'with invalid credentials' do
     post '/api/authorizations', email: user.email, password: 'passwerd', format: :json
     expect(response.status).to eq(422)
