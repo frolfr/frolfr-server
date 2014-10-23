@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order(:first_name, :last_name) }
 
+  def self.find_for_authentication(email)
+    where('lower(email) = lower(?)', email).first
+  end
+
   def rounds_with_user(user)
     rounds.select do |round|
       round.scorecards.any? {|scorecard| scorecard.user_id == user.id }

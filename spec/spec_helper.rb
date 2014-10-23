@@ -39,6 +39,8 @@ RSpec.configure do |config|
   # Adds FactoryGirl methods
   config.include FactoryGirl::Syntax::Methods
 
+  config.include RequestHelper, type: :request
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 

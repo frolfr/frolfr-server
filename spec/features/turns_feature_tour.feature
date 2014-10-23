@@ -4,7 +4,8 @@ Feature: Scoring turns
     Given I am a user
     And I am logged in
 
-@javascript
+  @pending
+  @javascript
   Scenario: a two-hole course
     Given there is a two-hole course
     And I've started a round on the two-hole course

@@ -1,3 +1,3 @@
-App.CoursesRoute = Ember.Route.extend({
+App.CoursesRoute = App.AuthenticatedRoute.extend({
     model: function() { return this.store.find('course'); }
 });

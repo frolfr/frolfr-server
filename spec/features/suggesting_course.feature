@@ -4,6 +4,7 @@ Feature: Suggesting courses
     Given I am a user
     And I am logged in
 
+  @pending
   Scenario: making suggestion
     When I navigate to suggest a new course
     And I fill out the new course form
