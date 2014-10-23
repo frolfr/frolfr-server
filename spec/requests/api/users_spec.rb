@@ -1,4 +1,4 @@
-require 'request_helper'
+require 'spec_helper'
 
 describe Api::UsersController do
   describe 'POST /users' do
