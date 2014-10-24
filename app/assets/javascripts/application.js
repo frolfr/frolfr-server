@@ -32,3 +32,6 @@ App = Ember.Application.create({
 $(function(){
  $(document).foundation();
 });
+
+
+$.cookie.json = true;
