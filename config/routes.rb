@@ -4,6 +4,7 @@ Frolfr::Application.routes.draw do
   namespace :api do
     resources :authorizations
     resources :courses
+    resource :current_user, only: [:show]
   end
 
   get '*path', to: 'dashboard#show'
