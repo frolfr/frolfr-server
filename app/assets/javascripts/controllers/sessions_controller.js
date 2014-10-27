@@ -5,6 +5,7 @@ App.SessionsController = Ember.Controller.extend({
     this._super();
     if (Ember.$.cookie('token') && Ember.$.cookie('email')) {
       this.setupAuthHeader(Ember.$.cookie('token'), Ember.$.cookie('email'));
+      this.setupCurrentUser();
     }
   },
 
@@ -23,7 +24,7 @@ App.SessionsController = Ember.Controller.extend({
         'Authorization': 'Token none'
       }
     });
-    this.get('controllers.currentUser').set('model', null);
+    this.resetCurrentUser();
   },
 
   tokenChanged: function() {
@@ -33,9 +34,6 @@ App.SessionsController = Ember.Controller.extend({
     } else {
       Ember.$.cookie('token', this.get('token'));
       Ember.$.cookie('email', this.get('email'));
-
-      var user = this.store.find('user', 'current');
-      this.get('controllers.currentUser').set('model', user);
     }
 
   }.observes('token'),
@@ -64,6 +62,8 @@ App.SessionsController = Ember.Controller.extend({
           email: data.email
         });
 
+        _this.setupCurrentUser();
+
         if (attemptedTransition) {
           attemptedTransition.retry();
           _this.set('attemptedTransition', null);
@@ -87,4 +87,13 @@ App.SessionsController = Ember.Controller.extend({
       }
     });
   },
+
+  setupCurrentUser: function() {
+    var user = this.store.find('user', 'current');
+    this.get('controllers.currentUser').set('model', user);
+  },
+
+  resetCurrentUser: function() {
+    this.get('controllers.currentUser').set('model', null);
+  }
 });
