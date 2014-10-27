@@ -62,7 +62,7 @@ App.SessionsController = Ember.Controller.extend({
           attemptedTransition.retry();
           _this.set('attemptedTransition', null);
         } else {
-          _this.transitionToRoute('courses');
+          _this.transitionToRoute('index');
         }
 
       }, function(error) {
