@@ -1,11 +1,10 @@
 .off-canvas-wrap data-offcanvas=""
   .inner-wrap
     aside.left-off-canvas-menu
-      ul.off-canvas-list
-        li
-          label
-        if currentUser.isAuthenticated
-
+      if currentUser.isAuthenticated
+        ul.off-canvas-list
+          li
+            label
           li
             link-to currentUser.fullName 'index'
           li
@@ -22,16 +21,14 @@
             link-to 'Friends' 'index'
           li
             a click=logout Logout
-        else
           li
-            link-to 'Login' 'sessions.login'
-        li
-          label
+            label
 
     nav.tab-bar data-topbar=""
-      section.left-small
-        a.left-off-canvas-toggle.menu-icon
-          span
+      if currentUser.isAuthenticated
+        section.left-small
+          a.left-off-canvas-toggle.menu-icon
+            span
 
       section.middle.tab-bar-section
         h1#title
