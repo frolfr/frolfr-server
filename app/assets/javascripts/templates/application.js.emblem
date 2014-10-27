@@ -4,24 +4,26 @@
       ul.off-canvas-list
         li
           label
-        li
-          link-to 'Frolfr Champ' 'index'
-        li
-          label
-        li
-          link-to 'Start a New Round' 'index'
-        li
-          link-to 'Rounds'
-        li
-          link-to 'Courses' 'courses'
-        li
-          link-to 'Suggest a New Course' 'index'
-        li
-          link-to 'Friends' 'index'
-        li
-          if isAuthenticated
+        if currentUser.isAuthenticated
+
+          li
+            link-to currentUser.fullName 'index'
+          li
+            label
+          li
+            link-to 'Start a New Round' 'index'
+          li
+            link-to 'Rounds'
+          li
+            link-to 'Courses' 'courses'
+          li
+            link-to 'Suggest a New Course' 'index'
+          li
+            link-to 'Friends' 'index'
+          li
             a click=logout Logout
-          else
+        else
+          li
             link-to 'Login' 'sessions.login'
         li
           label
