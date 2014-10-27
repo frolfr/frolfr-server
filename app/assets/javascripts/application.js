@@ -31,4 +31,10 @@ App = Ember.Application.create({
 
 $(function(){
  $(document).foundation();
+ $('.off-canvas-list').on('click', function() {
+  $('.exit-off-canvas').click();
+ });
 });
+
+
+$.cookie.json = true;

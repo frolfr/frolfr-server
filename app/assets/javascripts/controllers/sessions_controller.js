@@ -1,18 +1,18 @@
 App.SessionsController = Ember.Controller.extend({
   init: function() {
     this._super();
-    if (Ember.$.cookie('token') && Ember.$.cookie('email')) {
-      this.setupAuthHeader(Ember.$.cookie('token'), Ember.$.cookie('email'));
+    if (Ember.$.cookie('token') && Ember.$.cookie('currentUser')) {
+      this.setupAuthHeader(Ember.$.cookie('token'), Ember.$.cookie('currentUser').email);
     }
   },
 
   attemptedTransition: null,
   token: Ember.$.cookie('token'),
-  email: Ember.$.cookie('email'),
+  currentUser: Ember.$.cookie('currentUser'),
 
   reset: function() {
     this.setProperties({
-      email: null,
+      currentUser: null,
       password: null,
       token: null
     });
@@ -26,10 +26,10 @@ App.SessionsController = Ember.Controller.extend({
   tokenChanged: function() {
     if (Ember.isEmpty(this.get('token'))) {
       Ember.$.removeCookie('token');
-      Ember.$.removeCookie('email');
+      Ember.$.removeCookie('currentUser');
     } else {
       Ember.$.cookie('token', this.get('token'));
-      Ember.$.cookie('email', this.get('email'));
+      Ember.$.cookie('currentUser', this.get('currentUser'));
     }
   }.observes('token'),
 
@@ -47,22 +47,38 @@ App.SessionsController = Ember.Controller.extend({
         _this.setupAuthHeader(response.token, data.email);
 
         var key = _this.get('store').createRecord('apiKey', {
-          authToken: response.token,
-          email: data.email
+          authToken: response.token
         });
         key.save();
 
-        _this.setProperties({
-          token: response.token,
-          email: data.email
+        _this.store.find('user', response.user_id).then(function(user) {
+
+          // set this controller token & current user properties
+          // based on the data from the user and access_token
+          _this.setProperties({
+            token:       response.token,
+            currentUser: user.getProperties("id", "email", "firstName", "lastName", "middleName")
+          });
+
+          // set the relationship between the User and the ApiKey models & save the apiKey object
+          key.set('user', user);
+          key.save();
+
+          user.get('apiKeys').content.push(key);
+
+          // check if there is any attemptedTransition to retry it or go to the secret route
+          if (attemptedTransition) {
+            attemptedTransition.retry();
+            _this.set('attemptedTransition', null);
+          } else {
+            _this.transitionToRoute('courses');
+          }
+
         });
 
-        if (attemptedTransition) {
-          attemptedTransition.retry();
-          _this.set('attemptedTransition', null);
-        } else {
-          _this.transitionToRoute('courses');
-        }
+
+
+
 
       }, function(error) {
         if (error.status === 422) {

@@ -1,35 +1,35 @@
 .off-canvas-wrap data-offcanvas=""
   .inner-wrap
     aside.left-off-canvas-menu
-      ul.off-canvas-list
-        li
-          label
-        li
-          link-to 'Frolfr Champ' 'index'
-        li
-          label
-        li
-          link-to 'Start a New Round' 'index'
-        li
-          link-to 'Rounds'
-        li
-          link-to 'Courses' 'courses'
-        li
-          link-to 'Suggest a New Course' 'index'
-        li
-          link-to 'Friends' 'index'
-        li
-          if isAuthenticated
+      if isAuthenticated
+        ul.off-canvas-list
+          li
+            label
+          li
+            link-to 'index'
+              currentUser.fullName
+          li
+            label
+          li
+            link-to 'Start a New Round' 'index'
+          li
+            link-to 'Rounds'
+          li
+            link-to 'Courses' 'courses'
+          li
+            link-to 'Suggest a New Course' 'index'
+          li
+            link-to 'Friends' 'index'
+          li
             a click=logout Logout
-          else
-            link-to 'Login' 'sessions.login'
-        li
-          label
+          li
+            label
 
     nav.tab-bar data-topbar=""
-      section.left-small
-        a.left-off-canvas-toggle.menu-icon
-          span
+      if isAuthenticated
+        section.left-small
+          a.left-off-canvas-toggle.menu-icon
+            span
 
       section.middle.tab-bar-section
         h1#title
