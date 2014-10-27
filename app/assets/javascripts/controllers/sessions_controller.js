@@ -51,12 +51,6 @@ App.SessionsController = Ember.Controller.extend({
       Ember.$.post('/api/authorizations', data).then(function(response) {
         _this.setupAuthHeader(response.token, data.email);
 
-        var key = _this.get('store').createRecord('apiKey', {
-          authToken: response.token,
-          email: data.email
-        });
-        key.save();
-
         _this.setProperties({
           token: response.token,
           email: data.email
