@@ -1,4 +1,6 @@
 App.SessionsController = Ember.Controller.extend({
+  needs: ['currentUser'],
+
   init: function() {
     this._super();
     if (Ember.$.cookie('token') && Ember.$.cookie('email')) {
@@ -21,6 +23,7 @@ App.SessionsController = Ember.Controller.extend({
         'Authorization': 'Token none'
       }
     });
+    this.get('controllers.currentUser').set('model', null);
   },
 
   tokenChanged: function() {
@@ -30,7 +33,11 @@ App.SessionsController = Ember.Controller.extend({
     } else {
       Ember.$.cookie('token', this.get('token'));
       Ember.$.cookie('email', this.get('email'));
+
+      var user = this.store.find('user', 'current');
+      this.get('controllers.currentUser').set('model', user);
     }
+
   }.observes('token'),
 
   actions: {
