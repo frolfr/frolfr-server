@@ -7,3 +7,7 @@ form submit="login"
   =input value=password type="password" id="password"
 
   button.button.expand type="submit" Log In
+
+p
+  ' New to Frolfr?
+  = link-to 'Sign Up' 'sign_up'
