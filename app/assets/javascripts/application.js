@@ -30,5 +30,9 @@ App = Ember.Application.create({
 //= require_tree .
 
 $(function(){
- $(document).foundation();
+  $(document).foundation({
+    offcanvas : {
+      close_on_click : true
+    }
+  });
 });
