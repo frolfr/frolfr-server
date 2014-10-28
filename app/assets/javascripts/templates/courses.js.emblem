@@ -17,4 +17,3 @@ if model
           td = course.roundsPlayed
 else
   h2 Welcome to Frolfr!
-
