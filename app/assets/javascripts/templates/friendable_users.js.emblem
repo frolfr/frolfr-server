@@ -1,3 +1,8 @@
-h3 potential friends
-each friendableUser in model
-  li= friendableUser.fullName
+.row
+  .small-9.columns
+    auto-complete source=controller class="larger-input"
+  .small-3.columns
+    button.button.expand{action addFriend}
+      i.fi-plus
+
+
