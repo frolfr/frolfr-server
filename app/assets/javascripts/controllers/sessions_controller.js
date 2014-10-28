@@ -83,11 +83,14 @@ App.SessionsController = Ember.Controller.extend({
   },
 
   setupCurrentUser: function() {
-    var user = this.store.find('user', 'current');
-    this.get('controllers.currentUser').set('model', user);
+    var _this = this;
+    this.store.find('user', 'current').then(function(user) {
+      _this.get('controllers.currentUser').set('model', user);
+    });
   },
 
   resetCurrentUser: function() {
     this.get('controllers.currentUser').set('model', null);
+    this.store.unloadAll('user');
   }
 });
