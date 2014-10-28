@@ -1,5 +1,9 @@
 h2 Log In
 form submit="login"
+  label for="email" Email
   =input value=email type="text" id="email"
+
+  label for="password" Password
   =input value=password type="password" id="password"
+
   button.button.expand type="submit" Log In
