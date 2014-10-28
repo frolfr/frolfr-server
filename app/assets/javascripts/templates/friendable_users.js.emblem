@@ -1,0 +1,3 @@
+h3 potential friends
+each friendableUser in model
+  li= friendableUser.fullName

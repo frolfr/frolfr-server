@@ -1,5 +1,7 @@
 h2 Friends
 
+render "friendableUsers"
+
 if model
   table.small-12#friends
     tbody
