@@ -7,3 +7,5 @@ App.User = DS.Model.extend({
       return this.get('firstName') + " " + this.get('lastName');
     }.property("firstName", "lastName")
 });
+
+App.Friend = App.User.extend();
