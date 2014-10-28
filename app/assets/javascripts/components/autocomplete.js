@@ -29,7 +29,7 @@ App.AutoCompleteComponent = Ember.TextField.extend({
 
     $input.on('typeahead:autocompleted', onComplete);
     $input.on('typeahead:selected', onComplete);
-    $input.on('keypress', function() {
+    $input.on('keydown', function() {
       _this.get('source').setSuggestion(null);
     });
     //
