@@ -19,6 +19,7 @@
 //= require ember-data
 //= require localstorage_adapter
 //= require jquery.cookie
+//= require typeahead.jquery
 //= require_self
 //= require ./app
 
