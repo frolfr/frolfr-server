@@ -7,7 +7,7 @@ class Api::FriendsController < ApplicationController
 
   def create
     new_friend = User.find(friend_params[:id])
-    current_user.friends << new_friend
+    Friendship.create_friendship(user: current_user, friend: new_friend)
     respond_with new_friend, location: api_friend_url(new_friend), root: "friend"
   end
 
