@@ -27,10 +27,24 @@ App.FriendableUsersController = Ember.ArrayController.extend({
     },
 
     addFriend: function() {
-      console.log("NOT IMPLEMENTED!!!");
-      console.log("you're gonna be friends with ", this.get('selectedUser.fullName'));
-      this.set('selectedUser', null);
-      this.set('query', "");
+      var _this = this;
+
+      var newFriend = this.store.createRecord('friend',
+        this.get("selectedUser").toJSON({includeId: true})
+      );
+
+      newFriend.save().then(function(savedFriend) {
+        // This user is now our friend, so remove them from the list of friendable users
+        var selectedUser = _this.store.find('friendableUser', _this.get('selectedUser.id'));
+        selectedUser.then(function(selectedUser) {
+          selectedUser.deleteRecord();
+        });
+
+        // Clear out the form
+        _this.set('selectedUser', null);
+        _this.set('query', "");
+      });
+
     }
   },
 
