@@ -1,6 +1,6 @@
 App.FriendableUsersController = Ember.ArrayController.extend({
   query: "",
-  user: null,
+  selectedUser: null,
 
   results: function() {
     var query = this.get('query').toLowerCase();
@@ -9,27 +9,27 @@ App.FriendableUsersController = Ember.ArrayController.extend({
     });
   }.property('query', 'model'),
 
-  hasNoUser: function() {
-    return Ember.isEmpty(this.get('user.id'));
-  }.property('user'),
+  noUserSelected: function() {
+    return Ember.isEmpty(this.get('selectedUser.id'));
+  }.property('selectedUser'),
 
   clearStaleUser: function() {
-    if (this.get('hasNoUser')) {
+    if (this.get('noUserSelected')) {
       return;
-    }  else if (this.get('query') !== this.formatSuggestion(this.get('user'))) {
-      this.set('user', null);
+    }  else if (this.get('query') !== this.formatSuggestion(this.get('selectedUser'))) {
+      this.set('selectedUser', null);
     }
-  }.observes("query", "user"),
+  }.observes("query", "selectedUser"),
 
   actions: {
-    updateFriendField: function(user) {
-      this.set('user', user);
+    updateSelectedUser: function(user) {
+      this.set('selectedUser', user);
     },
 
     addFriend: function() {
       console.log("NOT IMPLEMENTED!!!");
-      console.log("you're gonna be friends with ", this.get('user.fullName'));
-      this.set('user', null);
+      console.log("you're gonna be friends with ", this.get('selectedUser.fullName'));
+      this.set('selectedUser', null);
       this.set('query', "");
     }
   },
