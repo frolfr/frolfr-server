@@ -4,7 +4,7 @@ App.FriendsRoute = App.AuthenticatedRoute.extend({
   },
 
   setupController: function(controller, model) {
-    this._super();
+    this._super(controller, model);
     this.controllerFor('friendableUsers').set('model', this.store.find('friendableUser'));
   }
 });
