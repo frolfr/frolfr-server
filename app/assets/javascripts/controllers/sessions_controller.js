@@ -24,7 +24,6 @@ App.SessionsController = Ember.Controller.extend({
         'Authorization': 'Token none'
       }
     });
-    this.resetCurrentUser();
   },
 
   tokenChanged: function() {
@@ -92,10 +91,5 @@ App.SessionsController = Ember.Controller.extend({
     this.store.find('user', 'current').then(function(user) {
       _this.get('controllers.currentUser').set('model', user);
     });
-  },
-
-  resetCurrentUser: function() {
-    this.get('controllers.currentUser').set('model', null);
-    this.store.unloadAll('user');
   }
 });
