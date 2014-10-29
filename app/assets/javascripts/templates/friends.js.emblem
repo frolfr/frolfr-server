@@ -6,7 +6,7 @@ if model
   table.small-12#friends
     tbody
       each friend in model
-        tr.text-centered
-          td= friend.fullName
+        tr
+          td.text-centered= friend.fullName
 else
   p You don't have any friends yet.
