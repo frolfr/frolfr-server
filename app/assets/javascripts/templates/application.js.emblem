@@ -18,7 +18,7 @@
           li
             link-to 'Suggest a New Course' 'index'
           li
-            link-to 'Friends' 'index'
+            link-to 'Friends' 'friends'
           li
             a click=logout Logout
           li
