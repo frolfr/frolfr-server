@@ -10,4 +10,4 @@ form submit="login"
 
 p
   ' New to Frolfr?
-  = link-to 'Sign Up' 'sign_up'
+  = link-to 'Sign Up' 'users.new'

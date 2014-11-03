@@ -1,0 +1,23 @@
+h2 Sign Up for Frolfr
+
+form submit='createUser'
+  fieldset
+    label for="firstName" * First Name
+    = input value=fields.firstName type="text" id="firstName" required=true
+
+    label for="middleName" Middle Name
+    = input value=fields.middleName type="text" id="middleName"
+
+    label for="lastName" * Last Name
+    = input value=fields.lastName type="text" id="lastName" required=true
+
+    label for="email" * Email
+    = input value=fields.email type="text" id="email" required=true
+
+    label for="password" * Password
+    = input value=fields.password type="password" id="password" required=true
+
+    label for="passwordConfirmation" * Password Confirmation
+    = input value=fields.passwordConfirmation type="password" id="passwordConfirmation" required=true
+
+  button.button.expand type="submit" Sign Up
