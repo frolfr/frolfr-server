@@ -20,4 +20,7 @@ form submit='createUser'
     label for="passwordConfirmation" * Password Confirmation
     = input value=fields.passwordConfirmation type="password" id="passwordConfirmation" required=true
 
+    if showPasswordError
+      p Password and confirmation must match
+
   button.button.expand type="submit" Sign Up

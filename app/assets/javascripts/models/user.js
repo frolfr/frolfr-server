@@ -9,3 +9,10 @@ App.User = DS.Model.extend({
 });
 
 App.Friend = App.User.extend();
+
+App.User.reopenClass({
+  validPassword: function(fields) {
+    return fields.password === fields.passwordConfirmation;
+  }
+})
+
