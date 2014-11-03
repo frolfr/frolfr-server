@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
     user = User.new(user_params)
 
     if user.save
-      render json: { token: user.auth_token }, status: :created
+      respond_with :api, user
     else
       head :unprocessable_entity
     end

@@ -3,6 +3,8 @@ App.User = DS.Model.extend({
     middleName: DS.attr('string'),
     lastName: DS.attr('string'),
     email: DS.attr('string'),
+    password: DS.attr('string'),
+    passwordConfirmation: DS.attr('string'),
     fullName: function() {
       return this.get('firstName') + " " + this.get('lastName');
     }.property("firstName", "lastName")
