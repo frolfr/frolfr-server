@@ -15,13 +15,14 @@ describe Api::UsersController do
     context 'with valid params' do
       it 'creates the user' do
         expect {
-          post '/api/users', user: valid_params
+          post '/api/users', user: valid_params, format: :json
         }.to change { User.count }.by(1)
       end
 
-      it 'responds with a token' do
-        post '/api/users', user: valid_params
-        expect(json['token']).to be_present
+      it 'responds with a user' do
+        post '/api/users', user: valid_params, format: :json
+        expect(json).to have_key('user')
+        expect(json['user']['first_name']).to eq('Doug')
       end
     end
 
@@ -30,7 +31,7 @@ describe Api::UsersController do
 
       it 'does not create a user' do
         expect {
-          post '/api/users', user: invalid_params
+          post '/api/users', user: invalid_params, format: :json
         }.to_not change { User.count }
       end
     end
