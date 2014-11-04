@@ -1,4 +1,6 @@
 App.UsersNewController = Ember.Controller.extend({
+  needs: "sessions",
+
   actions: {
     createUser: function() {
       var self = this;
@@ -11,13 +13,7 @@ App.UsersNewController = Ember.Controller.extend({
           var email = user.get('email');
           var password = self.get('fields').password;
 
-          Ember.$.post('/api/authorizations', {
-            email: email,
-            password: password
-          }).then(function(response) {
-            // Use setupCurrentUser... (the next line will be removed eventually)
-            self.transitionToRoute('sessions.login')
-          });
+          self.get('controllers.sessions').send("loginWithCredentials", email, password);
         });
       } else {
         this.set('showPasswordError', true)
