@@ -71,6 +71,11 @@ App.SessionsController = Ember.Controller.extend({
         }
       });
     },
+    loginWithCredentials: function(email, password) {
+      this.set('email', email);
+      this.set('password', password);
+      this.send('login');
+    },
   },
 
   // private
