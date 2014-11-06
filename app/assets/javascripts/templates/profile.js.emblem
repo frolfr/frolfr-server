@@ -1,0 +1,14 @@
+h2 Profile
+p Feel free to edit personal information here:
+
+form
+  label for="firstName" * First Name
+  =input value=firstName type="text" id="firstName" required=true
+
+  label for="middleName" * Middle Name
+  =input value=middleName type="text" id="middleName"
+
+  label for="lastName" * Last Name
+  =input value=lastName type="text" id="lastName" required=true
+
+  button.button.expand type="submit" click="saveChanges" Save Changes
