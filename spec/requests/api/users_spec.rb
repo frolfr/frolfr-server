@@ -40,14 +40,14 @@ describe Api::UsersController do
   describe 'PUT /api/users/:id' do
     before { log_in(user) }
     let(:user) { FactoryGirl.create(:user) }
-    let(:new_email) {'pork@chop.good.dog' }
-    let(:updated_params) { { email: new_email } }
+    let(:new_first_name) { 'Porkchop' }
+    let(:updated_params) { { first_name: new_first_name } }
 
     context 'with valid params' do
       it 'updates the user' do
         put "/api/users/#{user.id}", user: updated_params, format: :json
         user.reload
-        expect(user.email).to eq new_email
+        expect(user.first_name).to eq new_first_name
       end
     end
   end
