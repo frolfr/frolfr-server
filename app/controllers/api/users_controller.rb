@@ -12,10 +12,20 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    current_user.update(update_user_params)
+
+    respond_with :api, current_user
+  end
+
   private
 
   def create_user_params
     params.require(:user).permit(:first_name, :middle_name, :last_name,
       :email, :password, :password_confirmation)
+  end
+
+  def update_user_params
+    params.require(:user).permit(:first_name, :middle_name, :last_name)
   end
 end
