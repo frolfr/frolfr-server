@@ -1,37 +1,27 @@
 <h2>{{courseName}}</h2>
 <h4>{{displayDate createdAt}}</h4>
 
-<table class="small-12" id="scorecard">
-  <thead>
-    <tr>
-      <td></td>
-      {{#each scorecard in scorecards}}
-        <td>
-          <strong>{{scorecard.userInitials}}</strong>
-        </td>
+<div class='row round-show-table'>
+  <div {{bind-attr class='columnWidth :columns'}}>
+    <ul>
+      <li>&nbsp;</li>
+      {{#each hole in holes}}
+        <li><strong>{{hole.number}}</strong></li>
       {{/each}}
-    </tr>
-  </thead>
-  <tbody>
-    {{#each row in scorecardsTable}}
-    <tr>
-      {{#each score in row}}
-        <td>{{score}}</td>
-      {{/each}}
-    </tr>
-    {{/each}}
 
-
-
-    {{#each hole in holes}}
-      <tr>
-        {{hole.number}}
-        {{#each player in hole.players }}
-          <td>{{player.score}}</td>
+      <li><strong>Totals</strong></li>
+    </ul>
+  </div>
+  
+  {{#each scorecard in scorecards}}
+    <div {{bind-attr class='columnWidth :columns'}}>
+      <ul>
+        <li><strong>{{scorecard.userInitials}}</strong></li>
+        {{#each turn in scorecard.turns}}
+          <li {{bind-attr class='turn.parStatus'}}>{{turn.score}}</li>
         {{/each}}
-      </tr>
-    {{/each}}
-
-  </tbody>
-
-</table>
+        <li><strong>{{scorecard.formattedTotals}}</strong></li>
+      </ul>
+    </div>
+  {{/each}}
+</div>
