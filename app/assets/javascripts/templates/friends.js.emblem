@@ -9,4 +9,4 @@ if model
         tr
           td.text-centered= friend.fullName
 else
-  p You don't have any friends yet.
+  p#friends You don't have any friends yet.
