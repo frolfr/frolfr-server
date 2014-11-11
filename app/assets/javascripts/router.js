@@ -12,7 +12,7 @@ App.Router.map(function() {
   this.resource('courses');
   this.resource('course', { path: '/courses/:id' });
   this.resource('friends');
-  this.route('profile');
+  this.resource('profile');
   this.resource('users', function() {
     this.route('new');
   });
