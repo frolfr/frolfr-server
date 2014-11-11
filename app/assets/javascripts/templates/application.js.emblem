@@ -6,7 +6,7 @@
           li
             label
           li
-            link-to currentUser.fullName 'index'
+            link-to currentUser.fullName 'profile'
           li
             label
           li
