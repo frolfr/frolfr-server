@@ -30,6 +30,7 @@ App = Ember.Application.create({
 //= require_tree .
 
 $(function(){
+  Foundation.global.namespace = '';
   $(document).foundation({
     offcanvas : {
       close_on_click : true
