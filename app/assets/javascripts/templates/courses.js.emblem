@@ -21,5 +21,8 @@ else
           link-to 'course' course
             course.name
         td = course.name
+        td
+          link-to 'course' course
+            course.name
         td = course.location
         td = course.roundsPlayed

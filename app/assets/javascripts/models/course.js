@@ -1,5 +1,4 @@
 App.Course = DS.Model.extend({
-<<<<<<< HEAD
     city: DS.attr('string'),
     state: DS.attr('string'),
     country: DS.attr('string'),
