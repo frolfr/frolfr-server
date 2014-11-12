@@ -16,4 +16,6 @@ App.Router.map(function() {
   this.resource('users', function() {
     this.route('new');
   });
+  this.resource('rounds');
+  this.resource('round', { path: '/rounds/:id' });
 });
