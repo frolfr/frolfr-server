@@ -17,3 +17,9 @@ if model
           td = course.roundsPlayed
 else
   h2 Welcome to Frolfr!
+        td
+          link-to 'course' course
+            course.name
+        td = course.name
+        td = course.location
+        td = course.roundsPlayed
