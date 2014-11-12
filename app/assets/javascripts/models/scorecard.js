@@ -11,7 +11,6 @@ App.Scorecard = DS.Model.extend({
 
   totalPar: function () {
     return this.get('turns').reduce(function (acc, turn) {
-      console.log(acc);
       return acc + turn.get('parScore');
     }, 0);
   }.property('turns.@each.score'),
