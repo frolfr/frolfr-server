@@ -7,6 +7,7 @@ Frolfr::Application.routes.draw do
     get 'users/current', to: 'current_users#show'
     resources :friends
     resources :users
+    resources :rounds
   end
 
   get '*path', to: 'dashboard#show'
