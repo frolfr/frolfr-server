@@ -11,4 +11,8 @@ form
   label for="lastName" * Last Name
   =input value=lastName type="text" id="lastName" required=true
 
-  button.button.expand type="submit" click="saveChanges" Save Changes
+.row
+  .small-6.columns
+    button.button.expand.radius class=isDirty:active:disabled type="submit" click="saveChanges" Save
+  .small-6.columns
+    button.button.expand.alert.radius class=isDirty:active:disabled click="cancel" Cancel
