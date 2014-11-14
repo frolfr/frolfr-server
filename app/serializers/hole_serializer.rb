@@ -4,5 +4,4 @@ class HoleSerializer < ActiveModel::Serializer
   def turn_ids
     object.turns.pluck(:id)  
   end
-
 end

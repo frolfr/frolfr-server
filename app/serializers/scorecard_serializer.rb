@@ -6,7 +6,7 @@ class ScorecardSerializer < ActiveModel::Serializer
   end
 
   def user_initials
-    names.map {|name| name.chars.first }.join
+    names.map { |name| name.chars.first }.join
   end
 
   private

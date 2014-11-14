@@ -5,5 +5,4 @@ class Api::HolesController < ApplicationController
     hole = Hole.find(params[:id])
     respond_with hole
   end
-  
 end
