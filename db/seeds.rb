@@ -60,9 +60,11 @@ course2 = Course.create(
 end
 
 5.times do
+  day = (1..365).to_a.sample
   round = Round.create(
     course: course,
-    marked_complete: true
+    marked_complete: true,
+    created_at: day.days.ago
   )
   User.all.each do |user|
     scorecard = Scorecard.create(
@@ -79,9 +81,11 @@ end
 end
 
 5.times do
+  day = (1..365).to_a.sample
   round = Round.create(
     course: course2,
-    marked_complete: true
+    marked_complete: true,
+    created_at: day.days.ago
   )
   User.all.each do |user|
     scorecard = Scorecard.create(
