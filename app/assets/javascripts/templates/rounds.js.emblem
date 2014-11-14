@@ -1,0 +1,20 @@
+h2 Recent Rounds
+
+if model
+  table.small-12#rounds
+    thead
+      tr
+        th Course
+        th Date Played
+        th Score
+        th
+    tbody
+      each round in model
+
+        tr
+          td
+          td
+          td
+          td
+else
+  p You haven't played any rounds
