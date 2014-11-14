@@ -19,5 +19,4 @@ App.Turn = DS.Model.extend({
     return this.get('score') - this.get('par');
   }.property('score', 'par')
 
-
 });

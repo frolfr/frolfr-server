@@ -18,3 +18,4 @@ App.User.reopenClass({
   }
 })
 
+App.FriendableUser = App.User.extend();

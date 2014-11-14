@@ -1,0 +1,8 @@
+.row
+  .small-9.columns
+    auto-complete source=controller gotSuggestion="updateSelectedUser" value=controller.query class="larger-input"
+  .small-3.columns
+    button.button.expand{action addFriend} disabled=noUserSelected
+      i.fi-plus
+
+

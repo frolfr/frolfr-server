@@ -16,6 +16,7 @@ App.Router.map(function() {
   this.resource('users', function() {
     this.route('new');
   });
+  this.resource('turns', { path: '/rounds/:round_id/holes/:hole_number' });
   this.resource('rounds');
   this.resource('round', { path: '/rounds/:id' });
 });
