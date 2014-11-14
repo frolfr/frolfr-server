@@ -6,5 +6,7 @@ App.Course = DS.Model.extend({
     status: DS.attr('string'),
     location: DS.attr('string'),
     roundsPlayed: DS.attr('number'),
-    imageUrl: DS.attr('string')
+    imageUrl: DS.attr('string'),
+    rounds: DS.hasMany('round', { async: true }),
+    holes: DS.hasMany('hole', { async: true })
 });
