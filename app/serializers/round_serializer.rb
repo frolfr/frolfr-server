@@ -1,5 +1,9 @@
 class RoundSerializer < ActiveModel::Serializer
-  attributes :id, :course_name, :created_at, :marked_complete, :scorecard_ids, :course_id
+  attributes :id, :course_name, :created_at, :marked_complete, :scorecard_ids, :course_id, :hole_ids
+
+  def hole_ids
+    object.holes.pluck(:id)
+  end
 
   def course_name
     object.course.name
