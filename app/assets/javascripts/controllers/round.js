@@ -1,4 +1,4 @@
-App.RoundsShowController = Ember.ObjectController.extend({
+App.RoundController = Ember.ObjectController.extend({
 
   columnWidth: function () {
     var count = this.get('scorecards.length');
