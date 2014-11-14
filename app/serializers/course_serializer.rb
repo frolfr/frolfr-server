@@ -1,5 +1,7 @@
 class CourseSerializer < ActiveModel::Serializer
-  attributes :id, :city, :state, :country, :name, :status, :location, :rounds_played, :image_url, :round_ids, :hole_ids
+  attributes :id, :city, :state, :country, :name, :status, 
+             :location, :rounds_played, :image_url, 
+             :round_ids, :hole_ids
 
   def round_ids
     object.rounds.pluck(:id)
