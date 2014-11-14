@@ -1,4 +1,4 @@
-class Api::RoundsController < ActionController::Base
+class Api::RoundsController < ApplicationController
 
   respond_to :json
 

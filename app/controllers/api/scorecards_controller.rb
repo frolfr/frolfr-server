@@ -1,4 +1,4 @@
-class Api::ScorecardsController < ActionController::Base
+class Api::ScorecardsController < ApplicationController
 
   respond_to :json
 
