@@ -1,5 +1,5 @@
 App.Scorecard = DS.Model.extend({
-  round: DS.belongsTo('round', { async: true}),
+  round: DS.belongsTo('round', { async: true }),
   courseName: DS.attr('string'),
   displayDate: DS.attr('date'),
   userInitials: DS.attr('string'),
@@ -21,7 +21,7 @@ App.Scorecard = DS.Model.extend({
     var score = this.get('totalScore');
     var par   = this.get('totalPar');
 
-    return score + "(" + 
+    return score + "(" +
     this.findSign(score, par) +
     par + ")"
   }.property('totalScore', 'totalPar'),
