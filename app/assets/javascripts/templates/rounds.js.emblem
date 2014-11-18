@@ -9,12 +9,12 @@ if model
         th Score
         th
     tbody
-      each round in model
-
+      each scorecard in model
         tr
+          td = scorecard.courseName
           td
-          td
-          td
+            displayDate scorecard.displayDate
+          td = scorecard.formattedTotals
           td
 else
   p You haven't played any rounds
