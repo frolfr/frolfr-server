@@ -1,5 +1,14 @@
 class ScorecardSerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :round_id, :user_initials, :turn_ids
+  attributes :id, :user_id, :round_id, :user_initials, :turn_ids,
+    :display_date, :course_name
+
+  def display_date
+    object.round.created_at.strftime("%A, %b %d %Y")
+  end
+
+  def course_name
+    object.round.course.name
+  end
 
   def turn_ids
     object.turns.pluck(:id)
