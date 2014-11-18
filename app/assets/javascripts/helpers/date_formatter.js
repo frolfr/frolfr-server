@@ -1,3 +1,3 @@
 Ember.Handlebars.helper('displayDate', function(value) {
-  return moment().format('dddd, MMM Do YYYY');
+  return moment(value).format('dddd, MMM Do YYYY');
 });
