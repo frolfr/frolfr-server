@@ -1,4 +1,4 @@
-class Api::RoundsController < ActionController::Base
+class Api::RoundsController < ApplicationController
 
   respond_to :json
 
@@ -6,5 +6,4 @@ class Api::RoundsController < ActionController::Base
     round = Round.find(params[:id])
     respond_with round
   end
-
 end

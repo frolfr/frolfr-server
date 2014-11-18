@@ -1,4 +1,4 @@
-class Api::TurnsController < ActionController::Base
+class Api::TurnsController < ApplicationController
 
   respond_to :json
 
