@@ -13,7 +13,7 @@ if model
         tr
           td = scorecard.courseName
           td
-            displayDate scorecard.displayDate
+            displayDate scorecard.createdAt
           td = scorecard.formattedTotals
           td
             link-to 'round' scorecard.round
