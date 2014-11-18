@@ -16,5 +16,7 @@ if model
             displayDate scorecard.displayDate
           td = scorecard.formattedTotals
           td
+            link-to 'round' scorecard.round
+              | Recap
 else
   p You haven't played any rounds
