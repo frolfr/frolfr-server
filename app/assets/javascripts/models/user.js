@@ -7,7 +7,8 @@ App.User = DS.Model.extend({
     passwordConfirmation: DS.attr('string'),
     fullName: function() {
       return this.get('firstName') + " " + this.get('lastName');
-    }.property("firstName", "lastName")
+    }.property("firstName", "lastName"),
+    scorecards: DS.hasMany('scorecard', { async: true })
 });
 
 App.Friend = App.User.extend();
@@ -16,6 +17,6 @@ App.User.reopenClass({
   validPassword: function(fields) {
     return fields.password === fields.passwordConfirmation;
   }
-})
+});
 
 App.FriendableUser = App.User.extend();
