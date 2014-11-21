@@ -7,28 +7,24 @@ App.RoundsController = Ember.ArrayController.extend({
   }.property('sortProperties'),
 
   sortCourseName: function() {
-    if (this.get('currentSortProperty') === 'courseName') {
-      return this.get('sortDirection');
-    } else {
-      return '';
-    }
+    return this.isSortedBy('courseName');
   }.property('currentSortProperty', 'sortDirection'),
 
   sortCreatedAt: function() {
-    if (this.get('currentSortProperty') === 'createdAt') {
-      return this.get('sortDirection');
-    } else {
-      return '';
-    }
+    return this.isSortedBy('createdAt');
   }.property('currentSortProperty', 'sortDirection'),
 
   sortTotalScore: function() {
-    if (this.get('currentSortProperty') === 'totalScore') {
+    return this.isSortedBy('totalScore');
+  }.property('currentSortProperty', 'sortDirection'),
+
+  isSortedBy: function(property) {
+    if (this.get('currentSortProperty') === property) {
       return this.get('sortDirection');
     } else {
       return '';
     }
-  }.property('currentSortProperty', 'sortDirection'),
+  },
 
   sortDirection: function() {
     if (this.get('sortAscending')) {
