@@ -7,11 +7,11 @@ App.Turn = DS.Model.extend({
   parStatus: function () {
     var parScore = this.get('parScore');
     if (parScore < 0) {
-      return 'belowPar'
-    } else if (parScore == 0) {
-      return 'atPar'
+      return 'belowPar';
+    } else if (parScore === 0) {
+      return 'atPar';
     } else if (parScore > 0) {
-      return 'abovePar'
+      return 'abovePar';
     }
   }.property('parScore'),
 
