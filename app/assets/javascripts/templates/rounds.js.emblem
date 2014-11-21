@@ -4,19 +4,19 @@ if model
   table.small-12#rounds
     thead
       tr
-        th Course
-        th Date Played
-        th Score
+        th click="sortBy 'courseName'" Course
+        th click="sortBy 'createdAt'" Date Played
+        th click="sortBy 'totalScore'" Score
         th
     tbody
-      each scorecard in model
+      each controller
         tr
-          td = scorecard.courseName
+          td = courseName
           td
-            displayDate scorecard.createdAt
-          td = scorecard.formattedTotals
+            displayDate createdAt
+          td = formattedTotals
           td
-            link-to 'round' scorecard.round
+            link-to 'round' round
               | Recap
 else
   p You haven't played any rounds
