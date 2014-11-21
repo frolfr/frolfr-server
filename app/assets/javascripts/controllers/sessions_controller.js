@@ -31,8 +31,9 @@ App.SessionsController = Ember.Controller.extend({
       Ember.$.removeCookie('token');
       Ember.$.removeCookie('email');
     } else {
-      Ember.$.cookie('token', this.get('token'));
-      Ember.$.cookie('email', this.get('email'));
+      var twentyYears = 365 * 20;
+      Ember.$.cookie('token', this.get('token'), { expires: twentyYears });
+      Ember.$.cookie('email', this.get('email'), { expires: twentyYears });
     }
 
   }.observes('token'),
