@@ -55,6 +55,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'database_cleaner'
+  gem 'teaspoon'
 end
 
 group :test do
