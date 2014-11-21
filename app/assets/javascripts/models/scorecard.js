@@ -13,27 +13,28 @@ App.Scorecard = DS.Model.extend({
 
   totalPar: function () {
     return this.get('turns').reduce(function (acc, turn) {
+      return acc + turn.get('par');
+    }, 0);
+  }.property('turns.@each.score'),
+
+  totalShooting: function () {
+    return this.get('turns').reduce(function (acc, turn) {
       return acc + turn.get('parScore');
     }, 0);
   }.property('turns.@each.score'),
 
   formattedTotals: function () {
-    var score = this.get('totalScore');
-    var par   = this.get('totalPar');
+    var totalScore = this.get('totalScore');
+    var totalPar   = this.get('totalPar');
+    var totalShooting = this.get('totalShooting');
+    var sign = '';
 
-    return score + "(" +
-    this.findSign(score, par) +
-    par + ")"
-  }.property('totalScore', 'totalPar'),
-
-  findSign: function (score, par) {
-    if (score < par) {
-      return '-'
-    } else if (score == par) {
-      return null
-    } else if (score > par) {
-      return '+'
+    if (totalPar < totalScore) {
+      sign = "+";
+    } else if (totalShooting === 0) {
+      totalShooting = "Even";
     }
-  }
 
+    return totalScore + " (" + sign + totalShooting + ")";
+  }.property('totalScore', 'totalPar', 'totalShooting')
 });
