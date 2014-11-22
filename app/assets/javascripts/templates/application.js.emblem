@@ -12,7 +12,7 @@
           li
             link-to 'Start a New Round' 'index'
           li
-            link-to 'Rounds'
+            link-to 'Rounds' 'rounds'
           li
             link-to 'Courses' 'courses'
           li

@@ -1,0 +1,28 @@
+h2 Recent Rounds
+
+if model
+  table.small-12#rounds
+    thead
+      tr
+        th click="sortBy 'courseName'"
+          ' Course
+          i class=sortCourseName
+        th click="sortBy 'createdAt'"
+          ' Date Played
+          i class=sortCreatedAt
+        th click="sortBy 'totalScore'"
+          ' Score
+          i class=sortTotalScore
+        th
+    tbody
+      each controller
+        tr
+          td = courseName
+          td
+            displayDate createdAt
+          td = formattedTotals
+          td
+            link-to 'round' round
+              | Recap
+else
+  p You haven't played any rounds
