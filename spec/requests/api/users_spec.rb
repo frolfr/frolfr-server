@@ -27,7 +27,9 @@ describe Api::UsersController do
     end
 
     context 'with blank email and/or non-matching passwords' do
-      let(:invalid_params) { {} }
+      let(:invalid_params) do {
+        email: ''
+      } end
 
       it 'does not create a user' do
         expect {
