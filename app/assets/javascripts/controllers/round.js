@@ -5,6 +5,15 @@ App.RoundController = Ember.ObjectController.extend({
     var scorecardColumnPercentage = 100 / scorecardColumns;
 
     return 'width: ' + scorecardColumnPercentage + '%;';
-  }.property('scorecards.length')
+  }.property('scorecards.length'),
+
+  holeNumbers: function() {
+    var turnsCount = this.get('scorecards.firstObject.turns.length');
+    var holeNumbers = new Array(turnsCount)
+      .join().split(',')
+      .map(function(item, index){ return ++index; });
+
+    return holeNumbers;
+  }.property('scorecards.firstObject.turns.length')
 
 });
