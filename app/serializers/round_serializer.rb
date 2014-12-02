@@ -1,4 +1,6 @@
 class RoundSerializer < ActiveModel::Serializer
+  embed :ids, include: true
+  has_many :scorecards
   attributes :id, :course_name, :created_at, :marked_complete, :scorecard_ids, :course_id
 
   def course_name
