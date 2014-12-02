@@ -6,7 +6,7 @@
 
 #### About Frolfr
 
-This project is under construction. The MVP, however, is currently available at the production site below, and up-to-date with master.
+This project is under construction. The Rails MVP, however, is currently available at the production site below. **Please note: The production site is not currently up-to-date with the master branch. We are currently rebuilding the site using the Ember.js framework.**
 
 #### Visit Frolfr's production site
 
