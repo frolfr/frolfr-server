@@ -22,6 +22,8 @@ gem 'ember-source'
 gem 'emblem-rails'
 
 # View
+gem 'slim'
+gem 'slim-rails'
 gem 'foundation-rails'
 
 # Pinging Heroku
