@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe Api::UsersController do
+  describe 'GET /users/:id' do
+    before { log_in }
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'returns a user' do
+      get api_user_path(user), format: :json
+      expect(json).to have_key('user')
+    end
+  end
+
   describe 'POST /users' do
     let(:valid_params) do
       {
