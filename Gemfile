@@ -22,10 +22,6 @@ gem 'ember-source'
 gem 'emblem-rails'
 
 # View
-gem 'slim'
-gem 'slim-rails'
-gem 'simple_form', github: 'plataformatec/simple_form'
-gem 'draper', '~> 1.0'
 gem 'foundation-rails'
 
 # Pinging Heroku
@@ -50,8 +46,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'better_errors'
-  gem 'binding_of_caller'
   gem 'pry'
   gem 'pry-rails'
   gem 'database_cleaner'
