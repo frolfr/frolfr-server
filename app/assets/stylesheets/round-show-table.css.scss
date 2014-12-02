@@ -1,4 +1,8 @@
 .round-show-table {
+  width: 100%;
+  .scorecard-column {
+    float: left;
+  }
   border: solid 1px $gainsboro;
   border-spacing: 2px;
   .columns { padding: 0; }
@@ -11,9 +15,9 @@
       text-align: center;
       line-height: 200%;
       font-size: 16px;
-      &.belowPar { color: green}
-      &.atPar    { color: black}
-      &.abovePar { color: red}
+      &.belowPar { color: green; }
+      &.atPar    { color: black; }
+      &.abovePar { color: red; }
     }
-  } 
+  }
 }
