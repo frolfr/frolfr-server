@@ -1,0 +1,4 @@
+ruby:
+  enabled: false
+java_script:
+  enabled: true
