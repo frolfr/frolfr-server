@@ -4,7 +4,7 @@ App.RoundController = Ember.ObjectController.extend({
     var scorecardColumns = this.get('scorecards.length');
     var scorecardColumnPercentage = 100 / scorecardColumns;
 
-    return "width: " + scorecardColumnPercentage + "%;";
+    return 'width: ' + scorecardColumnPercentage + '%;';
   }.property('scorecards.length')
 
 });
