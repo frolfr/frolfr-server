@@ -2,6 +2,7 @@ App.Scorecard = DS.Model.extend({
   round: DS.belongsTo('round', { async: true }),
   courseName: DS.attr('string'),
   createdAt: DS.attr('date'),
+  user: DS.belongsTo('user', { async: true }),
   userInitials: DS.attr('string'),
   turns: DS.hasMany('turn', { async: true }),
 
