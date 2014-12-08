@@ -14,7 +14,7 @@ App.AutoCompleteComponent = Ember.TextField.extend({
     }, {
       displayKey: function(suggestion) { return _this.format(suggestion); }, // JAVASCRIPT!!!!!
       source: function(query, callback) {
-        if (query === "") {
+        if (query === '') {
           return [];
         }
 
