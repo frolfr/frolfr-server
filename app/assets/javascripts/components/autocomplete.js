@@ -29,6 +29,8 @@ App.AutoCompleteComponent = Ember.TextField.extend({
     $input.on('typeahead:selected', function(event, suggestion) {
       _this.set('selection', suggestion);
     });
+
+    $input.on('keydown', function() { _this.clearStaleSelection(); });
   },
 
   format: function(suggestion) {
@@ -43,6 +45,6 @@ App.AutoCompleteComponent = Ember.TextField.extend({
     if (this.get('value') !== this.format(this.get('selection'))) {
       this.set('selection', null);
     }
-  }.observes('value', 'selection')
+  }
 
 });
