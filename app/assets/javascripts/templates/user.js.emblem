@@ -1,3 +1,5 @@
+link-to '< Friends' 'friends'
+
 h2 = fullName
 
 h4 Rounds Played Together
@@ -6,5 +8,3 @@ table.small-12
     tr
       th Course Name
       th Date Played
-
-link-to 'Back to Friends' 'friends'
