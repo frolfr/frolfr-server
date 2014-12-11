@@ -1,6 +1,7 @@
 App.Scorecard = DS.Model.extend({
   round: DS.belongsTo('round', { async: true }),
   courseName: DS.attr('string'),
+  courseId: DS.attr('number'),
   createdAt: DS.attr('date'),
   user: DS.belongsTo('user', { async: true }),
   userInitials: DS.attr('string'),

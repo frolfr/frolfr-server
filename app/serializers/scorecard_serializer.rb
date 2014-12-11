@@ -2,7 +2,11 @@ class ScorecardSerializer < ActiveModel::Serializer
   embed :ids, include: true
   has_many :turns
   attributes :id, :user_id, :round_id, :user_initials, :turn_ids,
-             :created_at, :course_name
+             :created_at, :course_name, :course_id
+
+  def course_id
+    object.course.id
+  end
 
   def created_at
     object.round.created_at

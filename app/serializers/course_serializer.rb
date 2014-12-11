@@ -1,10 +1,12 @@
 class CourseSerializer < ActiveModel::Serializer
+  embed :ids, include: true
+  has_many :scorecards
   attributes :id, :city, :state, :country, :name, :status,
              :location, :rounds_played, :image_url,
-             :round_ids, :hole_ids
+             :hole_ids, :scorecard_ids
 
-  def round_ids
-    object.rounds.pluck(:id)
+  def scorecard_ids
+    object.scorecards.pluck(:id)
   end
 
   def hole_ids
