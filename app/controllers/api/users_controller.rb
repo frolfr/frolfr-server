@@ -2,6 +2,11 @@ class Api::UsersController < ApplicationController
   respond_to :json
   skip_before_action :authenticate, only: [:create]
 
+  def show
+    user = User.find(params[:id])
+    respond_with :api, user
+  end
+
   def create
     user = User.new(create_user_params)
 
