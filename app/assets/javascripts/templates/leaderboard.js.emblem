@@ -9,6 +9,7 @@ table.small-12#rounds
     each filtered
       tr
         td
+          rankingFromIndex _view.contentIndex
         td = userFullName
         td
           displayDate createdAt
