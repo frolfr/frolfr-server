@@ -1,5 +1,5 @@
 App.LeaderboardController = Ember.ArrayController.extend({
-  sortProperties: ['createdAt'],
+  sortProperties: ['totalPar'],
   sortAscending: false,
 
   filtered: function() {
