@@ -31,7 +31,7 @@ App.Scorecard = DS.Model.extend({
     var totalScore = this.get('totalScore'),
         formattedShooting = this.get('formattedShooting');
 
-    return totalScore + " (" + formattedShooting + ")";
+    return totalScore + ' (' + formattedShooting + ')';
   }.property('totalScore', 'formattedShooting'),
 
   formattedShooting: function () {
