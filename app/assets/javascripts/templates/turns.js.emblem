@@ -37,7 +37,7 @@ each controller
 
   .right
     if isLastHole
-      a.button.direction-arrows Recap
+      link-to 'Recap' 'round' roundId classNames='button direction-arrows'
     else
       a.button.direction-arrows click=nextHole
         i.fi-arrow-right

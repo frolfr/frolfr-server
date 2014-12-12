@@ -7,7 +7,7 @@
     <ul>
       <li>&nbsp;</li>
       {{#each hole in holeNumbers}}
-        <li><strong>{{hole}}</strong></li>
+        {{#link-to 'turns' hole tagName='li'}}<strong>{{hole}}</strong>{{/link-to}}
       {{/each}}
 
       <li><strong>Totals</strong></li>
