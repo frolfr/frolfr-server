@@ -34,9 +34,14 @@ each controller
       h4.left.shooting = scorecard.formattedShooting
 
 .clearfix.panel
-  .left
-    a.button.direction-arrows
-      i.fi-arrow-left
+  unless isFirstHole
+    .left
+      a.button.direction-arrows click=previousHole
+        i.fi-arrow-left
+
   .right
-    a.button.direction-arrows
-      i.fi-arrow-right
+    if isLastHole
+      a.button.direction-arrows Recap
+    else
+      a.button.direction-arrows click=nextHole
+        i.fi-arrow-right
