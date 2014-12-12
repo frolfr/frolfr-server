@@ -1,8 +1,10 @@
 App.LeaderboardController = Ember.ArrayController.extend({
-  sortProperties: ['totalPar'],
-  sortAscending: false,
+  sortProperties: ['totalShooting'],
+  sortAscending: true,
 
   filtered: function() {
-    return this.get('content').slice(0,10);
-  }.property('content')
+    // TODO: Make sure leaderboard consists of only completely
+    // finished scorecards
+    return this.get('arrangedContent').slice(0,10);
+  }.property('arrangedContent')
 })
