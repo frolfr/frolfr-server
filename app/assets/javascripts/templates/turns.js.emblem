@@ -15,10 +15,10 @@ header.panel.text-center
       li
         a.secondary.button 5
 
-each model
+each controller
   .row
     .small-3.columns
-      h2.text-centered GPS
+      h2.text-centered = scorecard.userInitials
     .small-6.columns
       .row
         .small-5.columns
@@ -30,7 +30,7 @@ each model
           a.button.expand.round
             i.fi-plus
     .small-3.columns.text-centered
-      h2.left.total = shooting
+      h2.left.total = scorecard.totalScore
       h4.left.shooting = scorecard.formattedShooting
 
 .clearfix.panel
