@@ -19,13 +19,13 @@ App.Scorecard = DS.Model.extend({
     return this.get('turns').reduce(function (acc, turn) {
       return acc + turn.get('par');
     }, 0);
-  }.property('turns.@each.score'),
+  }.property('turns.@each.par'),
 
   totalShooting: function () {
     return this.get('turns').reduce(function (acc, turn) {
       return acc + turn.get('shooting');
     }, 0);
-  }.property('turns.@each.score'),
+  }.property('turns.@each.shooting'),
 
   formattedTotals: function () {
     var totalScore = this.get('totalScore'),
