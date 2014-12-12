@@ -1,0 +1,16 @@
+table.small-12#rounds
+  thead
+    tr
+      th
+      th Player
+      th Date Played
+      th Score
+  tbody
+    each filtered
+      tr
+        td
+          rankingFromIndex _view.contentIndex
+        td = userFullName
+        td
+          displayDate createdAt
+        td = formattedTotals

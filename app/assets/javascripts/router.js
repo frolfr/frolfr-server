@@ -10,7 +10,9 @@ App.Router.map(function() {
     this.route('login');
   });
   this.resource('courses');
-  this.resource('course', { path: '/courses/:id' });
+  this.resource('course', { path: '/courses/:id' }, function() {
+    this.resource('leaderboard');
+  });
   this.resource('friends');
   this.resource('profile');
   this.resource('users', function() {
