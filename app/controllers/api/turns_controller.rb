@@ -9,7 +9,7 @@ class Api::TurnsController < ApplicationController
 
   def index
     round = Round.find(params[:round_id])
-    hole = Hole.find_by(number: params[:hole_number])
+    hole = round.holes.find_by(number: params[:hole_number])
 
     turns = round.turns_for_hole(hole)
     respond_with turns
