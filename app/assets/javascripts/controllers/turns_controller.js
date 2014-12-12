@@ -14,17 +14,17 @@ App.TurnsController = Ember.ArrayController.extend({
 
   actions: {
     previousHole: function() {
-      var hole = parseInt(this.get('holeNumber')) - 1,
-          route = '/rounds/' + 56 + '/holes/' + hole;
+      var holeNumber = parseInt(this.get('holeNumber')) - 1.
+          roundId = this.get('roundId');
 
-      this.transitionToRoute(route);
+      this.transitionToRoute('turns', roundId, holeNumber);
     },
 
     nextHole: function() {
-      var hole = parseInt(this.get('holeNumber')) + 1,
-          route = '/rounds/' + 56 + '/holes/' + hole;
+      var holeNumber = parseInt(this.get('holeNumber')) + 1.
+          roundId = this.get('roundId');
 
-      this.transitionToRoute(route);
+      this.transitionToRoute('turns', roundId, holeNumber);
     }
   }
 })
