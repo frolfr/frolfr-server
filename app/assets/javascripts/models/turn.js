@@ -2,7 +2,7 @@ App.Turn = DS.Model.extend({
   score: DS.attr('number'),
   par: DS.attr('number'),
   holeNumber: DS.attr('string'),
-  scorecard: DS.belongsTo('scorecard'),
+  scorecard: DS.belongsTo('scorecard', { async: true }),
 
   parStatus: function () {
     var shooting = this.get('shooting'),
