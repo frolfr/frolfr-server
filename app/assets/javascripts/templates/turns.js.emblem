@@ -5,7 +5,7 @@ header.panel.text-center
 .clearfix
   .left
     img.left src="https://s3.amazonaws.com/frolfr/hole_icon.jpg" alt="Hole #" width="50" height="50"
-    h2.text-centered.left 2
+    h2.text-centered.left = holeNumber
   .right
     ul.round.secondary.button-group.right
       li
@@ -15,73 +15,23 @@ header.panel.text-center
       li
         a.secondary.button 5
 
-.row
-  .small-3.columns
-    h2.text-centered GPS
-  .small-6.columns
-    .row
-      .small-5.columns
-        a.button.expand.round
-          i.fi-minus
-      .small-2.columns
-        h2.text-centered 3
-      .small-5.columns
-        a.button.expand.round
-          i.fi-plus
-  .small-3.columns.text-centered
-    h2.left.total 4
-    h4.left.shooting +1
-
-.row
-  .small-3.columns
-    h2.text-centered JK
-  .small-6.columns
-    .row
-      .small-5.columns
-        a.button.expand.round
-          i.fi-minus
-      .small-2.columns
-        h2.text-centered 3
-      .small-5.columns
-        a.button.expand.round
-          i.fi-plus
-  .small-3.columns.text-centered
-    h2.left.total 2
-    h4.left.shooting -1
-
-.row
-  .small-3.columns
-    h2.text-centered PD
-  .small-6.columns
-    .row
-      .small-5.columns
-        a.button.expand.round
-          i.fi-minus
-      .small-2.columns
-        h2.text-centered 3
-      .small-5.columns
-        a.button.expand.round
-          i.fi-plus
-  .small-3.columns.text-centered
-    h2.left.total 4
-    h4.left.shooting +1
-
-.row
-  .small-3.columns
-    h2.text-centered DP
-  .small-6.columns
-    .row
-      .small-5.columns
-        a.button.expand.round
-          i.fi-minus
-      .small-2.columns
-        h2.text-centered 3
-      .small-5.columns
-        a.button.expand.round
-          i.fi-plus
-  .small-3.columns.text-centered
-    h2.left.total 3
-    h4.left.shooting Even
+each model
+  .row
+    .small-3.columns
+      h2.text-centered GPS
+    .small-6.columns
+      .row
+        .small-5.columns
+          a.button.expand.round
+            i.fi-minus
+        .small-2.columns
+          h2.text-centered class=parStatus = score
+        .small-5.columns
+          a.button.expand.round
+            i.fi-plus
+    .small-3.columns.text-centered
+      h2.left.total = shooting
+      h4.left.shooting = scorecard.formattedShooting
 
 .clearfix.panel
   .left
