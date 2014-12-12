@@ -5,11 +5,11 @@
   .right
     ul.round.secondary.button-group.right
       li
-        a.secondary.button.darkened 3
+        a.secondary.button.darkened click='changePar 3' 3
       li
-        a.secondary.button 4
+        a.secondary.button click='changePar 4' 4
       li
-        a.secondary.button 5
+        a.secondary.button click='changePar 5' 5
 
 each controller
   .row
@@ -18,12 +18,12 @@ each controller
     .small-6.columns
       .row
         .small-5.columns
-          a.button.expand.round
+          a.button.expand.round click='subtractOne this'
             i.fi-minus
         .small-2.columns
           h2.text-centered class=parStatus = score
         .small-5.columns
-          a.button.expand.round
+          a.button.expand.round click='addOne this'
             i.fi-plus
     .small-3.columns.text-centered
       h2.left.total = scorecard.totalScore

@@ -25,6 +25,26 @@ App.TurnsController = Ember.ArrayController.extend({
           roundId = this.get('roundId');
 
       this.transitionToRoute('turns', roundId, holeNumber);
+    },
+
+    addOne: function(turn) {
+      var score = parseInt(turn.get('score'));
+
+      turn.set('score', Math.min(8, score + 1));
+    },
+
+    subtractOne: function(turn) {
+      var score = parseInt(turn.get('score'));
+
+      turn.set('score', Math.max(0, score - 1));
+    },
+
+    changePar: function(par) {
+      var par = parseInt(par);
+
+      this.get('model').forEach(function(turn) {
+        turn.set('par', par);
+      });
     }
   }
 })
