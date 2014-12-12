@@ -7,9 +7,7 @@ App.Scorecard = DS.Model.extend({
   userInitials: DS.attr('string'),
   turns: DS.hasMany('turn', { async: true }),
 
-  userFullName: function() {
-    return this.get('user').get('fullName');
-  }.property('user.fullName'),
+  userFullName: Ember.computed.alias('user.fullName'),
 
   totalScore: function () {
     return this.get('turns').reduce(function (acc, turn) {
