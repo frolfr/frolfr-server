@@ -8,6 +8,10 @@ class ScorecardSerializer < ActiveModel::Serializer
     object.course.id
   end
 
+  def turns
+    object.turns.includes(:hole).order('holes.number asc')
+  end
+
   def created_at
     object.round.created_at
   end
