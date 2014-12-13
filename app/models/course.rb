@@ -15,6 +15,10 @@ class Course < ActiveRecord::Base
   scope :by_name, -> { order(:name) }
   scope :approved, -> { where(status: APPROVED_STATUS) }
 
+  def hole_count
+    holes.count
+  end
+
   def hole_one
     holes.find_by(number: "1")
   end

@@ -8,9 +8,8 @@ App.TurnsController = Ember.ArrayController.extend({
   }.property('holeNumber'),
 
   isLastHole: function() {
-    return this.get('holeNumber') === "18";
-    // This should be more intelligent
-  }.property('holeNumber'),
+    return this.get('holeNumber') === this.get('holeCount');
+  }.property('holeNumber', 'finalHoleNumber'),
 
   actions: {
     previousHole: function() {
