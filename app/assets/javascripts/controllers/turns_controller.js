@@ -35,7 +35,7 @@ App.TurnsController = Ember.ArrayController.extend({
     subtractOne: function(turn) {
       var score = parseInt(turn.get('score'));
 
-      turn.set('score', Math.max(0, score - 1));
+      turn.set('score', Math.max(1, score - 1));
     },
 
     changePar: function(par) {
