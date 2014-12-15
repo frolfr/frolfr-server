@@ -5,11 +5,11 @@
   .right
     ul.round.secondary.button-group.right
       li
-        a.secondary.button.darkened click='changePar 3' 3
+        a.secondary.button class=isPar3:darkened click='changePar 3' 3
       li
-        a.secondary.button click='changePar 4' 4
+        a.secondary.button class=isPar4:darkened click='changePar 4' 4
       li
-        a.secondary.button click='changePar 5' 5
+        a.secondary.button class=isPar5:darkened click='changePar 5' 5
 
 each controller
   .row

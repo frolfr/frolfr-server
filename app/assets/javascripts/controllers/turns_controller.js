@@ -11,6 +11,14 @@ App.TurnsController = Ember.ArrayController.extend({
     return this.get('holeNumber') === this.get('holeCount');
   }.property('holeNumber', 'finalHoleNumber'),
 
+  holePar: function() {
+    return this.get('model.firstObject.par');
+  }.property('model.firstObject.par'),
+
+  isPar3: function() { return this.get('holePar') == 3; }.property('holePar'),
+  isPar4: function() { return this.get('holePar') == 4; }.property('holePar'),
+  isPar5: function() { return this.get('holePar') == 5; }.property('holePar'),
+
   actions: {
     previousHole: function() {
       var holeNumber = parseInt(this.get('holeNumber')) - 1,
