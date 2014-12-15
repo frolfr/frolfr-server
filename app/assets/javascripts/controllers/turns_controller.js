@@ -1,7 +1,7 @@
 App.TurnsController = Ember.ArrayController.extend({
-  holeNumber: function() {
-    return this.get('model.firstObject.holeNumber');
-  }.property('model.firstObject.holeNumber'),
+  holeNumber: Ember.computed.alias('model.firstObject.holeNumber'),
+
+  holePar: Ember.computed.alias('model.firstObject.par'),
 
   isFirstHole: function() {
     return this.get('holeNumber') === "1";
@@ -10,10 +10,6 @@ App.TurnsController = Ember.ArrayController.extend({
   isLastHole: function() {
     return this.get('holeNumber') === this.get('holeCount');
   }.property('holeNumber', 'finalHoleNumber'),
-
-  holePar: function() {
-    return this.get('model.firstObject.par');
-  }.property('model.firstObject.par'),
 
   isPar3: function() { return this.get('holePar') == 3; }.property('holePar'),
   isPar4: function() { return this.get('holePar') == 4; }.property('holePar'),
