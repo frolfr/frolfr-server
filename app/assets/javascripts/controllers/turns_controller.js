@@ -32,11 +32,7 @@ App.TurnsController = Ember.ArrayController.extend({
           roundId = this.get('roundId'),
           _this = this;
 
-      this.get('model').forEach(function(turn) {
-        if (turn.get('isDirty')) {
-          turn.save();
-        };
-      });
+      this.send('saveAll');
 
       if (this.get('isLastHole')) {
         _this.transitionToRoute('round', roundId);
@@ -62,6 +58,15 @@ App.TurnsController = Ember.ArrayController.extend({
 
       this.get('model').forEach(function(turn) {
         turn.set('par', changedPar);
+      });
+    },
+
+    // Private
+    saveAll: function() {
+      this.get('model').forEach(function(turn) {
+        if (turn.get('isDirty')) {
+          turn.save();
+        };
       });
     }
   }
