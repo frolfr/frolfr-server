@@ -29,9 +29,20 @@ App.TurnsController = Ember.ArrayController.extend({
 
     nextHole: function() {
       var holeNumber = parseInt(this.get('holeNumber')) + 1,
-          roundId = this.get('roundId');
+          roundId = this.get('roundId'),
+          _this = this;
 
-      this.transitionToRoute('turns', roundId, holeNumber);
+      this.get('model').forEach(function(turn) {
+        if (turn.get('isDirty')) {
+          turn.save();
+        };
+      });
+
+      if (this.get('isLastHole')) {
+        _this.transitionToRoute('round', roundId);
+      } else {
+        _this.transitionToRoute('turns', roundId, holeNumber);
+      };
     },
 
     addOne: function(turn) {
