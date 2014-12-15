@@ -12,7 +12,7 @@ App.Turn = DS.Model.extend({
       return 'abovePar';
     } else if (shooting === 0 || score === null) {
       return 'atPar';
-    } else if (shooting < 0) {
+    } else {
       return 'belowPar';
     }
   }.property('shooting', 'score'),
