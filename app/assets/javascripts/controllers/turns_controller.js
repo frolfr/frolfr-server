@@ -20,6 +20,8 @@ App.TurnsController = Ember.ArrayController.extend({
       var holeNumber = parseInt(this.get('holeNumber')) - 1,
           roundId = this.get('roundId');
 
+      this.send('saveAll');
+
       this.transitionToRoute('turns', roundId, holeNumber);
     },
 
