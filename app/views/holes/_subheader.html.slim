@@ -1,9 +1,0 @@
-.clearfix
-  .left
-    = image_tag("hole_icon.jpg", size: "50x50", class: 'left')
-    h2.text-centered.left = @hole.number
-  .right
-    ul.stack-for-small.round.secondary.button-group.right
-      - Turn::PARS.each do |par|
-        li
-          a.secondary.button.js-pars class="par-#{par}" class="#{'darkened js-par' if par == @round.scorecards.first.turn_for_hole(@hole).par}" href="#" = par

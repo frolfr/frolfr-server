@@ -2,21 +2,22 @@ App.Turn = DS.Model.extend({
   score: DS.attr('number'),
   par: DS.attr('number'),
   holeNumber: DS.attr('string'),
-  scorecard: DS.belongsTo('scorecard'),
+  scorecard: DS.belongsTo('scorecard', { async: true }),
 
   parStatus: function () {
-    var parScore = this.get('parScore');
-    if (parScore < 0) {
-      return 'belowPar';
-    } else if (parScore === 0) {
-      return 'atPar';
-    } else if (parScore > 0) {
-      return 'abovePar';
-    }
-  }.property('parScore'),
+    var shooting = this.get('shooting'),
+        score = this.get('score');
 
-  parScore: function () {
+    if (0 < shooting) {
+      return 'abovePar';
+    } else if (shooting === 0 || score === null) {
+      return 'atPar';
+    } else {
+      return 'belowPar';
+    }
+  }.property('shooting', 'score'),
+
+  shooting: function () {
     return this.get('score') - this.get('par');
   }.property('score', 'par')
-
 });

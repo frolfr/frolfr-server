@@ -5,4 +5,5 @@ App.Round = DS.Model.extend({
   courseId: DS.attr('number'),
   scorecards: DS.hasMany('scorecard', {async: true}),
   course: DS.belongsTo('course', {async: true}),
+  holeCount: DS.attr('string')
 });

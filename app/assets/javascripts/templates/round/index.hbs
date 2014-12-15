@@ -1,0 +1,30 @@
+<p>
+  {{link-to '< Rounds' 'rounds'}}
+</p>
+
+<div class='row round-show-table'>
+  <div class='small-2 columns'>
+    <ul>
+      <li>&nbsp;</li>
+      {{#each hole in holeNumbers}}
+        {{#link-to 'turns' hole tagName='li'}}<strong>{{hole}}</strong>{{/link-to}}
+      {{/each}}
+
+      <li><strong>Totals</strong></li>
+    </ul>
+  </div>
+
+  <div class='small-10 columns'>
+    {{#each scorecard in scorecards}}
+      <div class='scorecard-column' {{bind-attr style='columnWidth'}}>
+        <ul>
+          <li><strong>{{scorecard.userInitials}}</strong></li>
+          {{#each turn in scorecard.turns}}
+            <li {{bind-attr class='turn.parStatus'}}>{{turn.score}}</li>
+          {{/each}}
+          <li><strong>{{scorecard.formattedTotals}}</strong></li>
+        </ul>
+      </div>
+    {{/each}}
+  </div>
+</div>

@@ -1,31 +1,6 @@
-{{link-to '< Rounds' 'rounds'}}
+<header class='panel text-center'>
+  <h3>{{courseName}}</h3>
+  <h5>{{displayDate createdAt}}</h5>
+</header>
 
-<h2>{{courseName}}</h2>
-<h4>{{displayDate createdAt}}</h4>
-
-<div class='row round-show-table'>
-  <div class='small-2 columns'>
-    <ul>
-      <li>&nbsp;</li>
-      {{#each hole in holeNumbers}}
-        <li><strong>{{hole}}</strong></li>
-      {{/each}}
-
-      <li><strong>Totals</strong></li>
-    </ul>
-  </div>
-
-  <div class='small-10 columns'>
-    {{#each scorecard in scorecards}}
-      <div class='scorecard-column' {{bind-attr style='columnWidth'}}>
-        <ul>
-          <li><strong>{{scorecard.userInitials}}</strong></li>
-          {{#each turn in scorecard.turns}}
-            <li {{bind-attr class='turn.parStatus'}}>{{turn.score}}</li>
-          {{/each}}
-          <li><strong>{{scorecard.formattedTotals}}</strong></li>
-        </ul>
-      </div>
-    {{/each}}
-  </div>
-</div>
+{{outlet}}
