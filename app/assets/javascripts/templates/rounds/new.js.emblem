@@ -2,4 +2,16 @@ form
   / submit='createRound'
   fieldset
     label for="course" * Course
-    view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select a course"
+    view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select a course" id="course"
+
+    label for="players" * Players
+    .row
+      .small-9.columns
+        auto-complete id="players" model=friends selection=selectedPlayer value=query displayKey="fullName" class="larger-input"
+      .small-3.columns
+        button.button.expand{action addPlayer} disabled=noPlayerSelected
+          i.fi-plus
+    .row
+      ul
+        each players
+          li= fullName
