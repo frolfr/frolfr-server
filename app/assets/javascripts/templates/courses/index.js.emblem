@@ -1,0 +1,24 @@
+if model
+  div
+    .left
+      h2 Courses
+    .right
+      link-to 'courses.new' classNames='button round'
+        i.fi-plus
+
+  table.small-12#courses
+    thead
+      tr
+        th Name
+        th Location
+        th Rounds
+    tbody
+      each course in model
+        tr
+          td
+            link-to 'course' course
+              course.name
+          td = course.location
+          td = course.roundsPlayed
+else
+  h2 Welcome to Frolfr!
