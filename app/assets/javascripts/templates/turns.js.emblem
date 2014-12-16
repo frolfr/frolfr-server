@@ -17,13 +17,13 @@ each controller
       h2.text-centered = scorecard.userInitials
     .small-6.columns
       .row
-        .small-5.columns
-          a.button.expand.round click='subtractOne this'
+        .small-5.columns.text-centered
+          a.button.expand.round.u-condensed click='subtractOne this'
             i.fi-minus
         .small-2.columns
           h2.text-centered class=parStatus = score
-        .small-5.columns
-          a.button.expand.round click='addOne this'
+        .small-5.columns.text-centered
+          a.button.expand.round.u-condensed click='addOne this'
             i.fi-plus
     .small-3.columns.text-centered
       h2.left.total = scorecard.totalScore
