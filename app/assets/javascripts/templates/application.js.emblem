@@ -16,7 +16,7 @@
           li
             link-to 'Courses' 'courses'
           li
-            link-to 'Suggest a New Course' 'index'
+            link-to 'Suggest a New Course' 'courses.new'
           li
             link-to 'Friends' 'friends'
           li
