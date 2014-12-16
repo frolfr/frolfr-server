@@ -12,6 +12,8 @@ App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
 
 });
 
+App.ApplicationSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {});
+
 App.ApiKeyAdapter = DS.LSAdapter.extend({
   namespace: 'frolfr'
 });

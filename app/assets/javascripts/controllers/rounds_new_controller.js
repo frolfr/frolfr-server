@@ -1,7 +1,6 @@
 App.RoundsNewController = Ember.ObjectController.extend({
   selectedPlayer: null,
   query: null,
-  players: [],
 
   noPlayerSelected: function() {
     return Ember.isEmpty(this.get('selectedPlayer'));
@@ -16,6 +15,13 @@ App.RoundsNewController = Ember.ObjectController.extend({
 
     removePlayer: function(player) {
       this.get('players').removeObject(player);
+    },
+
+    createRound: function() {
+      var _this = this;
+      this.get('model').save().then(function(round) {
+        _this.transitionToRoute('turns', round, 1);
+      });
     }
   }
 });

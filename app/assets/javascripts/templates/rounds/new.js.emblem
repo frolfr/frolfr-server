@@ -1,5 +1,4 @@
-form
-  / submit='createRound'
+form submit='createRound'
   fieldset
     label for="course" * Course
     view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select a course" id="course"
@@ -21,3 +20,5 @@ form
               | &nbsp;
               button.button.alert.round{action removePlayer this}
                 i.fi-minus
+
+    button.button.expand type="submit" Create Round
