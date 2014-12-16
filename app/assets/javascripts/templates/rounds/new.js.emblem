@@ -12,6 +12,11 @@ form
         button.button.expand{action addPlayer} disabled=noPlayerSelected
           i.fi-plus
     .row
-      ul
-        each players
-          li= fullName
+      .columns
+        ol
+          each players
+            li
+              = fullName
+              | &nbsp;
+              button.button.alert.round{action removePlayer this}
+                i.fi-minus

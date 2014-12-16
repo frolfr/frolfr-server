@@ -12,6 +12,10 @@ App.RoundsNewController = Ember.ObjectController.extend({
       this.get('players').addObject(this.get('selectedPlayer'));
       this.set('selectedPlayer', null);
       this.set('query', null);
+    },
+
+    removePlayer: function(player) {
+      this.get('players').removeObject(player);
     }
   }
 });
