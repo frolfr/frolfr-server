@@ -1,0 +1,5 @@
+form
+  / submit='createRound'
+  fieldset
+    label for="course" * Course
+    view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select a course"
