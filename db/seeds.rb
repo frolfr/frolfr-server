@@ -44,14 +44,16 @@ course = Course.create(
   name: "Perkerson Park",
   city: "Atlanta",
   state: "GA",
-  country: "United States"
+  country: "United States",
+  status: "approved"
 )
 
 course2 = Course.create(
   name: "Redan Park",
   city: "Lithonia",
   state: "GA",
-  country: "United States"
+  country: "United States",
+  status: "approved"
 )
 
 1.upto(18) do |number|

@@ -9,7 +9,9 @@ App.Router.map(function() {
   this.resource('sessions', function() {
     this.route('login');
   });
-  this.resource('courses');
+  this.resource('courses', function() {
+    this.route('new');
+  });
   this.resource('course', { path: '/courses/:id' }, function() {
     this.resource('leaderboard');
   });

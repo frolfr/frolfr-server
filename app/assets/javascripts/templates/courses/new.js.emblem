@@ -1,0 +1,16 @@
+h2 Suggest a New Course
+
+form submit='save'
+  fieldset
+    label for="name" * Name
+    = input value=name type="text" id="name" required=true
+
+    label for="city" * City
+    = input value=city type="text" id="city" required=true
+
+    label for="state" * State
+    view Ember.Select content=stateAbbreviations value=state required=true
+
+    p For now, Frolfr only supports U.S. courses
+
+  button.button.expand type="submit" Suggest Course
