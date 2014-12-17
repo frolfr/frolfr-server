@@ -2,9 +2,23 @@ link-to '< Friends' 'friends'
 
 h2 = fullName
 
-h4 Rounds Played Together
-table.small-12
-  thead
-    tr
-      th Course Name
-      th Date Played
+if jointRounds
+  h4 Rounds Played Together
+
+  table.small-12
+    thead
+      tr
+        th Course Name
+        th Date Played
+        th
+    tbody
+      each jointRounds
+        tr
+          td = courseName
+          td
+            displayDate createdAt
+          td
+            link-to 'round' this
+              | Recap
+else
+  p You two haven't played any rounds together! Get discin'!
