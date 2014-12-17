@@ -40,17 +40,22 @@ App.TurnsController = Ember.ArrayController.extend({
     },
 
     addOne: function(turn) {
-      var score = parseInt(turn.get('score')),
+      var score = parseInt(turn.get('score') || 0),
           maximumTurnScore = 8;
 
       turn.set('score', Math.min(maximumTurnScore, score + 1));
     },
 
     subtractOne: function(turn) {
-      var score = parseInt(turn.get('score')),
-          minimumTurnScore = 1;
+      var score = parseInt(turn.get('score') || 0),
+          minimumTurnScore = 1
+          newScore = score - 1;
 
-      turn.set('score', Math.max(minimumTurnScore, score - 1));
+      if (newScore < minimumTurnScore) {
+        turn.set('score', null);
+      } else {
+        turn.set('score', newScore);
+      }
     },
 
     changePar: function(par) {
