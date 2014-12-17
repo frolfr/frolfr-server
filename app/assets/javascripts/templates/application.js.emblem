@@ -10,7 +10,7 @@
           li
             label
           li
-            link-to 'Start a New Round' 'index'
+            link-to 'Start a New Round' 'rounds.new'
           li
             link-to 'Rounds' 'rounds'
           li

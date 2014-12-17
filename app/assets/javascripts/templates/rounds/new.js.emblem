@@ -1,3 +1,5 @@
+h2 Start a New Round
+
 form submit='createRound'
   fieldset
     label for="course" * Course
@@ -21,4 +23,4 @@ form submit='createRound'
               button.button.alert.round{action removePlayer this}
                 i.fi-minus
 
-    button.button.expand type="submit" Create Round
+    button.button.expand type="submit" Start Round
