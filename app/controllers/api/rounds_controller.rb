@@ -8,7 +8,7 @@ class Api::RoundsController < ApplicationController
   end
 
   def create
-    user_ids = params[:round][:players] || []).map{|p| p[:id]}
+    user_ids = params([:round][:players] || []).map{|p| p[:id]}
     course_ids = params[:round][:course_id]
 
     round_params = { "user_ids" => user_ids, "current_user" => current_user, "course_id" => course_ids }
