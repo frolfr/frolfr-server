@@ -10,12 +10,12 @@ App.Turn = DS.Model.extend({
 
     if (0 < shooting) {
       return 'abovePar';
-    } else if (shooting === 0 || score === null) {
+    } else if (shooting === 0 || !this.get('isPlayed')) {
       return 'atPar';
     } else {
       return 'belowPar';
     }
-  }.property('shooting', 'score'),
+  }.property('shooting', 'score', 'isPlayed'),
 
   shooting: function () {
     return this.get('score') - this.get('par');

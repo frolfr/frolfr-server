@@ -48,7 +48,7 @@ App.TurnsController = Ember.ArrayController.extend({
 
     subtractOne: function(turn) {
       var score = parseInt(turn.get('score') || 0),
-          minimumTurnScore = 1
+          minimumTurnScore = 1,
           newScore = score - 1;
 
       if (newScore < minimumTurnScore) {
