@@ -19,5 +19,10 @@ App.Turn = DS.Model.extend({
 
   shooting: function () {
     return this.get('score') - this.get('par');
-  }.property('score', 'par')
+  }.property('score', 'par'),
+
+  isPlayed: function() {
+    return !Ember.isEmpty(this.get('score'));
+    // TODO: Ember 1.7 has isPresent; change on update
+  }.property('score')
 });

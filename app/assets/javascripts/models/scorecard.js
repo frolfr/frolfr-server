@@ -9,23 +9,29 @@ App.Scorecard = DS.Model.extend({
 
   userFullName: Ember.computed.alias('user.fullName'),
 
+  playedTurns: function() {
+    return this.get('turns').filter(function (turn) {
+      return turn.get('isPlayed');
+    });
+  }.property('turns.@each.isPlayed'),
+
   totalScore: function () {
-    return this.get('turns').reduce(function (acc, turn) {
+    return this.get('playedTurns').reduce(function (acc, turn) {
       return acc + turn.get('score');
     }, 0);
-  }.property('turns.@each.score'),
+  }.property('playedTurns.@each.score'),
 
   totalPar: function () {
-    return this.get('turns').reduce(function (acc, turn) {
+    return this.get('playedTurns').reduce(function (acc, turn) {
       return acc + turn.get('par');
     }, 0);
-  }.property('turns.@each.par'),
+  }.property('playedTurns.@each.par'),
 
   totalShooting: function () {
-    return this.get('turns').reduce(function (acc, turn) {
+    return this.get('playedTurns').reduce(function (acc, turn) {
       return acc + turn.get('shooting');
     }, 0);
-  }.property('turns.@each.shooting'),
+  }.property('playedTurns.@each.shooting'),
 
   formattedTotals: function () {
     var totalScore = this.get('totalScore'),
