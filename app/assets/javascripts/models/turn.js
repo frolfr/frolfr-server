@@ -24,5 +24,13 @@ App.Turn = DS.Model.extend({
   isPlayed: function() {
     return !Ember.isEmpty(this.get('score'));
     // TODO: Ember 1.7 has isPresent; change on update
-  }.property('score')
+  }.property('score'),
+
+  displayScore: function() {
+    if (this.get('isPlayed')) {
+      return this.get('score');
+     } else {
+      return '-';
+    }
+  }.property('isPlayed', 'score')
 });
