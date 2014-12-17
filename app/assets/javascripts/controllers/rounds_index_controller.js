@@ -1,4 +1,4 @@
-App.RoundsController = Ember.ArrayController.extend({
+App.RoundsIndexController = Ember.ArrayController.extend({
   sortProperties: ['createdAt'],
   sortAscending: false,
 
