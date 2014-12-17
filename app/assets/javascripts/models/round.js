@@ -9,3 +9,5 @@ App.Round = DS.Model.extend({
   // only used for creating new rounds
   players: DS.hasMany('user', {async: true}),
 });
+
+App.JointRound = App.Round.extend();

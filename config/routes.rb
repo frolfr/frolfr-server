@@ -9,6 +9,7 @@ Frolfr::Application.routes.draw do
     resources :users
     resources :friendable_users
     resources :rounds
+    resources :joint_rounds
     resources :scorecards
     resources :turns
     resources :holes
