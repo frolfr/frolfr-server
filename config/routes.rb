@@ -3,6 +3,7 @@ Frolfr::Application.routes.draw do
 
   namespace :api do
     resources :authorizations
+    resources :available_courses
     resources :courses
     get 'users/current', to: 'current_users#show'
     resources :friends

@@ -18,3 +18,5 @@ App.Course = DS.Model.extend({
         return !Ember.isEmpty(this.get('imageUrl'));
     }.property('imageUrl')
 });
+
+App.AvailableCourse = App.Course.extend()

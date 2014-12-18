@@ -14,6 +14,7 @@ class Course < ActiveRecord::Base
 
   scope :by_name, -> { order(:name) }
   scope :approved, -> { where(status: APPROVED_STATUS) }
+  scope :available_to, ->(user) { where("courses.status = 'approved' OR courses.submitter_id = #{user.id}") }
 
   def hole_count
     holes.count

@@ -5,7 +5,8 @@ App.RoundsNewRoute = App.AuthenticatedRoute.extend({
 
   setupController: function(controller, model) {
     this._super(controller, model);
-    controller.set('courses', this.store.find('course'));
+
+    controller.set('courses', this.store.find('availableCourse'));
     controller.set('friends', this.store.find('friend'));
     controller.set('currentUser', this.store.find('user', 'current'));
   }
