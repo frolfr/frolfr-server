@@ -20,7 +20,7 @@ App.Router.map(function() {
   this.resource('users', function() {
     this.route('new');
   });
-  this.resource('user', { path: '/users/:id' });
+  this.resource('user', { path: '/friends/:id' });
   this.resource('rounds', function() {
     this.route('new');
   });
