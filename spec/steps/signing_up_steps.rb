@@ -13,5 +13,4 @@ end
 
 step 'I see I have signed up' do
   expect(page).to have_content 'Welcome to Frolfr!'
-  expect(page).to have_content "#{@first_name} #{@last_name}"
 end
