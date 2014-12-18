@@ -10,14 +10,27 @@ App.Turn = DS.Model.extend({
 
     if (0 < shooting) {
       return 'abovePar';
-    } else if (shooting === 0 || score === null) {
+    } else if (shooting === 0 || !this.get('isPlayed')) {
       return 'atPar';
     } else {
       return 'belowPar';
     }
-  }.property('shooting', 'score'),
+  }.property('shooting', 'score', 'isPlayed'),
 
   shooting: function () {
     return this.get('score') - this.get('par');
-  }.property('score', 'par')
+  }.property('score', 'par'),
+
+  isPlayed: function() {
+    return !Ember.isEmpty(this.get('score'));
+    // TODO: Ember 1.7 has isPresent; change on update
+  }.property('score'),
+
+  displayScore: function() {
+    if (this.get('isPlayed')) {
+      return this.get('score');
+     } else {
+      return '-';
+    }
+  }.property('isPlayed', 'score')
 });

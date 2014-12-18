@@ -21,7 +21,7 @@ each controller
           a.button.expand.round.u-condensed click='subtractOne this'
             i.fi-minus
         .small-2.columns
-          h2.text-centered class=parStatus = score
+          h2.text-centered class=parStatus = displayScore
         .small-5.columns.text-centered
           a.button.expand.round.u-condensed click='addOne this'
             i.fi-plus

@@ -20,7 +20,7 @@
         <ul>
           <li><strong>{{scorecard.userInitials}}</strong></li>
           {{#each turn in scorecard.turns}}
-            <li {{bind-attr class='turn.parStatus'}}>{{turn.score}}</li>
+            <li {{bind-attr class='turn.parStatus'}}>{{turn.displayScore}}</li>
           {{/each}}
           <li><strong>{{scorecard.formattedTotals}}</strong></li>
         </ul>
