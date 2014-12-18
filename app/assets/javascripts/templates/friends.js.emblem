@@ -1,6 +1,4 @@
-h2 Find Friends
-
-render "friendableUsers"
+h2.text-centered Friends
 
 if model
   table.small-12#friends

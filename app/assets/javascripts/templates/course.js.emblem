@@ -1,6 +1,4 @@
-link-to '< Courses' 'courses'
-
-header
+header.text-centered
   h2 = name
   h4 = location
 

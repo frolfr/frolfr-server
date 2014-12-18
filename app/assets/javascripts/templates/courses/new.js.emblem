@@ -1,4 +1,4 @@
-h2 Suggest a New Course
+h2.text-centered Suggest a New Course
 
 form submit='save'
   fieldset

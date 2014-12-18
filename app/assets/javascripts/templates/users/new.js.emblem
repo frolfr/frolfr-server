@@ -1,4 +1,4 @@
-h2 Sign Up for Frolfr
+h2.text-centered Sign Up
 
 form submit='createUser'
   fieldset

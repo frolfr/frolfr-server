@@ -1,5 +1,4 @@
-h2 Profile
-p Feel free to edit personal information here:
+h2.text-centered Profile
 
 form
   label for="firstName" * First Name

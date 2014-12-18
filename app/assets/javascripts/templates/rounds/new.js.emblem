@@ -1,4 +1,4 @@
-h2 Start a New Round
+h2.text-centered Start a New Round
 
 form submit='createRound'
   fieldset

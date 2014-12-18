@@ -1,5 +1,3 @@
-link-to '< Friends' 'friends'
-
 h2 = fullName
 
 if jointRounds
