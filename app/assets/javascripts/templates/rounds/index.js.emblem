@@ -22,7 +22,12 @@ if model
             displayDate createdAt
           td = formattedTotals
           td
-            link-to 'round' round
-              | Recap
+            if isCompleted
+              link-to 'round' round
+                | Recap
+            else
+              link-to 'turns' round nextUnplayedTurn.holeNumber
+                ' Jump to Hole
+                = nextUnplayedTurn.holeNumber
 else
   p You haven't played any rounds
