@@ -1,42 +1,28 @@
-.off-canvas-wrap data-offcanvas=""
-  .inner-wrap
-    aside.left-off-canvas-menu
-      if currentUser.isAuthenticated
-        ul.off-canvas-list
-          li
-            label
-          li
-            link-to currentUser.fullName 'profile'
-          li
-            label
-          li
-            link-to 'Start a New Round' 'rounds.new'
-          li
-            link-to 'Rounds' 'rounds'
-          li
-            link-to 'Courses' 'courses'
-          li
-            link-to 'Suggest a New Course' 'courses.new'
-          li
-            link-to 'Friends' 'friends'
-          li
-            a click=logout Logout
-          li
-            label
+.sticky
+  nav.tab-bar data-topbar=""
+    section.middle.tab-bar-section
+      h1#title
+        link-to 'Frolfr' 'index'
 
-    nav.tab-bar data-topbar=""
-      if currentUser.isAuthenticated
-        section.left-small
-          a.left-off-canvas-toggle.menu-icon
-            span
+section.main-section
+  .row
+    .small-12.columns
+      outlet
 
-      section.middle.tab-bar-section
-        h1#title
-          link-to 'Frolfr' 'index'
-
-    section.main-section
-      .row
-        .small-12.columns
-          outlet
-
-    a.exit-off-canvas
+if currentUser.isAuthenticated
+  .icon-bar.five-up#footer
+    link-to 'rounds.new' classNames='item'
+      i.fi-plus
+      label New Round
+    link-to 'rounds.index' classNames='item'
+      i.fi-info
+      label Rounds
+    link-to 'courses' classNames='item'
+      i.fi-marker
+      label Courses
+    link-to 'friends' classNames='item'
+      i.fi-torsos-all
+      label Friends
+    link-to 'profile' classNames='item'
+      i.fi-heart
+      label Profile

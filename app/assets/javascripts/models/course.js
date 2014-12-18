@@ -12,5 +12,9 @@ App.Course = DS.Model.extend({
 
     isApproved: function() {
         return this.get('status') === 'approved';
-    }.property('status')
+    }.property('status'),
+
+    hasImage: function() {
+        return !Ember.isEmpty(this.get('imageUrl'));
+    }.property('imageUrl')
 });

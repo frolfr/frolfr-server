@@ -1,13 +1,9 @@
-<p>
-  {{link-to '< Rounds' 'rounds'}}
-</p>
-
 <div class='row round-show-table'>
   <div class='small-2 columns'>
     <ul>
       <li>&nbsp;</li>
       {{#each hole in holeNumbers}}
-        {{#link-to 'turns' hole tagName='li'}}<strong>{{hole}}</strong>{{/link-to}}
+        {{#link-to 'turns' hole tagName='li' classNames='u-pointer'}}<strong>{{hole}}</strong>{{/link-to}}
       {{/each}}
 
       <li><strong>Totals</strong></li>

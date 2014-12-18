@@ -24,6 +24,11 @@
     color: white;
   }
 }
+
+.icon-bar > a:hover, .active {
+  background-color: #008CBA
+}
+
 .direction-arrows {
   background: #04B486;
 }

@@ -1,6 +1,4 @@
-h2 Find Friends
-
-render "friendableUsers"
+h2.text-centered Friends
 
 if model
   table.small-12#friends
@@ -11,3 +9,9 @@ if model
             friend.fullName
 else
   p You don't have any friends yet.
+
+hr
+
+h2.text-centered Search for Friends
+
+render "friendableUsers"

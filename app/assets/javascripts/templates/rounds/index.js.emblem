@@ -1,4 +1,4 @@
-h2 Recent Rounds
+h2.text-centered Rounds
 
 if model
   table.small-12#rounds

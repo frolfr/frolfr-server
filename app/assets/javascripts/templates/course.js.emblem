@@ -1,9 +1,11 @@
-link-to '< Courses' 'courses'
-
-header
+header.text-centered
   h2 = name
   h4 = location
 
-link-to 'Leaderboard' 'leaderboard'
+.row
+  .small-6.columns
+    link-to 'Photos' 'course' this classNames='button expand radius'
+  .small-6.columns
+    link-to 'Leaderboard' 'leaderboard' classNames='button expand radius'
 
 outlet
