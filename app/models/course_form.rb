@@ -6,7 +6,7 @@ class CourseForm
   attr_reader :course, :hole_count
 
   def initialize(params, course_factory: Course)
-    @hole_count = params.delete(:hole_count).to_i
+    @hole_count = params.delete(:hole_count)
     @course = course_factory.new(params)
   end
 
