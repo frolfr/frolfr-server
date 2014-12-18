@@ -1,6 +1,4 @@
 class CourseSerializer < ActiveModel::Serializer
-  embed :ids, include: true
-  has_many :scorecards
   attributes :id, :city, :state, :country, :name, :status,
              :location, :rounds_played, :image_url,
              :hole_ids, :scorecard_ids
