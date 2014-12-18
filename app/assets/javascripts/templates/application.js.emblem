@@ -13,16 +13,16 @@ if currentUser.isAuthenticated
   .icon-bar.five-up#footer
     link-to 'rounds.new' classNames='item'
       i.fi-plus
-      label New Round
+      label.hide-for-small-only New Round
     link-to 'rounds.index' classNames='item'
       i.fi-info
-      label Rounds
+      label.hide-for-small-only Rounds
     link-to 'courses' classNames='item'
       i.fi-marker
-      label Courses
+      label.hide-for-small-only Courses
     link-to 'friends' classNames='item'
       i.fi-torsos-all
-      label Friends
+      label.hide-for-small-only Friends
     link-to 'profile' classNames='item'
       i.fi-heart
-      label Profile
+      label.hide-for-small-only Profile
