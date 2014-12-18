@@ -18,9 +18,13 @@ class User < ActiveRecord::Base
   end
 
   def rounds_with_user(user)
-    rounds.select do |round|
-      round.scorecards.any? {|scorecard| scorecard.user_id == user.id }
+    round_ids = rounds.flat_map do |round|
+      if round.scorecards.any? {|scorecard| scorecard.user_id == user.id }
+        round.id
+      end
     end
+
+    Round.where(id: round_ids)
     # TODO: Refactor
   end
 
