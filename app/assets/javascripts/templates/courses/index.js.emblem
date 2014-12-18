@@ -8,7 +8,7 @@ if model
         th Location
         th Rounds
     tbody
-      each course in model
+      each course in controller
         tr
           td
             link-to 'course' course

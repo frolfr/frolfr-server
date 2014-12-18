@@ -2,7 +2,7 @@ class Api::CoursesController < ApplicationController
   respond_to :json
 
   def create
-    course = Course.create(course_params)
+    course = CourseForm.new(course_params).save
     respond_with :api, course
   end
 
@@ -20,7 +20,7 @@ class Api::CoursesController < ApplicationController
   def course_params
     params
       .require(:course)
-      .permit(:name, :city, :state)
+      .permit(:name, :city, :state, :hole_count)
       .merge({
         status: Course::PENDING_STATUS,
         submitter: current_user,

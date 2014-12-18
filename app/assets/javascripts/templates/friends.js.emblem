@@ -3,7 +3,7 @@ h2.text-centered Friends
 if model
   table.small-12#friends
     tbody
-      each friend in model
+      each friend in controller
         tr
           link-to 'user' friend tagName="td" class="text-centered u-pointer"
             friend.fullName

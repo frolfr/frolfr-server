@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+  HOLE_COUNTS = (9..27).to_a
   PENDING_STATUS = 'pending'
   APPROVED_STATUS = 'approved'
   STATUSES = [PENDING_STATUS, APPROVED_STATUS].freeze
@@ -14,6 +15,7 @@ class Course < ActiveRecord::Base
 
   scope :by_name, -> { order(:name) }
   scope :approved, -> { where(status: APPROVED_STATUS) }
+  scope :available_to, ->(user) { where("courses.status = 'approved' OR courses.submitter_id = ?", user.id) }
 
   def hole_count
     holes.count
