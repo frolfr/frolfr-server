@@ -9,11 +9,15 @@ App.Scorecard = DS.Model.extend({
 
   userFullName: Ember.computed.alias('user.fullName'),
 
-  isCompleted: function() {
+  isAllTurnsPlayed: function() {
     return this.get('turns').every(function (turn) {
       return turn.get('isPlayed');
     });
   }.property('turns.@each.isPlayed'),
+
+  isFinished: function() {
+    return this.get('round.markedComplete') || this.get('isAllTurnsPlayed');
+  }.property('allTurnsPlayed', 'round.markedComplete'),
 
   playedTurns: function() {
     return this.get('turns').filter(function (turn) {

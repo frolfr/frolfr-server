@@ -22,7 +22,7 @@ if model
             displayDate createdAt
           td = formattedTotals
           td
-            if isCompleted
+            if isFinished
               link-to 'round' round
                 | Recap
             else
