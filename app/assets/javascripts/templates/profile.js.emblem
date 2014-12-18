@@ -15,3 +15,5 @@ form
     button.button.expand.radius class=isDirty:active:disabled type="submit" click="saveChanges" Save
   .small-6.columns
     button.button.expand.alert.radius class=isDirty:active:disabled click="cancel" Cancel
+
+a click=logout Logout
