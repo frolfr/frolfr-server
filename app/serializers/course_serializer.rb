@@ -1,7 +1,7 @@
 class CourseSerializer < ActiveModel::Serializer
   attributes :id, :city, :state, :country, :name, :status,
              :location, :rounds_played, :image_url,
-             :hole_ids, :scorecard_ids
+             :hole_ids, :scorecard_ids, :hole_count
 
   def scorecard_ids
     object.scorecards.pluck(:id)
@@ -9,6 +9,10 @@ class CourseSerializer < ActiveModel::Serializer
 
   def hole_ids
     object.holes.pluck(:id)
+  end
+
+  def hole_count
+    object.holes.count
   end
 
   def image_url

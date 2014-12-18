@@ -9,6 +9,7 @@ App.Course = DS.Model.extend({
     imageUrl: DS.attr('string'),
     scorecards: DS.hasMany('scorecard', { async: true }),
     holes: DS.hasMany('hole', { async: true }),
+    holeCount: DS.attr('string'),
 
     isApproved: function() {
         return this.get('status') === 'approved';

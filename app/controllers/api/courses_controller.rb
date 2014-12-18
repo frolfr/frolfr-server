@@ -20,7 +20,7 @@ class Api::CoursesController < ApplicationController
   def course_params
     params
       .require(:course)
-      .permit(:name, :city, :state)
+      .permit(:name, :city, :state, :hole_count)
       .merge({
         status: Course::PENDING_STATUS,
         submitter: current_user,

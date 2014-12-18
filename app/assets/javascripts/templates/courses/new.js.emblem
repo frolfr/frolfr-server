@@ -11,6 +11,9 @@ form submit='save'
     label for="state" * State
     view Ember.Select content=stateAbbreviations value=state required=true
 
+    label for="holeCount" * Hole Count
+    = input value=holeCount type="number" id="holeCount" required=true min=9 max=27
+
     p For now, Frolfr only supports U.S. courses
 
   button.button.expand type="submit" Suggest Course
