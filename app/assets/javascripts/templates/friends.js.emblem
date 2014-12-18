@@ -9,3 +9,9 @@ if model
             friend.fullName
 else
   p You don't have any friends yet.
+
+hr
+
+h2.text-centered Search for Friends
+
+render "friendableUsers"

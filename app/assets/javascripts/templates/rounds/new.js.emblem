@@ -3,7 +3,11 @@ h2.text-centered Start a New Round
 form submit='createRound'
   fieldset
     label for="course" * Course
-    view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select a course" id="course" required=true
+    view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select Course" id="course" required=true
+
+    p
+      ' Can't see the course you're looking for? Why not
+      link-to 'suggest a new course?' 'courses.new'
 
     label for="players" Players
     .row

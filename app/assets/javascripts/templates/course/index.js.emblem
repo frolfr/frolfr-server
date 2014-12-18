@@ -1,0 +1,5 @@
+.text-centered
+  if hasImage
+    img src=imageUrl
+  else
+    p No photos currently available!
