@@ -2,7 +2,7 @@ class Api::CoursesController < ApplicationController
   respond_to :json
 
   def create
-    course = Course.create(course_params)
+    course = CourseForm.new(course_params).save
     respond_with :api, course
   end
 

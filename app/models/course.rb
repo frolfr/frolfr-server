@@ -1,4 +1,5 @@
 class Course < ActiveRecord::Base
+  HOLE_COUNTS = (9..27).to_a
   PENDING_STATUS = 'pending'
   APPROVED_STATUS = 'approved'
   STATUSES = [PENDING_STATUS, APPROVED_STATUS].freeze
