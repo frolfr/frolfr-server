@@ -2,6 +2,11 @@ class Api::RoundsController < ApplicationController
 
   respond_to :json
 
+  def index
+    rounds = Round.find(params[:ids])
+    respond_with rounds
+  end
+
   def show
     round = Round.find(params[:id])
     respond_with round
