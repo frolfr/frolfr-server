@@ -84,3 +84,10 @@ img { max-width: 100%; }
 a.u-condensed {
   max-width: 5em;
 }
+
+#spinner {
+  position: fixed;
+  left: 45%;
+  top: 45%;
+  z-index: 100;
+}
