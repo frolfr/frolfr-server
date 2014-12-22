@@ -17,7 +17,7 @@ if currentUser.isAuthenticated
     link-to 'rounds.index' classNames='item'
       i.fi-info
       label.hide-for-small-only Rounds
-    link-to 'courses' classNames='item'
+    link-to 'courses.index' classNames='item'
       i.fi-marker
       label.hide-for-small-only Courses
     link-to 'friends' classNames='item'
