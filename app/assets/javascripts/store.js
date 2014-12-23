@@ -12,6 +12,10 @@ App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
   coalesceFindRequests: true
 });
 
+App.UserAdapter = App.ApplicationAdapter.extend({
+  coalesceFindRequests: false
+});
+
 App.ApplicationSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {});
 
 App.ApiKeyAdapter = DS.LSAdapter.extend({
