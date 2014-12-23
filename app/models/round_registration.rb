@@ -27,7 +27,7 @@ class RoundRegistration
 
   def create_turns(scorecard)
     course.holes.each do |hole|
-      Turn.create(hole: hole, scorecard: scorecard)
+      Turn.create(hole: hole, scorecard: scorecard, par: hole.par)
     end
   end
 
