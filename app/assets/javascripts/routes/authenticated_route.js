@@ -1,4 +1,4 @@
-App.AuthenticatedRoute = Ember.Route.extend({
+App.AuthenticatedRoute = Ember.Route.extend(App.ResetScroll, {
   beforeModel: function(transition) {
     if (Ember.isEmpty(this.controllerFor('sessions').get('token'))) {
       return this.redirectToLogin(transition);
