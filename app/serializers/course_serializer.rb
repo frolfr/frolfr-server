@@ -11,10 +11,6 @@ class CourseSerializer < ActiveModel::Serializer
     object.holes.pluck(:id)
   end
 
-  def hole_count
-    object.holes.count
-  end
-
   def image_url
     object.image_url if object.image_available?
   end

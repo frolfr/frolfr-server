@@ -8,26 +8,4 @@ class Hole < ActiveRecord::Base
   validates :number, inclusion: { in: (1..27) }
 
   default_scope { order('number ASC') }
-
-  def to_param
-    number
-  end
-
-  def next
-    course_holes.find_by(number: number + 1)
-  end
-
-  def previous
-    course_holes.find_by(number: number - 1)
-  end
-
-  def final?
-    self.next == nil
-  end
-
-  private
-
-  def course_holes
-    course.holes
-  end
 end

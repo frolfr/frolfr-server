@@ -28,19 +28,6 @@ class User < ActiveRecord::Base
     # TODO: Refactor
   end
 
-  def gravatar_url
-    gravatar_id = Digest::MD5.hexdigest(email.downcase)
-    "http://gravatar.com/avatar/#{gravatar_id}.png?s=48"
-  end
-
-  def recently_completed_scorecard
-    scorecards_by_date.completed.first || NullScorecard.new
-  end
-
-  def friends_by_name
-    friends.by_name
-  end
-
   def friendable_users
     User.where.not(id: id) - friends
   end
@@ -54,10 +41,6 @@ class User < ActiveRecord::Base
     Round
       .joins(:scorecards)
       .where(scorecards: {user_id: id}) # TODO: Refactor to use ActiveRecord
-  end
-
-  def scorecards_by_date
-    scorecards.by_date
   end
 
   def scorecards_for_course(course)

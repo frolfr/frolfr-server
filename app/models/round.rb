@@ -9,14 +9,6 @@ class Round < ActiveRecord::Base
 
   delegate :holes, to: :course
 
-  def completed?
-    marked_complete? || scorecards.all?(&:completed?)
-  end
-
-  def complete
-    update(marked_complete: true)
-  end
-
   def turns_for_hole(hole)
     Turn.where(scorecard: scorecards, hole: hole).order(:scorecard_id)
     # TODO: Consider a more intelligent way to consistently order turns
