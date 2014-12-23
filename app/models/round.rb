@@ -18,6 +18,7 @@ class Round < ActiveRecord::Base
   end
 
   def turns_for_hole(hole)
-    Turn.where(scorecard: scorecards, hole: hole)
+    Turn.where(scorecard: scorecards, hole: hole).order(:scorecard_id)
+    # TODO: Consider a more intelligent way to consistently order turns
   end
 end
