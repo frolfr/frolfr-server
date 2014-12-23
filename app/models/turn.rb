@@ -9,19 +9,5 @@ class Turn < ActiveRecord::Base
   validates :score, inclusion: { in: SCORES, allow_nil: true }
   validates :par, inclusion: PARS
 
-  scope :played, -> { where.not(score: nil) }
-
   delegate :round, to: :scorecard
-
-  def played?
-    score.present?
-  end
-
-  def over_par?
-    played? && score > par
-  end
-
-  def under_par?
-    played? && par > score
-  end
 end
