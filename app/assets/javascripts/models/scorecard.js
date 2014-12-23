@@ -17,7 +17,7 @@ App.Scorecard = DS.Model.extend({
 
   isFinished: function() {
     return this.get('round.markedComplete') || this.get('isAllTurnsPlayed');
-  }.property('allTurnsPlayed', 'round.markedComplete'),
+  }.property('round.markedComplete', 'isAllTurnsPlayed'),
 
   playedTurns: function() {
     return this.get('turns').filter(function (turn) {
