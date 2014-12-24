@@ -2,6 +2,15 @@ App.RoundsNewController = Ember.ObjectController.extend({
   selectedPlayer: null,
   query: null,
 
+  potentialPlayers: function() {
+    var friends = new Ember.Set(this.get('friends'));
+    var players = new Ember.Set(this.get('players'));
+    friends.removeObjects(players);
+
+    return friends.toArray();
+  }.property('friends.@each', 'players.@each'),
+
+
   noPlayerSelected: function() {
     return Ember.isEmpty(this.get('selectedPlayer'));
   }.property('selectedPlayer'),
