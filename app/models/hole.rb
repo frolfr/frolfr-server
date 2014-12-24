@@ -1,4 +1,5 @@
 class Hole < ActiveRecord::Base
+  DEFAULT_PAR = 3
   belongs_to :course
 
   has_many :turns
@@ -8,4 +9,14 @@ class Hole < ActiveRecord::Base
   validates :number, inclusion: { in: (1..27) }
 
   default_scope { order('number ASC') }
+
+  def par
+    most_recent_par || DEFAULT_PAR
+  end
+
+  private
+
+  def most_recent_par
+    turns.last.try(:par)
+  end
 end
