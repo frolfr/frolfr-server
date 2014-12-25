@@ -7,7 +7,7 @@ App.RoundsNewController = Ember.ObjectController.extend({
     var players = new Ember.Set(this.get('players'));
     friends.removeObjects(players);
 
-    return friends.toArray();
+    return friends;
   }.property('friends.@each', 'players.@each'),
 
 
