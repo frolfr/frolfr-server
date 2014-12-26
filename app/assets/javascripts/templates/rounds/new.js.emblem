@@ -12,7 +12,7 @@ form submit='createRound'
     label for="players" Players
     .row
       .small-9.columns
-        auto-complete id="players" model=friends selection=selectedPlayer value=query displayKey="fullName" class="larger-input"
+        auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName" class="larger-input"
       .small-3.columns
         button.button.expand{action addPlayer} disabled=noPlayerSelected
           i.fi-plus
