@@ -15,7 +15,7 @@ if model
           i class=sortTotalScore
         th
     tbody
-      each controller
+      each pagedContent
         tr
           td = courseName
           td
@@ -29,5 +29,18 @@ if model
               link-to 'turns' round nextUnplayedTurn.holeNumber
                 ' Jump to Hole
                 = nextUnplayedTurn.holeNumber
+    tfoot
+      tr
+        td colspan="4"
+          unless isFirstPage
+            a.left click=previousPage <
+          unless isLastPage
+            a.right click=nextPage >
+          .text-center
+            | Page 
+            = page
+            |  of 
+            = totalPages
+
 else
   p You haven't played any rounds
