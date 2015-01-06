@@ -9,7 +9,11 @@ App.User = DS.Model.extend({
     fullName: function() {
       return this.get('firstName') + " " + this.get('lastName');
     }.property("firstName", "lastName"),
-    scorecards: DS.hasMany('scorecard', { async: true })
+    scorecards: DS.hasMany('scorecard', { async: true }),
+
+    hasAvatar: function() {
+      return !Ember.isEmpty(this.get('avatarUrl'));
+    }.property('avatarUrl')
 });
 
 App.Friend = App.User.extend();

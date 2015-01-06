@@ -16,4 +16,14 @@ form
   .small-6.columns
     button.button.expand.alert.radius class=isDirty:active:disabled click="cancel" Cancel
 
+h2.text-centered Avatar
+
+if hasAvatar
+  img src=avatarUrl
+else
+  p No avatar currently uploaded. Feel free to upload one here (square images are best!)
+  file-upload url="api/avatars"
+
+h2.text-centered Settings
+
 a click=logout Logout
