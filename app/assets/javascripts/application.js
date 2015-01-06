@@ -20,6 +20,7 @@
 //= require localstorage_adapter
 //= require jquery.cookie
 //= require typeahead.jquery
+//= require ember-uploader
 //= require_self
 //= require ./app
 
