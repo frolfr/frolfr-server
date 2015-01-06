@@ -6,7 +6,7 @@
 
 #### About Frolfr
 
-This project is under construction. The MVP, however, is currently available at the production site below. 
+This project is under construction. The MVP, however, is currently available at the production site below.
 
 #### Visit Frolfr's production site
 
@@ -23,6 +23,8 @@ To install and deploy:
 * `bundle exec unicorn`
 
 To run tests, run `rake db:test:prepare; rspec`.
+
+You'll need to configure cloudinary, [including adding a cloudinary.yml file](http://cloudinary.com/documentation/rails_integration).
 
 #### Contributing
 
