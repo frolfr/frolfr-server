@@ -33,6 +33,7 @@ GEM
     arel (5.0.1.20140414130214)
     auto_strip_attributes (2.0.6)
       activerecord (>= 3.0)
+    aws_cf_signer (0.1.3)
     barber (0.5.0)
       ember-source
       execjs
@@ -49,6 +50,9 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     cliver (0.3.2)
+    cloudinary (1.0.80)
+      aws_cf_signer
+      rest-client
     coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -244,6 +248,7 @@ DEPENDENCIES
   auto_strip_attributes
   bcrypt
   capybara
+  cloudinary
   coffee-rails (~> 4.0.0)
   coveralls
   database_cleaner
