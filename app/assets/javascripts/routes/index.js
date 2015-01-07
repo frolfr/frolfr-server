@@ -1,5 +1,8 @@
 App.IndexRoute = App.AuthenticatedRoute.extend({
-  redirect: function() {
-    this.transitionTo('courses');
+  model: function() {
+    return this.store.find('user', 'current').then(function(user) {
+      var scorecards = user.get('scorecards');
+      return scorecards.get('firstObject');
+    });
   }
 });

@@ -43,6 +43,18 @@ App.Scorecard = DS.Model.extend({
     }, 0);
   }.property('playedTurns.@each.par'),
 
+  parStatus: function () {
+    var totalShooting = this.get('totalShooting');
+
+    if (0 < totalShooting) {
+      return 'abovePar';
+    } else if (totalShooting === 0) {
+      return 'atPar';
+    } else {
+      return 'belowPar';
+    }
+  }.property('totalShooting'),
+
   totalShooting: function () {
     return this.get('totalScore') - this.get('totalPar')
   }.property('totalScore', 'totalPar'),
