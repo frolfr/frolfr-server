@@ -5,8 +5,7 @@ App.Turn = DS.Model.extend({
   scorecard: DS.belongsTo('scorecard', { async: true }),
 
   parStatus: function () {
-    var shooting = this.get('shooting'),
-        score = this.get('score');
+    var shooting = this.get('shooting');
 
     if (0 < shooting) {
       return 'abovePar';
@@ -15,7 +14,7 @@ App.Turn = DS.Model.extend({
     } else {
       return 'belowPar';
     }
-  }.property('shooting', 'score', 'isPlayed'),
+  }.property('shooting', 'isPlayed'),
 
   shooting: function () {
     return this.get('score') - this.get('par');
