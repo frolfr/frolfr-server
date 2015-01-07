@@ -5,10 +5,15 @@ App.User = DS.Model.extend({
     email: DS.attr('string'),
     password: DS.attr('string'),
     passwordConfirmation: DS.attr('string'),
+    avatarUrl: DS.attr('string'),
     fullName: function() {
       return this.get('firstName') + " " + this.get('lastName');
     }.property("firstName", "lastName"),
-    scorecards: DS.hasMany('scorecard', { async: true })
+    scorecards: DS.hasMany('scorecard', { async: true }),
+
+    hasAvatar: function() {
+      return !Ember.isEmpty(this.get('avatarUrl'));
+    }.property('avatarUrl')
 });
 
 App.Friend = App.User.extend();

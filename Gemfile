@@ -26,6 +26,9 @@ gem 'slim'
 gem 'slim-rails'
 gem 'foundation-rails'
 
+# Images
+gem 'cloudinary'
+
 # Pinging Heroku
 gem 'newrelic_rpm'
 
