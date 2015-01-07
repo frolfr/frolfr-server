@@ -22,7 +22,7 @@ if hasAvatar
   img src=avatarUrl
 else
   p No avatar currently uploaded. Feel free to upload one here (square images are best!)
-  file-upload url="api/avatars"
+  file-upload url="api/avatars" imageUrl=model.avatarUrl
 
 h2.text-centered Settings
 
