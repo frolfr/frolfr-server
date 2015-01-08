@@ -27,16 +27,36 @@
 }
 
 @media screen and (max-width: 800px) {
-    .course-image {
-      min-width: 236px;
-    }
+  .course-image {
+    min-width: 220px;
+  }
 
-    .strokes {
-      font-size: 30px;
-    }
+  .strokes {
+    font-size: 30px;
+  }
 
-    .course-name {
-/*      font-size: 40px;*/
-      text-align: center;
-    }
+  .course-name {
+    text-align: center;
+  }
 }
+
+@media screen and (max-width: 640px) {
+  .total-shooting {
+    font-size: 40px;
+  }
+
+  .course-image {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .strokes {
+    font-size: 20px;
+  }
+
+  .course-name {
+    font-size: 30px;
+  }
+
+}
+
