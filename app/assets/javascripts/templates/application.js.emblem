@@ -10,7 +10,10 @@ section.main-section
       outlet
 
 if currentUser.isAuthenticated
-  .icon-bar.five-up#footer
+  .icon-bar.six-up#footer
+    link-to 'index' classNames='item'
+      i.fi-home
+      label.hide-for-small-only Home
     link-to 'rounds.new' classNames='item'
       i.fi-plus
       label.hide-for-small-only New Round

@@ -1,0 +1,62 @@
+.course-name {
+  margin-top: 21px;
+  font-size: 40px;
+}
+
+.course-location {
+  margin-top: 26px;
+}
+
+.course-image {
+  border: 2px solid black;
+  border-radius: 20px;
+  max-width: 90%;
+  min-width: 236px;
+}
+
+.total-shooting {
+  font-size: 120px;
+}
+
+.strokes {
+  font-size: 40px;
+}
+
+.recap {
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .course-image {
+    min-width: 220px;
+  }
+
+  .strokes {
+    font-size: 30px;
+  }
+
+  .course-name {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .total-shooting {
+    font-size: 40px;
+  }
+
+  .course-image {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  .strokes {
+    font-size: 20px;
+  }
+
+  .course-name {
+    font-size: 30px;
+  }
+
+}
+
