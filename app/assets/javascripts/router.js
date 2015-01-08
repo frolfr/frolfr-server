@@ -14,6 +14,9 @@ App.Router.map(function() {
   });
   this.resource('course', { path: '/courses/:id' }, function() {
     this.resource('leaderboard');
+    this.resource('reviews', function() {
+      this.route('new');
+    });
   });
   this.resource('friends');
   this.resource('profile');
