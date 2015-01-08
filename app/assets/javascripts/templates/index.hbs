@@ -1,29 +1,32 @@
-<div class="row">
-  <div class="small-2 large-3 large-offset-1 columns course-border">
-    <div>
-      <img {{bind-attr src=round.course.imageUrl}}>
+
+<div class="row text-center">
+  <br>
+  <div class="button secondary recap small-9 medium-9 large-9 small-centered medium-centered large-centered columns">
+    <div class="row">
+      <div class="text-left course-name large-12 medium-12 large-text-center medium-text-center small-text-center small-12 columns">
+        {{round.courseName}}
+      </div>
+      <div class="course-location large-12 medium-12 small-12 large-text-center medium-text-center small-text-center columns">
+        {{round.course.city}}, {{round.course.state}}
+        <br>
+        {{displayDate round.createdAt}}
+      </div>
     </div>
-    <p>Last Course Completed:</p>
-    {{courseName}}
-    <div {{bind-attr class=parStatus}}>{{totalShooting}}</div>
-    {{totalScore}}
-  </div>
-  <div class="small-2 large-3 large-offset-1 columns course-border">
-    <div>
-      <img {{bind-attr src=round.course.imageUrl}}>
+    <hr>
+    <div class="row">
+      <div class="large-6 medium-6 small-12 columns">
+        <img {{bind-attr src=round.course.imageUrl}} class="course-image">
+      </div>
+      <div class="large-6 medium-6 small-12 columns">
+        <div class="total-shooting">
+          <div {{bind-attr class=parStatus}}>
+            {{totalShooting}}
+          </div>
+          <div class="strokes">
+            Strokes {{totalScore}}
+          </div>
+        </div>
+      </div>
     </div>
-    <p>Last Course Completed:</p>
-    {{courseName}}
-    <div {{bind-attr class=parStatus}}>{{totalShooting}}</div>
-    {{totalScore}}
-  </div>
-  <div class="small-2 large-3 large-offset-1 columns course-border">
-    <div>
-      <img {{bind-attr src=round.course.imageUrl}}>
-    </div>
-    <p>Last Course Completed:</p>
-    {{courseName}}
-    <div {{bind-attr class=parStatus}}>{{totalShooting}}</div>
-    {{totalScore}}
   </div>
 </div>
