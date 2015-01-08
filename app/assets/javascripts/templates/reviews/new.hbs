@@ -1,0 +1,7 @@
+<h3>NEW REVIEW</h3>
+<form {{action "submitReview" content on="submit"}}>
+  <label>Rating</label>
+  {{view  Ember.Select content=ratingChoices value=rating}}
+  {{textarea value=post}}
+  <button class="btn btn-primary btn-block" type="submit">Save</button>
+</form>
