@@ -12,7 +12,7 @@
         a.secondary.button class=isPar5:darkened click='changePar 5' 5
 
 each controller
-  .row.push-down
+  .row.push-down.vertical-align
     .small-3.columns.text-centered
       if scorecard.hasUserAvatar
         img.u-circle.thumbnail src=scorecard.userAvatarUrl

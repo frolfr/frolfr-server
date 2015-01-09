@@ -83,6 +83,13 @@ img { max-width: 100%; }
 
 a.u-condensed {
   max-width: 5em;
+  margin: 0;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #spinner {
