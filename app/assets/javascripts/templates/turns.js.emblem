@@ -12,9 +12,12 @@
         a.secondary.button class=isPar5:darkened click='changePar 5' 5
 
 each controller
-  .row
-    .small-3.columns
-      h2.text-centered = scorecard.userInitials
+  .row.push-down.vertical-align
+    .small-3.columns.text-centered
+      if scorecard.hasUserAvatar
+        img.u-circle.thumbnail src=scorecard.userAvatarUrl
+      else
+        h2 = scorecard.userInitials
     .small-6.columns
       .row
         .small-5.columns.text-centered
@@ -29,7 +32,7 @@ each controller
       h2.left.total = scorecard.totalScore
       h4.left.shooting = scorecard.formattedShooting
 
-.clearfix.panel
+.clearfix.panel.turns-footer
   unless isFirstHole
     .left
       a.button.direction-arrows click=previousHole

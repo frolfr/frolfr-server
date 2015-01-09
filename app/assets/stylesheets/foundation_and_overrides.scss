@@ -28,4 +28,23 @@ table#scorecard td {
   text-align: center;
 }
 
+.push-down {
+  padding-top: 1em;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.thumbnail {
+  width: 75px;
+  height: 75px;
+}
+
+.tiny-thumbnail {
+  width: 25px;
+  height: 25px;
+}
+
 @import "foundation";

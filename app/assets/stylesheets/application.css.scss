@@ -76,6 +76,10 @@ img { max-width: 100%; }
   }
 }
 
+.turns-footer {
+  margin-top: 1em;
+}
+
 .tt-suggestion.tt-cursor {
   color: #fff;
   background-color: #0097cf;
@@ -83,6 +87,13 @@ img { max-width: 100%; }
 
 a.u-condensed {
   max-width: 5em;
+  margin: 0;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #spinner {
@@ -90,4 +101,8 @@ a.u-condensed {
   left: 45%;
   top: 45%;
   z-index: 100;
+}
+
+.u-circle {
+  border-radius: 50%;
 }

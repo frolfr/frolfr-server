@@ -5,10 +5,10 @@ form
   =input value=firstName type="text" id="firstName" required=true
 
   label for="middleName" * Middle Name
-  =input value=middleName type="text" id="middleName"
+  = input value=middleName type="text" id="middleName"
 
   label for="lastName" * Last Name
-  =input value=lastName type="text" id="lastName" required=true
+  = input value=lastName type="text" id="lastName" required=true
 
 .row
   .small-6.columns
@@ -16,13 +16,18 @@ form
   .small-6.columns
     button.button.expand.alert.radius class=isDirty:active:disabled click="cancel" Cancel
 
+hr
+
 h2.text-centered Avatar
 
 if hasAvatar
-  img src=avatarUrl
+  .small-12.text-centered
+    img.avatar.u-circle src=avatarUrl
 else
   p No avatar currently uploaded. Feel free to upload one here (square images are best!)
   file-upload url="api/avatars" imageUrl=model.avatarUrl
+
+hr
 
 h2.text-centered Settings
 

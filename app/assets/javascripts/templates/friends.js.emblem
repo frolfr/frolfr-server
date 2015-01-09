@@ -1,12 +1,14 @@
 h2.text-centered Friends
 
 if model
-  table.small-12#friends
-    tbody
-      each friend in controller
-        tr
-          link-to 'user' friend tagName="td" class="text-centered u-pointer"
-            friend.fullName
+  ul.small-block-grid-3.medium-block-grid-4.large-block-grid-6
+    each friend in controller
+      link-to 'user' friend tagName='li' classNames='u-pointer'
+        if friend.hasAvatar
+          img.u-circle src=friend.avatarUrl
+        else
+          img.u-circle src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'
+        .text-centered.push-down = friend.fullName
 else
   p You don't have any friends yet.
 
