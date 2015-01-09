@@ -32,7 +32,7 @@ each controller
       h2.left.total = scorecard.totalScore
       h4.left.shooting = scorecard.formattedShooting
 
-.clearfix.panel
+.clearfix.panel.turns-footer
   unless isFirstHole
     .left
       a.button.direction-arrows click=previousHole
