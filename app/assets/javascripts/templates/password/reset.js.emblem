@@ -1,0 +1,6 @@
+h2.text-centered Password Reset
+form submit="reset"
+  label for="email" * Email
+  = input value=email type="text" id="email" required=true
+
+  button.button.expand type="submit" Send Reset Email

@@ -17,6 +17,9 @@ App.Router.map(function() {
   });
   this.resource('friends');
   this.resource('profile');
+  this.resource('password', function() {
+    this.route('reset');
+  });
   this.resource('users', function() {
     this.route('new');
   });

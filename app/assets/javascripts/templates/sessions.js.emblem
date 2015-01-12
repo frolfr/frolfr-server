@@ -12,3 +12,6 @@ form submit="login"
 p
   ' New to Frolfr?
   = link-to 'Sign Up' 'users.new'
+
+p
+  = link-to 'Forgot your Password?' 'password.reset'
