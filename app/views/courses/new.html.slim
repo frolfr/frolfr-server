@@ -1,8 +1,0 @@
-h1 = t('course.new')
-
-= simple_form_for @course, url: courses_path, method: :post do |f|
-  = f.input :name
-  = f.input :city
-  = f.input :state, as: :select, collection: States.us_options
-  p = t('course.country_note')
-  = f.submit t('course.suggest'), class: "button expand"
