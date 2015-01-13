@@ -19,6 +19,7 @@ App.Router.map(function() {
   this.resource('profile');
   this.resource('password', function() {
     this.route('reset');
+    this.route('edit', { path: '/edit/:password_reset_token' });
   });
   this.resource('users', function() {
     this.route('new');
