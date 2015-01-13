@@ -1,6 +1,12 @@
 class Api::ReviewsController < ApplicationController
   respond_to :json
 
+  def index
+    reviews = Review.where(id: params[:ids])
+
+    respond_with :api, reviews
+  end
+
   def create
     review = Review.new(review_params)
 
