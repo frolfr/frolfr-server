@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_secure_password
-  has_many :scorecards
+  has_many :scorecards, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   has_many :friendships, dependent: :destroy
   has_many :friends, through: :friendships
 
