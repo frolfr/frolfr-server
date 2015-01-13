@@ -21,6 +21,9 @@ gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
 
+# Mailer
+gem 'mailcatcher'
+
 # View
 gem 'slim'
 gem 'slim-rails'
