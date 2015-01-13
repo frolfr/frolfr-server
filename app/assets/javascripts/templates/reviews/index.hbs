@@ -1,0 +1,10 @@
+{{#if model}}
+  <ul>
+    {{#each review in content}}
+      <li>{{review.createdAt}} : {{review.rating}}</li>
+    {{/each}}
+  </ul>
+
+{{else}}
+  <p>There are no current reviews. Wanna add one?</p>
+{{/if}}

@@ -3,9 +3,11 @@ header.text-centered
   h4 = location
 
 .row
-  .small-6.columns
+  .small-4.columns
     link-to 'Photos' 'course' this classNames='button expand radius'
-  .small-6.columns
+  .small-4.columns
+    link-to 'Reviews' 'reviews' classNames='button expand radius'
+  .small-4.columns
     link-to 'Leaderboard' 'leaderboard' classNames='button expand radius'
 
 outlet
