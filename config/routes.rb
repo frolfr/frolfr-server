@@ -15,6 +15,7 @@ Frolfr::Application.routes.draw do
     resources :scorecards
     resources :turns
     resources :holes
+    resources :password_resets
   end
 
   get '*path', to: 'dashboard#show'

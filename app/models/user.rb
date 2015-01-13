@@ -49,6 +49,14 @@ class User < ActiveRecord::Base
       .where(rounds: {course_id: course.id })
   end
 
+  def update_password_reset_token!
+    generate_token(:password_reset_token)
+    touch(:password_reset_sent_at)
+
+    save!
+    UserMailer.password_reset(self).deliver
+  end
+
   private
 
   def generate_token(column)
