@@ -12,7 +12,7 @@ class CourseSerializer < ActiveModel::Serializer
   end
 
   def image_url
-    object.image_url if object.image_available?
+    object.images.first.try(:url)
   end
 
   def location
