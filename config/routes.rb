@@ -5,7 +5,9 @@ Frolfr::Application.routes.draw do
     resources :authorizations
     resources :avatars
     resources :available_courses
-    resources :courses
+    resources :courses do
+      resources :course_images
+    end
     get 'users/current', to: 'current_users#show'
     resources :friends
     resources :users

@@ -3,3 +3,6 @@
     img src=imageUrl
   else
     p No photos currently available!
+
+h1 Add some images!
+course-image-upload url=model.imageUploadPath imageUrl=model.imageUrl

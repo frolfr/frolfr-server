@@ -12,7 +12,7 @@ class CourseSerializer < ActiveModel::Serializer
   end
 
   def image_url
-    object.images.first.try(:url)
+    object.images.last.try(:url)
   end
 
   def location

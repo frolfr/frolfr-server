@@ -17,7 +17,11 @@ App.Course = DS.Model.extend({
 
     hasImage: function() {
         return !Ember.isEmpty(this.get('imageUrl'));
-    }.property('imageUrl')
+    }.property('imageUrl'),
+
+    imageUploadPath: function() {
+      return "/api/courses/" + this.get('id') + "/course_images";
+    }.property('id')
 });
 
-App.AvailableCourse = App.Course.extend()
+App.AvailableCourse = App.Course.extend();
