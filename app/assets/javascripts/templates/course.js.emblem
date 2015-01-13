@@ -4,7 +4,7 @@ header.text-centered
 
 .row
   .small-4.columns
-    link-to 'Photos' 'course' this classNames='button expand radius'
+    link-to 'Photos' 'course.index' this classNames='button expand radius'
   .small-4.columns
     link-to 'Reviews' 'reviews' classNames='button expand radius'
   .small-4.columns
