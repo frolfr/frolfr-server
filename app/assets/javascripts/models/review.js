@@ -3,5 +3,7 @@ App.Review = DS.Model.extend({
   post: DS.attr('string'),
   course: DS.belongsTo('course'),
   user: DS.belongsTo('user'),
-  createdAt: DS.attr('date')
+  createdAt: DS.attr('date'),
+
+  userFullName: Ember.computed.alias('user.fullName')
 });

@@ -1,10 +1,11 @@
 {{#if model}}
+  {{link-to "Add a New Review" 'reviews.new'}}
   <ul>
     {{#each review in content}}
-      <li>{{review.createdAt}} : {{review.rating}}</li>
+      <li>{{displayDate review.createdAt}} by {{review.userFullName}} ({{review.rating}} / 10) - {{review.post}}</li>
     {{/each}}
   </ul>
 
 {{else}}
-  <p>There are no current reviews. Wanna add one?</p>
+  <p>There are no current reviews. {{link-to "Wanna add one?" 'reviews.new'}}</p>
 {{/if}}
