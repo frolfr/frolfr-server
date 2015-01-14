@@ -1,0 +1,14 @@
+h2.text-centered Change Password
+
+form submit='changePassword'
+  fieldset
+    label for="password" * Password
+    = input value=password type="password" id="password" required=true
+
+    label for="passwordConfirmation" * Password Confirmation
+    = input value=passwordConfirmation type="password" id="passwordConfirmation" required=true
+
+    if showPasswordError
+      p Password and confirmation must match
+
+  button.button.expand type="submit" Change Password

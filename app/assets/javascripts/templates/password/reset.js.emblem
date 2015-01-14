@@ -1,0 +1,12 @@
+h2.text-centered Password Reset
+
+if showResetSuccess
+  p An email has been sent with instructions on how to reset your password.
+if showResetFailure
+  p We're sorry, something went wrong. Make sure your email is correct.
+
+form submit="reset"
+  label for="email" * Email
+  = input value=email type="text" id="email" required=true
+
+  button.button.expand type="submit" Send Reset Email
