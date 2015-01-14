@@ -17,11 +17,6 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
-  def show
-    review = Review.find(params[:id])
-    respond_with review
-  end
-
   private
 
   def review_params
