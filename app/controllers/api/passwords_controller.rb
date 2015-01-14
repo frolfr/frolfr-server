@@ -20,7 +20,7 @@ class Api::PasswordsController < ApplicationController
   end
 
   def user
-    User.find_by(password_reset_token: password_reset_token)
+    @user ||= User.find_by(password_reset_token: password_reset_token)
   end
 
   def password_reset_token
