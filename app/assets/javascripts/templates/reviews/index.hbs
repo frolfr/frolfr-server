@@ -1,8 +1,30 @@
 {{#if model}}
-  {{link-to "Add a New Review" 'reviews.new'}}
-  <ul>
-    {{#each review in controller}}
-      <li>{{displayDate review.createdAt}} by {{review.userFullName}} ({{review.rating}} / 10) - {{review.post}}</li>
+  <div class='text-centered'>
+    {{link-to "Add a New Review" 'reviews.new'}}
+  </div>
+  <ul class="push-down no-bullet">
+    {{#each controller}}
+      <li class='review'>
+        <div class='review-header'>
+          <div>
+            {{#if user.hasAvatar}}
+             <img class='u-circle tiny-thumbnail' {{bind-attr src='user.avatarUrl'}} />
+            {{else}}
+              <img class='u-circle tiny-thumbnail' src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'>
+            {{/if}}
+            <div class='right'>
+              <strong class='right'>{{rating}} / 10</strong>
+            </div>
+          </div>
+          <div>
+            <strong>{{userFullName}}</strong> reviewed on {{displayDate createdAt}}
+          </div>
+        </div>
+
+        <div class='review-body'>
+          {{post}}
+        </div>
+      </li>
     {{/each}}
   </ul>
 
