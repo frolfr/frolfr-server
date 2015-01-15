@@ -1,7 +1,7 @@
 {{#if model}}
   {{link-to "Add a New Review" 'reviews.new'}}
   <ul>
-    {{#each review in content}}
+    {{#each review in controller}}
       <li>{{displayDate review.createdAt}} by {{review.userFullName}} ({{review.rating}} / 10) - {{review.post}}</li>
     {{/each}}
   </ul>
