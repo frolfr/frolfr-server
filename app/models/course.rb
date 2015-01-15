@@ -6,6 +6,7 @@ class Course < ActiveRecord::Base
 
   has_many :holes, dependent: :destroy
   has_many :rounds
+  has_many :reviews, dependent: :destroy
   belongs_to :submitter, class_name: "User"
 
   validates :state, :city, :country, :name, :status, presence: true
