@@ -4,10 +4,10 @@ header.text-centered
 
 .row
   .small-4.columns
-    link-to 'Photos' 'course.index' this classNames='button expand radius'
+    link-to 'Photos' 'course.index' this classNames='button expand radius course-btn'
   .small-4.columns
-    link-to 'Reviews' 'reviews' classNames='button expand radius'
+    link-to 'Reviews' 'reviews' classNames='button expand radius course-btn'
   .small-4.columns
-    link-to 'Leaderboard' 'leaderboard' classNames='button expand radius'
+    link-to 'Leaderboard' 'leaderboard' classNames='button expand radius course-btn'
 
 outlet
