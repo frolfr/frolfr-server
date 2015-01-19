@@ -65,7 +65,6 @@ end
   day = (1..365).to_a.sample
   round = Round.create(
     course: course,
-    marked_complete: true,
     created_at: day.days.ago
   )
   User.all.each do |user|
@@ -86,7 +85,6 @@ end
   day = (1..365).to_a.sample
   round = Round.create(
     course: course2,
-    marked_complete: true,
     created_at: day.days.ago
   )
   User.all.each do |user|
