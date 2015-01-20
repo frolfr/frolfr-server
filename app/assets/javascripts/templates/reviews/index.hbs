@@ -2,7 +2,9 @@
 
 {{#if model}}
   <div class='text-center'>
-    {{link-to "Add a New Review" 'reviews.new'}}
+    {{#unless isAlreadyReviewed}}
+      {{link-to "Add a New Review" 'reviews.new'}}
+    {{/unless}}
   </div>
   <ul class="push-down list-unstyled">
     {{#each controller}}
