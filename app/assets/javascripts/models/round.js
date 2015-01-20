@@ -5,7 +5,7 @@ App.Round = DS.Model.extend({
   course: DS.belongsTo('course', {async: true}),
   holeCount: DS.attr('string'),
   publicRecap: DS.attr('boolean'),
-
+  isStarted: DS.attr('boolean'),
   // only used for creating new rounds
   players: DS.hasMany('user', {async: true}),
 });

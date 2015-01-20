@@ -6,6 +6,7 @@ App.Scorecard = DS.Model.extend({
   user: DS.belongsTo('user', { async: true }),
   userInitials: DS.attr('string'),
   turns: DS.hasMany('turn', { async: true }),
+  isStarted: DS.attr('boolean'),
 
   userFullName: Ember.computed.alias('user.fullName'),
   hasUserAvatar: Ember.computed.alias('user.hasAvatar'),

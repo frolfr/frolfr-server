@@ -2,7 +2,7 @@ class ScorecardSerializer < ActiveModel::Serializer
   embed :ids, include: true
   has_many :turns
   attributes :id, :user_id, :round_id, :user_initials, :turn_ids,
-             :created_at, :course_name, :course_id
+             :created_at, :course_name, :course_id, :is_started
 
   def course_id
     object.course.id
@@ -26,6 +26,10 @@ class ScorecardSerializer < ActiveModel::Serializer
 
   def user_initials
     names.map { |name| name.chars.first }.join
+  end
+
+  def is_started
+    object.started?
   end
 
   private

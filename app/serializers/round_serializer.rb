@@ -2,7 +2,7 @@ class RoundSerializer < ActiveModel::Serializer
   embed :ids, include: true
   has_many :scorecards
   attributes :id, :course_name, :created_at,
-    :scorecard_ids, :course_id, :hole_count, :public_recap
+    :scorecard_ids, :course_id, :hole_count, :public_recap, :is_started
 
   def hole_count
     object.course.hole_count
@@ -18,5 +18,9 @@ class RoundSerializer < ActiveModel::Serializer
 
   def scorecard_ids
     object.scorecards.pluck(:id)
+  end
+
+  def is_started
+    object.started?
   end
 end
