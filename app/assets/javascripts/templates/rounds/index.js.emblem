@@ -31,13 +31,11 @@ if model
                 ' Jump to Hole
                 = nextUnplayedTurn.holeNumber
           td
-            if isStarted
-              | Started
-            else
-              | Not started
+            unless round.isStarted
+              a click="deleteRound round" Delete Round
     tfoot
       tr
-        td colspan="4"
+        td colspan="5"
           unless isFirstPage
             .pull-left
               a.btn.btn-success.btn-lg click=previousPage
