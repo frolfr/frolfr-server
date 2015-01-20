@@ -18,8 +18,16 @@ App.Scorecard = DS.Model.extend({
   }.property('turns.@each.isPlayed'),
 
   isFinished: function() {
-    return this.get('round.markedComplete') || this.get('isAllTurnsPlayed');
-  }.property('round.markedComplete', 'isAllTurnsPlayed'),
+    return this.get('isMoreThanOneDayOld') || this.get('isAllTurnsPlayed');
+  }.property('isMoreThanOneDayOld', 'isAllTurnsPlayed'),
+
+  isMoreThanOneDayOld: function() {
+    var today = new Date().getTime(),
+        datePlayed = new Date(this.get('createdAt')).getTime(),
+        oneDayInMilliseconds = 86400000
+
+    return (today - datePlayed) > oneDayInMilliseconds;
+  }.property('createdAt'),
 
   playedTurns: function() {
     return this.get('turns').filter(function (turn) {
