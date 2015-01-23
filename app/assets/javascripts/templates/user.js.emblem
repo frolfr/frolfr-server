@@ -1,10 +1,10 @@
-h2.text-centered = fullName
+h2.text-center = fullName
 if hasAvatar
-  .small-12.text-centered
+  .small-12.text-center
     img.avatar.u-circle src=avatarUrl
 
 if jointRounds
-  h4.text-centered Rounds Played Together
+  h4.text-center Rounds Played Together
 
   table.small-12
     thead

@@ -1,4 +1,4 @@
-h2.text-centered Rounds
+h2.text-center Rounds
 
 if model
   table.small-12#rounds
@@ -37,9 +37,9 @@ if model
           unless isLastPage
             a.right click=nextPage >
           .text-center
-            | Page 
+            | Page
             = page
-            |  of 
+            |  of
             = totalPages
 
 else

@@ -1,4 +1,4 @@
-h2.text-centered Profile
+h2.text-center Profile
 
 form
   label for="firstName" * First Name
@@ -12,16 +12,16 @@ form
 
 .row
   .small-6.columns
-    button.button.expand.radius class=isDirty:active:disabled type="submit" click="saveChanges" Save
+    button.btn.btn-block.radius class=isDirty:active:disabled type="submit" click="saveChanges" Save
   .small-6.columns
-    button.button.expand.alert.radius class=isDirty:active:disabled click="cancel" Cancel
+    button.btn.btn-block.alert.radius class=isDirty:active:disabled click="cancel" Cancel
 
 hr
 
-h2.text-centered Avatar
+h2.text-center Avatar
 
 if hasAvatar
-  .small-12.text-centered
+  .small-12.text-center
     img.avatar.u-circle src=avatarUrl
 else
   p No avatar currently uploaded. Feel free to upload one here (square images are best!)
@@ -29,6 +29,6 @@ else
 
 hr
 
-h2.text-centered Settings
+h2.text-center Settings
 
 a click=logout Logout

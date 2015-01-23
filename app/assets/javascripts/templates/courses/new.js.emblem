@@ -1,4 +1,4 @@
-h2.text-centered Suggest a New Course
+h2.text-center Suggest a New Course
 
 form submit='save'
   fieldset
@@ -16,4 +16,4 @@ form submit='save'
 
     p For now, Frolfr only supports U.S. courses
 
-  button.button.expand type="submit" Suggest Course
+  button.btn.btn-block type="submit" Suggest Course

@@ -1,4 +1,4 @@
-h2.text-centered Start a New Round
+h2.text-center Start a New Round
 
 form submit='createRound'
   fieldset
@@ -14,7 +14,7 @@ form submit='createRound'
       .small-9.columns
         auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName" class="larger-input"
       .small-3.columns
-        button.button.expand{action addPlayer} disabled=noPlayerSelected
+        button.btn.btn-block{action addPlayer} disabled=noPlayerSelected
           i.fi-plus
     .row
       .columns
@@ -24,7 +24,7 @@ form submit='createRound'
             li
               = fullName
               | &nbsp;
-              button.button.alert.round{action removePlayer this}
+              button.btn.alert.round{action removePlayer this}
                 i.fi-minus
 
-    button.button.expand type="submit" Start Round
+    button.btn.btn-block type="submit" Start Round

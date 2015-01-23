@@ -4,10 +4,8 @@
       h1#title
         link-to 'Frolfr' 'index'
 
-section.main-section
-  .row
-    .small-12.columns
-      outlet
+section.main-section.container
+  outlet
 
 if currentUser.isAuthenticated
   .icon-bar.five-up#footer

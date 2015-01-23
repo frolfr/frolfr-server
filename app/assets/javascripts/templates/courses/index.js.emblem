@@ -1,5 +1,5 @@
 if model
-  h2.text-centered Courses
+  h2.text-center Courses
 
   table.small-12#courses
     thead

@@ -1,4 +1,4 @@
-h2.text-centered Password Reset
+h2.text-center Password Reset
 
 if showResetSuccess
   p An email has been sent with instructions on how to reset your password.
@@ -9,4 +9,4 @@ form submit="reset"
   label for="email" * Email
   = input value=email type="text" id="email" required=true
 
-  button.button.expand type="submit" Send Reset Email
+  button.btn.btn-block type="submit" Send Reset Email

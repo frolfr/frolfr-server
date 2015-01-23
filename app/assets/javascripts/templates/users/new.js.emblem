@@ -1,4 +1,4 @@
-h2.text-centered Sign Up
+h2.text-center Sign Up
 
 form submit='createUser'
   fieldset
@@ -23,4 +23,4 @@ form submit='createUser'
     if showPasswordError
       p Password and confirmation must match
 
-  button.button.expand type="submit" Sign Up
+  button.btn.btn-block type="submit" Sign Up

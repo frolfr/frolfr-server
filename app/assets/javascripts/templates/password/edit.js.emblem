@@ -1,4 +1,4 @@
-h2.text-centered Change Password
+h2.text-center Change Password
 
 form submit='changePassword'
   fieldset
@@ -11,4 +11,4 @@ form submit='changePassword'
     if showPasswordError
       p Password and confirmation must match
 
-  button.button.expand type="submit" Change Password
+  button.btn.btn-block type="submit" Change Password

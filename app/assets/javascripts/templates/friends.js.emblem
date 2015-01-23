@@ -1,4 +1,4 @@
-h2.text-centered Friends
+h2.text-center Friends
 
 if model
   ul.small-block-grid-3.medium-block-grid-4.large-block-grid-6
@@ -8,12 +8,12 @@ if model
           img.u-circle src=friend.avatarUrl
         else
           img.u-circle src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'
-        .text-centered.push-down = friend.fullName
+        .text-center.push-down = friend.fullName
 else
   p You don't have any friends yet.
 
 hr
 
-h2.text-centered Search for Friends
+h2.text-center Search for Friends
 
 render "friendableUsers"

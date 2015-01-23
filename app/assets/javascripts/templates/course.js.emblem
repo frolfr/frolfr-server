@@ -1,4 +1,4 @@
-header.text-centered
+header.text-center
   h2 = name
   h4 = location
 

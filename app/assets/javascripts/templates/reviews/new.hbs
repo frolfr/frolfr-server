@@ -1,4 +1,4 @@
-<h3 class='text-centered'>New Review</h3>
+<h3 class='text-center'>New Review</h3>
 <form {{action "submitReview" content on="submit"}}>
   <label>* Rating</label>
   {{view  Ember.Select content=ratingChoices value=rating required=true prompt="Select Rating"}}
