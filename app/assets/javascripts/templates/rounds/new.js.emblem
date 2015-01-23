@@ -2,20 +2,23 @@ h2.text-center Start a New Round
 
 form submit='createRound'
   fieldset
-    label for="course" * Course
-    view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select Course" id="course" required=true
+    .form-group
+      label for="course" * Course
+      view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select Course" id="course" required=true classNames='form-control'
 
     p
       ' Can't see the course you're looking for? Why not
       link-to 'suggest a new course?' 'courses.new'
 
-    label for="players" Players
-    .row
-      .small-9.columns
-        auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName" class="larger-input"
-      .small-3.columns
-        button.btn.btn-block{action addPlayer} disabled=noPlayerSelected
-          i.fi-plus
+    .form-group
+      label for="players" Players
+      .row
+        .small-9.columns
+          auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName" class="larger-input" classNames='form-control'
+        .small-3.columns
+          button.btn.btn-block{action addPlayer} disabled=noPlayerSelected
+            i.fi-plus
+
     .row
       .columns
         ol
@@ -24,7 +27,7 @@ form submit='createRound'
             li
               = fullName
               | &nbsp;
-              button.btn.alert.round{action removePlayer this}
+              button.btn.btn-dangeralert{action removePlayer this}
                 i.fi-minus
 
     button.btn.btn-block type="submit" Start Round

@@ -1,8 +1,8 @@
 <h3 class='text-center'>New Review</h3>
 <form {{action "submitReview" content on="submit"}}>
   <label>* Rating</label>
-  {{view  Ember.Select content=ratingChoices value=rating required=true prompt="Select Rating"}}
+  {{view  Ember.Select content=ratingChoices value=rating required=true prompt="Select Rating" classNames='form-control'}}
   <label>* Comments</label>
-  {{textarea value=post required=true}}
+  {{textarea value=post required=true classNames='form-control'}}
   <button class="button expand" type="submit">Save</button>
 </form>

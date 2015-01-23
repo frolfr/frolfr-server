@@ -1,20 +1,20 @@
 h2.text-center Profile
 
 form
-  label for="firstName" * First Name
-  =input value=firstName type="text" id="firstName" required=true
+  .form-group
+    label for="firstName" * First Name
+    =input value=firstName type="text" id="firstName" required=true classNames='form-control'
 
-  label for="middleName" * Middle Name
-  = input value=middleName type="text" id="middleName"
+  .form-group
+    label for="middleName" * Middle Name
+    = input value=middleName type="text" id="middleName" classNames='form-control'
 
-  label for="lastName" * Last Name
-  = input value=lastName type="text" id="lastName" required=true
+  .form-group
+    label for="lastName" * Last Name
+    = input value=lastName type="text" id="lastName" required=true classNames='form-control'
 
-.row
-  .small-6.columns
-    button.btn.btn-block.radius class=isDirty:active:disabled type="submit" click="saveChanges" Save
-  .small-6.columns
-    button.btn.btn-block.alert.radius class=isDirty:active:disabled click="cancel" Cancel
+    button.btn.btn-block.btn-primary.btn-lg class=isDirty:active:disabled type="submit" click="saveChanges" Save
+    button.btn.btn-block.btn-danger.btn-lg class=isDirty:active:disabled click="cancel" Cancel
 
 hr
 
