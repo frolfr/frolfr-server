@@ -9,8 +9,7 @@
 //   Libraries
 // -------------------------------------
 
-@import "foundation_and_overrides";
-@import "foundation-icons";
+@import "bootstrap_and_overrides";
 @import "jquery.ui.all";
 @import "round-show-table";
 @import "reviews";
@@ -19,6 +18,7 @@
 .u-pointer {
   cursor: pointer;
 }
+
 #title {
   font-family: 'Trade Winds', cursive;
   a {
@@ -26,16 +26,6 @@
   }
 }
 
-.icon-bar > a:hover, .active {
-  background-color: #008CBA
-}
-
-.direction-arrows {
-  background: #04B486;
-}
-.direction-arrows:hover {
-  background-color: #088A68;
-}
 .text-centered { text-align: center; }
 .over-par { color: red }
 .under-par { color: green }

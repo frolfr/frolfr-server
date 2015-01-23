@@ -1,0 +1,33 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.main-section {
+  min-height: 100%;
+  padding-top: .5em;
+  padding-bottom: 100px;
+}
+
+#footer {
+  position: fixed;
+  bottom:0;
+  width: 100%;
+}
+
+.push-down {
+  padding-top: 1em;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.thumbnail {
+  width: 75px;
+  height: 75px;
+}
+
+.tiny-thumbnail {
+  width: 25px;
+  height: 25px;
+}

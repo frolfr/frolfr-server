@@ -3,14 +3,14 @@
   .scorecard-column {
     float: left;
   }
-  border: solid 1px $gainsboro;
+  border: solid 1px black;
   border-spacing: 2px;
   .columns { padding: 0; }
   ul {
     margin-left: 0;
     list-style-type: none;
-    li:first-of-type { background-color: $ghost; }
-    li:nth-child(even) {background: $snow}
+    li:first-of-type { background-color: grey; }
+    li:nth-child(even) {background: white}
     li {
       text-align: center;
       line-height: 200%;
