@@ -1,8 +1,5 @@
-.sticky
-  nav.tab-bar data-topbar=""
-    section.middle.tab-bar-section
-      h1#title
-        link-to 'Frolfr' 'index'
+.navbar.navbar-inverse.navbar-fixed-top
+  link-to 'Frolfr' 'index' classNames='navbar-brand' id='title'
 
 section.main-section.container
   outlet

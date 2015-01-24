@@ -21,7 +21,7 @@ hr
 h2.text-center Avatar
 
 if hasAvatar
-  .small-12.text-center
+  .text-center
     img.avatar.u-circle src=avatarUrl
 else
   p No avatar currently uploaded. Feel free to upload one here (square images are best!)

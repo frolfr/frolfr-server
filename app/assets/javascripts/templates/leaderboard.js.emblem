@@ -1,4 +1,4 @@
-table.small-12#rounds
+table.table.table-striped#rounds
   thead
     tr
       th

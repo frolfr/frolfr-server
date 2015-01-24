@@ -16,15 +16,19 @@
 @import "twitter-typeahead";
 @import url("http://fonts.googleapis.com/css?family=Trade+Winds");
 
+body {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
 .u-pointer {
   cursor: pointer;
 }
 
 #title {
   font-family: 'Trade Winds', cursive;
-  a {
-    color: white;
-  }
+  color: white;
+  text-decoration: none;
 }
 
 .chosen-choices input { height: 37px !important; }

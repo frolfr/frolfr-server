@@ -1,12 +1,12 @@
 h2.text-center = fullName
 if hasAvatar
-  .small-12.text-center
+  .text-center
     img.avatar.u-circle src=avatarUrl
 
 if jointRounds
   h4.text-center Rounds Played Together
 
-  table.small-12
+  table.table.table-striped
     thead
       tr
         th Course Name

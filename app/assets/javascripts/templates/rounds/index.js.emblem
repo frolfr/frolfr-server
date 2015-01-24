@@ -1,7 +1,7 @@
 h2.text-center Rounds
 
 if model
-  table.small-12#rounds
+  table.table.table-striped#rounds
     thead
       tr
         th click="sortBy 'courseName'"
