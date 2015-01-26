@@ -10,24 +10,20 @@ form submit='createRound'
       ' Can't see the course you're looking for? Why not
       link-to 'suggest a new course?' 'courses.new'
 
-    .form-group
+    .input-group.form-group
       label for="players" Players
-      .row
-        .small-9.columns
-          auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName" class="larger-input" classNames='form-control'
-        .small-3.columns
-          button.btn.btn-block{action addPlayer} disabled=noPlayerSelected
-            i.fi-plus
+      auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName"
+      span.input-group-btn
+        button.btn.btn-success{action addPlayer} disabled=noPlayerSelected
+          span.glyphicon.glyphicon-plus
 
-    .row
-      .columns
-        ol
-          li= currentUser.fullName
-          each players
-            li
-              = fullName
-              | &nbsp;
-              button.btn.btn-dangeralert{action removePlayer this}
-                i.fi-minus
+    ol
+      li= currentUser.fullName
+      each players
+        li
+          = fullName
+          | &nbsp;
+          button.btn.btn-danger{action removePlayer this}
+            span.glyphicon.glyphicon-minus
 
-    button.btn.btn-block type="submit" Start Round
+    button.btn.btn-block.btn-lg.btn-primary type="submit" Start Round

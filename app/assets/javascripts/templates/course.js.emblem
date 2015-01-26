@@ -2,12 +2,12 @@ header.text-center
   h2 = name
   h4 = location
 
-.row
-  .small-4.columns
-    link-to 'Photos' 'course.index' this classNames='button expand radius course-btn'
-  .small-4.columns
-    link-to 'Reviews' 'reviews' classNames='button expand radius course-btn'
-  .small-4.columns
-    link-to 'Leaderboard' 'leaderboard' classNames='button expand radius course-btn'
+.nav.nav-pills.nav-justified
+  link-to 'course.index' this tagName='li' classNames='u-pointer'
+    a Photos
+  link-to 'reviews' tagName='li' classNames='u-pointer'
+    a Reviews
+  link-to 'leaderboard' tagName='li' classNames='u-pointer'
+    a Leaderboard
 
 outlet

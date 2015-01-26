@@ -1,46 +1,45 @@
-.clearfix
-  .left
-    img.left src="https://s3.amazonaws.com/frolfr/hole_icon.jpg" alt="Hole #" width="50" height="50"
-    h2.text-center.left = holeNumber
-  .right
-    ul.round.secondary.btn-group.right
-      li
-        a.secondary.btn class=isPar3:darkened click='changePar 3' 3
-      li
-        a.secondary.btn class=isPar4:darkened click='changePar 4' 4
-      li
-        a.secondary.btn class=isPar5:darkened click='changePar 5' 5
+.row
+  .pull-left
+    img.pull-left src="https://s3.amazonaws.com/frolfr/hole_icon.jpg" alt="Hole #" width="50" height="50"
+    h2.text-center.pull-left = holeNumber
+
+  .pull-right
+    .btn-group
+      button.btn.btn-default.btn-lg class=isPar3:darkened click='changePar 3' 3
+      button.btn.btn-default.btn-lg class=isPar4:darkened click='changePar 4' 4
+      button.btn.btn-default.btn-lg class=isPar5:darkened click='changePar 5' 5
 
 each controller
-  .row.push-down.vertical-align
-    .small-3.columns.text-center
+  .row.vertical-align
+    .col-xs-3.text-center
       if scorecard.hasUserAvatar
         img.u-circle.thumbnail src=scorecard.userAvatarUrl
       else
         h2 = scorecard.userInitials
-    .small-6.columns
+    .col-xs-6
       .row
-        .small-5.columns.text-center
-          a.btn.btn-block.round.u-condensed click='subtractOne this'
-            i.fi-minus
-        .small-2.columns
+        .col-xs-5.text-center
+          button.btn.btn-primary.btn-block.btn-lg.u-condensed click='subtractOne this'
+            span.glyphicon.glyphicon-minus
+        .col-xs-2
           h2.text-center class=parStatus = displayScore
-        .small-5.columns.text-center
-          a.btn.btn-block.round.u-condensed click='addOne this'
-            i.fi-plus
-    .small-3.columns.text-center
-      h2.left.total = scorecard.totalScore
-      h4.left.shooting = scorecard.formattedShooting
+        .col-xs-5.text-center
+          button.btn.btn-primary.btn-block.btn-lg.u-condensed click='addOne this'
+            span.glyphicon.glyphicon-plus
+    .col-xs-3.text-center
+      h2.pull-left.total = scorecard.totalScore
+      h4.pull-left.shooting = scorecard.formattedShooting
 
-.clearfix.panel.turns-footer
+
+.well.row
   unless isFirstHole
-    .left
-      a.btn.direction-arrows click=previousHole
-        i.fi-arrow-left
+    .pull-left
+      a.btn.btn-success.btn-lg click=previousHole
+        span.glyphicon.glyphicon-chevron-left
 
-  .right
-    a.btn.direction-arrows click=nextHole
+  .pull-right
+    a.btn.btn-success.btn-lg click=nextHole
       if isLastHole
         span Recap
       else
-        i.fi-arrow-right
+        span.glyphicon.glyphicon-chevron-right
