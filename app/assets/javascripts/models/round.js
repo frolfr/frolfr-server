@@ -11,3 +11,5 @@ App.Round = DS.Model.extend({
 });
 
 App.JointRound = App.Round.extend();
+
+App.PublicRound = App.Round.extend();
