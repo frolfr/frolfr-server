@@ -1,16 +1,20 @@
 .round-show-table {
   width: 100%;
+  .round-holes { width: 16%; }
+  .round-scores { width: 84%; }
   .scorecard-column {
     float: left;
   }
-  border: solid 1px black;
+  border: solid 1px #dddddd;
   border-spacing: 2px;
+  margin: 0;
   .columns { padding: 0; }
   ul {
     margin-left: 0;
+    padding-left: 0;
     list-style-type: none;
-    li:first-of-type { background-color: grey; }
-    li:nth-child(even) {background: white}
+    li:first-of-type { background-color: #f9f9f9 ; }
+    li:nth-child(even) {background: #f9f9f9 }
     li {
       text-align: center;
       line-height: 200%;
