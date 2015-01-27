@@ -20,4 +20,18 @@ class Api::RoundsController < ApplicationController
 
     respond_with :api, RoundForm.new(args: round_params).save
   end
+
+  def update
+    round = Round.find(params[:id])
+
+    if round.update(round_params)
+      respond_with round
+    end
+  end
+
+  private
+
+  def round_params
+    params.require(:round).permit(:public_recap)
+  end
 end

@@ -2,6 +2,12 @@
   <header class='text-center'>
     <h3>{{courseName}}</h3>
     <h5>{{displayDate createdAt}}</h5>
+    {{#if publicRecap}}
+      <button class='button alert round small' {{action 'makePrivate'}}>Make Private</button>
+    {{else}}
+      <button class='button success round small' {{action 'publish'}}>Publish</button>
+      {{textarea value=publicRoundUrl}}
+    {{/if}}
   </header>
 </div>
 
