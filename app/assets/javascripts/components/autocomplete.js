@@ -2,6 +2,7 @@ App.AutoCompleteComponent = Ember.TextField.extend({
   selection: null,
   model: null,
   displayKey: null,
+  classNames: ['form-control'],
 
   didInsertElement: function() {
     this._super();

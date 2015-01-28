@@ -1,0 +1,25 @@
+.twitter-typeahead {
+  width: 100%;
+}
+
+.twitter-typeahead > input {
+  margin-bottom: 0;
+}
+
+.tt-dropdown-menu {
+  background: white;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+.tt-suggestion {
+  padding: 3px 0.5rem;
+  p {
+    margin: 0;
+  }
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+}

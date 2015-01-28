@@ -1,7 +1,7 @@
-h2.text-centered Rounds
+h2.text-center Rounds
 
 if model
-  table.small-12#rounds
+  table.table.table-striped#rounds
     thead
       tr
         th click="sortBy 'courseName'"
@@ -33,14 +33,15 @@ if model
       tr
         td colspan="4"
           unless isFirstPage
-            a.left click=previousPage <
+            .pull-left
+              a.btn.btn-success.btn-lg click=previousPage
+                span.glyphicon.glyphicon-chevron-left
           unless isLastPage
-            a.right click=nextPage >
+            .pull-right
+              a.btn.btn-success.btn-lg click=nextPage
+                span.glyphicon.glyphicon-chevron-right
           .text-center
-            | Page 
-            = page
-            |  of 
-            = totalPages
+            | Page #{page} of #{totalPages}
 
 else
   p You haven't played any rounds

@@ -1,4 +1,6 @@
-table.small-12#rounds
+h3.visible-xs.text-center Leaderboard
+
+table.table.table-striped#rounds
   thead
     tr
       th

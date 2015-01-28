@@ -1,28 +1,30 @@
-.sticky
-  nav.tab-bar data-topbar=""
-    section.middle.tab-bar-section
-      h1#title
-        link-to 'Frolfr' 'index'
+.navbar.navbar-inverse.navbar-fixed-top
+  link-to 'Frolfr' 'index' classNames='navbar-brand' id='title'
 
 section.main-section
-  .row
-    .small-12.columns
-      outlet
+  .container
+    outlet
 
 if currentUser.isAuthenticated
-  .icon-bar.five-up#footer
-    link-to 'rounds.new' classNames='item'
-      i.fi-plus
-      label.hide-for-small-only New Round
-    link-to 'rounds.index' classNames='item'
-      i.fi-info
-      label.hide-for-small-only Rounds
-    link-to 'courses.index' classNames='item'
-      i.fi-marker
-      label.hide-for-small-only Courses
-    link-to 'friends' classNames='item'
-      i.fi-torsos-all
-      label.hide-for-small-only Friends
-    link-to 'profile' classNames='item'
-      i.fi-heart
-      label.hide-for-small-only Profile
+  #footer
+    .btn-group.btn-group-lg.btn-group-justified
+      link-to 'rounds.new' classNames='btn'
+        span.glyphicon.glyphicon-plus
+        br
+        label.hidden-xs.u-pointer New Round
+      link-to 'rounds.index' classNames='btn'
+        i.fa.fa-info-circle
+        br
+        label.hidden-xs.u-pointer Rounds
+      link-to 'courses.index' classNames='btn'
+        i.fa.fa-map-marker
+        br
+        label.hidden-xs.u-pointer Courses
+      link-to 'friends' classNames='btn'
+        i.fa.fa-users
+        br
+        label.hidden-xs.u-pointer Friends
+      link-to 'profile' classNames='btn'
+        span.glyphicon.glyphicon-heart
+        br
+        label.hidden-xs.u-pointer Profile

@@ -1,30 +1,39 @@
-h2.text-centered Start a New Round
+h2.text-center Start a New Round
 
 form submit='createRound'
   fieldset
-    label for="course" * Course
-    view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select Course" id="course" required=true
+    .form-group
+      label for="course" * Course
+      view Ember.Select content=courses selection=course.content optionValuePath="content.id" optionLabelPath="content.name" prompt="Select Course" id="course" required=true classNames='form-control'
 
     p
       ' Can't see the course you're looking for? Why not
       link-to 'suggest a new course?' 'courses.new'
 
-    label for="players" Players
-    .row
-      .small-9.columns
-        auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName" class="larger-input"
-      .small-3.columns
-        button.button.expand{action addPlayer} disabled=noPlayerSelected
-          i.fi-plus
-    .row
-      .columns
-        ol
-          li= currentUser.fullName
-          each players
-            li
-              = fullName
-              | &nbsp;
-              button.button.alert.round{action removePlayer this}
-                i.fi-minus
+    .form-group
+      label for="players" Players
+      .row
+        .col-xs-9.form-group
+          auto-complete id="players" model=potentialPlayers selection=selectedPlayer value=query displayKey="fullName"
+        .col-xs-3
+          button.btn.btn-block.btn-lg.btn-success{action addPlayer} disabled=noPlayerSelected
+            span.glyphicon.glyphicon-plus
 
-    button.button.expand type="submit" Start Round
+    .row.block-grid-xs-3.block-grid-sm-4.block-grid-lg-6
+      .block-grid-item
+        if currentUser.hasAvatar
+          img.u-circle.friend-avatar src=currentUser.avatarUrl
+        else
+          img.u-circle.friend-avatar src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'
+        .text-center = currentUser.fullName
+      each players
+        .block-grid-item
+          if hasAvatar
+            img.u-circle.friend-avatar src=avatarUrl
+          else
+            img.u-circle.friend-avatar src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'
+          .text-center = fullName
+          button.btn.btn-block.btn-danger{action removePlayer this}
+            span.glyphicon.glyphicon-minus
+
+    button.btn.btn-block.btn-lg.btn-primary type="submit" Start Round

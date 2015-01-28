@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery.ui.all
 //= require jquery_ujs
-//= require foundation
+//= require bootstrap-sprockets
 //= require handlebars
 //= require ember
 //= require ember-data
@@ -31,11 +31,3 @@ App = Ember.Application.create({
 
 //= require_tree .
 
-$(function(){
-  Foundation.global.namespace = '';
-  $(document).foundation({
-    offcanvas : {
-      close_on_click : true
-    }
-  });
-});

@@ -1,19 +1,20 @@
-h2.text-centered Friends
+h2.text-center Friends
 
 if model
-  ul.small-block-grid-3.medium-block-grid-4.large-block-grid-6
-    each friend in controller
-      link-to 'user' friend tagName='li' classNames='u-pointer'
-        if friend.hasAvatar
-          img.u-circle src=friend.avatarUrl
-        else
-          img.u-circle src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'
-        .text-centered.push-down = friend.fullName
+  .row.block-grid-xs-3.block-grid-sm-4.block-grid-lg-6
+      each friend in controller
+        .block-grid-item
+          link-to 'user' friend tagName='div' classNames='u-pointer'
+            if friend.hasAvatar
+              img.u-circle.friend-avatar src=friend.avatarUrl
+            else
+              img.u-circle.friend-avatar src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'
+            .text-center = friend.fullName
 else
   p You don't have any friends yet.
 
 hr
 
-h2.text-centered Search for Friends
+h2.text-center Search for Friends
 
 render "friendableUsers"

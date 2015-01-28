@@ -9,87 +9,40 @@
 //   Libraries
 // -------------------------------------
 
-@import "foundation_and_overrides";
-@import "foundation-icons";
+@import "bootstrap_and_overrides";
+@import "font-awesome";
 @import "jquery.ui.all";
 @import "round-show-table";
 @import "reviews";
+@import "twitter-typeahead";
+@import "block-grids";
 @import url("http://fonts.googleapis.com/css?family=Trade+Winds");
+
+body {
+  padding-top: 50px;
+}
 
 .u-pointer {
   cursor: pointer;
 }
+
+.friend-avatar {
+  width: 100%;
+  height: auto;
+}
+
 #title {
   font-family: 'Trade Winds', cursive;
-  a {
-    color: white;
-  }
+  color: white;
+  text-decoration: none;
 }
 
-.icon-bar > a:hover, .active {
-  background-color: #008CBA
-}
-
-.direction-arrows {
-  background: #04B486;
-}
-.direction-arrows:hover {
-  background-color: #088A68;
-}
-.text-centered { text-align: center; }
-.over-par { color: red }
-.under-par { color: green }
 .chosen-choices input { height: 37px !important; }
-.undecorated-list {
-  list-style-type: none;
-  margin-left: 0px;
-}
 .user-row { padding-bottom: 2em; }
-input.larger-input { height: 48px; }
-tr.highlight { background-color: #EFF5FB; }
-table#course-stats {
-  tr.best-hole { background-color: #E0F8E0; }
-  tr.worst-hole { background-color: #F6CED8; }
-}
 i.red-icon { color: red; }
 p.tap-down { padding-top: 1em; }
 .darkened { background-color: #b9b9b9 !important; }
 img { max-width: 100%; }
-
-.twitter-typeahead {
-  width: 100%;
-}
-
-.twitter-typeahead > input {
-  margin-bottom: 0;
-}
-
-.tt-dropdown-menu {
-  background: white;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-.tt-suggestion {
-  padding: 3px 0.5rem;
-  p {
-    margin: 0;
-  }
-}
-
-.turns-footer {
-  margin-top: 1em;
-}
-
-.tt-suggestion.tt-cursor {
-  color: #fff;
-  background-color: #0097cf;
-}
-
-a.u-condensed {
-  max-width: 5em;
-  margin: 0;
-}
 
 .vertical-align {
   display: flex;
@@ -102,12 +55,15 @@ a.u-condensed {
   left: 45%;
   top: 45%;
   z-index: 100;
+  width: 10%;
+  height: auto;
 }
 
 .u-circle {
   border-radius: 50%;
 }
 
-.active.course-btn {
-  background-color: #819FF7;
+.u-condensed {
+  max-width: 5em;
+  margin: 0;
 }

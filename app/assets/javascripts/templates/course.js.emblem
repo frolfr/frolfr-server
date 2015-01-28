@@ -1,13 +1,20 @@
-header.text-centered
-  h2 = name
-  h4 = location
+.well
+  header.text-center
+    h2 = name
+    h4 = location
 
-.row
-  .small-4.columns
-    link-to 'Photos' 'course.index' this classNames='button expand radius course-btn'
-  .small-4.columns
-    link-to 'Reviews' 'reviews' classNames='button expand radius course-btn'
-  .small-4.columns
-    link-to 'Leaderboard' 'leaderboard' classNames='button expand radius course-btn'
+  .nav.nav-pills.nav-justified
+    link-to 'course.index' this tagName='li' classNames='u-pointer'
+      a
+        span.hidden-xs Photos
+        i.fa.fa-camera.visible-xs
+    link-to 'reviews' tagName='li' classNames='u-pointer'
+      a
+        span.hidden-xs Reviews
+        i.fa.fa-newspaper-o.visible-xs
+    link-to 'leaderboard' tagName='li' classNames='u-pointer'
+      a
+        span.hidden-xs Leaderboard
+        i.fa.fa-trophy.visible-xs
 
 outlet

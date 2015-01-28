@@ -1,27 +1,28 @@
-h2.text-centered Profile
+h2.text-center Profile
 
 form
-  label for="firstName" * First Name
-  =input value=firstName type="text" id="firstName" required=true
+  .form-group
+    label for="firstName" * First Name
+    =input value=firstName type="text" id="firstName" required=true classNames='form-control'
 
-  label for="middleName" * Middle Name
-  = input value=middleName type="text" id="middleName"
+  .form-group
+    label for="middleName" * Middle Name
+    = input value=middleName type="text" id="middleName" classNames='form-control'
 
-  label for="lastName" * Last Name
-  = input value=lastName type="text" id="lastName" required=true
+  .form-group
+    label for="lastName" * Last Name
+    = input value=lastName type="text" id="lastName" required=true classNames='form-control'
 
-.row
-  .small-6.columns
-    button.button.expand.radius class=isDirty:active:disabled type="submit" click="saveChanges" Save
-  .small-6.columns
-    button.button.expand.alert.radius class=isDirty:active:disabled click="cancel" Cancel
+  .form-group
+    button.btn.btn-block.btn-primary.btn-lg class=isDirty:active:disabled type="submit" click="saveChanges" Save
+    button.btn.btn-block.btn-danger.btn-lg class=isDirty:active:disabled click="cancel" Cancel
 
 hr
 
-h2.text-centered Avatar
+h2.text-center Avatar
 
 if hasAvatar
-  .small-12.text-centered
+  .text-center
     img.avatar.u-circle src=avatarUrl
 else
   p No avatar currently uploaded. Feel free to upload one here (square images are best!)
@@ -29,6 +30,6 @@ else
 
 hr
 
-h2.text-centered Settings
+h2.text-center Settings
 
 a click=logout Logout

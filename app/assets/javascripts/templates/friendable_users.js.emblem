@@ -1,8 +1,8 @@
 .row
-  .small-9.columns
+  .col-xs-9
     auto-complete model=controller selection=selection value=query displayKey="fullName" class="larger-input"
-  .small-3.columns
-    button.button.expand{action addFriend} disabled=noUserSelected
-      i.fi-plus
+  .col-xs-3
+    button.btn.btn-block.btn-lg.btn-success{action addFriend} disabled=noUserSelected
+      span.glyphicon.glyphicon-plus
 
 

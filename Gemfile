@@ -14,7 +14,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~>4.2'
 gem 'jbuilder', '~> 1.2'
-gem 'foundation-icons-sass-rails'
+gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-rails'
 
 # Ember
 gem 'ember-rails'
@@ -24,7 +25,6 @@ gem 'emblem-rails'
 # View
 gem 'slim'
 gem 'slim-rails'
-gem 'foundation-rails'
 
 # Images
 gem 'cloudinary'

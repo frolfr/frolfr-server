@@ -1,0 +1,49 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.main-section {
+  min-height: 100%;
+  padding-top: .5em;
+  padding-bottom: 100px;
+}
+
+#footer {
+  position: fixed;
+  bottom:0;
+  width: 100%;
+  a {
+    background-color: black;
+    color: white;
+    border-radius: 0px;
+  }
+  a.active, a:hover, a:focus {
+    background-color: #337ab7;
+  }
+}
+
+.push-down {
+  padding-top: 1em;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+}
+
+.thumbnail {
+  width: 75px;
+  height: 75px;
+}
+
+.tiny-thumbnail {
+  width: 25px;
+  height: 25px;
+}
+
+@media (max-width: 768px) {
+  .nav-justified > li {
+    display: table-cell;
+    width: 1%;
+  }
+
+}

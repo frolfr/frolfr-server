@@ -38,9 +38,9 @@ App.RoundsIndexController = Ember.ArrayController.extend({
 
   sortDirection: function() {
     if (this.get('sortAscending')) {
-      return 'fi fi-arrow-up';
+      return 'fa fa-arrow-up';
     } else {
-      return 'fi fi-arrow-down';
+      return 'fa fa-arrow-down';
     }
   }.property('sortAscending'),
 
