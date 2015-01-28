@@ -6,6 +6,7 @@ App.Router.reopen({
 });
 
 App.Router.map(function() {
+  this.resource('publicRound', { path: '/public/rounds/:id' });
   this.resource('sessions', function() {
     this.route('login');
   });
