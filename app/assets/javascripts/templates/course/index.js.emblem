@@ -1,3 +1,5 @@
+h3.visible-xs.text-center Photos
+
 .text-center
   if hasImage
     img src=imageUrl

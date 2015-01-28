@@ -1,14 +1,20 @@
-header.text-center
-  h2 = name
-  h4 = location
+.well
+  header.text-center
+    h2 = name
+    h4 = location
 
-.nav.nav-pills.nav-justified
-  link-to 'course.index' this tagName='li' classNames='u-pointer'
-    a Photos
-  link-to 'reviews' tagName='li' classNames='u-pointer'
-    a Reviews
-  link-to 'leaderboard' tagName='li' classNames='u-pointer'
-    a Leaderboard
+  .nav.nav-pills.nav-justified
+    link-to 'course.index' this tagName='li' classNames='u-pointer'
+      a
+        span.hidden-xs Photos
+        i.fa.fa-camera.visible-xs
+    link-to 'reviews' tagName='li' classNames='u-pointer'
+      a
+        span.hidden-xs Reviews
+        i.fa.fa-newspaper-o.visible-xs
+    link-to 'leaderboard' tagName='li' classNames='u-pointer'
+      a
+        span.hidden-xs Leaderboard
+        i.fa.fa-trophy.visible-xs
 
-.push-down
 outlet
