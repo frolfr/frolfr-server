@@ -11,6 +11,14 @@
   position: fixed;
   bottom:0;
   width: 100%;
+  a {
+    background-color: black;
+    color: white;
+    border-radius: 0px;
+  }
+  a.active, a:hover, a:focus {
+    background-color: #337ab7;
+  }
 }
 
 .push-down {
