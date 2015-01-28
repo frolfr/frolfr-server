@@ -15,6 +15,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails', '~>4.2'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '~> 3.3.3'
+gem 'font-awesome-rails'
 
 # Ember
 gem 'ember-rails'
