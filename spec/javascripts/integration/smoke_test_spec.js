@@ -7,7 +7,7 @@ describe("Smoke test", function() {
   it("renders the template", function() {
     visit('/');
     andThen(function() {
-      var title = find('h1');
+      var title = find('#title');
       expect(title.text()).to.equal("Frolfr");
     });
   });
