@@ -5,7 +5,13 @@ App.Round = DS.Model.extend({
   course: DS.belongsTo('course', {async: true}),
   holeCount: DS.attr('string'),
   publicRecap: DS.attr('boolean'),
-  isStarted: DS.attr('boolean'),
+
+  isStarted: function() {
+    return this.get('scorecards').any(function (scorecard) {
+      return scorecard.get('isStarted');
+    });
+  }.property('scorecards.@each.isStarted'),
+
   // only used for creating new rounds
   players: DS.hasMany('user', {async: true}),
 });
