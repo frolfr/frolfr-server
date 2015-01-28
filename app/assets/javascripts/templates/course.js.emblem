@@ -10,4 +10,5 @@ header.text-center
   link-to 'leaderboard' tagName='li' classNames='u-pointer'
     a Leaderboard
 
+.push-down
 outlet

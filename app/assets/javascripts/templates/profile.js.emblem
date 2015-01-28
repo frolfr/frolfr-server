@@ -13,6 +13,7 @@ form
     label for="lastName" * Last Name
     = input value=lastName type="text" id="lastName" required=true classNames='form-control'
 
+  .form-group
     button.btn.btn-block.btn-primary.btn-lg class=isDirty:active:disabled type="submit" click="saveChanges" Save
     button.btn.btn-block.btn-danger.btn-lg class=isDirty:active:disabled click="cancel" Cancel
 

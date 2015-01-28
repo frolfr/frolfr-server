@@ -2,7 +2,7 @@
   <div class='text-center'>
     {{link-to "Add a New Review" 'reviews.new'}}
   </div>
-  <ul class="push-down no-bullet">
+  <ul class="push-down list-unstyled">
     {{#each controller}}
       <li class='review'>
         <div class='review-header'>
@@ -12,8 +12,8 @@
             {{else}}
               <img class='u-circle tiny-thumbnail' src='http://xcellis.com/wp-content/uploads/2013/09/avatar-placeholder.png'>
             {{/if}}
-            <div class='right'>
-              <strong class='right'>{{rating}} / 10</strong>
+            <div class='pull-right'>
+              <strong class='pull-right'>{{rating}} / 10</strong>
             </div>
           </div>
           <div>
