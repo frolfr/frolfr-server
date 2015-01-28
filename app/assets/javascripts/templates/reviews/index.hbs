@@ -1,11 +1,17 @@
 <h3 class='visible-xs text-center'>Reviews</h3>
 
-{{#if model}}
+{{#if filteredReviews}}
   <div class='text-center'>
-    {{link-to "Add a New Review" 'reviews.new'}}
+    Average Rating: <h4>{{averageRatingRoundedToNearestHalf}} / 10</h4>
+  </div>
+
+  <div class='text-center'>
+    {{#unless isAlreadyReviewed}}
+      {{link-to "Add a New Review" 'reviews.new'}}
+    {{/unless}}
   </div>
   <ul class="push-down list-unstyled">
-    {{#each controller}}
+    {{#each filteredReviews}}
       <li class='review'>
         <div class='review-header'>
           <div>

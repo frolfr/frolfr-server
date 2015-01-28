@@ -3,6 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :user
   belongs_to :course
 
-  validates :rating, :user, :course, presence: true
+  validates :post, :rating, :user, :course, presence: true
   validates :rating, inclusion: RATINGS
+  validates :user, uniqueness: { scope: :course }
 end
