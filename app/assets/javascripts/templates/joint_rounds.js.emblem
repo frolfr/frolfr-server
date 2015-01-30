@@ -1,0 +1,20 @@
+if model
+  h3.text-center.visible-xs Rounds Played Together
+
+  table.table.table-striped
+    thead
+      tr
+        th Course Name
+        th Date Played
+        th
+    tbody
+      each model
+        tr
+          td = courseName
+          td
+            displayDate createdAt
+          td
+            link-to 'round' this
+              | Recap
+else
+  p You two haven't played any rounds together! Get discin'!

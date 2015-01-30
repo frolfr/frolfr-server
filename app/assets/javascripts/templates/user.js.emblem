@@ -3,23 +3,14 @@ if hasAvatar
   .text-center
     img.avatar.u-circle src=avatarUrl
 
-if jointRounds
-  h4.text-center Rounds Played Together
+.nav.nav-pills.nav-justified.push-down
+  link-to 'user.index' tagName='li' classNames='u-pointer'
+    a
+      span.hidden-xs Stats
+      i.fa.fa-bar-chart.visible-xs
+  link-to 'jointRounds' this tagName='li' classNames='u-pointer'
+    a
+      span.hidden-xs Rounds
+      i.fa.fa-info-circle.visible-xs
 
-  table.table.table-striped
-    thead
-      tr
-        th Course Name
-        th Date Played
-        th
-    tbody
-      each jointRounds
-        tr
-          td = courseName
-          td
-            displayDate createdAt
-          td
-            link-to 'round' this
-              | Recap
-else
-  p You two haven't played any rounds together! Get discin'!
+outlet
