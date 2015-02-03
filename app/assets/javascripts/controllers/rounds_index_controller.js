@@ -74,12 +74,14 @@ App.RoundsIndexController = Ember.ArrayController.extend({
     },
 
     deleteRound: function(round) {
-      round.then(function(round) {
-        round.get('scorecards').map(function(scorecard) {
-          scorecard.deleteRecord();
+      if (window.confirm('Are you sure you want to delete this round?')) {
+        round.then(function(round) {
+          round.get('scorecards').map(function(scorecard) {
+            scorecard.deleteRecord();
+          });
+          round.destroyRecord();
         });
-        round.destroyRecord();
-      });
+      }
     }
   }
 });
