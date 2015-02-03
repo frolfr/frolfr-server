@@ -28,7 +28,10 @@ App.Router.map(function() {
   this.resource('users', function() {
     this.route('new');
   });
-  this.resource('user', { path: '/friends/:id' });
+  this.resource('user', { path: '/friends/:id' }, function() {
+    this.resource('userStatLog', { path: '/stats' });
+    this.resource('jointRounds', { path: '/rounds' });
+  });
   this.resource('rounds', function() {
     this.route('new');
   });

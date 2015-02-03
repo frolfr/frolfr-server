@@ -10,4 +10,16 @@ class Scorecard < ActiveRecord::Base
   scope :by_date, -> { joins(:round).order('rounds.created_at DESC') }
 
   delegate :course, to: :round
+
+  def score
+    turns.sum(:score)
+  end
+
+  def completed?
+    turns.all? { |turn| turn.score.present? }
+  end
+
+  def incomplete?
+    !completed?
+  end
 end

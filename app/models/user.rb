@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order(:first_name, :last_name) }
 
+  def completed_scorecards
+    scorecards.select(&:completed?)
+  end
+
   def self.find_for_authentication(email)
     where('lower(email) = lower(?)', email).first
   end

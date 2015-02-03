@@ -4,7 +4,7 @@ if model
   .row.block-grid-xs-3.block-grid-sm-4.block-grid-lg-6
       each friend in controller
         .block-grid-item
-          link-to 'user' friend tagName='div' classNames='u-pointer'
+          link-to 'userStatLog' friend tagName='div' classNames='u-pointer'
             if friend.hasAvatar
               img.u-circle.friend-avatar src=friend.avatarUrl
             else
