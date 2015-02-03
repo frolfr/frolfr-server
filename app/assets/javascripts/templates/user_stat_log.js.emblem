@@ -1,0 +1,2 @@
+if hasNeverPlayed
+  p This user has never tracked a scorecard on Frolfr!

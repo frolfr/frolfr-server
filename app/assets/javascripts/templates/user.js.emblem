@@ -4,7 +4,7 @@ if hasAvatar
     img.avatar.u-circle src=avatarUrl
 
 .nav.nav-pills.nav-justified.push-down
-  link-to 'user.index' tagName='li' classNames='u-pointer'
+  link-to 'userStatLog' this tagName='li' classNames='u-pointer'
     a
       span.hidden-xs Stats
       i.fa.fa-bar-chart.visible-xs
