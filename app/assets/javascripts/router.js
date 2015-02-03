@@ -15,6 +15,7 @@ App.Router.map(function() {
   });
   this.resource('course', { path: '/courses/:id' }, function() {
     this.resource('leaderboard');
+    this.resource('courseStatLog', { path: '/stats' });
     this.resource('reviews', function() {
       this.route('new');
     });
