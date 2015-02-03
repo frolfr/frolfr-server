@@ -11,6 +11,12 @@ App.Scorecard = DS.Model.extend({
   hasUserAvatar: Ember.computed.alias('user.hasAvatar'),
   userAvatarUrl: Ember.computed.alias('user.avatarUrl'),
 
+  isStarted: function() {
+    return this.get('turns').any(function (turn) {
+      return turn.get('isPlayed');
+    });
+  }.property('turns.@each.isPlayed'),
+
   isAllTurnsPlayed: function() {
     return this.get('turns').every(function (turn) {
       return turn.get('isPlayed');

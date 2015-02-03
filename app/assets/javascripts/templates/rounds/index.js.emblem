@@ -14,6 +14,7 @@ if model
           ' Score
           i class=sortTotalScore
         th
+        th
     tbody
       each pagedContent
         tr
@@ -29,9 +30,12 @@ if model
               link-to 'turns' round nextUnplayedTurn.holeNumber
                 ' Jump to Hole
                 = nextUnplayedTurn.holeNumber
+          td
+            unless round.isStarted
+              a click="deleteRound round" Delete Round
     tfoot
       tr
-        td colspan="4"
+        td colspan="5"
           unless isFirstPage
             .pull-left
               a.btn.btn-success.btn-lg click=previousPage

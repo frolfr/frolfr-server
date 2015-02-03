@@ -22,4 +22,8 @@ class Scorecard < ActiveRecord::Base
   def incomplete?
     !completed?
   end
+
+  def started?
+    turns.any? { |turn| turn.score.present? }
+  end
 end

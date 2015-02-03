@@ -13,4 +13,8 @@ class Round < ActiveRecord::Base
     Turn.where(scorecard: scorecards, hole: hole).order(:scorecard_id)
     # TODO: Consider a more intelligent way to consistently order turns
   end
+
+  def started?
+    scorecards.any?(&:started?)
+  end
 end
