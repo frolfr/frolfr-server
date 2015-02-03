@@ -13,20 +13,20 @@ else
       span.pull-right = coursesPlayed
       | Courses Played
 
-  h4.text-center Comparitive Stats
+  h4.text-center Comparative Stats
   ul.list-group
     li.list-group-item
       span.pull-right = totalRoundsWithUser
       | Rounds Played with {{firstName}}
     li.list-group-item
-      span.pull-right {{roundsIncomplete}}
+      span.pull-right {{totalIncompleteRounds}}
       | Rounds Incomplete with {{firstName}}
     li.list-group-item
-      span.pull-right {{roundsWon}}
+      span.pull-right {{totalRoundsWon}}
       | Rounds Won Against {{firstName}}
     li.list-group-item
-      span.pull-right {{roundsLost}}
+      span.pull-right {{totalRoundsLost}}
       | Rounds Lost to {{firstName}}
     li.list-group-item
-      span.pull-right {{roundsTied}}
+      span.pull-right {{totalRoundsTied}}
       | Rounds Tied with {{firstName}}

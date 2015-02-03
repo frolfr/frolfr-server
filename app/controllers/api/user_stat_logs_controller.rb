@@ -3,8 +3,7 @@ class Api::UserStatLogsController < ApplicationController
 
   def show
     user = User.find(params[:id])
-    serialized_stats = UserStatLogSerializer.serialize_stats(user, current_user)
 
-    respond_with :api, serialized_stats
+    respond_with :api, user, serializer: UserStatLogSerializer
   end
 end

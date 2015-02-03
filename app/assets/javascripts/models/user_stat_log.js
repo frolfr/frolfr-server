@@ -4,10 +4,10 @@ App.UserStatLog = DS.Model.extend({
   completedScorecardsPlayed: DS.attr('number'),
   coursesPlayed: DS.attr('number'),
   totalRoundsWithUser: DS.attr('number'),
-  roundsWon: DS.attr('number'),
-  roundsLost: DS.attr('number'),
-  roundsTied: DS.attr('number'),
-  roundsIncomplete: DS.attr('number'),
+  totalRoundsWon: DS.attr('number'),
+  totalRoundsLost: DS.attr('number'),
+  totalRoundsTied: DS.attr('number'),
+  totalIncompleteRounds: DS.attr('number'),
 
   hasNeverPlayed: function() {
     return this.get('totalScorecardsPlayed') === 0;
