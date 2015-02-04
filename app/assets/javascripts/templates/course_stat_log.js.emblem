@@ -1,1 +1,14 @@
 h3.visible-xs.text-center Stats
+ul.list-group
+  li.list-group-item
+    span.pull-right = totalScorecardsPlayed
+    | Total Scorecards Played
+  li.list-group-item
+    span.pull-right = completedScorecardsPlayed
+    | Completed Scorecards Played
+  li.list-group-item
+    span.pull-right = averageScoreOnCompletedScorecards
+    | Average Score
+  li.list-group-item
+    span.pull-right = bestScoreOnCompletedScorecards
+    | Best Score
