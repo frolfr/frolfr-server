@@ -8,6 +8,18 @@ class CourseStatLog
     @completed_scorecards = scorecards.select(&:completed?)
   end
 
+  def total_birdies
+    turns.select(&:birdie?).count
+  end
+
+  def total_pars
+    turns.select(&:par?).count
+  end
+
+  def total_bogeys
+    turns.select(&:bogie?).count
+  end
+
   def total_scorecards_played
     scorecards.count
   end
@@ -25,6 +37,11 @@ class CourseStatLog
   end
 
   private
+  attr_reader :turns
+
+  def turns
+    @turns ||= scorecards.flat_map(&:turns)
+  end
 
   def scores
     completed_scorecards.map(&:score)
