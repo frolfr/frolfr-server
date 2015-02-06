@@ -12,3 +12,7 @@ ul.list-group
   li.list-group-item
     span.pull-right = bestScoreOnCompletedScorecards
     | Best Score
+
+h3.text-center Shot Breakdown
+.chart
+shot-breakdown-chart pars=totalPars birdies=totalBirdies bogeys=totalBogeys
