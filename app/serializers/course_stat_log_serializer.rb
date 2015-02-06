@@ -1,7 +1,7 @@
 class CourseStatLogSerializer < ActiveModel::Serializer
   attributes :id, :total_scorecards_played, :completed_scorecards_played,
     :average_score_on_completed_scorecards, :best_score_on_completed_scorecards,
-    :total_birdies, :total_pars, :total_bogies
+    :total_birdies, :total_pars, :total_bogeys
 
   def id
     object.id
@@ -9,7 +9,7 @@ class CourseStatLogSerializer < ActiveModel::Serializer
 
   delegate :total_scorecards_played, :completed_scorecards_played,
     :average_score_on_completed_scorecards, :best_score_on_completed_scorecards,
-    :total_birdies, :total_pars, :total_bogies, to: :stat_log
+    :total_birdies, :total_pars, :total_bogeys, to: :stat_log
 
   private
 
