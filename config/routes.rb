@@ -9,6 +9,7 @@ Frolfr::Application.routes.draw do
     get 'users/current', to: 'current_users#show'
     resources :friends
     resources :user_stat_logs
+    resources :course_stat_logs
     resources :users
     resources :friendable_users
     resources :rounds

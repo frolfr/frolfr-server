@@ -10,4 +10,16 @@ class Turn < ActiveRecord::Base
   validates :par, inclusion: PARS
 
   delegate :round, to: :scorecard
+
+  def birdie?
+    par - 1 == score
+  end
+
+  def bogie?
+    par + 1 == score
+  end
+
+  def par?
+    par == score
+  end
 end
