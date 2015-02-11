@@ -14,6 +14,8 @@ App.ShotBreakdownChartComponent = Ember.Component.extend({
     credits: {
       enabled: false
     },
+    colors: ['#9FF781', '#F78181', '#BDBDBD']
+    // colors order is important! birdies, bogeys, pars
   },
 
   series: function() {
