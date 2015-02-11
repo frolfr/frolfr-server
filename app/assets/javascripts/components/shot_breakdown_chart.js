@@ -10,7 +10,10 @@ App.ShotBreakdownChartComponent = Ember.Component.extend({
           color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
         }
       }
-    }
+    },
+    credits: {
+      enabled: false
+    },
   },
 
   series: function() {
