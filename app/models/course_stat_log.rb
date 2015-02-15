@@ -9,23 +9,23 @@ class CourseStatLog
   end
 
   def total_eagles
-    turns.select(&:eagle?).count
+    played_turns.select(&:eagle?).count
   end
 
   def total_birdies
-    turns.select(&:birdie?).count
+    played_turns.select(&:birdie?).count
   end
 
   def total_pars
-    turns.select(&:par?).count
+    played_turns.select(&:par?).count
   end
 
   def total_bogeys
-    turns.select(&:bogey?).count
+    played_turns.select(&:bogey?).count
   end
 
   def total_doubles_or_worse
-    turns.select(&:double_bogey_or_worse?).count
+    played_turns.select(&:double_bogey_or_worse?).count
   end
 
   def total_scorecards_played
@@ -45,10 +45,14 @@ class CourseStatLog
   end
 
   private
-  attr_reader :turns
+  attr_reader :turns, :played_turns
 
   def turns
     @turns ||= scorecards.flat_map(&:turns)
+  end
+
+  def played_turns
+    @played_turns ||= turns.select(&:played?)
   end
 
   def scores
