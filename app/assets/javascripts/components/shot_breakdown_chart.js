@@ -1,36 +1,53 @@
 App.ShotBreakdownChartComponent = Ember.Component.extend({
-  chartOptions: {
-    pie: {
-      allowPointSelect: true,
-      cursor: 'pointer',
-      dataLabels: {
-        enabled: true,
-        format: '<b>{point.percentage:.1f}',
-        style: {
-          color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+  chartOptions: function() {
+    return {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          format: '<b>{point.percentage:.1f}</b>',
+          style: {
+            color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+          }
         }
-      }
-    },
-    credits: {
-      enabled: false
-    },
-    colors: ['#9FF781', '#F78181', '#BDBDBD']
-    // colors order is important! birdies, bogeys, pars
-  },
+      },
+      credits: {
+        enabled: false
+      },
+      colors: this.get('colors')
+    }
+  }.property(),
+
+  colors: function() {
+    var eagleColor = ['#00BFFF', this.get('eagles')],
+        birdieColor = ['#9FF781', this.get('birdies')],
+        parColor = ['#BDBDBD', this.get('pars')],
+        bogeyColor = ['#F78181', this.get('bogeys')],
+        doubleColor = ['#B40404', this.get('doubles')];
+
+    return [eagleColor, birdieColor, parColor, bogeyColor, doubleColor].filter(function(colorData){
+      return colorData.get('lastObject') !== 0;
+    }).map(function(colorData) {
+      return colorData.get('firstObject');
+    });
+  }.property(),
 
   series: function() {
-    var birdies = this.get('birdies'),
-        bogeys = this.get('bogeys'),
-        pars = this.get('pars');
+    var birdies = ['Birdies', this.get('birdies')],
+        bogeys = ['Bogeys', this.get('bogeys')],
+        pars = ['Pars', this.get('pars')],
+        eagles = ['Eagles', this.get('eagles')],
+        doubles = ['Double Bogey or Worse', this.get('doubles')];
+
+    var data = [eagles, birdies, pars, bogeys, doubles].filter(function(shotData) {
+      return shotData.get('lastObject') !== 0;
+    })
 
     return [{
       type: 'pie',
       name: 'Turns',
-      data: [
-       ['Birdies', birdies],
-       ['Bogeys', bogeys],
-       ['Pars', pars]
-      ]
+      data: data
     }];
   }.property(),
 

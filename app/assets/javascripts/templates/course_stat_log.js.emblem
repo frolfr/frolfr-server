@@ -15,4 +15,4 @@ ul.list-group
 
 h3.text-center Shot Breakdown
 .chart
-shot-breakdown-chart pars=totalPars birdies=totalBirdies bogeys=totalBogeys
+shot-breakdown-chart pars=totalPars birdies=totalBirdies bogeys=totalBogeys eagles=totalEagles doubles=totalDoublesOrWorse
