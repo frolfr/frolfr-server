@@ -8,6 +8,10 @@ class CourseStatLog
     @completed_scorecards = scorecards.select(&:completed?)
   end
 
+  def total_eagles
+    turns.select(&:eagle?).count
+  end
+
   def total_birdies
     turns.select(&:birdie?).count
   end
@@ -17,7 +21,11 @@ class CourseStatLog
   end
 
   def total_bogeys
-    turns.select(&:bogie?).count
+    turns.select(&:bogey?).count
+  end
+
+  def total_doubles_or_worse
+    turns.select(&:double_bogey_or_worse?).count
   end
 
   def total_scorecards_played

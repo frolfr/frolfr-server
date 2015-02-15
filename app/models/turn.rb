@@ -11,15 +11,23 @@ class Turn < ActiveRecord::Base
 
   delegate :round, to: :scorecard
 
+  def eagle?
+    par - 2 == score
+  end
+
   def birdie?
     par - 1 == score
   end
 
-  def bogie?
+  def par?
+    par == score
+  end
+
+  def bogey?
     par + 1 == score
   end
 
-  def par?
-    par == score
+  def double_bogey_or_worse?
+    par + 2 <= score
   end
 end

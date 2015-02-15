@@ -5,5 +5,7 @@ App.CourseStatLog = DS.Model.extend({
   bestScoreOnCompletedScorecards: DS.attr('number'),
   totalBogeys: DS.attr('number'),
   totalPars: DS.attr('number'),
-  totalBirdies: DS.attr('number')
+  totalBirdies: DS.attr('number'),
+  totalEagles: DS.attr('number'),
+  totalDoublesOrWorse: DS.attr('number'),
 });
