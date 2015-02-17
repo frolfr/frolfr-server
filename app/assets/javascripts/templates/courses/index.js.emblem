@@ -11,7 +11,7 @@ if model
       each course in controller
         tr
           td
-            link-to 'course' course
+            link-to 'courseStatLog' course
               course.name
           td = course.location
           td = course.roundsPlayed

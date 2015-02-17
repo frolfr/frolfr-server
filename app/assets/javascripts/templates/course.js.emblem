@@ -8,10 +8,11 @@
       a
         span.hidden-xs Stats
         i.fa.fa-bar-chart.visible-xs
-    link-to 'course.index' this tagName='li' classNames='u-pointer'
-      a
-        span.hidden-xs Photos
-        i.fa.fa-camera.visible-xs
+    if hasImage
+      link-to 'course.index' this tagName='li' classNames='u-pointer'
+        a
+          span.hidden-xs Photos
+          i.fa.fa-camera.visible-xs
     link-to 'reviews' tagName='li' classNames='u-pointer'
       a
         span.hidden-xs Reviews
