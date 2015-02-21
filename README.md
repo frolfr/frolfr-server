@@ -37,3 +37,6 @@ You'll need to configure cloudinary, [including adding a cloudinary.yml file](ht
 #### Contact
 
 Feel free to contact me via Twitter: [Geoff Schorkopf](http://twitter.com/gschork)
+
+#### About Frolf
+[![frisbee golf, jerry.](http://img.youtube.com/vi/W_7iFIC2xWg/0.jpg)](http://www.youtube.com/watch?v=W_7iFIC2xWg)
