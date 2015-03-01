@@ -1,7 +1,0 @@
-h3.visible-xs.text-center Photos
-
-.text-center
-  if hasImage
-    img src=imageUrl
-  else
-    p No photos currently available!
