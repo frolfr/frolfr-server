@@ -33,7 +33,7 @@ class ApplicationController < ActionController::Base
       user if user && Rack::Utils.secure_compare(user.auth_token, token)
     end
 
-    head :unauthorized unless @current_user
+    (cors_set_access_control_headers and head :unauthorized) unless @current_user
   end
 
   def cors_set_access_control_headers
