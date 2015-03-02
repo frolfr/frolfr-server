@@ -23,5 +23,10 @@ Frolfr::Application.routes.draw do
     resources :reviews
   end
 
+  match '/', via: [:options],
+    to:  "application#cors_preflight_check"
+  match '*unmatched', via: [:options],
+    to:  "application#cors_preflight_check"
+
   get '*path', to: 'dashboard#show'
 end
