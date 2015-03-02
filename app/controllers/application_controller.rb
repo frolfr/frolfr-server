@@ -28,12 +28,15 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    @current_user = authenticate_or_request_with_http_token do |token, options|
+    @current_user = authenticate_with_http_token do |token, options|
       user = User.find_for_authentication(options[:email])
       user if user && Rack::Utils.secure_compare(user.auth_token, token)
     end
 
-    (cors_set_access_control_headers and head :unauthorized) unless @current_user
+    unless @current_user
+      cors_set_access_control_headers
+      head :unauthorized
+    end
   end
 
   def cors_set_access_control_headers
