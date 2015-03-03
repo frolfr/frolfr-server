@@ -1,5 +1,4 @@
 ruby:
   enabled: false
 java_script:
-  enabled: true
-  config_file: config/.jshint.json
+  enabled: false
