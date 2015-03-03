@@ -1,8 +1,0 @@
-.row
-  .col-xs-9
-    auto-complete model=controller selection=selection value=query displayKey="fullName" class="larger-input"
-  .col-xs-3
-    button.btn.btn-block.btn-lg.btn-success{action addFriend} disabled=noUserSelected
-      span.glyphicon.glyphicon-plus
-
-

@@ -1,6 +1,4 @@
 Frolfr::Application.routes.draw do
-  root to: 'dashboard#show'
-
   namespace :api do
     with_options defaults: { format: :json } do |json|
       json.resources :authorizations
@@ -30,5 +28,4 @@ Frolfr::Application.routes.draw do
   match '*unmatched', via: [:options],
     to:  "application#cors_preflight_check"
 
-  get '*path', to: 'dashboard#show'
 end
