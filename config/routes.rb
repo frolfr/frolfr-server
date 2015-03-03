@@ -2,25 +2,27 @@ Frolfr::Application.routes.draw do
   root to: 'dashboard#show'
 
   namespace :api do
-    resources :authorizations
-    resources :avatars
-    resources :available_courses
-    resources :courses
-    get 'users/current', to: 'current_users#show'
-    resources :friends
-    resources :user_stat_logs
-    resources :course_stat_logs
-    resources :users
-    resources :friendable_users
-    resources :rounds
-    resources :public_rounds
-    resources :joint_rounds
-    resources :scorecards
-    resources :turns
-    resources :holes
-    resources :password_resets
-    resources :passwords
-    resources :reviews
+    with_options defaults: { format: :json } do |json|
+      json.resources :authorizations
+      json.resources :avatars
+      json.resources :available_courses
+      json.resources :courses
+      json.get 'users/current', to: 'current_users#show'
+      json.resources :friends
+      json.resources :user_stat_logs
+      json.resources :course_stat_logs
+      json.resources :users
+      json.resources :friendable_users
+      json.resources :rounds
+      json.resources :public_rounds
+      json.resources :joint_rounds
+      json.resources :scorecards
+      json.resources :turns
+      json.resources :holes
+      json.resources :password_resets
+      json.resources :passwords
+      json.resources :reviews
+    end
   end
 
   match '/', via: [:options],
