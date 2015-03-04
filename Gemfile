@@ -22,6 +22,9 @@ gem 'factory_girl_rails'
 # Validations
 gem 'auto_strip_attributes'
 
+# Serializers
+gem 'active_model_serializers'
+
 # Coverage
 gem 'coveralls', require: false
 gem 'simplecov', '~> 0.7.1'
@@ -35,6 +38,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-rails'
   gem 'database_cleaner'
+  gem 'teaspoon'
 end
 
 group :test do
