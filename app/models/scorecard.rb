@@ -8,11 +8,20 @@ class Scorecard < ActiveRecord::Base
   # TODO: validate that scorecard has as many turns as a course has holes
 
   scope :by_date, -> { joins(:round).order('rounds.created_at DESC') }
+  scope :for_course, ->(course) { joins(:round).where(rounds: { course_id: course.id })}
 
   delegate :course, to: :round
 
   def score
-    turns.sum(:score)
+    played_turns.sum(:score)
+  end
+
+  def total_par
+    played_turns.sum(:par)
+  end
+
+  def total_shooting
+    score - total_par
   end
 
   def completed?
@@ -25,5 +34,11 @@ class Scorecard < ActiveRecord::Base
 
   def started?
     turns.any? { |turn| turn.score.present? }
+  end
+
+  private
+
+  def played_turns
+    turns.where.not(score: nil)
   end
 end
