@@ -40,6 +40,11 @@ describe Leaderboard do
         FactoryGirl.create(:scorecard, user: user, round: other_round)
         expect(subject.scorecards).to match_array [scorecard]
       end
+
+      it 'is limited to 10 scorecards' do
+        FactoryGirl.create_list(:scorecard, 11, round: round)
+        expect(subject.scorecards.count).to eq 10
+      end
     end
   end
 end

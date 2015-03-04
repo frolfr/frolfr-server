@@ -6,10 +6,14 @@ class Leaderboard
   end
 
   def scorecards
-    sorted_scorecards.uniq(&:user_id)
+    unique_scorecards.take(10)
   end
 
   private
+
+  def unique_scorecards
+    sorted_scorecards.uniq(&:user_id)
+  end
 
   def sorted_scorecards
     complete_course_scorecards.sort_by(&:total_shooting)
