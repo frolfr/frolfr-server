@@ -22,6 +22,18 @@ describe Leaderboard do
 
         expect(subject.scorecards).to match_array [scorecard]
       end
+
+      it 'orders scorecards by performance against par' do
+        worst_scorecard = FactoryGirl.create(:scorecard, round: round)
+        FactoryGirl.create(:turn, scorecard: worst_scorecard, score: 5)
+
+        best_scorecard = FactoryGirl.create(:scorecard, round: round)
+        FactoryGirl.create(:turn, scorecard: best_scorecard, score: 1)
+
+        expect(subject.scorecards).to match_array Scorecard.all
+        expect(subject.scorecards.first).to eq best_scorecard
+        expect(subject.scorecards.last).to eq worst_scorecard
+      end
     end
   end
 end

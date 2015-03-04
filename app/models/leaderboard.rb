@@ -6,7 +6,7 @@ class Leaderboard
   end
 
   def scorecards
-    complete_course_scorecards
+    complete_course_scorecards.sort_by(&:total_shooting)
   end
 
   private
