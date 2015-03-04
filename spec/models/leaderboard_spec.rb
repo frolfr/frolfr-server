@@ -15,6 +15,13 @@ describe Leaderboard do
         FactoryGirl.create(:scorecard)
         expect(subject.scorecards).to match_array [scorecard]
       end
+
+      it 'only includes complete scorecards' do
+        incomplete_scorecard = FactoryGirl.create(:scorecard, round: round)
+        FactoryGirl.create(:turn, scorecard: incomplete_scorecard, score: nil)
+
+        expect(subject.scorecards).to match_array [scorecard]
+      end
     end
   end
 end

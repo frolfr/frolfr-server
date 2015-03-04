@@ -6,7 +6,13 @@ class Leaderboard
   end
 
   def scorecards
-    course.scorecards
+    complete_course_scorecards
+  end
+
+  private
+
+  def complete_course_scorecards
+    course.scorecards.select(&:completed?)
   end
 end
 
