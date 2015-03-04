@@ -9,6 +9,7 @@ Frolfr::Application.routes.draw do
       json.resources :friends
       json.resources :user_stat_logs
       json.resources :course_stat_logs
+      json.resources :leaderboard_scorecards
       json.resources :course_scorecards
       json.resources :users
       json.resources :friendable_users
