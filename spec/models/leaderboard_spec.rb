@@ -35,10 +35,14 @@ describe Leaderboard do
         expect(subject.scorecards.last).to eq worst_scorecard
       end
 
-      it 'is unique by user' do
-        other_round = FactoryGirl.create(:round, course: course)
-        FactoryGirl.create(:scorecard, user: user, round: other_round)
-        expect(subject.scorecards).to match_array [scorecard]
+      context 'uniqueness by user' do
+        it 'returns the better scorecard' do
+          best_round = FactoryGirl.create(:round, course: course)
+          best_scorecard = FactoryGirl.create(:scorecard, user: user, round: round)
+          FactoryGirl.create(:turn, scorecard: best_scorecard, score: 1)
+
+          expect(subject.scorecards).to match_array [best_scorecard]
+        end
       end
 
       it 'is limited to 10 scorecards' do
