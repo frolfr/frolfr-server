@@ -37,7 +37,9 @@ class CourseStatLog
   end
 
   def average_score_on_completed_scorecards
-    scores.sum / scores.count
+    unless scores.count.zero?
+      scores.sum / scores.count
+    end
   end
 
   def best_score_on_completed_scorecards
