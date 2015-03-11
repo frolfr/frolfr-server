@@ -9,6 +9,14 @@ class Round < ActiveRecord::Base
 
   delegate :holes, to: :course
 
+  def incomplete?
+    scorecards.any?(&:incomplete?)
+  end
+
+  def created_today?
+    created_at > DateTime.current.beginning_of_day
+  end
+
   def turns_for_hole(hole)
     Turn.where(scorecard: scorecards, hole: hole).order(:scorecard_id)
     # TODO: Consider a more intelligent way to consistently order turns
