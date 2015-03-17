@@ -29,6 +29,8 @@ gem 'active_model_serializers'
 gem 'coveralls', require: false
 gem 'simplecov', '~> 0.7.1'
 
+gem 'kaminari'
+
 group :production do
   gem 'rails_12factor'
 end

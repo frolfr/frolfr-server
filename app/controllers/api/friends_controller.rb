@@ -2,7 +2,12 @@ class Api::FriendsController < ApplicationController
   respond_to :json
 
   def index
-    respond_with current_user.friends
+    if params[:page].present?
+      respond_with current_user.friends.order(:first_name, :last_name).page(params[:page]).per(6)
+    else
+      respond_with current_user.friends
+    end
+
   end
 
   def create
