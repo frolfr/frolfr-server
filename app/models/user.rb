@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
 
   scope :by_name, -> { order(:first_name, :last_name) }
 
+  paginates_per 6
+
   def current_round
     round = rounds.by_date.first
     round if (round.created_today? && round.incomplete?)
