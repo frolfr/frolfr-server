@@ -3,7 +3,12 @@ class Api::FriendsController < ApplicationController
 
   def index
     if params[:page].present?
-      respond_with current_user.friends.order(:first_name, :last_name).page(params[:page]).per(6)
+      friends = current_user.friends.order(:first_name, :last_name).page(params[:page])
+
+      render json: {
+        meta: { total_pages: friends.total_pages },
+        friends: friends
+      }
     else
       respond_with current_user.friends
     end
