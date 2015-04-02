@@ -1,4 +1,5 @@
 class HoleStatLog
+  include ActiveModel::Serialization
   attr_reader :hole, :user
   attr_accessor :ranking
 
@@ -7,6 +8,7 @@ class HoleStatLog
     @user = user
   end
 
+  delegate :id, :number, to: :hole
 
   def best_shooting
     played_turns.map(&:shooting).min
