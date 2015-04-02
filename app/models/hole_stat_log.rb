@@ -1,20 +1,14 @@
 class HoleStatLog
+  include ActiveModel::Serialization
   attr_reader :hole, :user
+  attr_accessor :ranking
 
   def initialize(hole: hole, user: user)
     @hole = hole
     @user = user
   end
 
-  def ranking
-    return nil if played_turns_count.zero?
-    logs = hole.course.holes.map do |hole|
-      HoleStatLog.new(hole: hole, user: user)
-    end
-
-    logs = logs.sort_by(&:average_shooting)
-    logs.map(&:hole).find_index(hole) + 1
-  end
+  delegate :id, :number, to: :hole
 
   def best_shooting
     played_turns.map(&:shooting).min
