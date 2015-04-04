@@ -32,26 +32,4 @@ class Course < ActiveRecord::Base
       .joins(:round)
       .where(rounds: { course_id: id })
   end
-
-  def image_url
-    "https://s3.amazonaws.com/frolfr/#{image_path}"
-  end
-
-  def image_available?
-    image_path.present?
-  end
-
-  def image_path
-    IMAGES[name]
-  end
-
-  private
-
-  IMAGES = {
-    "Perkerson Park" => "perkerson.jpg",
-    "Redan Park" => "redan.jpg",
-    "Anderson Valley" => "anderson_valley.jpg",
-    "Roche Harbor" => "roche_harbor.jpg",
-    "Golden Gate Park" => "ggp.jpg"
-  }.freeze
 end
