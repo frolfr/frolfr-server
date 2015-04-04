@@ -1,6 +1,7 @@
 class Round < ActiveRecord::Base
   belongs_to :course
   has_many :scorecards, dependent: :destroy
+  has_many :images, as: :imageable
 
   validates :course, presence: true
   # TODO: validate that the round has at least one scorecard
