@@ -1,8 +1,14 @@
 class CourseSerializer < ActiveModel::Serializer
   attributes :id, :city, :state, :country, :name, :status,
-             :location, :rounds_played, :image_ids,
+             :location, :image_ids, :last_played_at,
              :hole_ids, :scorecard_ids, :hole_count,
              :review_ids
+
+  def last_played_at
+    user_scorecards.map do |scorecard|
+      scorecard.round.created_at
+    end.sort.last
+  end
 
   def scorecard_ids
     object.scorecards.pluck(:id)
@@ -22,10 +28,6 @@ class CourseSerializer < ActiveModel::Serializer
 
   def location
     "#{city}, #{state}"
-  end
-
-  def rounds_played
-    user_scorecards.count
   end
 
   private
