@@ -45,8 +45,8 @@ class User < ActiveRecord::Base
   end
 
   def courses_played
-    ids = rounds.pluck(:course_id)
-    Course.where(id: ids).by_name # TODO: Consider refactor / another approach!
+    rounds.order(created_at: :desc).map(&:course).uniq
+    # TODO: Consider refactor / another approach!
   end
 
   def rounds

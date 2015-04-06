@@ -7,7 +7,13 @@ class Api::CoursesController < ApplicationController
   end
 
   def index
-    respond_with current_user.courses_played
+    if params[:page].present?
+      courses = Kaminari.paginate_array(current_user.courses_played).page(params[:page]).per(5)
+
+      respond_with courses, meta: { total_pages: courses.total_pages }, each_serializer: CourseSerializer
+    else
+      respond_with current_user.courses_played, each_serializer: CourseSerializer
+    end
   end
 
   def show
