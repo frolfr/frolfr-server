@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   def current_round
     round = rounds.by_date.first
-    round if (round.created_today? && round.incomplete?)
+    round if (round && round.created_today? && round.incomplete?)
   end
 
   def completed_scorecards
