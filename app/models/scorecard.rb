@@ -16,12 +16,12 @@ class Scorecard < ActiveRecord::Base
     played_turns.sum(:score)
   end
 
-  def total_par
+  def par
     played_turns.sum(:par)
   end
 
   def total_shooting
-    score - total_par
+    score - par
   end
 
   def completed?

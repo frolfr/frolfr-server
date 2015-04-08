@@ -38,12 +38,22 @@ class CourseStatLog
 
   def average_score_on_completed_scorecards
     unless scores.count.zero?
-      scores.sum / scores.count
+      scores.sum.to_f / scores.count
     end
   end
 
   def best_score_on_completed_scorecards
     scores.min
+  end
+
+  def average_shooting_on_completed_scorecards
+    unless shootings.count.zero?
+      shootings.sum.to_f / shootings.count
+    end
+  end
+
+  def best_shooting_on_completed_scorecards
+    shootings.min
   end
 
   private
@@ -55,6 +65,10 @@ class CourseStatLog
 
   def played_turns
     @played_turns ||= turns.select(&:played?)
+  end
+
+  def shootings
+    completed_scorecards.map(&:total_shooting)
   end
 
   def scores
