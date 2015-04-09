@@ -1,6 +1,6 @@
 class CourseSerializer < ActiveModel::Serializer
   attributes :id, :city, :state, :country, :name, :status,
-             :location, :image_ids, :last_played_at,
+             :location, :photo_ids, :last_played_at,
              :hole_ids, :scorecard_ids, :hole_count,
              :review_ids
 
@@ -22,8 +22,8 @@ class CourseSerializer < ActiveModel::Serializer
     object.reviews.pluck(:id)
   end
 
-  def image_ids
-    object.images.pluck(:id)
+  def photo_ids
+    object.photos.pluck(:id)
   end
 
   def location

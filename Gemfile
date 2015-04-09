@@ -7,7 +7,7 @@ gem 'unicorn'
 # DBs
 gem 'pg'
 
-# Images
+# Photos
 gem 'cloudinary'
 
 # Pinging Heroku
