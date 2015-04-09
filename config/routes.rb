@@ -16,7 +16,7 @@ Frolfr::Application.routes.draw do
       json.resources :users
       json.resources :friendable_users
       json.resources :rounds
-      json.resources :images
+      json.resources :photos
       json.resources :public_rounds
       json.resources :joint_rounds
       json.resources :scorecards
