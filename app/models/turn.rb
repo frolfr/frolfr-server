@@ -6,38 +6,38 @@ class Turn < ActiveRecord::Base
   belongs_to :hole
 
   validates :scorecard, :hole, :par, presence: true
-  validates :score, inclusion: { in: SCORES, allow_nil: true }
+  validates :strokes, inclusion: { in: SCORES, allow_nil: true }
   validates :par, inclusion: PARS
 
   delegate :round, to: :scorecard
 
-  scope :played, -> { where.not(score: nil) }
+  scope :played, -> { where.not(strokes: nil) }
 
-  def shooting
-    score - par
+  def score
+    strokes - par
   end
 
   def played?
-    score.present?
+    strokes.present?
   end
 
   def eagle?
-    par - 2 == score
+    par - 2 == strokes
   end
 
   def birdie?
-    par - 1 == score
+    par - 1 == strokes
   end
 
   def par?
-    par == score
+    par == strokes
   end
 
   def bogey?
-    par + 1 == score
+    par + 1 == strokes
   end
 
   def double_bogey_or_worse?
-    par + 2 <= score
+    par + 2 <= strokes
   end
 end

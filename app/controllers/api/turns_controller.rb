@@ -23,6 +23,6 @@ class Api::TurnsController < ApplicationController
   private
 
   def turn_params
-    params.require(:turn).permit(:par, :score)
+    params.require(:turn).permit(:par, :strokes)
   end
 end

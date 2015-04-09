@@ -18,8 +18,8 @@ describe Api::CourseScorecardsController do
     it 'has scorecard attributes' do
       json_scorecard = json['course_scorecards'].first
       expect(json_scorecard['id']).to eq scorecard.id
+      expect(json_scorecard).to have_key 'total_strokes'
       expect(json_scorecard).to have_key 'total_score'
-      expect(json_scorecard).to have_key 'total_shooting'
       expect(json_scorecard).to have_key 'created_at'
       expect(json_scorecard).to have_key 'round_id'
       expect(json_scorecard).to have_key 'is_completed'

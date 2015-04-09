@@ -12,20 +12,20 @@ class Scorecard < ActiveRecord::Base
 
   delegate :course, to: :round
 
-  def score
-    played_turns.sum(:score)
+  def strokes
+    played_turns.sum(:strokes)
   end
 
   def par
     played_turns.sum(:par)
   end
 
-  def total_shooting
-    score - par
+  def total_score
+    strokes - par
   end
 
   def completed?
-    turns.all? { |turn| turn.score.present? }
+    turns.all? { |turn| turn.strokes.present? }
   end
 
   def incomplete?
@@ -33,12 +33,12 @@ class Scorecard < ActiveRecord::Base
   end
 
   def started?
-    turns.any? { |turn| turn.score.present? }
+    turns.any? { |turn| turn.strokes.present? }
   end
 
   private
 
   def played_turns
-    turns.where.not(score: nil)
+    turns.where.not(strokes: nil)
   end
 end

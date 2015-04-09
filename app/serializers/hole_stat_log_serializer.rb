@@ -1,4 +1,4 @@
 class HoleStatLogSerializer < ActiveModel::Serializer
-  attributes :id, :best_shooting, :worst_shooting, :number,
-    :average_score, :average_par, :average_shooting, :ranking
+  attributes :id, :best_score, :worst_score, :number,
+    :average_strokes, :average_par, :average_score, :ranking
 end
