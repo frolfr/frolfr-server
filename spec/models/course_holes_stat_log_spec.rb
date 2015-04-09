@@ -11,9 +11,9 @@ describe CourseHolesStatLog do
   let(:easy_hole_2) { FactoryGirl.create(:hole, course: course) }
 
   before do
-    FactoryGirl.create(:turn, hole: tough_hole, score: 4, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
-    FactoryGirl.create(:turn, hole: easy_hole_1, score: 2, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
-    FactoryGirl.create(:turn, hole: easy_hole_2, score: 2, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
+    FactoryGirl.create(:turn, hole: tough_hole, strokes: 4, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
+    FactoryGirl.create(:turn, hole: easy_hole_1, strokes: 2, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
+    FactoryGirl.create(:turn, hole: easy_hole_2, strokes: 2, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
   end
 
   describe '#assign_hole_rankings' do

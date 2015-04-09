@@ -41,9 +41,9 @@ class UserStatLog
       case
       when user_scorecard.incomplete? || friend_scorecard.incomplete?
         @incomplete_rounds << round
-      when user_scorecard.score > friend_scorecard.score
+      when user_scorecard.strokes > friend_scorecard.strokes
         @rounds_won << round
-      when user_scorecard.score < friend_scorecard.score
+      when user_scorecard.strokes < friend_scorecard.strokes
         @rounds_lost << round
       else
         @rounds_tied << round

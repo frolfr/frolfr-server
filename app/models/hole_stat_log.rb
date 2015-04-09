@@ -10,17 +10,17 @@ class HoleStatLog
 
   delegate :id, :number, to: :hole
 
-  def best_shooting
-    played_turns.map(&:shooting).min
+  def best_score
+    played_turns.map(&:score).min
   end
 
-  def worst_shooting
-    played_turns.map(&:shooting).max
+  def worst_score
+    played_turns.map(&:score).max
   end
 
-  def average_score
+  def average_strokes
     return nil if played_turns_count.zero?
-    played_turns.sum(:score) / played_turns_count.to_f
+    played_turns.sum(:strokes) / played_turns_count.to_f
   end
 
   def average_par
@@ -28,9 +28,9 @@ class HoleStatLog
     played_turns.sum(:par) / played_turns_count.to_f
   end
 
-  def average_shooting
+  def average_score
     return nil if played_turns_count.zero?
-    (average_score - average_par)
+    (average_strokes - average_par)
   end
 
   private

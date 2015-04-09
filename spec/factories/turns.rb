@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :turn do
     scorecard
     hole
-    score nil
+    strokes nil
     par 3
   end
 end

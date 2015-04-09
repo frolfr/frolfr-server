@@ -16,7 +16,7 @@ class Leaderboard
   end
 
   def sorted_scorecards
-    complete_course_scorecards.sort_by(&:score)
+    complete_course_scorecards.sort_by(&:strokes)
   end
 
   def complete_course_scorecards
