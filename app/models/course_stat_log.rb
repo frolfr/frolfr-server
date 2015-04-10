@@ -36,23 +36,23 @@ class CourseStatLog
     completed_scorecards.count
   end
 
-  def average_strokes_on_completed_scorecards
+  def average_strokes
     unless strokes.count.zero?
       strokes.sum.to_f / strokes.count
     end
   end
 
-  def best_strokes_on_completed_scorecards
+  def best_strokes
     strokes.min
   end
 
-  def average_score_on_completed_scorecards
+  def average_score
     unless scores.count.zero?
       scores.sum.to_f / scores.count
     end
   end
 
-  def best_score_on_completed_scorecards
+  def best_score
     scores.min
   end
 
