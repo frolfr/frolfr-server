@@ -25,7 +25,7 @@ class ScorecardSerializer < ActiveModel::Serializer
   end
 
   def user_initials
-    names.map { |name| name.chars.first }.join
+    sanitized_names.map { |name| name.chars.first }.join
   end
 
   private
@@ -36,5 +36,9 @@ class ScorecardSerializer < ActiveModel::Serializer
 
   def names
     [user.first_name, user.middle_name, user.last_name].compact
+  end
+
+  def sanitized_names
+    names.map { |name| name.gsub(/[^a-zA-Z]/, '') }
   end
 end
