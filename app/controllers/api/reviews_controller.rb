@@ -34,6 +34,5 @@ class Api::ReviewsController < ApplicationController
         user: current_user
       })
   end
-
 end
 

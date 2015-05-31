@@ -6,5 +6,4 @@ class UserSerializer < ActiveModel::Serializer
   def review_ids
     object.reviews.pluck(:id)
   end
-
 end
