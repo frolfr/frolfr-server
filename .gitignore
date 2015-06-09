@@ -17,3 +17,6 @@
 /coverage
 
 config/cloudinary.yml
+
+# Ignore all environment variables
+.env
