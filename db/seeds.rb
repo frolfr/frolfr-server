@@ -75,7 +75,7 @@ end
     course.holes.each do |hole|
       scorecard.turns.create(
         hole: hole,
-        score: (2..4).to_a.sample
+        strokes: (2..4).to_a.sample
       )
     end
   end
@@ -95,7 +95,7 @@ end
     course2.holes.each do |hole|
       scorecard.turns.create(
         hole: hole,
-        score: (2..4).to_a.sample
+        strokes: (2..4).to_a.sample
       )
     end
   end
