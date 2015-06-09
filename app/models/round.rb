@@ -1,6 +1,7 @@
 class Round < ActiveRecord::Base
   belongs_to :course
   has_many :scorecards, dependent: :destroy
+  has_many :users, through: :scorecards
   has_many :photos, as: :photoable
 
   validates :course, presence: true
