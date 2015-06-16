@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     if user.save
       respond_with :api, user
     else
-      head :unprocessable_entity
+      render json: { errors: user.errors }, status: :unprocessable_entity
     end
   end
 

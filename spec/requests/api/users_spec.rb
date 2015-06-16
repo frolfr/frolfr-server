@@ -47,6 +47,20 @@ describe Api::UsersController do
         }.to_not change { User.count }
       end
     end
+
+    context 'with duplicate email' do
+      before { FactoryGirl.create(:user, email: 'email') }
+      let(:invalid_params) do {
+        email: 'email'
+      } end
+
+      it 'provides an email error message' do
+        post '/api/users', user: invalid_params, format: :json
+        email_errors = json['errors']['email']
+
+        expect(email_errors).to include I18n.t('user.errors.email')
+      end
+    end
   end
 
   describe 'PUT /api/users/:id' do
