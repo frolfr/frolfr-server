@@ -20,5 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  user:
+    errors:
+      email: "A user with this email address already exists"
   errors:
     friend_id: "Cannot add yourself as a friend"

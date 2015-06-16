@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :email, presence: true
   validates :password, presence: true, on: :create
-  validates :email, uniqueness: true
+  validates :email, uniqueness: { message: I18n.t('user.errors.email') }
   before_create { generate_token(:auth_token) }
 
   scope :by_name, -> { order(:first_name, :last_name) }
