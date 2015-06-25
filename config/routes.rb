@@ -11,6 +11,7 @@ Frolfr::Application.routes.draw do
       json.resources :user_stat_logs
       json.resources :course_stat_logs
       json.resources :hole_stat_logs
+      json.resources :profile_stat_logs
       json.resources :leaderboard_scorecards
       json.resources :course_scorecards
       json.resources :users
