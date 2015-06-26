@@ -23,6 +23,16 @@ class Api::ReviewsController < ApplicationController
     respond_with :api, review
   end
 
+  def update
+    review = Review.find(params[:id])
+
+    if review.user == current_user && review.update(review_params)
+      respond_with :api, review
+    else
+      head :unprocessable_entity
+    end
+  end
+
   private
 
   def review_params
