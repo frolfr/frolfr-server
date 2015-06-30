@@ -25,6 +25,9 @@ gem 'auto_strip_attributes'
 # Serializers
 gem 'active_model_serializers'
 
+# Authorization
+gem 'pundit'
+
 # Coverage
 gem 'coveralls', require: false
 gem 'simplecov', '~> 0.7.1'

@@ -10,11 +10,10 @@ class Api::ReviewsController < ApplicationController
   def create
     review = Review.new(review_params)
 
-    if review.save
-      respond_with :api, review
-    else
-      head :unprocessable_entity
-    end
+    authorize review
+
+    review.save
+    respond_with :api, review
   end
 
   def show
@@ -26,11 +25,10 @@ class Api::ReviewsController < ApplicationController
   def update
     review = Review.find(params[:id])
 
-    if review.user == current_user && review.update(review_params)
-      respond_with :api, review
-    else
-      head :unprocessable_entity
-    end
+    authorize review
+
+    review.update(review_params)
+    respond_with :api, review
   end
 
   private

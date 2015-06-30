@@ -32,12 +32,10 @@ class Api::RoundsController < ApplicationController
   def destroy
     round = Round.find(params[:id])
 
-    if round.started?
-      head :unprocessable_entity
-    else
-      round.destroy
-      respond_with round
-    end
+    authorize round
+
+    round.destroy
+    respond_with round
   end
 
   private

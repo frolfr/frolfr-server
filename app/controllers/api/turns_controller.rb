@@ -9,6 +9,8 @@ class Api::TurnsController < ApplicationController
 
   def update
     turn = Turn.find(params[:id])
+    authorize turn
+
     respond_with turn.update(turn_params)
   end
 
