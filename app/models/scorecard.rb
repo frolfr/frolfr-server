@@ -12,6 +12,13 @@ class Scorecard < ActiveRecord::Base
 
   delegate :course, to: :round
 
+  def rating
+    if ratable?
+      difference = course.rating - strokes
+      1000 + (difference * 10)
+    end
+  end
+
   def strokes
     played_turns.sum(:strokes)
   end
@@ -37,6 +44,10 @@ class Scorecard < ActiveRecord::Base
   end
 
   private
+
+  def ratable?
+    completed? && course.rated?
+  end
 
   def played_turns
     turns.where.not(strokes: nil)
