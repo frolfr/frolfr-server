@@ -11,6 +11,10 @@ class Round < ActiveRecord::Base
 
   delegate :holes, to: :course
 
+  def user_playing?(user)
+    scorecards.any? { |scorecard| scorecard.user == user }
+  end
+
   def incomplete?
     scorecards.any?(&:incomplete?)
   end
@@ -24,7 +28,7 @@ class Round < ActiveRecord::Base
     # TODO: Consider a more intelligent way to consistently order turns
   end
 
-  def started?
-    scorecards.any?(&:started?)
+  def unstarted?
+    scorecards.none?(&:started?)
   end
 end
