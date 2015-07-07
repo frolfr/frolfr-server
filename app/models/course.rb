@@ -19,6 +19,13 @@ class Course < ActiveRecord::Base
   scope :approved, -> { where(status: APPROVED_STATUS) }
   scope :available_to, ->(user) { where("courses.status = 'approved' OR courses.submitter_id = ?", user.id) }
 
+  geocoded_by :full_street_address
+  after_validation :geocode
+
+  def full_street_address
+    [address, city, state, country].compact.join(", ")
+  end
+
   def rated?
     rating.present?
   end
