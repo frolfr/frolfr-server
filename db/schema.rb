@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626184522) do
+ActiveRecord::Schema.define(version: 20150707002634) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,9 @@ ActiveRecord::Schema.define(version: 20150626184522) do
     t.string   "status",       default: "pending"
     t.integer  "submitter_id"
     t.float    "rating"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
   end
 
   create_table "friendships", force: true do |t|
