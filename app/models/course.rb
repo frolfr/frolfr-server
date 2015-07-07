@@ -23,7 +23,7 @@ class Course < ActiveRecord::Base
   after_validation :geocode
 
   def full_street_address
-    [address, city, state, country].compact.join(", ")
+    [name, address, city, state, country].compact.join(", ")
   end
 
   def rated?
