@@ -19,6 +19,9 @@ gem 'bcrypt'
 # Factories
 gem 'factory_girl_rails'
 
+# Mapping
+gem 'geocoder'
+
 # Validations
 gem 'auto_strip_attributes'
 
