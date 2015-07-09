@@ -7,6 +7,7 @@ Frolfr::Application.routes.draw do
       json.resources :courses
       json.get 'users/current', to: 'current_users#show'
       json.get 'rounds/current', to: 'current_rounds#show'
+      json.resources :nearest_courses
       json.resources :friends
       json.resources :user_stat_logs
       json.resources :course_stat_logs
