@@ -8,6 +8,7 @@ class Api::ScorecardsController < ApplicationController
 
   def create
     @scorecard = Scorecard.new(scorecard_params)
+    authorize @scorecard
 
     if @scorecard.save
       create_turns!
