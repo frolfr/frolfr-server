@@ -7,11 +7,11 @@ class RoundRegistration
     :turns
   )
 
-  def self.create_round(course: course, users: users)
+  def self.create_round(course:, users:)
     new(course: course, users: users).create_round
   end
 
-  def initialize(course: course, users: users)
+  def initialize(course:, users:)
     @course = course
     @users = users
   end

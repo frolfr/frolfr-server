@@ -1,7 +1,7 @@
 class CourseHolesStatLog
   attr_reader :hole_stat_logs
 
-  def initialize(course: course, user: user)
+  def initialize(course:, user:)
     @hole_stat_logs = course.holes.map { |hole| HoleStatLog.new(hole: hole, user: user) }
     assign_hole_rankings
   end

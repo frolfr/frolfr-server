@@ -1,7 +1,7 @@
 class CourseStatLog
   attr_reader :user, :course, :scorecards, :completed_scorecards
 
-  def initialize(user: user, course: course)
+  def initialize(user:, course:)
     @user = user
     @course = course
     @scorecards = user.scorecards_for_course(course)

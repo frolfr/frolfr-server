@@ -1,7 +1,7 @@
 class UserStatLog
   attr_reader :user, :friend, :rounds_with_user
 
-  def initialize(user: user, friend: friend)
+  def initialize(user:, friend:)
     @user = user
     @friend = friend
     @rounds_won = []

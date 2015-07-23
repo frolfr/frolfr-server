@@ -3,7 +3,7 @@ class HoleStatLog
   attr_reader :hole, :user
   attr_accessor :ranking
 
-  def initialize(hole: hole, user: user)
+  def initialize(hole:, user:)
     @hole = hole
     @user = user
   end
