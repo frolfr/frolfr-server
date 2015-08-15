@@ -9,7 +9,8 @@ class Api::PasswordResetsController < ApplicationController
   end
 
   def create
-    user = User.find_by(email: reset_params[:email])
+    email = reset_params[:email].strip.downcase
+    user = User.find_by(email: email)
 
     if user && user.update_password_reset_token!
       respond_with :api, user
