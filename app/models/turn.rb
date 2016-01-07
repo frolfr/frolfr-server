@@ -1,6 +1,6 @@
 class Turn < ActiveRecord::Base
   SCORES = (1..8).to_a
-  PARS = (3..5).to_a
+  PARS = (2..5).to_a
 
   belongs_to :scorecard
   belongs_to :hole
