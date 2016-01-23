@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.2.3'
 
-gem 'rails', '4.1.6'
+gem 'rails', '~>4.2.4'
 gem 'unicorn'
+gem 'responders', '~> 2.0'
 
 # DBs
 gem 'pg'
