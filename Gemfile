@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 
+gem 'jsonapi-resources'
+
 gem 'rails', '~>4.2.4'
 gem 'unicorn'
 gem 'responders', '~> 2.0'
