@@ -13,9 +13,6 @@ gem 'pg'
 # Photos
 gem 'cloudinary'
 
-# Pinging Heroku
-gem 'newrelic_rpm'
-
 # Authorization
 gem 'bcrypt'
 
