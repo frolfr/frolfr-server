@@ -43,16 +43,6 @@ end
 
 group :development, :test do
   gem 'rspec-rails'
-  gem 'pry'
   gem 'pry-rails'
   gem 'database_cleaner'
-  gem 'teaspoon'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'poltergeist'
-  gem 'turnip'
-  gem 'rspec-pride'
-  gem 'launchy'
 end
