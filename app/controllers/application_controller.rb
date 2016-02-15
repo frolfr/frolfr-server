@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
   protect_from_forgery with: :null_session
-  before_action :set_locale, :authenticate
+  before_action :authenticate
   helper_method :current_user, :logged_in?
 
   after_filter :cors_set_access_control_headers
@@ -19,10 +19,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
-  def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-  end
 
   def logged_in?
     current_user.present?
