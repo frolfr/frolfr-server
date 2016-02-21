@@ -23,19 +23,19 @@ class ProfileStatLog
   end
 
   def top_played_course_name
-    top_played_course_data.first.name
+    top_played_course_data.first.name unless courses_played.zero?
   end
 
   def top_played_course_scorecards_started
-    top_played_course_data.count
+    courses_played.zero? ? 0 : top_played_course_data.count
   end
 
   def top_friend_name
-    top_friend_data.first.full_name
+    top_friend_data.first.full_name unless courses_played.zero?
   end
 
   def top_friend_rounds_count
-    top_friend_data.count
+    courses_played.zero? ? 0 : top_friend_data.count
   end
 
   def top_played_course_data
