@@ -19,7 +19,7 @@ class Course < ActiveRecord::Base
   scope :approved, -> { where(status: APPROVED_STATUS) }
   scope :available_to, ->(user) { where("courses.status = 'approved' OR courses.submitter_id = ?", user.id) }
 
-  auto_strip_attributes :city, :state, squish: true
+  auto_strip_attributes :address, :name, :city, :state, squish: true
 
   geocoded_by :full_street_address
   after_validation :geocode
