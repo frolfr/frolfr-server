@@ -9,10 +9,6 @@ class ScorecardPolicy < ApplicationPolicy
     round.user_playing?(record.user)
   end
 
-  def current_user_playing_round?
-    round.user_playing?(user)
-  end
-
   def round
     @round ||= record.round
   end
