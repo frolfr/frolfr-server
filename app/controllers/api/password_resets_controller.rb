@@ -13,7 +13,7 @@ class Api::PasswordResetsController < ApplicationController
     user = User.find_by(email: email)
 
     if user && user.update_password_reset_token!
-      respond_with :api, user
+      head :no_content
     else
       respond_with :not_found
     end
