@@ -35,6 +35,16 @@ describe ProfileStatLog do
         expect(subject.top_friend_rounds_count).to eq rounds_count
       end
     end
+
+    context "only played solo rounds" do
+      it 'returns default values' do
+        user = FactoryGirl.create(:scorecard).user
+        subject = described_class.new(user)
+
+        expect(subject.top_friend_name).to eq "None"
+        expect(subject.top_friend_rounds_count).to eq 0
+      end
+    end
   end
 
   describe "top course" do

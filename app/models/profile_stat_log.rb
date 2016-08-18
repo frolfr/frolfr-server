@@ -31,11 +31,19 @@ class ProfileStatLog
   end
 
   def top_friend_name
-    top_friend_data.first.full_name unless courses_played.zero?
+    if !courses_played.zero? && top_friend_data
+      top_friend_data.first.full_name
+    else
+      "None"
+    end
   end
 
   def top_friend_rounds_count
-    courses_played.zero? ? 0 : top_friend_data.count
+    if !courses_played.zero? && top_friend_data
+      top_friend_data.count
+    else
+      0
+    end
   end
 
   def top_played_course_data
