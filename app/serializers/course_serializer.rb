@@ -1,8 +1,7 @@
 class CourseSerializer < ActiveModel::Serializer
   attributes :id, :city, :state, :country, :name, :status,
              :location, :photo_ids, :last_played_at,
-             :hole_ids, :scorecard_ids, :hole_count,
-             :review_ids
+             :hole_ids, :scorecard_ids, :hole_count
 
   def last_played_at
     user_scorecards.map do |scorecard|
@@ -16,10 +15,6 @@ class CourseSerializer < ActiveModel::Serializer
 
   def hole_ids
     object.holes.pluck(:id)
-  end
-
-  def review_ids
-    object.reviews.pluck(:id)
   end
 
   def photo_ids
