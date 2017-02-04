@@ -26,6 +26,33 @@ To run tests, run `rake db:test:prepare; rspec`.
 
 You'll need to configure cloudinary, [including adding a cloudinary.yml file](http://cloudinary.com/documentation/rails_integration).
 
+#### Running Frolfr in Docker
+If process isolation is your bad then you're in luck - the Frolfr API is full containerized! Make sure you have docker fully setup and running in your local environment and then do the following to get frolfr running:
+```
+# build images
+docker-compose build
+
+# start the containers
+docker-compose up
+```
+
+You can now access Frolfr at 0.0.0.0!
+
+If you want to develop on Frolfr in Docker you need to add a `docker-compose.override.yml` locally with the following contents:
+```
+app:
+  # map our application source code, in full, to the application root of our container
+  volumes:
+    - .:/var/www/frolfr-server
+
+web:
+  # use whatever volumes are configured for the app container
+  volumes_from:
+    - app
+
+```
+This file is already in ,gitignore so if you want to make local tweaks go nuts!
+
 #### Contributing
 
 1. Fork it
