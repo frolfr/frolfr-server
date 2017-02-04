@@ -1,0 +1,26 @@
+app:
+  build: .
+
+  env_file: .env.default
+
+  environment:
+    RAILS_ENV: $RAILS_ENV
+
+  links:
+    - db
+  ports:
+    - "3000"
+
+db:
+  image: postgres:9.4.5
+
+  volumes:
+    - frolfr-server-postgres:/var/lib/postgresql/data
+
+web:
+  build: .
+  dockerfile: config/containers/Dockerfile-nginx
+  links:
+    - app
+  ports:
+    - "80:80"
