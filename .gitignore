@@ -23,3 +23,6 @@ config/cloudinary.yml
 
 # local develop compose file
 docker-compose.override.yml
+
+# editorconfig
+.editorconfig
