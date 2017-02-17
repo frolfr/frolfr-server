@@ -37,6 +37,8 @@ gem 'simplecov', '~> 0.7.1'
 
 gem 'kaminari'
 
+gem 'slack-ruby-client'
+
 group :production do
   gem 'rails_12factor'
 end

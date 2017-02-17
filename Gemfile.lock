@@ -63,9 +63,15 @@ GEM
     factory_girl_rails (4.5.0)
       factory_girl (~> 4.5.0)
       railties (>= 3.0.0)
+    faraday (0.11.0)
+      multipart-post (>= 1.2, < 3)
+    faraday_middleware (0.11.0.1)
+      faraday (>= 0.7.4, < 1.0)
     geocoder (1.2.14)
+    gli (2.15.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hashie (3.5.3)
     i18n (0.7.0)
     json (1.8.3)
     jsonapi-resources (0.7.0)
@@ -83,6 +89,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
+    multipart-post (2.0.0)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
@@ -153,6 +160,14 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    slack-ruby-client (0.7.9)
+      activesupport
+      faraday (>= 0.9)
+      faraday_middleware
+      gli
+      hashie
+      json
+      websocket-driver
     slop (3.6.0)
     sprockets (3.5.2)
       concurrent-ruby (~> 1.0)
@@ -172,6 +187,9 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    websocket-driver (0.6.5)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.2)
 
 PLATFORMS
   ruby
@@ -195,7 +213,11 @@ DEPENDENCIES
   responders (~> 2.0)
   rspec-rails
   simplecov (~> 0.7.1)
+  slack-ruby-client
   unicorn
 
+RUBY VERSION
+   ruby 2.3.1p112
+
 BUNDLED WITH
-   1.11.2
+   1.12.0
