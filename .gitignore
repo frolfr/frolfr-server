@@ -20,9 +20,3 @@ config/cloudinary.yml
 
 # Ignore all environment variables
 .env
-
-# local develop compose file
-docker-compose.override.yml
-
-# editorconfig
-.editorconfig
