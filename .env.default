@@ -1,3 +1,2 @@
 GMAIL_PASSWORD=password
 GMAIL_USERNAME=email@gmail.com
-POSTGRES_PASSWORD=frolfr
