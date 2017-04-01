@@ -32,6 +32,7 @@ Frolfr::Application.routes.draw do
 
   namespace :jsonapi do
     jsonapi_resources :courses, only: [:show, :index]
+    jsonapi_resources :users, only: [:show, :index]
   end
 
   match '/', via: [:options],
