@@ -30,6 +30,11 @@ Frolfr::Application.routes.draw do
     end
   end
 
+  namespace :jsonapi do
+    jsonapi_resources :courses, only: [:show, :index]
+    jsonapi_resources :users, only: [:show, :index]
+  end
+
   match '/', via: [:options],
     to:  "application#cors_preflight_check"
   match '*unmatched', via: [:options],
