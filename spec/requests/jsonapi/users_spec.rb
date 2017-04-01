@@ -40,5 +40,18 @@ describe Jsonapi::UsersController do
 
       expect(expected_ids).to match_array users.map(&:id)
     end
+
+    it 'filters by first, middle, and last name, regardless of case' do
+      paul = FactoryGirl.create(:user, first_name: 'Paul', last_name: 'McBeth')
+      simon = FactoryGirl.create(:user, first_name: 'Simon', last_name: 'Lizotte')
+      eagle = FactoryGirl.create(:user, first_name: 'Eagle', last_name: 'McMahon')
+
+      get jsonapi_users_path, { filter: { name: 'mc' } }
+      expect(response).to be_ok
+
+      expected_ids = json['data'].map { |user_data| user_data['id'].to_i }
+
+      expect(expected_ids).to match_array [paul.id, eagle.id]
+    end
   end
 end
