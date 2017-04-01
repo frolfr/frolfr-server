@@ -14,6 +14,13 @@ describe Jsonapi::UsersController do
           'type'=> 'users',
           'links'=> {
             'self' => "http://www.example.com/jsonapi/users/#{user.id}"
+          },
+          'attributes' => {
+            'email' => user.email,
+            'first-name' => user.first_name,
+            'middle-name' => user.middle_name,
+            'last-name' => user.last_name,
+            'avatar-url' => user.avatar_url
           }
         }
       }
