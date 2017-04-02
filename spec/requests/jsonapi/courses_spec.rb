@@ -78,6 +78,7 @@ describe Jsonapi::CoursesController do
       headers = { 'Content-Type' => 'application/vnd.api+json' }
 
       course = FactoryGirl.build(:course)
+      hole_count = 3
 
       request =  {
         'data' => {
@@ -86,7 +87,8 @@ describe Jsonapi::CoursesController do
             'city' => course.city,
             'state' => course.state,
             'name' => course.name,
-            'country' => course.country
+            'country' => course.country,
+            'hole-count' => hole_count
           }
         }
       }
@@ -96,6 +98,9 @@ describe Jsonapi::CoursesController do
       }.to change(Course, :count).by(1)
 
       expect(response).to be_created
+
+      course = Course.last
+      expect(hole_count).to eq course.holes.count
     end
   end
 end
