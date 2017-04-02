@@ -70,4 +70,32 @@ describe Jsonapi::CoursesController do
       expect(expected_courses).to eq 5
     end
   end
+
+  describe 'POST create' do
+    let!(:course) { FactoryGirl.create(:course) }
+
+    it 'returns a course' do
+      headers = { 'Content-Type' => 'application/vnd.api+json' }
+
+      course = FactoryGirl.build(:course)
+
+      request =  {
+        'data' => {
+          'type'=> 'courses',
+          'attributes' => {
+            'city' => course.city,
+            'state' => course.state,
+            'name' => course.name,
+            'country' => course.country
+          }
+        }
+      }
+
+      expect {
+        post jsonapi_courses_path, request.to_json, headers
+      }.to change(Course, :count).by(1)
+
+      expect(response).to be_created
+    end
+  end
 end
