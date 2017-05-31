@@ -32,6 +32,7 @@ Frolfr::Application.routes.draw do
 
   namespace :jsonapi do
     jsonapi_resources :courses, only: [:show, :index]
+    jsonapi_resources :rounds, only: [:show]
     jsonapi_resources :scorecards, only: [:show]
     jsonapi_resources :users, only: [:show, :index]
   end
