@@ -8,6 +8,10 @@ class Jsonapi::UserResource < JSONAPI::Resource
       user.full_name.downcase.include? value[0]
     end.map(&:id)
 
-    filtered_records = User.where(id: filtered_record_ids)
+    User.where(id: filtered_record_ids)
   }
+
+  def self.apply_sort(records, order_options, context = {})
+    records.by_name
+  end
 end

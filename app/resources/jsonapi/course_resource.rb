@@ -6,6 +6,6 @@ class Jsonapi::CourseResource < JSONAPI::Resource
       course.name.downcase.include? value[0].downcase
     end.map(&:id)
 
-    Course.where(id: filtered_record_ids)
+    Course.where(id: filtered_record_ids).by_name
   }
 end
