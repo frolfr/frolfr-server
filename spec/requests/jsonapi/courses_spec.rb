@@ -19,8 +19,15 @@ describe Jsonapi::CoursesController do
             'city' => course.city,
             'state' => course.state,
             'name' => course.name,
-            'country' => course.country,
-            'hole-count' => course.hole_count
+            'country' => course.country
+          },
+          'relationships' => {
+            'rounds'=> {
+              'links' => {
+                'self' => 'http://www.example.com/jsonapi/courses/1/relationships/rounds',
+                'related'=> 'http://www.example.com/jsonapi/courses/1/rounds'
+              }
+            }
           }
         }
       }

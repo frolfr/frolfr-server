@@ -21,6 +21,14 @@ describe Jsonapi::UsersController do
             'middle-name' => user.middle_name,
             'last-name' => user.last_name,
             'avatar-url' => user.avatar_url
+          },
+          'relationships' => {
+            'scorecards'=> {
+              'links' => {
+                'self' => 'http://www.example.com/jsonapi/users/1/relationships/scorecards',
+                'related'=> 'http://www.example.com/jsonapi/users/1/scorecards'
+              }
+            }
           }
         }
       }
