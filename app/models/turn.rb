@@ -9,6 +9,7 @@ class Turn < ActiveRecord::Base
   validates :strokes, inclusion: { in: SCORES, allow_nil: true }
   validates :par, inclusion: PARS
 
+  delegate :number, to: :hole, prefix: true
   delegate :round, to: :scorecard
 
   scope :played, -> { where.not(strokes: nil) }
