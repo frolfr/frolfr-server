@@ -39,6 +39,9 @@ gem 'kaminari'
 
 gem 'slack-ruby-client'
 
+# Modern CORS solution
+gem 'rack-cors'
+
 group :production do
   gem 'rails_12factor'
 end
