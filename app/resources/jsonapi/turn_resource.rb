@@ -3,5 +3,8 @@ class Jsonapi::TurnResource < JSONAPI::Resource
   # this will cause n+1 queries
   attributes :hole_number, :par, :strokes
 
+  # TODO self.updateable_fields will throw a 400. We'd rather just ignore this
+  def hole_number=(_); end
+
   paginator :none
 end
