@@ -5,7 +5,7 @@ class Jsonapi::UserResource < JSONAPI::Resource
   filter :name, apply: ->(records, value, _options) {
     # TODO: this can be cleaned up
     filtered_record_ids = records.select do |user|
-      user.full_name.downcase.include? value[0]
+      user.full_name.downcase.include? value[0].downcase
     end.map(&:id)
 
     User.where(id: filtered_record_ids)
