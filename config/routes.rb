@@ -35,7 +35,7 @@ Frolfr::Application.routes.draw do
     jsonapi_resources :rounds, only: [:show, :index, :create]
     jsonapi_resources :scorecards, only: [:show, :index]
     jsonapi_resources :turns, only: [:show, :index, :update]
-    jsonapi_resources :users, only: [:show, :index]
+    jsonapi_resources :users, only: [:show, :index, :create]
   end
 
   match '/', via: [:options],

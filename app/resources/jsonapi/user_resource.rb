@@ -1,5 +1,6 @@
 class Jsonapi::UserResource < JSONAPI::Resource
-  attributes :email, :first_name, :middle_name, :last_name, :avatar_url
+  attributes :avatar_url, :email, :first_name, :last_name,
+     :middle_name, :password
   has_many :scorecards
 
   filter :name, apply: ->(records, value, _options) {
