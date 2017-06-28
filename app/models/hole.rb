@@ -1,6 +1,6 @@
 class Hole < ActiveRecord::Base
   DEFAULT_PAR = 3
-  belongs_to :course
+  belongs_to :course, counter_cache: true
 
   has_many :turns
 

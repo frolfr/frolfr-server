@@ -2,7 +2,10 @@ require 'spec_helper'
 
 describe Jsonapi::CoursesController do
   describe 'GET show' do
-    let!(:course) { FactoryGirl.create(:course) }
+    let(:course) { FactoryGirl.create(:course) }
+    before do
+      FactoryGirl.create_list(:hole, 3, course: course)
+    end
 
     it 'returns a course' do
       get jsonapi_course_path(course)
@@ -19,7 +22,8 @@ describe Jsonapi::CoursesController do
             'city' => course.city,
             'state' => course.state,
             'name' => course.name,
-            'country' => course.country
+            'country' => course.country,
+            'holes-count' => 3
           },
           'relationships' => {
             'rounds'=> {
@@ -32,7 +36,7 @@ describe Jsonapi::CoursesController do
         }
       }
 
-      expect(expected_json).to eq json
+      expect(json).to eq expected_json
     end
   end
 

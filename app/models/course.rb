@@ -32,6 +32,7 @@ class Course < ActiveRecord::Base
     rating.present?
   end
 
+  # TODO this is persisted because of bad naming. Will remove in Frolfr 2.0 launch
   def hole_count
     holes.count
   end

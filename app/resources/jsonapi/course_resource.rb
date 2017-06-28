@@ -1,7 +1,5 @@
 class Jsonapi::CourseResource < JSONAPI::Resource
-  # TODO Ideally hole_count becomes a counter-cache of holes on courses table.
-  # As is, this causes an n+1 query
-  attributes :country, :city, :hole_count, :name, :state
+  attributes :country, :city, :holes_count, :name, :state
 
   has_many :rounds
 
@@ -23,4 +21,12 @@ class Jsonapi::CourseResource < JSONAPI::Resource
 
     Course.where(id: course_ids).by_name
   }
+
+  def self.updatable_fields(_)
+    super - [:holes_count]
+  end
+
+  def self.creatable_fields(_)
+    super - [:holes_count]
+  end
 end
