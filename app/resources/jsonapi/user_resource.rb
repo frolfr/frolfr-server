@@ -15,4 +15,8 @@ class Jsonapi::UserResource < JSONAPI::Resource
   def self.apply_sort(records, order_options, context = {})
     records.by_name
   end
+
+  def fetchable_fields
+    super - [:password]
+  end
 end
