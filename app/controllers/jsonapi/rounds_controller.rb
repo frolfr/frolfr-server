@@ -1,2 +1,2 @@
-class Jsonapi::RoundsController < JSONAPI::ResourceController
+class Jsonapi::RoundsController < Jsonapi::ResourceController
 end

@@ -1,2 +1,2 @@
-class Jsonapi::ScorecardsController < JSONAPI::ResourceController
+class Jsonapi::ScorecardsController < Jsonapi::ResourceController
 end
