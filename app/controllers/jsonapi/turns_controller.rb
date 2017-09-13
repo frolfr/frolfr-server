@@ -1,2 +1,2 @@
-class Jsonapi::TurnsController < JSONAPI::ResourceController
+class Jsonapi::TurnsController < Jsonapi::ResourceController
 end

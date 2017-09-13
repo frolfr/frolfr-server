@@ -30,6 +30,7 @@ gem 'active_model_serializers'
 
 # Authorization
 gem 'pundit'
+gem 'jwt', '~> 1.5', '>= 1.5.3'
 
 # Coverage
 gem 'coveralls', require: false

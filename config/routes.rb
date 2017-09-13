@@ -38,6 +38,8 @@ Frolfr::Application.routes.draw do
     jsonapi_resources :users, only: [:show, :index, :create]
   end
 
+  post 'login', to: 'jsonapi/sessions#create'
+
   match '/', via: [:options],
     to:  "application#cors_preflight_check"
   match '*unmatched', via: [:options],
