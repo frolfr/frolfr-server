@@ -76,6 +76,7 @@ GEM
     json (1.8.3)
     jsonapi-resources (0.7.0)
       rails (>= 4.0)
+    jwt (1.5.6)
     kaminari (0.16.3)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -205,6 +206,7 @@ DEPENDENCIES
   factory_girl_rails
   geocoder
   jsonapi-resources
+  jwt (~> 1.5, >= 1.5.3)
   kaminari
   pg
   pry-rails
