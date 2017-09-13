@@ -1,7 +1,9 @@
 class Jsonapi::UserResource < JSONAPI::Resource
   attributes :avatar_url, :email, :first_name, :last_name,
      :middle_name, :password
+
   has_many :scorecards
+  has_many :friends, class_name: 'Friend'
 
   filter :name, apply: ->(records, value, _options) {
     # TODO: this can be cleaned up
