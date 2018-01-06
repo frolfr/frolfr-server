@@ -3,15 +3,15 @@
 set -e
 
 # Create the backup on heroku
-heroku pg:backups capture --app frolfr
+heroku pg:backups:capture
 
 # Download the backup
-curl -o /tmp/frolfr-production.dump `heroku pg:backups public-url --app frolfr | cat`
+heroku pg:backups:download
 
 # Restore the backup
-pg_restore --verbose --clean --no-acl --no-owner -h 127.0.0.1 -U `whoami` -d frolfr_development /tmp/frolfr-production.dump
+pg_restore --verbose --clean --no-acl --no-owner -h 127.0.0.1 -U `whoami` -d frolfr_development latest.dump
 
 # Clean up
-rm -f /tmp/frolfr-production.dump
+rm -f latest.dump
 
 set +e
