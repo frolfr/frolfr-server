@@ -7,7 +7,7 @@ class Round < ActiveRecord::Base
   validates :course, presence: true
   # TODO: validate that the round has at least one scorecard
 
-  scope :by_date, -> { order('created_at DESC') }
+  scope :by_date, -> { order('rounds.created_at DESC') }
 
   delegate :holes, to: :course
 

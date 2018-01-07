@@ -5,6 +5,10 @@ class Jsonapi::RoundResource < JSONAPI::Resource
   has_many :scorecards
   has_many :users
 
+  filter :user_id, apply: ->(records, value, _options) {
+    records.includes(:scorecards).where(scorecards: { user_id: value.first })
+  }
+
   after_create do
     course = @model.course
     scorecards = @model.scorecards
