@@ -15,7 +15,7 @@ class Jsonapi::RoundResource < JSONAPI::Resource
 
     scorecards.each do |scorecard|
       course.holes.each do |hole|
-        Turn.create(hole: hole, scorecard: scorecard, par: hole.par)
+        Turn.create(hole: hole, scorecard: scorecard, par: hole.par, hole_number: hole.number)
       end
     end
   end

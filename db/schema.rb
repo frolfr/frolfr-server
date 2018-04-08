@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621005843) do
+ActiveRecord::Schema.define(version: 20180408201229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,6 +95,7 @@ ActiveRecord::Schema.define(version: 20170621005843) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "par",          default: 3
+    t.integer  "hole_number"
   end
 
   add_index "turns", ["hole_id"], name: "index_turns_on_hole_id", using: :btree
