@@ -9,6 +9,10 @@ class Jsonapi::RoundResource < JSONAPI::Resource
     records.joins(:scorecards).where(scorecards: { user_id: value.first })
   }
 
+  filter :course_id, apply: ->(records, value, _options) {
+    records.where(course_id: value.first)
+  }
+
   after_create do
     course = @model.course
     scorecards = @model.scorecards
