@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.5.3'
 
 gem 'jsonapi-resources'
 
-gem 'rails', '~>4.2.4'
-gem 'unicorn'
+gem 'rails', '~> 4.2.4'
 gem 'responders', '~> 2.0'
 
 # DBs
-gem 'pg'
+gem 'pg', '~> 0.8'
 
 # Photos
 gem 'cloudinary'
@@ -24,9 +23,6 @@ gem 'geocoder'
 
 # Validations
 gem 'auto_strip_attributes'
-
-# Serializers
-gem 'active_model_serializers'
 
 # Authorization
 gem 'pundit'
