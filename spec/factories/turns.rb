@@ -4,5 +4,6 @@ FactoryGirl.define do
     hole
     strokes nil
     par 3
+    hole_number 1
   end
 end
