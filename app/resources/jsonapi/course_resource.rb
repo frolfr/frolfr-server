@@ -22,6 +22,12 @@ class Jsonapi::CourseResource < JSONAPI::Resource
     Course.where(id: course_ids).by_name
   }
 
+  def hole_count=(value)
+    1.upto(value) do |number|
+      @model.holes.build(number: number)
+    end
+  end
+
   def self.updatable_fields(_)
     super - [:holes_count]
   end
