@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# script/update: Update application to run for it's current checkout
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+script/bootstrap
+
+echo "==> Updating db..."
+# run all database migrations to ensure everything is up to date.
+bundle exec rake db:create:all
+bundle exec rake db:schema:load
+bundle exec rake db:seed 

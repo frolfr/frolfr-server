@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# script/setup: Setup application for the first time after cloning,
+#   or set it back to initial first unused state.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+script/bootstrap
+
+echo "===> Setting up DB..."
+# reset database to a fresh state.
+bundle exec rake db:setup
+
+echo " ===> App us now ready to go!" 

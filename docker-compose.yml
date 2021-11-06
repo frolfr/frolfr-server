@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    ports:
+      - "3000:8080"
+    links:
+      - postgres
+  postgres:
+    image: postgres:9.6

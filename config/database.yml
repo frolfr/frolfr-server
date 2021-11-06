@@ -2,19 +2,18 @@ common: &common
   adapter: postgresql
   encoding: utf8
   min_messages: WARNING
-  host: localhost
 
 development:
   <<: *common
-  database: frolfr_development
+  url: <%= ENV['DATABASE_URL'].gsub('?', '_development?') %>
 
 production:
   <<: *common
-  database: frolfr_production
+  url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') %>
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
   <<: *common
-  database: frolfr_test
+  url: <%= ENV['DATABASE_URL'].gsub('?', '_test?') %>
