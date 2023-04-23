@@ -54,3 +54,5 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
 end
+
+gem "dockerfile-rails", ">= 1.2", :group => :development

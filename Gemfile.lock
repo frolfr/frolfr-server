@@ -305,6 +305,7 @@ DEPENDENCIES
   bootsnap
   cloudinary
   database_cleaner
+  dockerfile-rails (>= 1.2)
   dotenv-rails
   e2mmap
   factory_bot_rails
