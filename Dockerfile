@@ -1,31 +1,65 @@
-# Base image
-# Based on http://chrisstump.online/2016/02/20/docker-existing-rails-application/
-FROM ruby:2.5.3
+# syntax = docker/dockerfile:1
 
-WORKDIR /app
+# Make sure RUBY_VERSION matches the Ruby version in .ruby-version and Gemfile
+ARG RUBY_VERSION=3.2.2
+FROM ruby:$RUBY_VERSION-slim as base
 
-RUN mkdir -p /app/tmp/pids
-RUN chmod 777 /app/tmp/pids
+# Rails app lives here
+WORKDIR /rails
 
-# Install packages
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev postgresql-client
+# Set production environment
+ENV RAILS_ENV="production" \
+    BUNDLE_WITHOUT="development:test" \
+    BUNDLE_DEPLOYMENT="1"
 
-# Use the Gemfiles as Docker cache markers. Always bundle before copying app src.
-# (the src likely changed and we don't want to invalidate Docker's cache too early)
-# http://ilikestuffblog.com/2014/01/06/how-to-skip-bundle-install-when-deploying-a-rails-app-to-docker/
-ADD Gemfile Gemfile
-ADD Gemfile.lock Gemfile.lock
+# Update gems and bundler
+RUN gem update --system --no-document && \
+    gem install -N bundler
 
-# Install bundler
-RUN gem install bundler:1.17.1
 
-# Install deps
-RUN bundle install
+# Throw-away build stage to reduce size of final image
+FROM base as build
 
-# Copy the app
-ADD . /app
+# Install packages needed to build gems
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y build-essential libpq-dev
 
-ENTRYPOINT ["/app/script/wait-for-it.sh", "postgres:5432", "--"]
+# Install application gems
+COPY --link Gemfile Gemfile.lock ./
+RUN bundle install && \
+    bundle exec bootsnap precompile --gemfile && \
+    rm -rf ~/.bundle/ $BUNDLE_PATH/ruby/*/cache $BUNDLE_PATH/ruby/*/bundler/gems/*/.git
 
-# script that runs when the container boots
-CMD ["script/server"]
+# Copy application code
+COPY --link . .
+
+# Precompile bootsnap code for faster boot times
+RUN bundle exec bootsnap precompile app/ lib/
+
+
+# Final stage for app image
+FROM base
+
+# Install packages needed for deployment
+RUN apt-get update -qq && \
+    apt-get install --no-install-recommends -y postgresql-client && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Run and own the application files as a non-root user for security
+RUN useradd rails --home /rails --shell /bin/bash
+USER rails:rails
+
+# Copy built artifacts: gems, application
+COPY --from=build /usr/local/bundle /usr/local/bundle
+COPY --from=build --chown=rails:rails /rails /rails
+
+# Deployment options
+ENV RAILS_LOG_TO_STDOUT="1" \
+    RAILS_SERVE_STATIC_FILES="true"
+
+# Entrypoint prepares the database.
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
+# Start the server by default, this can be overwritten at runtime
+EXPOSE 3000
+CMD ["./bin/rails", "server"]
