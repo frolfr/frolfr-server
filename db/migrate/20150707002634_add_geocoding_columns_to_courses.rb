@@ -1,4 +1,4 @@
-class AddGeocodingColumnsToCourses < ActiveRecord::Migration
+class AddGeocodingColumnsToCourses < ActiveRecord::Migration[4.2]
   def change
     add_column :courses, :latitude, :float
     add_column :courses, :longitude, :float

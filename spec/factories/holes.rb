@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :hole do
-    sequence(:number) {|n| "#{n}" }
+    sequence(:number) { |n| "#{n}" }
     course
   end
 end

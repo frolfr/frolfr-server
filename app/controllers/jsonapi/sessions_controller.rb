@@ -1,10 +1,10 @@
 class Jsonapi::SessionsController < Jsonapi::BaseController
-  skip_before_action :set_current_user, :authenticate_request
+  skip_before_action :set_current_user
 
   def create
     user = User.find_for_authentication(params[:username])
 
-    if user && user.authenticate(params[:password])
+    if user&.authenticate(params[:password])
       token = JsonWebToken.encode(user_id: user.id)
 
       render json: { access_token: token }

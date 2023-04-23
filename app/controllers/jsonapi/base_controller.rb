@@ -5,24 +5,22 @@ class Jsonapi::BaseController < ActionController::Base
   helper_method :current_user
   attr_reader :current_user
 
-  private
+  def authenticate_request
+    return if @current_user
+
+    render json: { errors: 'Not Authorized' }, status: :unauthorized
+  end
 
   def set_current_user
-    if decoded_auth_token
-      @current_user = User.find(decoded_auth_token[:user_id])
-    end
+    return unless decoded_auth_token
+
+    @current_user = User.find(decoded_auth_token[:user_id])
   end
 
   def decoded_auth_token
-    if request.headers['Authorization'].present?
-      token = request.headers['Authorization'].split(' ').last
-      JsonWebToken.decode(token)
-    end
-  end
+    return unless request.headers['Authorization'].present?
 
-  def authenticate_request
-    unless @current_user
-      render json: { errors: 'Not Authorized' }, status: :unauthorized
-    end
+    token = request.headers['Authorization'].split(' ').last
+    JsonWebToken.decode(token)
   end
 end

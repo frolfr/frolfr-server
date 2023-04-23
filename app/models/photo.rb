@@ -1,4 +1,4 @@
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   belongs_to :photoable, polymorphic: true
   belongs_to :uploader, class_name: 'User'
 

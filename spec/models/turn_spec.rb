@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Turn do
   subject(:turn) { described_class.new }

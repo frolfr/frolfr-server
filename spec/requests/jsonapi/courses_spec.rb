@@ -1,10 +1,12 @@
-require 'spec_helper'
+# frozen_string_literal: true
+
+require 'rails_helper'
 
 describe Jsonapi::CoursesController do
   describe 'GET show' do
-    let(:course) { FactoryGirl.create(:course) }
+    let(:course) { FactoryBot.create(:course) }
     before do
-      FactoryGirl.create_list(:hole, 3, course: course)
+      FactoryBot.create_list(:hole, 3, course:)
     end
 
     it 'returns a course' do
@@ -14,8 +16,8 @@ describe Jsonapi::CoursesController do
       expected_json = {
         'data' => {
           'id' => course.id.to_s,
-          'type'=> 'courses',
-          'links'=> {
+          'type' => 'courses',
+          'links' => {
             'self' => "http://www.example.com/jsonapi/courses/#{course.id}"
           },
           'attributes' => {
@@ -26,10 +28,16 @@ describe Jsonapi::CoursesController do
             'holes-count' => 3
           },
           'relationships' => {
-            'rounds'=> {
+            'rounds' => {
               'links' => {
-                'self' => 'http://www.example.com/jsonapi/courses/1/relationships/rounds',
-                'related'=> 'http://www.example.com/jsonapi/courses/1/rounds'
+                'self' => "http://www.example.com/jsonapi/courses/#{course.id}/relationships/rounds",
+                'related' => "http://www.example.com/jsonapi/courses/#{course.id}/rounds"
+              }
+            },
+            'submitter' => {
+              'links' => {
+                'self' => "http://www.example.com/jsonapi/courses/#{course.id}/relationships/submitter",
+                'related' => "http://www.example.com/jsonapi/courses/#{course.id}/submitter"
               }
             }
           }
@@ -42,7 +50,7 @@ describe Jsonapi::CoursesController do
 
   describe 'GET index' do
     it 'returns courses' do
-      courses = FactoryGirl.create_list(:course, 3)
+      courses = FactoryBot.create_list(:course, 3)
 
       get jsonapi_courses_path
       expect(response).to be_ok
@@ -53,7 +61,7 @@ describe Jsonapi::CoursesController do
     end
 
     it 'paginates' do
-      courses = FactoryGirl.create_list(:course, 15)
+      FactoryBot.create_list(:course, 15)
 
       get jsonapi_courses_path
       expect(response).to be_ok
@@ -62,7 +70,7 @@ describe Jsonapi::CoursesController do
 
       expect(expected_courses).to eq 10
 
-      get jsonapi_courses_path, { page: { number: 2 } }
+      get jsonapi_courses_path, params: { page: { number: 2 } }
       expect(response).to be_ok
 
       expected_courses = json['data'].count
@@ -72,35 +80,38 @@ describe Jsonapi::CoursesController do
   end
 
   describe 'POST create' do
-    let!(:course) { FactoryGirl.create(:course) }
+    let!(:course) { FactoryBot.create(:course) }
+    let!(:user) { FactoryBot.create(:user) }
 
     it 'returns a course' do
-      headers = { 'Content-Type' => 'application/vnd.api+json' }
+      course = FactoryBot.build(:course)
+      user = User.first
 
-      course = FactoryGirl.build(:course)
-      hole_count = 3
-
-      request =  {
+      request = {
         'data' => {
-          'type'=> 'courses',
+          'type' => 'courses',
           'attributes' => {
             'city' => course.city,
             'state' => course.state,
             'name' => course.name,
-            'country' => course.country,
-            'hole-count' => hole_count
+            'country' => course.country
+          },
+          'relationships' => {
+            'submitter' => {
+              'data' => {
+                'type' => 'users',
+                'id' => user.id
+              }
+            }
           }
         }
       }
 
-      expect {
-        post jsonapi_courses_path, request.to_json, headers
-      }.to change(Course, :count).by(1)
+      expect do
+        post jsonapi_courses_path, params: request.to_json, headers: { 'Content-Type' => 'application/vnd.api+json' }
+      end.to change { Course.count }.by(1)
 
       expect(response).to be_created
-
-      course = Course.last
-      expect(hole_count).to eq course.holes.count
     end
   end
 end

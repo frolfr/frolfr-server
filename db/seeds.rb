@@ -34,26 +34,36 @@ User.create(
   password_confirmation: 'password'
 )
 
+chris = User.create!(
+  first_name: 'Chris',
+  last_name: 'McCuller',
+  password: 'password',
+  email: 'chris@frolfr.com',
+  password_confirmation: 'password'
+)
+
 User.all.each do |user|
   User.all.each do |friend|
     Friendship.create_friendship(user: user, friend: friend)
   end
 end
 
-course = Course.create(
-  name: "Perkerson Park",
-  city: "Atlanta",
-  state: "GA",
-  country: "United States",
-  status: "approved"
+course = Course.create!(
+  name: 'Perkerson Park',
+  city: 'Atlanta',
+  state: 'GA',
+  country: 'United States',
+  status: 'approved',
+  submitter: chris
 )
 
-course2 = Course.create(
-  name: "Redan Park",
-  city: "Lithonia",
-  state: "GA",
-  country: "United States",
-  status: "approved"
+course2 = Course.create!(
+  name: 'Redan Park',
+  city: 'Lithonia',
+  state: 'GA',
+  country: 'United States',
+  status: 'approved',
+  submitter: chris
 )
 
 1.upto(18) do |number|

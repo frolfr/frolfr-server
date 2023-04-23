@@ -1,4 +1,4 @@
-class AddIndexesToTables < ActiveRecord::Migration
+class AddIndexesToTables < ActiveRecord::Migration[4.2]
   def change
     add_index :holes, :course_id
     add_index :rounds, :course_id

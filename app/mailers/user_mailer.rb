@@ -1,4 +1,4 @@
-class UserMailer < ActionMailer::Base
+class UserMailer < ApplicationMailer
   default from: "admin@frolfr.com"
 
   def password_reset(user)

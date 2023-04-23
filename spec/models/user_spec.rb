@@ -1,7 +1,7 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe User do
-  subject(:user) { FactoryGirl.create(:user) }
+  subject(:user) { FactoryBot.create(:user) }
 
   describe '#current_round' do
     context 'has not played any rounds' do
@@ -13,9 +13,8 @@ describe User do
     context 'has played a round' do
       context 'round was played before today' do
         before do
-          round = FactoryGirl.create(:round, created_at: 1.days.ago)
-          FactoryGirl.create(:scorecard, round: round, user: user)
-
+          round = FactoryBot.create(:round, created_at: 1.days.ago)
+          FactoryBot.create(:scorecard, round:, user:)
         end
 
         it 'is nil' do
@@ -25,9 +24,9 @@ describe User do
 
       context 'round played today is complete' do
         before do
-          round = FactoryGirl.create(:round, created_at: 1.hour.ago)
-          scorecard = FactoryGirl.create(:scorecard, round: round, user: user)
-          FactoryGirl.create(:turn, scorecard: scorecard, par: 3, strokes: 1)
+          round = FactoryBot.create(:round, created_at: 1.hour.ago)
+          scorecard = FactoryBot.create(:scorecard, round:, user:)
+          FactoryBot.create(:turn, scorecard:, par: 3, strokes: 1)
         end
 
         it 'is nil' do
@@ -38,19 +37,19 @@ describe User do
 
     context 'has played 3 rounds' do
       before do
-        rounds = FactoryGirl.create_list(:round, 2, created_at: 2.hours.ago)
+        rounds = FactoryBot.create_list(:round, 2, created_at: 2.hours.ago)
 
         rounds.each do |round|
-          scorecard = FactoryGirl.create(:scorecard, round: round, user: user)
-          FactoryGirl.create(:turn, scorecard: scorecard, par: 3, strokes: nil)
+          scorecard = FactoryBot.create(:scorecard, round:, user:)
+          FactoryBot.create(:turn, scorecard:, par: 3, strokes: nil)
         end
       end
 
       it 'is the most recently created incomplete round' do
-        incomplete_round_played_today = FactoryGirl.create(:round, created_at: 1.hour.ago)
+        incomplete_round_played_today = FactoryBot.create(:round, created_at: 1.hour.ago)
 
-        scorecard = FactoryGirl.create(:scorecard, round: incomplete_round_played_today, user: user)
-        FactoryGirl.create(:turn, scorecard: scorecard, par: 3, strokes: nil)
+        scorecard = FactoryBot.create(:scorecard, round: incomplete_round_played_today, user:)
+        FactoryBot.create(:turn, scorecard:, par: 3, strokes: nil)
 
         expect(user.current_round).to eq incomplete_round_played_today
       end

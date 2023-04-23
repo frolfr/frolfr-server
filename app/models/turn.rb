@@ -1,4 +1,4 @@
-class Turn < ActiveRecord::Base
+class Turn < ApplicationRecord
   SCORES = (1..8).to_a
   PARS = (2..5).to_a
 

@@ -1,9 +1,10 @@
 class Jsonapi::CourseResource < JSONAPI::Resource
   attributes :country, :city, :holes_count, :name, :state
+  has_one :submitter, class_name: 'User'
 
   has_many :rounds
 
-  filter :name, apply: ->(records, value, _options) {
+  filter :name, apply: lambda { |records, value, _options|
     filtered_record_ids = records.select do |course|
       course.name.downcase.include? value[0].downcase
     end.map(&:id)
@@ -11,7 +12,7 @@ class Jsonapi::CourseResource < JSONAPI::Resource
     Course.where(id: filtered_record_ids).by_name
   }
 
-  filter :location, apply: ->(records, value, _options) {
+  filter :location, apply: lambda { |_records, value, _options|
     current_location = CurrentLocation.new(
       distance_in_miles: 100,
       latitude: value[0],

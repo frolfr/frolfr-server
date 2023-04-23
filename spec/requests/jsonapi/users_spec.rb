@@ -1,8 +1,8 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Jsonapi::UsersController do
   describe 'GET show' do
-    let!(:user) { FactoryGirl.create(:user) }
+    let!(:user) { FactoryBot.create(:user) }
 
     it 'returns a user' do
       get jsonapi_user_path(user)
@@ -11,8 +11,8 @@ describe Jsonapi::UsersController do
       expected_json = {
         'data' => {
           'id' => user.id.to_s,
-          'type'=> 'users',
-          'links'=> {
+          'type' => 'users',
+          'links' => {
             'self' => "http://www.example.com/jsonapi/users/#{user.id}"
           },
           'attributes' => {
@@ -23,10 +23,16 @@ describe Jsonapi::UsersController do
             'avatar-url' => user.avatar_url
           },
           'relationships' => {
-            'scorecards'=> {
+            'courses' => {
               'links' => {
-                'self' => 'http://www.example.com/jsonapi/users/1/relationships/scorecards',
-                'related'=> 'http://www.example.com/jsonapi/users/1/scorecards'
+                'self' => "http://www.example.com/jsonapi/users/#{user.id}/relationships/courses",
+                'related' => "http://www.example.com/jsonapi/users/#{user.id}/courses"
+              }
+            },
+            'scorecards' => {
+              'links' => {
+                'self' => "http://www.example.com/jsonapi/users/#{user.id}/relationships/scorecards",
+                'related' => "http://www.example.com/jsonapi/users/#{user.id}/scorecards"
               }
             }
           }
@@ -39,7 +45,7 @@ describe Jsonapi::UsersController do
 
   describe 'GET index' do
     it 'returns users' do
-      users = FactoryGirl.create_list(:user, 3)
+      users = FactoryBot.create_list(:user, 3)
 
       get jsonapi_users_path
       expect(response).to be_ok
@@ -50,11 +56,11 @@ describe Jsonapi::UsersController do
     end
 
     it 'filters by first, middle, and last name, regardless of case' do
-      paul = FactoryGirl.create(:user, first_name: 'Paul', last_name: 'McBeth')
-      simon = FactoryGirl.create(:user, first_name: 'Simon', last_name: 'Lizotte')
-      eagle = FactoryGirl.create(:user, first_name: 'Eagle', last_name: 'McMahon')
+      paul = FactoryBot.create(:user, first_name: 'Paul', last_name: 'McBeth')
+      simon = FactoryBot.create(:user, first_name: 'Simon', last_name: 'Lizotte')
+      eagle = FactoryBot.create(:user, first_name: 'Eagle', last_name: 'McMahon')
 
-      get jsonapi_users_path, { filter: { name: 'mc' } }
+      get jsonapi_users_path, params: { filter: { name: 'mc' } }
       expect(response).to be_ok
 
       expected_ids = json['data'].map { |user_data| user_data['id'].to_i }

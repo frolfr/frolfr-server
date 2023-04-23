@@ -8,7 +8,7 @@ module RequestHelper
     { 'Authorization' => token_header }
   end
 
-  def log_in(user = FactoryGirl.create(:user))
+  def log_in(user = FactoryBot.create(:user))
     allow_any_instance_of(ApplicationController).to receive(:authenticate) { true }
     allow_any_instance_of(ApplicationController).to receive(:current_user) { user }
   end

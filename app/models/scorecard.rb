@@ -1,4 +1,4 @@
-class Scorecard < ActiveRecord::Base
+class Scorecard < ApplicationRecord
   # OPTIMIZE: This can be a PORO
   belongs_to :user
   belongs_to :round

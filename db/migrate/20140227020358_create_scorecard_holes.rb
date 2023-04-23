@@ -1,4 +1,4 @@
-class CreateScorecardHoles < ActiveRecord::Migration
+class CreateScorecardHoles < ActiveRecord::Migration[4.2]
   def change
     create_table :turns do |t|
       t.integer :scorecard_id

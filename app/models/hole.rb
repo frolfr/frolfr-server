@@ -1,4 +1,4 @@
-class Hole < ActiveRecord::Base
+class Hole < ApplicationRecord
   DEFAULT_PAR = 3
   belongs_to :course, counter_cache: true
 

@@ -1,4 +1,4 @@
-class Round < ActiveRecord::Base
+class Round < ApplicationRecord
   belongs_to :course
   has_many :scorecards, dependent: :destroy
   has_many :users, through: :scorecards

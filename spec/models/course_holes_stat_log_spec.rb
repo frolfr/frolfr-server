@@ -1,19 +1,21 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe CourseHolesStatLog do
-  subject(:log) { described_class.new(user: user, course: course) }
+  subject(:log) { described_class.new(user:, course:) }
 
-  let(:course) { FactoryGirl.create(:course) }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:course) { FactoryBot.create(:course) }
+  let(:user) { FactoryBot.create(:user) }
 
-  let(:tough_hole) { FactoryGirl.create(:hole, course: course) }
-  let(:easy_hole_1) { FactoryGirl.create(:hole, course: course) }
-  let(:easy_hole_2) { FactoryGirl.create(:hole, course: course) }
+  let(:tough_hole) { FactoryBot.create(:hole, course:) }
+  let(:easy_hole_1) { FactoryBot.create(:hole, course:) }
+  let(:easy_hole_2) { FactoryBot.create(:hole, course:) }
 
   before do
-    FactoryGirl.create(:turn, hole: tough_hole, strokes: 4, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
-    FactoryGirl.create(:turn, hole: easy_hole_1, strokes: 2, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
-    FactoryGirl.create(:turn, hole: easy_hole_2, strokes: 2, par: 3, scorecard: FactoryGirl.create(:scorecard, user: user))
+    FactoryBot.create(:turn, hole: tough_hole, strokes: 4, par: 3, scorecard: FactoryBot.create(:scorecard, user:))
+    FactoryBot.create(:turn, hole: easy_hole_1, strokes: 2, par: 3,
+                             scorecard: FactoryBot.create(:scorecard, user:))
+    FactoryBot.create(:turn, hole: easy_hole_2, strokes: 2, par: 3,
+                             scorecard: FactoryBot.create(:scorecard, user:))
   end
 
   describe '#assign_hole_rankings' do

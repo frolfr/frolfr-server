@@ -10,6 +10,7 @@
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
+pgdata/
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -20,3 +21,4 @@ config/cloudinary.yml
 
 # Ignore all environment variables
 .env
+

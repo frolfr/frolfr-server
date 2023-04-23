@@ -1,19 +1,23 @@
 common: &common
   adapter: postgresql
-  encoding: utf8
-  min_messages: WARNING
+  encoding: unicode
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  username: <%= ENV.fetch('POSTGRES_USER') { 'postgres' } %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD') { 'postgres' } %>
+  host: <%= ENV.fetch('POSTGRES_HOST') { 'postgres' } %>
+  port: <%= ENV.fetch('POSTGRES_PORT') { 5432 } %>
 
 development:
   <<: *common
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_development?') %>
+  url: <%= ENV['POSTGRES_DB'].gsub('?', '_development?') %>
 
 production:
   <<: *common
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_production?') %>
+  url: <%= ENV['POSTGRES_DB'].gsub('?', '_production?') %>
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
+# Warning: The database defined as 'test' will be erased and
+# re-generated from your development database when you run 'rake'.
 # Do not set this db to the same as development or production.
 test: &test
   <<: *common
-  url: <%= ENV['DATABASE_URL'].gsub('?', '_test?') %>
+  database: frolfr_test

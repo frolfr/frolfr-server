@@ -1,4 +1,4 @@
-class Review < ActiveRecord::Base
+class Review < ApplicationRecord
   RATINGS = (1..10).to_a
   belongs_to :user
   belongs_to :course

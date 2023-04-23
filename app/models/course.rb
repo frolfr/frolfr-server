@@ -1,4 +1,4 @@
-class Course < ActiveRecord::Base
+class Course < ApplicationRecord
   HOLE_COUNTS = (9..27).to_a
   PENDING_STATUS = 'pending'
   APPROVED_STATUS = 'approved'
@@ -8,7 +8,7 @@ class Course < ActiveRecord::Base
   has_many :rounds
   has_many :reviews, dependent: :destroy
   has_many :photos, through: :rounds
-  belongs_to :submitter, class_name: "User"
+  belongs_to :submitter, class_name: 'User'
 
   validates :state, :city, :country, :name, :status, presence: true
   validates_uniqueness_of :name, scope: :city
@@ -25,20 +25,20 @@ class Course < ActiveRecord::Base
   after_validation :geocode
 
   def full_street_address
-    [name, address, city, state, country].compact.join(", ")
+    [name, address, city, state, country].compact.join(', ')
   end
 
   def rated?
     rating.present?
   end
 
-  # TODO this is persisted because of bad naming. Will remove in Frolfr 2.0 launch
+  # TODO: this is persisted because of bad naming. Will remove in Frolfr 2.0 launch
   def hole_count
     holes.count
   end
 
   def hole_one
-    holes.find_by(number: "1")
+    holes.find_by(number: '1')
   end
 
   def scorecards
