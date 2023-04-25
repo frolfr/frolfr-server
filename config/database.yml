@@ -9,11 +9,13 @@ common: &common
 
 development:
   <<: *common
-  url: <%= ENV['POSTGRES_DB'].gsub('?', '_development?') %>
+  database: frolfr_development
 
 production:
-  <<: *common
-  url: <%= ENV['POSTGRES_DB'].gsub('?', '_production?') %>
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  url: <%= ENV['DATABASE_URL'] %>
 
 # Warning: The database defined as 'test' will be erased and
 # re-generated from your development database when you run 'rake'.
