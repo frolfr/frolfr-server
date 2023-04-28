@@ -1,2 +1,5 @@
-class Jsonapi::ScorecardsController < Jsonapi::ResourceController
+module Jsonapi
+  class ScorecardsController < Jsonapi::ResourceController
+    before_action :authenticate_request
+  end
 end

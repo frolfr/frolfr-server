@@ -1,2 +1,5 @@
-class Jsonapi::RoundsController < Jsonapi::ResourceController
+module Jsonapi
+  class RoundsController < Jsonapi::ResourceController
+    before_action :authenticate_request
+  end
 end

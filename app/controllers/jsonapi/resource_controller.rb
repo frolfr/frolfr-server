@@ -1,7 +1,9 @@
-class Jsonapi::ResourceController < Jsonapi::BaseController
-  include JSONAPI::ActsAsResourceController
+module Jsonapi
+  class ResourceController < Jsonapi::BaseController
+    include JSONAPI::ActsAsResourceController
 
-  def context
-    { current_user: current_user }
+    def context
+      { current_user => current_user }
+    end
   end
 end

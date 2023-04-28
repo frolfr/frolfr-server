@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
   def current_round
     round = rounds.by_date.first
-    round if (round && round.created_today? && round.incomplete?)
+    round if round && round.created_today? && round.incomplete?
   end
 
   def completed_scorecards
@@ -32,9 +32,7 @@ class User < ApplicationRecord
 
   def rounds_with_user(user)
     round_ids = rounds.flat_map do |round|
-      if round.scorecards.any? {|scorecard| scorecard.user_id == user.id }
-        round.id
-      end
+      round.id if round.scorecards.any? { |scorecard| scorecard.user_id == user.id }
     end
 
     Round.where(id: round_ids)
@@ -42,7 +40,7 @@ class User < ApplicationRecord
   end
 
   def friendable_users
-    User.where.not(id: id) - friends
+    User.where.not(id:) - friends
   end
 
   def courses_played
@@ -53,13 +51,13 @@ class User < ApplicationRecord
   def rounds
     Round
       .joins(:scorecards)
-      .where(scorecards: {user_id: id}) # TODO: Refactor to use ActiveRecord
+      .where(scorecards: { user_id: id }) # TODO: Refactor to use ActiveRecord
   end
 
   def scorecards_for_course(course)
     scorecards
       .joins(:round)
-      .where(rounds: {course_id: course.id })
+      .where(rounds: { course_id: course.id })
   end
 
   def update_password_reset_token!
