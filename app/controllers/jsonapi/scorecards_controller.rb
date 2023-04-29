@@ -1,5 +1,5 @@
 module Jsonapi
   class ScorecardsController < Jsonapi::ResourceController
-    before_action :authenticate_request
+    before_action :authenticate_request, except: %i[index show]
   end
 end
