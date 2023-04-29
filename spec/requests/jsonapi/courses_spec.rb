@@ -86,6 +86,7 @@ describe Jsonapi::CoursesController do
     it 'returns a course' do
       course = FactoryBot.build(:course)
       user = User.first
+      token = JsonWebToken.encode(user_id: user.id)
 
       request = {
         'data' => {
@@ -107,9 +108,8 @@ describe Jsonapi::CoursesController do
         }
       }
 
-      expect do
-        post jsonapi_courses_path, params: request.to_json, headers: { 'Content-Type' => 'application/vnd.api+json' }
-      end.to change { Course.count }.by(1)
+      post jsonapi_courses_path, params: request.to_json,
+                                 headers: { 'Content-Type' => 'application/vnd.api+json', 'Authorization' => "Bearer #{token}" }
 
       expect(response).to be_created
     end

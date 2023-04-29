@@ -5,7 +5,10 @@ describe Jsonapi::UsersController do
     let!(:user) { FactoryBot.create(:user) }
 
     it 'returns a user' do
-      get jsonapi_user_path(user)
+      token = JsonWebToken.encode(user_id: user.id)
+      get jsonapi_user_path(user),
+          headers: { 'Authorization' => "Bearer #{token}" }
+
       expect(response).to be_ok
 
       expected_json = {
@@ -46,8 +49,10 @@ describe Jsonapi::UsersController do
   describe 'GET index' do
     it 'returns users' do
       users = FactoryBot.create_list(:user, 3)
+      token = JsonWebToken.encode(user_id: users.first.id)
 
-      get jsonapi_users_path
+      get jsonapi_users_path,
+          headers: { 'Authorization' => "Bearer #{token}" }
       expect(response).to be_ok
 
       expected_ids = json['data'].map { |user_data| user_data['id'].to_i }
@@ -59,8 +64,10 @@ describe Jsonapi::UsersController do
       paul = FactoryBot.create(:user, first_name: 'Paul', last_name: 'McBeth')
       simon = FactoryBot.create(:user, first_name: 'Simon', last_name: 'Lizotte')
       eagle = FactoryBot.create(:user, first_name: 'Eagle', last_name: 'McMahon')
+      token = JsonWebToken.encode(user_id: paul.id)
 
-      get jsonapi_users_path, params: { filter: { name: 'mc' } }
+      get jsonapi_users_path, params: { filter: { name: 'mc' } },
+                              headers: { 'Authorization' => "Bearer #{token}" }
       expect(response).to be_ok
 
       expected_ids = json['data'].map { |user_data| user_data['id'].to_i }
